@@ -1,0 +1,910 @@
+```html
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Dental Aurum | Odontología Avanzada en Barcelona</title>
+    <meta name="description" content="Clínica dental de excelencia en Barcelona (Les Corts). Odontología integral multidisciplinar, tecnología 3D y equipo docente universitario.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            50: '#FDFBF7',
+                            100: '#FBF7EE',
+                            200: '#F5EBD5',
+                            300: '#EAD7AE',
+                            400: '#DDC082',
+                            500: '#C5A059',
+                            600: '#B08842',
+                            700: '#8E6B31',
+                            800: '#6F5227',
+                            900: '#523C1E'
+                        },
+                        navy: {
+                            800: '#111827',
+                            900: '#0B132B',
+                            950: '#060B18'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #EAD7AE 0%, #C5A059 50%, #8E6B31 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #C5A059 0%, #B08842 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+        }
+        .glass-dark {
+            background: rgba(11, 19, 43, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B132B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- TOP ANNOUNCEMENT / UTILITY BAR -->
+    <div class="bg-navy-950 text-stone-300 text-xs py-2 px-4 border-b border-gold-500/20 relative z-50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-6">
+                <span class="flex items-center space-x-1.5">
+                    <svg class="w-3.5 h-3.5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span>C/ Marqués de Sentmenat 50, Les Corts, 08029 Barcelona</span>
+                </span>
+                <span class="hidden lg:flex items-center space-x-1.5 text-emerald-400">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"/></svg>
+                    <span>Espacio Cardioprotegido • Calidad Dental Quality®</span>
+                </span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="tel:+34608898199" class="hover:text-gold-400 transition-colors flex items-center space-x-1">
+                    <svg class="w-3.5 h-3.5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    <span>608 89 81 99</span>
+                </a>
+                <a href="mailto:info@aurumdentalbarcelona.com" class="hidden sm:inline-block hover:text-gold-400 transition-colors">info@aurumdentalbarcelona.com</a>
+                
+                <!-- Multi-language Selector -->
+                <div class="relative group">
+                    <button class="flex items-center space-x-1 font-semibold text-gold-400 hover:text-gold-300">
+                        <span>ES</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="absolute right-0 mt-1 w-24 bg-navy-900 border border-gold-500/30 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-all pointer-events-none group-hover:pointer-events-auto py-1 z-50">
+                        <a href="#" class="block px-3 py-1 hover:bg-gold-500/20 text-white font-medium">ES (Español)</a>
+                        <a href="#" class="block px-3 py-1 hover:bg-gold-500/20 text-stone-300">CA (Català)</a>
+                        <a href="#" class="block px-3 py-1 hover:bg-gold-500/20 text-stone-300">EN (English)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN STICKY NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-navy-900/90 backdrop-blur-md border-b border-gold-500/20 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full border border-gold-400/50 flex items-center justify-center bg-navy-950">
+                    <span class="font-serif text-xl font-bold gold-gradient-text">A</span>
+                </div>
+                <div>
+                    <span class="font-serif text-2xl font-bold tracking-wider text-white block leading-none">AURUM</span>
+                    <span class="text-[9px] tracking-[0.25em] text-gold-400 uppercase font-semibold block mt-1">Clínica Dental Barcelona</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-stone-300">
+                <a href="#inicio" class="hover:text-gold-400 transition-colors">Inicio</a>
+                <a href="#diferencias" class="hover:text-gold-400 transition-colors">Por Qué Aurum</a>
+                <a href="#especialidades" class="hover:text-gold-400 transition-colors">Especialidades</a>
+                <a href="#equipo" class="hover:text-gold-400 transition-colors">Equipo Doctorado</a>
+                <a href="#investigacion" class="hover:text-gold-400 transition-colors">Publicaciones</a>
+                <a href="#instalaciones" class="hover:text-gold-400 transition-colors">Clínica</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button onclick="openBookingModal()" class="gold-gradient-bg text-navy-950 hover:bg-gold-400 font-semibold text-sm px-5 py-2.5 rounded-full shadow-lg shadow-gold-500/20 transition-all hover:scale-105 active:scale-95 flex items-center space-x-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span>Pedir Cita</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-[90vh] bg-navy-950 flex items-center overflow-hidden py-16">
+        <!-- Ambient background lighting -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gold-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute -bottom-20 -right-20 w-[400px] h-[400px] bg-sky-900/20 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-left hero-text">
+                    <div class="inline-flex items-center space-x-2 bg-gold-500/10 border border-gold-500/30 px-3.5 py-1.5 rounded-full text-gold-300 text-xs font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>CERTIFICADO DE EXCELENCIA DENTAL QUALITY</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-white leading-tight">
+                        Odontología Avanzada, <br>
+                        <span class="italic font-light gold-gradient-text">Proximidad Humana</span> & Ciencia.
+                    </h1>
+
+                    <p class="text-stone-300 text-base sm:text-lg max-w-2xl font-light leading-relaxed">
+                        Clínica médica independiente en Barcelona. Un equipo de especialistas doctorados y profesores universitarios dedicados a la salud bucodental integral de tu familia con tecnología 3D de última generación.
+                    </p>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                        <button onclick="openBookingModal()" class="gold-gradient-bg text-navy-950 font-bold px-8 py-4 rounded-full shadow-xl shadow-gold-500/20 hover:shadow-gold-500/40 hover:-translate-y-0.5 transition-all text-center flex items-center justify-center space-x-2">
+                            <span>Solicitar Primera Consulta</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+
+                        <a href="tel:+34932470198" class="border border-stone-600 hover:border-gold-400 text-stone-200 hover:text-gold-300 font-semibold px-6 py-4 rounded-full transition-all text-center flex items-center justify-center space-x-2">
+                            <svg class="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            <span>Llamar al 932 47 01 98</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats -->
+                    <div class="pt-8 border-t border-stone-800/80 grid grid-cols-3 gap-4">
+                        <div>
+                            <p class="font-serif text-2xl sm:text-3xl font-bold gold-gradient-text">100%</p>
+                            <p class="text-xs text-stone-400">Especialistas Certificados</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl sm:text-3xl font-bold gold-gradient-text">15+</p>
+                            <p class="text-xs text-stone-400">Publicaciones Científicas</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl sm:text-3xl font-bold gold-gradient-text">180m²</p>
+                            <p class="text-xs text-stone-400">Instalaciones en Les Corts</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-2xl overflow-hidden border border-gold-500/30 p-2 glass-dark shadow-2xl">
+                        <div class="aspect-[4/5] rounded-xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 relative">
+                            <img src="https://www.aurumdentalbarcelona.com/wp-content/uploads/go-x/u/a9cad7c9-48d6-4d8d-9993-ae026e510822/l121,t449,w727,h727/image.jpg" 
+                                 alt="Clínica Aurum Barcelona" 
+                                 class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent"></div>
+                            
+                            <div class="absolute bottom-4 left-4 right-4 p-4 rounded-lg glass-dark border border-gold-500/20 text-white">
+                                <p class="text-xs text-gold-400 font-semibold uppercase tracking-wider">Compromiso Sanitario</p>
+                                <p class="text-sm font-medium mt-0.5">"Nos conocerás por nuestro nombre. Huimos del mercantilismo dental."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KEY DIFFERENTIATORS SECTION -->
+    <section id="diferencias" class="py-20 bg-stone-100 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-600 font-semibold text-xs tracking-widest uppercase">Nuestra Filosofía</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy-900 mt-2">
+                    "Sólo puedes marcar la diferencia siendo diferente."
+                </h2>
+                <div class="w-16 h-0.5 bg-gold-500 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 shadow-md hover:shadow-xl border-t-4 border-gold-500">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center text-gold-600 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-navy-900 mb-3">La Formación</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-4">
+                        Equipo multidisciplinar en constante actualización. Somos formadores en la Universidad de Barcelona (UB) y ponentes en congresos nacionales e internacionales.
+                    </p>
+                    <span class="text-xs font-semibold text-gold-600 flex items-center space-x-1">
+                        <span>Cátedras Universitarias</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 shadow-md hover:shadow-xl border-t-4 border-navy-900">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900/10 flex items-center justify-center text-navy-900 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-navy-900 mb-3">El Producto</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-4">
+                        Máximo estándar de calidad apoyado en evidencia científica. Diagnóstico digital con Radiografía 3D (TAC) y escáner intraoral en la propia clínica.
+                    </p>
+                    <span class="text-xs font-semibold text-navy-900 flex items-center space-x-1">
+                        <span>Tecnología 3D Avanzada</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 shadow-md hover:shadow-xl border-t-4 border-gold-500">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center text-gold-600 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-navy-900 mb-3">La Proximidad</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-4">
+                        Cerca de ti y de tu familia en el barrio de Les Corts. Siempre sabrás qué doctor especialista atiende tu caso, garantizando un trato cercano y transparente.
+                    </p>
+                    <span class="text-xs font-semibold text-gold-600 flex items-center space-x-1">
+                        <span>Atención Familiar Personal</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GSAP WINDOW REVEAL SECTION - CLINIC GALLERY -->
+    <section id="instalaciones" class="py-24 bg-navy-950 text-white relative overflow-hidden window-reveal-container">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 flex flex-col md:flex-row md:items-end justify-between">
+            <div>
+                <span class="text-gold-400 font-semibold text-xs tracking-widest uppercase block mb-2">Espacios Diseñados para tu Confort</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold">Nuestra Clínica en Barcelona</h2>
+            </div>
+            <p class="text-stone-400 max-w-md text-sm mt-4 md:mt-0">
+                180 m² a pie de calle en Marquès de Sentmenat 50 (a pocos minutos de la Estación de Sants y L'Illa Diagonal).
+            </p>
+        </div>
+
+        <!-- Window Animated Container -->
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="window-reveal rounded-3xl overflow-hidden relative shadow-2xl border border-gold-500/30">
+                <div class="grid md:grid-cols-2 gap-0">
+                    <div class="relative h-80 md:h-[480px] bg-slate-900">
+                        <img src="https://www.aurumdentalbarcelona.com/wp-content/uploads/go-x/u/c41bd7fe-ea05-446f-b8aa-cf6516aa8c08/l112,t67,w1833,h1375/image-768x576.png" 
+                             alt="Gabinete Odontológico Aurum" 
+                             class="w-full h-full object-cover"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80'">
+                        <div class="absolute inset-0 bg-navy-950/20"></div>
+                    </div>
+                    <div class="bg-navy-900 p-8 md:p-12 flex flex-col justify-center space-y-6">
+                        <h3 class="font-serif text-2xl md:text-3xl font-bold text-white">Instalaciones Médicas de Vanguardia</h3>
+                        
+                        <ul class="space-y-4 text-stone-300 text-sm">
+                            <li class="flex items-start space-x-3">
+                                <span class="w-5 h-5 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center text-xs mt-0.5">✓</span>
+                                <span><strong>2 Gabinetes de alta tecnología</strong> completamente equipados para intervenciones complejas.</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <span class="w-5 h-5 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center text-xs mt-0.5">✓</span>
+                                <span><strong>Sala de Radiografía 3D (TAC)</strong> para diagnósticos inmediatos sin desplazamientos externados.</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <span class="w-5 h-5 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center text-xs mt-0.5">✓</span>
+                                <span><strong>Laboratorio y Sala de Esterilización</strong> con estrictos protocolos biológicos de seguridad.</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <span class="w-5 h-5 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center text-xs mt-0.5">✓</span>
+                                <span>Aulas de formación, despacho de atención personalizada y aseo adaptado.</span>
+                            </li>
+                        </ul>
+
+                        <div class="pt-4">
+                            <button onclick="openBookingModal()" class="gold-gradient-bg text-navy-950 font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform text-sm">
+                                Agendar Visita en Les Corts
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIALTIES SECTION -->
+    <section id="especialidades" class="py-24 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-gold-600 font-semibold text-xs tracking-widest uppercase">Tratamientos Médicos</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy-900 mt-2">Especialidades Odontológicas Integrales</h2>
+                <p class="text-stone-600 text-sm mt-3">Cubrimos todas las áreas bucodentales en un solo centro de confianza.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Specialty Card -->
+                <div class="glass-card rounded-2xl p-6 hover:shadow-xl transition-all border border-stone-200 hover:border-gold-400 group">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-navy-900 mb-2">Rehabilitación Oral y Estética</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-4">Carillas de alta estética, blanqueamientos y restauración funcional mínimamente invasiva.</p>
+                    <span class="text-xs font-semibold text-gold-600">Dra. Carla Cadenas</span>
+                </div>
+
+                <!-- Specialty Card -->
+                <div class="glass-card rounded-2xl p-6 hover:shadow-xl transition-all border border-stone-200 hover:border-gold-400 group">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-navy-900 mb-2">Cirugía e Implantología</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-4">Implantes dentales guiados, regeneración ósea avanzada y cirugía periodontal.</p>
+                    <span class="text-xs font-semibold text-gold-600">Dr. Carlos Polis</span>
+                </div>
+
+                <!-- Specialty Card -->
+                <div class="glass-card rounded-2xl p-6 hover:shadow-xl transition-all border border-stone-200 hover:border-gold-400 group">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-navy-900 mb-2">Ortodoncia Invisible</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-4">Alineadores transparentes Invisalign y ortopedia dentofacial para adultos y jóvenes.</p>
+                    <span class="text-xs font-semibold text-gold-600">Dra. Claudia Martínez</span>
+                </div>
+
+                <!-- Specialty Card -->
+                <div class="glass-card rounded-2xl p-6 hover:shadow-xl transition-all border border-stone-200 hover:border-gold-400 group">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-navy-900 mb-2">Anquiloglosia & Lactancia (FreLac)</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-4">Unidad especializada en frenillo lingual en neonatos y bebés, valoración y tratamiento integral de la lactancia.</p>
+                    <span class="text-xs font-semibold text-gold-600">Dra. Silvia Parri / Dr. Juan de Quixano</span>
+                </div>
+
+                <!-- Specialty Card -->
+                <div class="glass-card rounded-2xl p-6 hover:shadow-xl transition-all border border-stone-200 hover:border-gold-400 group">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-navy-900 mb-2">Endodoncia y Traumatología</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-4">Tratamiento de conductos con magnificación microscópica para salvar piezas dentales complejas.</p>
+                    <span class="text-xs font-semibold text-gold-600">Dra. Natalia Morera</span>
+                </div>
+
+                <!-- Specialty Card -->
+                <div class="glass-card rounded-2xl p-6 hover:shadow-xl transition-all border border-stone-200 hover:border-gold-400 group">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-navy-900 mb-2">Higiene & Mantenimiento Periodontal</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-4">Profilaxis avanzada, tratamiento de gingivitis y mantenimiento preventivo continuo.</p>
+                    <span class="text-xs font-semibold text-gold-600">Maribel Rojas</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION (WITH SLIDE-UP HOVER PANELS) -->
+    <section id="equipo" class="py-24 bg-navy-950 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-400 font-semibold text-xs tracking-widest uppercase">Excelencia Médica</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold mt-2">Nuestro Equipo de Doctores</h2>
+                <p class="text-stone-400 text-sm mt-3">Profesorado universitario y odontólogos especialistas en constante formación científica.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Doctor Card 1 -->
+                <div class="group relative rounded-2xl overflow-hidden bg-navy-900 border border-gold-500/20 shadow-xl transition-all duration-500">
+                    <div class="aspect-[4/5] overflow-hidden bg-slate-800 relative">
+                        <img src="https://www.aurumdentalbarcelona.com/wp-content/uploads/go-x/u/da1cff98-7680-4683-bc2d-31f459092012/l59,t309,w1382,h1382/image-768x768.jpg" 
+                             alt="Dra. Carla Cadenas" 
+                             class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent opacity-80"></div>
+                        
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="text-xs text-gold-400 font-semibold uppercase tracking-wider block">Col. 6972 COEC</span>
+                            <h3 class="font-serif text-2xl font-bold text-white">Dra. Carla Cadenas</h3>
+                            <p class="text-xs text-stone-300">Rehabilitación Oral, Estética & Endodoncia</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide-Up Info Panel on Hover -->
+                    <div class="absolute inset-0 bg-navy-900/95 p-6 flex flex-col justify-between translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out border-t-2 border-gold-500">
+                        <div>
+                            <span class="text-xs text-gold-400 font-semibold uppercase tracking-wider block mb-1">Carga Académica y Especialización</span>
+                            <h4 class="font-serif text-2xl font-bold text-white mb-3">Dra. Carla Cadenas</h4>
+                            <ul class="text-xs text-stone-300 space-y-2 leading-relaxed">
+                                <li>• Profesora asociada de Prostodoncia y Disfunción craneomandibular (Universidad de Barcelona).</li>
+                                <li>• Máster en Oclusión y Rehabilitación Oral (UB).</li>
+                                <li>• Postgrado en Endodoncia Avanzada (UB).</li>
+                                <li>• Certificada en Medicina Dental del Sueño (FESMES).</li>
+                                <li>• Miembro SEPES y SEGER.</li>
+                            </ul>
+                        </div>
+                        <button onclick="openBookingModal()" class="w-full gold-gradient-bg text-navy-950 font-bold py-2.5 rounded-lg text-xs mt-4">
+                            Reservar Consulta
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Doctor Card 2 -->
+                <div class="group relative rounded-2xl overflow-hidden bg-navy-900 border border-gold-500/20 shadow-xl transition-all duration-500">
+                    <div class="aspect-[4/5] overflow-hidden bg-slate-800 relative">
+                        <img src="https://www.aurumdentalbarcelona.com/wp-content/uploads/go-x/u/24829cdc-b1c0-431f-8a57-aaa36181d80d/l93,t353,w1317,h1317/image-768x768.jpg" 
+                             alt="Dr. Carlos Polis" 
+                             class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent opacity-80"></div>
+                        
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="text-xs text-gold-400 font-semibold uppercase tracking-wider block">Col. 10625 COEM</span>
+                            <h3 class="font-serif text-2xl font-bold text-white">Dr. Carlos Polis</h3>
+                            <p class="text-xs text-stone-300">Cirugía, Implantología & Periodoncia</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide-Up Info Panel on Hover -->
+                    <div class="absolute inset-0 bg-navy-900/95 p-6 flex flex-col justify-between translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out border-t-2 border-gold-500">
+                        <div>
+                            <span class="text-xs text-gold-400 font-semibold uppercase tracking-wider block mb-1">Carga Académica y Especialización</span>
+                            <h4 class="font-serif text-2xl font-bold text-white mb-3">Dr. Carlos Polis</h4>
+                            <ul class="text-xs text-stone-300 space-y-2 leading-relaxed">
+                                <li>• Profesor asociado de Medicina Oral (Universidad de Barcelona).</li>
+                                <li>• Profesor del Máster en Medicina, Cirugía e Implantología Oral (UB).</li>
+                                <li>• Especialista Universitario en Medicina Oral (UCM).</li>
+                                <li>• Ponente e investigador científico internacional.</li>
+                            </ul>
+                        </div>
+                        <button onclick="openBookingModal()" class="w-full gold-gradient-bg text-navy-950 font-bold py-2.5 rounded-lg text-xs mt-4">
+                            Reservar Consulta
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Doctor Card 3 -->
+                <div class="group relative rounded-2xl overflow-hidden bg-navy-900 border border-gold-500/20 shadow-xl transition-all duration-500">
+                    <div class="aspect-[4/5] overflow-hidden bg-slate-800 relative">
+                        <img src="https://www.aurumdentalbarcelona.com/wp-content/uploads/go-x/u/70114693-89d5-4169-960b-da5517b1c822/l108,t209,w1277,h1277/image-768x768.jpg" 
+                             alt="Dra. Claudia Martínez" 
+                             class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1594824813566-88855ce78905?auto=format&fit=crop&w=800&q=80'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent opacity-80"></div>
+                        
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="text-xs text-gold-400 font-semibold uppercase tracking-wider block">Col. 7861 COEC</span>
+                            <h3 class="font-serif text-2xl font-bold text-white">Dra. Claudia Martínez</h3>
+                            <p class="text-xs text-stone-300">Ortodoncia y Ortopedia Dentofacial</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide-Up Info Panel on Hover -->
+                    <div class="absolute inset-0 bg-navy-900/95 p-6 flex flex-col justify-between translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out border-t-2 border-gold-500">
+                        <div>
+                            <span class="text-xs text-gold-400 font-semibold uppercase tracking-wider block mb-1">Carga Académica y Especialización</span>
+                            <h4 class="font-serif text-2xl font-bold text-white mb-3">Dra. Claudia Martínez</h4>
+                            <ul class="text-xs text-stone-300 space-y-2 leading-relaxed">
+                                <li>• Graduada en Odontología (UIC).</li>
+                                <li>• Máster en Ortodoncia y Ortopedia Dentofacial (Athenea Dental Institute).</li>
+                                <li>• Máster en Ortodoncia Invisible Invisalign (Manuel Román Academy).</li>
+                                <li>• Certificada en Sistema Myobrace.</li>
+                            </ul>
+                        </div>
+                        <button onclick="openBookingModal()" class="w-full gold-gradient-bg text-navy-950 font-bold py-2.5 rounded-lg text-xs mt-4">
+                            Reservar Consulta
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Doctor Card 4 (FreLac) -->
+                <div class="group relative rounded-2xl overflow-hidden bg-navy-900 border border-gold-500/20 shadow-xl transition-all duration-500">
+                    <div class="aspect-[4/5] overflow-hidden bg-slate-800 relative">
+                        <img src="https://www.aurumdentalbarcelona.com/wp-content/uploads/go-x/u/309cd2dd-e5f1-4189-a8d2-313ad6835fce/l232,t89,w590,h590/image.jpg" 
+                             alt="FreLac Barcelona" 
+                             class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=800&q=80'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent opacity-80"></div>
+                        
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="text-xs text-gold-400 font-semibold uppercase tracking-wider block">Unidad Especializada</span>
+                            <h3 class="font-serif text-2xl font-bold text-white">FreLac Barcelona</h3>
+                            <p class="text-xs text-stone-300">Dra. Silvia Parri & Dr. Juan de Quixano</p>
+                        </div>
+                    </div>
+
+                    <div class="absolute inset-0 bg-navy-900/95 p-6 flex flex-col justify-between translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out border-t-2 border-gold-500">
+                        <div>
+                            <span class="text-xs text-gold-400 font-semibold uppercase tracking-wider block mb-1">Odontopediatría & Anquiloglosia</span>
+                            <h4 class="font-serif text-xl font-bold text-white mb-2">FreLac Barcelona</h4>
+                            <ul class="text-xs text-stone-300 space-y-2 leading-relaxed">
+                                <li>• Unidad de referencia en Anquiloglosia (frenillo lingual) y apoyo a la lactancia.</li>
+                                <li>• Profesores de la Universidad Internacional de Cataluña (UIC).</li>
+                                <li>• Autores científicos con publicaciones en revistas indexadas.</li>
+                            </ul>
+                        </div>
+                        <button onclick="openBookingModal()" class="w-full gold-gradient-bg text-navy-950 font-bold py-2.5 rounded-lg text-xs mt-4">
+                            Reservar Consulta
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Doctor Card 5 (Dra. Natalia Morera) -->
+                <div class="group relative rounded-2xl overflow-hidden bg-navy-900 border border-gold-500/20 shadow-xl transition-all duration-500">
+                    <div class="aspect-[4/5] overflow-hidden bg-slate-800 relative">
+                        <img src="https://www.aurumdentalbarcelona.com/wp-content/uploads/go-x/u/ba42544d-2525-49e1-9faa-4029c56b5045/l0,t0,w1006,h1006/image-768x768.jpg" 
+                             alt="Dra. Natalia Morera" 
+                             class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent opacity-80"></div>
+                        
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="text-xs text-gold-400 font-semibold uppercase tracking-wider block">Col. 9748 COEC</span>
+                            <h3 class="font-serif text-2xl font-bold text-white">Dra. Natalia Morera</h3>
+                            <p class="text-xs text-stone-300">Endodoncia y Traumatología Dental</p>
+                        </div>
+                    </div>
+
+                    <div class="absolute inset-0 bg-navy-900/95 p-6 flex flex-col justify-between translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out border-t-2 border-gold-500">
+                        <div>
+                            <span class="text-xs text-gold-400 font-semibold uppercase tracking-wider block mb-1">Carga Académica y Especialización</span>
+                            <h4 class="font-serif text-2xl font-bold text-white mb-3">Dra. Natalia Morera</h4>
+                            <ul class="text-xs text-stone-300 space-y-2 leading-relaxed">
+                                <li>• Graduada en Odontología por la Universidad de Barcelona (UB).</li>
+                                <li>• Máster en Endodoncia y Traumatología Dental (UB).</li>
+                                <li>• Especialista en Odontología General Restauradora.</li>
+                            </ul>
+                        </div>
+                        <button onclick="openBookingModal()" class="w-full gold-gradient-bg text-navy-950 font-bold py-2.5 rounded-lg text-xs mt-4">
+                            Reservar Consulta
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Team Member 6 (Maribel Rojas) -->
+                <div class="group relative rounded-2xl overflow-hidden bg-navy-900 border border-gold-500/20 shadow-xl transition-all duration-500">
+                    <div class="aspect-[4/5] overflow-hidden bg-slate-800 relative">
+                        <img src="https://www.aurumdentalbarcelona.com/wp-content/uploads/go-x/u/65ed48d6-1539-4870-b765-addf3cb8d4d7/l0,t164,w883,h883/image-768x768.jpg" 
+                             alt="Maribel Rojas" 
+                             class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent opacity-80"></div>
+                        
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="text-xs text-gold-400 font-semibold uppercase tracking-wider block">Higienista Bucodental</span>
+                            <h3 class="font-serif text-2xl font-bold text-white">Maribel Rojas</h3>
+                            <p class="text-xs text-stone-300">Prevención y Mantenimiento Periodontal</p>
+                        </div>
+                    </div>
+
+                    <div class="absolute inset-0 bg-navy-900/95 p-6 flex flex-col justify-between translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out border-t-2 border-gold-500">
+                        <div>
+                            <span class="text-xs text-gold-400 font-semibold uppercase tracking-wider block mb-1">Cualificación Técnica</span>
+                            <h4 class="font-serif text-2xl font-bold text-white mb-3">Maribel Rojas</h4>
+                            <ul class="text-xs text-stone-300 space-y-2 leading-relaxed">
+                                <li>• Grado Superior en Higiene Bucodental y Documentación Sanitaria.</li>
+                                <li>• Curso de Actualización Periodontal Avanzada.</li>
+                                <li>• Formación especializada en Implantología para Higienistas.</li>
+                            </ul>
+                        </div>
+                        <button onclick="openBookingModal()" class="w-full gold-gradient-bg text-navy-950 font-bold py-2.5 rounded-lg text-xs mt-4">
+                            Reservar Consulta
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SCIENTIFIC PUBLICATIONS SECTION (TRUST ACCELERATOR) -->
+    <section id="investigacion" class="py-20 bg-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-gold-600 font-semibold text-xs tracking-widest uppercase">Evidencia Médica Real</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy-900 mt-1">Investigación y Publicaciones Internacionales</h2>
+                </div>
+                <p class="text-stone-600 text-sm max-w-md mt-4 md:mt-0">
+                    Nuestros doctores publican regularmente investigaciones en las revistas odontológicas de mayor impacto internacional.
+                </p>
+            </div>
+
+            <!-- Publications Grid -->
+            <div class="grid md:grid-cols-2 gap-4">
+                
+                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6594337/" target="_blank" rel="noopener" class="glass-card p-5 rounded-xl hover:border-gold-500 transition-all flex items-start space-x-4 group">
+                    <span class="font-serif text-2xl font-bold text-gold-500 group-hover:scale-110 transition-transform">01</span>
+                    <div>
+                        <h4 class="font-semibold text-sm text-navy-900 group-hover:text-gold-600 transition-colors">Guided Bone Regeneration of an Atrophic Maxilla Using Heterologous Cortical Lamina</h4>
+                        <p class="text-xs text-stone-500 mt-1">PubMed Central • Regeneración ósea maxilar guiada</p>
+                    </div>
+                </a>
+
+                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7647738/" target="_blank" rel="noopener" class="glass-card p-5 rounded-xl hover:border-gold-500 transition-all flex items-start space-x-4 group">
+                    <span class="font-serif text-2xl font-bold text-gold-500 group-hover:scale-110 transition-transform">02</span>
+                    <div>
+                        <h4 class="font-semibold text-sm text-navy-900 group-hover:text-gold-600 transition-colors">A Double Case: Socket Shield and Pontic Shield Techniques on Aesthetic Zone</h4>
+                        <p class="text-xs text-stone-500 mt-1">PubMed Central • Técnicas de preservación estética dental</p>
+                    </div>
+                </a>
+
+                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5822533/" target="_blank" rel="noopener" class="glass-card p-5 rounded-xl hover:border-gold-500 transition-all flex items-start space-x-4 group">
+                    <span class="font-serif text-2xl font-bold text-gold-500 group-hover:scale-110 transition-transform">03</span>
+                    <div>
+                        <h4 class="font-semibold text-sm text-navy-900 group-hover:text-gold-600 transition-colors">Autogenous teeth used for bone grafting: A systematic review</h4>
+                        <p class="text-xs text-stone-500 mt-1">PubMed Central • Revisión sistemática sobre injerto óseo autólogo</p>
+                    </div>
+                </a>
+
+                <a href="https://www.sciencedirect.com/science/article/pii/S3117489226000053" target="_blank" rel="noopener" class="glass-card p-5 rounded-xl hover:border-gold-500 transition-all flex items-start space-x-4 group">
+                    <span class="font-serif text-2xl font-bold text-gold-500 group-hover:scale-110 transition-transform">04</span>
+                    <div>
+                        <h4 class="font-semibold text-sm text-navy-900 group-hover:text-gold-600 transition-colors">Comparative Analysis of Consequences Associated with Posterior-Type Ankyloglossia in infants</h4>
+                        <p class="text-xs text-stone-500 mt-1">ScienceDirect • Estudio clínico sobre anquiloglosia lactante</p>
+                    </div>
+                </a>
+
+            </div>
+
+            <div class="mt-8 text-center">
+                <span class="text-xs text-stone-500">Y más de 11 artículos científicos publicados indexados en SciELO, MDPI y PubMed.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & CONTACT SECTION -->
+    <section id="contacto" class="py-24 bg-navy-950 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Contact Details -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-gold-400 font-semibold text-xs tracking-widest uppercase">Visítanos en Les Corts</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-2">Estamos Cerca de Ti</h2>
+                        <p class="text-stone-300 text-sm mt-3 leading-relaxed">
+                            A tan solo unos minutos a pie de la Estación de Sants y del centro comercial L'Illa Diagonal.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 text-sm">
+                        <div class="flex items-start space-x-4 p-4 rounded-xl glass-dark border border-gold-500/20">
+                            <div class="w-10 h-10 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Dirección de la Clínica</h4>
+                                <p class="text-stone-300">C/ Marqués de Sentmenat 50 (local 2)</p>
+                                <p class="text-stone-400 text-xs">08029 Barcelona (Barrio de Les Corts)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 p-4 rounded-xl glass-dark border border-gold-500/20">
+                            <div class="w-10 h-10 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Teléfonos Directos</h4>
+                                <p class="text-stone-300">Móvil: <a href="tel:+34608898199" class="text-gold-400 hover:underline">608 89 81 99</a></p>
+                                <p class="text-stone-300">Fijo: <a href="tel:+34932470198" class="text-gold-400 hover:underline">932 47 01 98</a></p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 p-4 rounded-xl glass-dark border border-gold-500/20">
+                            <div class="w-10 h-10 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Correo Electrónico</h4>
+                                <p class="text-stone-300">info@aurumdentalbarcelona.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="openBookingModal()" class="w-full gold-gradient-bg text-navy-950 font-bold py-4 rounded-full shadow-xl shadow-gold-500/20 hover:scale-105 transition-all text-center">
+                        Solicitar Cita Previa
+                    </button>
+                </div>
+
+                <!-- Google Maps Interactive Embed -->
+                <div class="lg:col-span-7">
+                    <div class="rounded-2xl overflow-hidden border border-gold-500/30 shadow-2xl h-[450px] relative bg-slate-900">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.473722026857!2d2.1384725!3d41.3854999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a498835d0b9db1%3A0x6b9d2db4d2c4cf27!2sCarrer%20del%20Marqu%C3%A8s%20de%20Sentmenat%2C%2050%2008029%20Barcelona!5e0!3m2!1ses!3ses!4v1700000000000!5m2!1ses!3ses" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; filter: grayscale(0.2) contrast(1.1);" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-950 text-stone-400 py-12 border-t border-gold-500/20 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <span class="font-serif text-xl font-bold text-white tracking-wider">AURUM DENTAL</span>
+                    <p class="mt-1">© Todos los derechos reservados. Imágenes propiedad de Aurum Odontología Avanzada SLP.</p>
+                </div>
+
+                <div class="flex space-x-6">
+                    <a href="https://www.facebook.com/profile.php?id=61550047092409" target="_blank" rel="noopener" class="hover:text-gold-400">Facebook</a>
+                    <a href="https://www.instagram.com/clinica_aurumdental" target="_blank" rel="noopener" class="hover:text-gold-400">Instagram</a>
+                    <a href="https://www.aurumdentalbarcelona.com/aviso-legal/" class="hover:text-gold-400">Aviso legal</a>
+                    <a href="https://www.aurumdentalbarcelona.com/politica-de-privacidad/" class="hover:text-gold-400">Política de privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GENERAL APPOINTMENT BOOKING MODAL -->
+    <div id="bookingModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-950/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-dark border border-gold-500/30 rounded-2xl max-w-lg w-full p-8 relative shadow-2xl transform scale-95 transition-transform duration-300" id="modalContainer">
+            
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-stone-400 hover:text-white text-2xl font-bold">
+                &times;
+            </button>
+
+            <div class="text-center mb-6">
+                <span class="text-gold-400 text-xs font-semibold uppercase tracking-widest">Clínica Dental Aurum</span>
+                <h3 class="font-serif text-2xl font-bold text-white mt-1">Solicitud de Cita Previa</h3>
+                <p class="text-stone-300 text-xs mt-1">Te contactaremos para confirmar tu horario preferido.</p>
+            </div>
+
+            <form onsubmit="handleFormSubmit(event)" class="space-y-4 text-left">
+                <div>
+                    <label class="block text-xs font-medium text-stone-300 mb-1">Nombre Completo *</label>
+                    <input type="text" required placeholder="Ej. María García" class="w-full bg-navy-900 border border-stone-700 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-stone-300 mb-1">Teléfono *</label>
+                        <input type="tel" required placeholder="600 000 000" class="w-full bg-navy-900 border border-stone-700 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-stone-300 mb-1">Email</label>
+                        <input type="email" placeholder="correo@ejemplo.com" class="w-full bg-navy-900 border border-stone-700 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-stone-300 mb-1">Especialidad o Motivo de Consulta</label>
+                    <select class="w-full bg-navy-900 border border-stone-700 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
+                        <option>Primera Visita / Diagnóstico General</option>
+                        <option>Estética Dental & Carillas</option>
+                        <option>Implantes & Cirugía Oral</option>
+                        <option>Ortodoncia Invisible (Invisalign)</option>
+                        <option>Anquiloglosia & Lactancia (FreLac)</option>
+                        <option>Endodoncia / Limpieza Bucal</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-stone-300 mb-1">Comentario o Preferencia Horaria</label>
+                    <textarea rows="3" placeholder="Indícanos si prefieres horario de mañana o tarde..." class="w-full bg-navy-900 border border-stone-700 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500"></textarea>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full gold-gradient-bg text-navy-950 font-bold py-3.5 rounded-xl text-sm shadow-lg shadow-gold-500/20 hover:scale-[1.02] active:scale-[0.98] transition-transform">
+                        Enviar Solicitud
+                    </button>
+                </div>
+
+                <p class="text-[10px] text-stone-400 text-center mt-2">
+                    Tus datos son tratados bajo la normativa del RGPD por Aurum Odontología Avanzada SLP.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT ANIMATIONS & INTERACTIONS -->
+    <script>
+        // GSAP ScrollTrigger Registration
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Window opening clip-path reveal effect
+        gsap.fromTo('.window-reveal', 
+            { 
+                clipPath: 'polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%)',
+                scale: 0.95
+            },
+            {
+                clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+                scale: 1,
+                duration: 1.2,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.window-reveal-container',
+                    start: 'top 75%',
+                    end: 'bottom 50%',
+                    scrub: 1
+                }
+            }
+        );
+
+        // Hero Content Entrance Animation
+        gsap.from('.hero-text > *', {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: 'power3.out'
+        });
+
+        // Modal Controls
+        function openBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            const container = document.getElementById('modalContainer');
+            modal.classList.remove('pointer-events-none');
+            modal.classList.add('opacity-100');
+            container.classList.remove('scale-95');
+            container.classList.add('scale-100');
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            const container = document.getElementById('modalContainer');
+            modal.classList.add('pointer-events-none');
+            modal.classList.remove('opacity-100');
+            container.classList.remove('scale-100');
+            container.classList.add('scale-95');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('¡Gracias por solicitar tu cita! Nos pondremos en contacto contigo a la brevedad para confirmar la fecha.');
+            closeBookingModal();
+        }
+
+        // Close modal on click outside
+        document.getElementById('bookingModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBookingModal();
+            }
+        });
+    </script>
+</body>
+</html>
+```
