@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Dental Aurum | Odontología de Alta Gama en Barcelona</title>
+    <meta name="description" content="Odontología integral y de vanguardia en Barcelona. Especialistas altamente cualificados, tecnología avanzada y un trato exclusivo y humano.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        aurum: {
+                            gold: '#D4AF37',
+                            'gold-light': '#F3E5AB',
+                            'gold-dark': '#AA820A',
+                            dark: '#0B0B0C',
+                            surface: '#141416',
+                            'surface-card': '#1C1C1F',
+                            border: '#2A2A2E',
+                            cream: '#F7F5F0'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Styles for smooth animations & custom effects -->
+    <style>
+        body {
+            background-color: #0B0B0C;
+            color: #F7F5F0;
+            overflow-x: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .font-serif-luxury {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Noise Texture Overlay */
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0B0C;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A2A2E;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+
+        /* Glassmorphic Navbar */
+        .glass-header {
+            background: rgba(11, 11, 12, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        /* Glow Effects */
+        .gold-glow {
+            box-shadow: 0 0 35px -5px rgba(212, 175, 55, 0.25);
+        }
+        .gold-glow-hover:hover {
+            box-shadow: 0 0 45px -2px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Text Gradients */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #FFF6D6 0%, #D4AF37 50%, #AA820A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Mask Animation Helper */
+        .reveal-text {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        /* Magnetic Button Base */
+        .btn-magnetic {
+            transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+    </style>
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="bg-aurum-dark text-aurum-cream antialiased selection:bg-aurum-gold selection:text-aurum-dark bg-noise">
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-header transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 border border-aurum-gold/40 rounded-full flex items-center justify-center group-hover:border-aurum-gold transition-colors duration-500">
+                    <span class="font-serif-luxury text-aurum-gold text-2xl tracking-tighter group-hover:scale-110 transition-transform">A</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif-luxury text-xl tracking-widest text-white uppercase font-light">AURUM</span>
+                    <span class="text-[9px] tracking-[0.3em] text-aurum-gold uppercase -mt-1 font-medium">Dental Barcelona</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-10 text-xs tracking-[0.2em] uppercase font-medium text-white/70">
+                <a href="#filosofia" class="hover:text-aurum-gold transition-colors duration-300">Filosofía</a>
+                <a href="#diferenciadores" class="hover:text-aurum-gold transition-colors duration-300">Excelencia</a>
+                <a href="#especialidades" class="hover:text-aurum-gold transition-colors duration-300">Especialidades</a>
+                <a href="#equipo" class="hover:text-aurum-gold transition-colors duration-300">Equipo</a>
+                <a href="#contacto" class="hover:text-aurum-gold transition-colors duration-300">Ubicación</a>
+            </nav>
+
+            <!-- Header Action -->
+            <div class="hidden sm:flex items-center gap-5">
+                <a href="tel:932470198" class="text-xs tracking-wider text-aurum-gold/90 hover:text-aurum-gold transition-colors flex items-center gap-2">
+                    <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+                    932 47 01 98
+                </a>
+                <a href="#contacto" class="btn-magnetic relative inline-flex items-center justify-center px-6 py-3 text-xs tracking-widest uppercase text-aurum-dark font-semibold bg-aurum-gold rounded-full overflow-hidden group gold-glow gold-glow-hover transition-all duration-300">
+                    <span class="relative z-10">Reservar Cita</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-white hover:text-aurum-gold transition-colors focus:outline-none">
+                <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-aurum-dark/98 backdrop-blur-2xl flex flex-col justify-center px-8 transition-all duration-500 opacity-0 pointer-events-none md:hidden">
+        <nav class="flex flex-col gap-6 font-serif-luxury text-3xl text-white/90">
+            <a href="#filosofia" class="mobile-nav-link hover:text-aurum-gold transition-colors">Filosofía</a>
+            <a href="#diferenciadores" class="mobile-nav-link hover:text-aurum-gold transition-colors">Excelencia</a>
+            <a href="#especialidades" class="mobile-nav-link hover:text-aurum-gold transition-colors">Especialidades</a>
+            <a href="#equipo" class="mobile-nav-link hover:text-aurum-gold transition-colors">Equipo</a>
+            <a href="#contacto" class="mobile-nav-link hover:text-aurum-gold transition-colors">Contacto</a>
+        </nav>
+        <div class="mt-12 pt-8 border-t border-aurum-border/50 flex flex-col gap-4">
+            <a href="tel:608898199" class="text-aurum-gold text-lg flex items-center gap-3">
+                <i data-lucide="phone-call" class="w-5 h-5"></i> 608 89 81 99
+            </a>
+            <p class="text-xs text-white/50">C/ Marqués de Sentmenat 50 (local 2), Barcelona</p>
+        </div>
+    </div>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+            <!-- Background Parallax Image with Dark Vignette -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2070&auto=format&fit=crop" 
+                     alt="Clínica Dental Aurum Barcelona" 
+                     class="hero-bg-img w-full h-full object-cover object-center opacity-25 scale-105 filter brightness-75 uppercase">
+                <div class="absolute inset-0 bg-gradient-to-t from-aurum-dark via-aurum-dark/70 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-aurum-dark via-transparent to-aurum-dark/80"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-8">
+                    <!-- Quality Certification Badge -->
+                    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-aurum-gold/30 bg-aurum-gold/10 backdrop-blur-md mb-8 hero-element">
+                        <i data-lucide="award" class="w-4 h-4 text-aurum-gold"></i>
+                        <span class="text-xs tracking-widest uppercase font-semibold text-aurum-gold-light">Certificado de Excelencia Odontológica Dental Quality®</span>
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1 class="font-serif-luxury text-5xl sm:text-7xl lg:text-8xl leading-[0.95] font-light tracking-tight text-white mb-8 hero-title">
+                        La arquitectura <br>
+                        de una <span class="italic font-normal text-gold-gradient">sonrisa perfecta.</span>
+                    </h1>
+
+                    <!-- Paragraph -->
+                    <p class="text-lg sm:text-xl text-white/70 max-w-2xl font-light leading-relaxed mb-10 hero-element">
+                        En el corazón de Barcelona, redefinimos la odontología médica. Unimos la máxima precisión científica con un enfoque multidisciplinar y profundamente humano.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-5 hero-element">
+                        <a href="https://wa.me/34608898199?text=Hola,%20deseo%20solicitar%20una%20cita%20de%20evaluaci%C3%B3n%20en%20Aurum%20Dental" 
+                           target="_blank" rel="noopener"
+                           class="btn-magnetic px-8 py-5 bg-aurum-gold hover:bg-aurum-gold-light text-aurum-dark font-semibold tracking-wider text-xs uppercase rounded-full flex items-center justify-center gap-3 gold-glow transition-all duration-300">
+                            <span>Solicitar Primera Cita VIP</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
+                        
+                        <a href="#filosofia" 
+                           class="px-8 py-5 border border-white/20 hover:border-aurum-gold/60 text-white font-medium tracking-wider text-xs uppercase rounded-full flex items-center justify-center gap-3 hover:bg-white/5 transition-all duration-300">
+                            <span>Descubrir la Clínica</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-aurum-gold"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Floating Stats / Hero Card -->
+                <div class="lg:col-span-4 hidden lg:block">
+                    <div class="p-8 rounded-2xl bg-aurum-surface-card/80 border border-aurum-border/60 backdrop-blur-xl relative overflow-hidden group hover:border-aurum-gold/40 transition-colors duration-500 gold-glow">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-aurum-gold/10 rounded-full blur-3xl group-hover:bg-aurum-gold/20 transition-all"></div>
+                        
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-full bg-aurum-gold/10 border border-aurum-gold/30 flex items-center justify-center">
+                                <i data-lucide="shield-check" class="w-6 h-6 text-aurum-gold"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif-luxury text-xl text-white">Atención Independiente</h4>
+                                <p class="text-xs text-white/50">Sin franquicias. Sin intermediarios.</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 pt-4 border-t border-aurum-border/40">
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-white/60">Ubicación</span>
+                                <span class="text-xs text-aurum-cream font-medium">Les Corts, Barcelona</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-white/60">Valoración Pacientes</span>
+                                <span class="text-xs text-aurum-gold font-semibold flex items-center gap-1">
+                                    5.0 <i data-lucide="star" class="w-3 h-3 fill-aurum-gold"></i>
+                                </span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-white/60">Especialistas</span>
+                                <span class="text-xs text-aurum-cream font-medium">Docentes Universitarios</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+                <span class="text-[10px] tracking-[0.3em] uppercase text-white/60">Scroll</span>
+                <div class="w-[1px] h-8 bg-gradient-to-b from-aurum-gold to-transparent animate-pulse"></div>
+            </div>
+        </section>
+
+        <!-- TRUST BANNER / SOCIAL PROOF STRIP -->
+        <section class="py-10 border-y border-aurum-border/40 bg-aurum-surface/50 backdrop-blur-md">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center text-center">
+                    <div class="flex flex-col items-center">
+                        <span class="font-serif-luxury text-3xl sm:text-4xl text-aurum-gold font-light">100%</span>
+                        <span class="text-xs uppercase tracking-widest text-white/60 mt-1">Especialistas Titulados</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="font-serif-luxury text-3xl sm:text-4xl text-aurum-gold font-light">DentalQuality</span>
+                        <span class="text-xs uppercase tracking-widest text-white/60 mt-1">Sello de Excelencia</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="font-serif-luxury text-3xl sm:text-4xl text-aurum-gold font-light">+15 Años</span>
+                        <span class="text-xs uppercase tracking-widest text-white/60 mt-1">Experiencia Médica</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="font-serif-luxury text-3xl sm:text-4xl text-aurum-gold font-light">Docencia</span>
+                        <span class="text-xs uppercase tracking-widest text-white/60 mt-1">Formadores Nacionales</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MANIFESTO & PHILOSOPHY -->
+        <section id="filosofia" class="py-28 relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    <!-- Editorial Image Composition -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative z-10 rounded-2xl overflow-hidden border border-aurum-border">
+                            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200&auto=format&fit=crop" 
+                                 alt="Instalaciones Aurum Dental Barcelona" 
+                                 class="w-full h-[520px] object-cover filter brightness-90 hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 w-full h-full border border-aurum-gold/30 rounded-2xl -z-0 hidden sm:block"></div>
+                        <div class="absolute -top-10 -left-10 w-40 h-40 bg-aurum-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+                    </div>
+
+                    <!-- Philosophy Text -->
+                    <div class="lg:col-span-7">
+                        <span class="text-xs tracking-[0.3em] uppercase text-aurum-gold font-semibold mb-4 block">¿Qué es Aurum Dental?</span>
+                        <h2 class="font-serif-luxury text-4xl sm:text-6xl text-white font-light leading-tight mb-8">
+                            Odontología consciente, libre de mercantilismos.
+                        </h2>
+                        
+                        <div class="space-y-6 text-white/75 font-light leading-relaxed text-base sm:text-lg">
+                            <p>
+                                <strong class="text-white font-medium">Aurum Dental</strong> es una clínica de propiedad independiente nacida en Barcelona con la misión firme de devolver el rigor ético y artesanal a la salud bucodental.
+                            </p>
+                            <p>
+                                Creemos que el éxito de un tratamiento no reside en la prisa ni en soluciones estandarizadas, sino en la perfecta conjunción de un diagnóstico exhaustivo, materiales de vanguardia con evidencia científica y una relación estrecha con cada familia.
+                            </p>
+                            <p class="text-aurum-gold-light italic font-serif-luxury text-xl pt-2">
+                                "Aquí no eres un número de expediente. Nos conocerás personalmente por nuestro nombre y cuidaremos de tu salud a lo largo de los años."
+                            </p>
+                        </div>
+
+                        <!-- Highlights list -->
+                        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-aurum-border/60">
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-aurum-gold/10 flex items-center justify-center shrink-0 mt-1">
+                                    <i data-lucide="users" class="w-4 h-4 text-aurum-gold"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium text-sm">Equipo Multidisciplinar</h4>
+                                    <p class="text-xs text-white/60 mt-1">Especialistas dedicados exclusivamente a su área médica.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-aurum-gold/10 flex items-center justify-center shrink-0 mt-1">
+                                    <i data-lucide="sparkles" class="w-4 h-4 text-aurum-gold"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium text-sm">Calidad Certificada</h4>
+                                    <p class="text-xs text-white/60 mt-1">Avalados oficialmente por el sello Dental Quality®.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE 3 PILLARS OF EXCELLENCE (LO QUE NOS DIFERENCIA) -->
+        <section id="diferenciadores" class="py-28 bg-aurum-surface relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+                    <div>
+                        <span class="text-xs tracking-[0.3em] uppercase text-aurum-gold font-semibold mb-3 block">Los Pilares Aurum</span>
+                        <h2 class="font-serif-luxury text-4xl sm:text-6xl text-white font-light">Lo que nos diferencia</h2>
+                    </div>
+                    <blockquote class="text-right max-w-md hidden md:block">
+                        <p class="font-serif-luxury text-lg italic text-white/60">"Sólo puedes marcar la diferencia siendo diferente."</p>
+                        <cite class="text-xs text-aurum-gold uppercase tracking-widest mt-1 block font-sans not-italic">— Rick Warren</cite>
+                    </blockquote>
+                </div>
+
+                <!-- 3 Columns Asymmetric Layout -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Pillar 1 -->
+                    <div class="pillar-card group p-8 rounded-2xl bg-aurum-surface-card border border-aurum-border hover:border-aurum-gold/50 transition-all duration-500 flex flex-col justify-between">
+                        <div>
+                            <div class="overflow-hidden rounded-xl mb-8 h-56 relative">
+                                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop" 
+                                     alt="Formación Odontológica Aurum" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-aurum-dark/30 group-hover:bg-transparent transition-colors"></div>
+                                <span class="absolute top-4 left-4 bg-aurum-dark/80 backdrop-blur-md text-aurum-gold font-serif-luxury px-3 py-1 text-lg rounded-md border border-aurum-gold/20">01</span>
+                            </div>
+                            <h3 class="font-serif-luxury text-2xl text-white mb-4 group-hover:text-aurum-gold transition-colors">La Formación y Docencia</h3>
+                            <p class="text-white/65 text-sm font-light leading-relaxed mb-6">
+                                No solo ejercemos, también formamos. Nuestro equipo es docente en la universidad y ponente en congresos internacionales de prestigio. La actualización constante es nuestro mandato.
+                            </p>
+                        </div>
+                        <ul class="text-xs text-white/50 space-y-2 border-t border-aurum-border/50 pt-4">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-aurum-gold"></i> Profesores Universitarios</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-aurum-gold"></i> Investigación Médica Continua</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="pillar-card group p-8 rounded-2xl bg-aurum-surface-card border border-aurum-border hover:border-aurum-gold/50 transition-all duration-500 flex flex-col justify-between md:-translate-y-4">
+                        <div>
+                            <div class="overflow-hidden rounded-xl mb-8 h-56 relative">
+                                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop" 
+                                     alt="Tecnología y Producto Dental Quality" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-aurum-dark/30 group-hover:bg-transparent transition-colors"></div>
+                                <span class="absolute top-4 left-4 bg-aurum-dark/80 backdrop-blur-md text-aurum-gold font-serif-luxury px-3 py-1 text-lg rounded-md border border-aurum-gold/20">02</span>
+                            </div>
+                            <h3 class="font-serif-luxury text-2xl text-white mb-4 group-hover:text-aurum-gold transition-colors">El Producto e Instalaciones</h3>
+                            <p class="text-white/65 text-sm font-light leading-relaxed mb-6">
+                                Exigimos el máximo estándar técnico. Seleccionamos únicamente materiales biomédicos avalados por estudios científicos rigorosos y tecnología digital de última generación.
+                            </p>
+                        </div>
+                        <ul class="text-xs text-white/50 space-y-2 border-t border-aurum-border/50 pt-4">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-aurum-gold"></i> Proveedores Top Mundiales</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-aurum-gold"></i> Escáner 3D Digital Intraoral</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="pillar-card group p-8 rounded-2xl bg-aurum-surface-card border border-aurum-border hover:border-aurum-gold/50 transition-all duration-500 flex flex-col justify-between">
+                        <div>
+                            <div class="overflow-hidden rounded-xl mb-8 h-56 relative">
+                                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=800&auto=format&fit=crop" 
+                                     alt="Atención Dental de Proximidad" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-aurum-dark/30 group-hover:bg-transparent transition-colors"></div>
+                                <span class="absolute top-4 left-4 bg-aurum-dark/80 backdrop-blur-md text-aurum-gold font-serif-luxury px-3 py-1 text-lg rounded-md border border-aurum-gold/20">03</span>
+                            </div>
+                            <h3 class="font-serif-luxury text-2xl text-white mb-4 group-hover:text-aurum-gold transition-colors">La Proximidad Humana</h3>
+                            <p class="text-white/65 text-sm font-light leading-relaxed mb-6">
+                                Huimos del modelo frío e impersonal de las grandes cadenas. En Aurum somos tu clínica de confianza en Barcelona, donde te atenderá el mismo doctor en cada fase de tu tratamiento.
+                            </p>
+                        </div>
+                        <ul class="text-xs text-white/50 space-y-2 border-t border-aurum-border/50 pt-4">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-aurum-gold"></i> Trato Cercano y Familiar</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-aurum-gold"></i> Diagnóstico Directo con Doctor</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPECIALTIES (EDITORIAL ASYMMETRIC GRID) -->
+        <section id="especialidades" class="py-28 relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-20">
+                    <span class="text-xs tracking-[0.3em] uppercase text-aurum-gold font-semibold mb-3 block">Tratamientos Integrales</span>
+                    <h2 class="font-serif-luxury text-4xl sm:text-6xl text-white font-light">Especialidades de Vanguardia</h2>
+                    <p class="text-white/60 text-base mt-4 font-light">Un enfoque 360° para la salud y la estética de toda la familia.</p>
+                </div>
+
+                <!-- Asymmetric Editorial Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                    
+                    <!-- Card 1: Estética Dental (Large 8 cols) -->
+                    <div class="md:col-span-8 p-10 rounded-2xl bg-aurum-surface-card border border-aurum-border hover:border-aurum-gold/40 transition-all duration-500 relative overflow-hidden group">
+                        <div class="relative z-10 flex flex-col justify-between h-full min-h-[320px]">
+                            <div>
+                                <div class="w-12 h-12 rounded-full bg-aurum-gold/10 border border-aurum-gold/30 flex items-center justify-center mb-6">
+                                    <i data-lucide="sparkle" class="w-6 h-6 text-aurum-gold"></i>
+                                </div>
+                                <h3 class="font-serif-luxury text-3xl sm:text-4xl text-white mb-4">Estética Dental & Carillas de Porcelana</h3>
+                                <p class="text-white/70 max-w-xl text-sm font-light leading-relaxed">
+                                    Diseño digital de sonrisas hiperrealistas y mínimamente invasivas. Corregimos forma, color y simetría manteniendo la máxima naturalidad estructural de tus dientes.
+                                </p>
+                            </div>
+                            <div class="pt-8 flex items-center justify-between border-t border-aurum-border/40 mt-8">
+                                <span class="text-xs tracking-widest text-aurum-gold uppercase font-semibold">Microcarillas • Blanqueamiento LED • Smile Design</span>
+                                <a href="#contacto" class="w-10 h-10 rounded-full bg-aurum-gold/20 flex items-center justify-center group-hover:bg-aurum-gold group-hover:text-aurum-dark transition-all">
+                                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-aurum-gold/5 rounded-full blur-3xl pointer-events-none group-hover:bg-aurum-gold/15 transition-all"></div>
+                    </div>
+
+                    <!-- Card 2: Implantología (4 cols) -->
+                    <div class="md:col-span-4 p-10 rounded-2xl bg-aurum-surface-card border border-aurum-border hover:border-aurum-gold/40 transition-all duration-500 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-full bg-aurum-gold/10 border border-aurum-gold/30 flex items-center justify-center mb-6">
+                                <i data-lucide="layers" class="w-6 h-6 text-aurum-gold"></i>
+                            </div>
+                            <h3 class="font-serif-luxury text-3xl text-white mb-4">Implantología Avanzada</h3>
+                            <p class="text-white/70 text-sm font-light leading-relaxed">
+                                Recupera la función y la estética perdida mediante implantes de titanio de máxima biocompatibilidad guiados por ordenador.
+                            </p>
+                        </div>
+                        <div class="pt-8 border-t border-aurum-border/40 mt-8 flex justify-between items-center">
+                            <span class="text-xs text-aurum-gold font-semibold uppercase tracking-wider">Carga Inmediata</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5 text-white/40 group-hover:text-aurum-gold group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Ortodoncia Invisible (4 cols) -->
+                    <div class="md:col-span-4 p-10 rounded-2xl bg-aurum-surface-card border border-aurum-border hover:border-aurum-gold/40 transition-all duration-500 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-full bg-aurum-gold/10 border border-aurum-gold/30 flex items-center justify-center mb-6">
+                                <i data-lucide="scan-line" class="w-6 h-6 text-aurum-gold"></i>
+                            </div>
+                            <h3 class="font-serif-luxury text-3xl text-white mb-4">Ortodoncia Invisible</h3>
+                            <p class="text-white/70 text-sm font-light leading-relaxed">
+                                Alineación dental de alta precisión mediante alineadores transparentes e imperceptibles. Planificación 3D previa.
+                            </p>
+                        </div>
+                        <div class="pt-8 border-t border-aurum-border/40 mt-8 flex justify-between items-center">
+                            <span class="text-xs text-aurum-gold font-semibold uppercase tracking-wider">Planificación 3D</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5 text-white/40 group-hover:text-aurum-gold group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Odontología Integral & Familiar (8 cols) -->
+                    <div class="md:col-span-8 p-10 rounded-2xl bg-aurum-surface-card border border-aurum-border hover:border-aurum-gold/40 transition-all duration-500 relative overflow-hidden group">
+                        <div class="relative z-10 flex flex-col justify-between h-full">
+                            <div>
+                                <div class="w-12 h-12 rounded-full bg-aurum-gold/10 border border-aurum-gold/30 flex items-center justify-center mb-6">
+                                    <i data-lucide="heart-handshake" class="w-6 h-6 text-aurum-gold"></i>
+                                </div>
+                                <h3 class="font-serif-luxury text-3xl sm:text-4xl text-white mb-4">Odontología Integral & Periodoncia</h3>
+                                <p class="text-white/70 max-w-xl text-sm font-light leading-relaxed">
+                                    Cuidado preventivo global para todas las etapas de la vida. Desde la salud periodontal y preservación de encías hasta la odontopediatría y endodoncia microscópica.
+                                </p>
+                            </div>
+                            <div class="pt-8 flex items-center justify-between border-t border-aurum-border/40 mt-8">
+                                <span class="text-xs tracking-widest text-aurum-gold uppercase font-semibold">Salud Familiar • Periodoncia • Endodoncia</span>
+                                <a href="#contacto" class="w-10 h-10 rounded-full bg-aurum-gold/20 flex items-center justify-center group-hover:bg-aurum-gold group-hover:text-aurum-dark transition-all">
+                                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- HYPER-REALISTIC GOOGLE REVIEWS (HIGH TICKET CRO) -->
+        <section class="py-28 bg-aurum-surface/30 relative border-y border-aurum-border/40">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 gap-6">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="flex text-aurum-gold">
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                            </div>
+                            <span class="text-xs text-white/60 tracking-wider">5.0 en Google Reviews</span>
+                        </div>
+                        <h2 class="font-serif-luxury text-4xl sm:text-5xl text-white font-light">Historias de Pacientes</h2>
+                    </div>
+                    <a href="https://goo.gl/maps/aurum" target="_blank" rel="noopener" class="text-xs text-aurum-gold hover:underline tracking-widest uppercase flex items-center gap-2">
+                        <span>Ver todas las opiniones en Google</span>
+                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+
+                <!-- Testimonials Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Review 1 -->
+                    <div class="p-8 rounded-2xl bg-aurum-surface-card border border-aurum-border flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-aurum-gold mb-4">
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                            </div>
+                            <p class="text-white/80 text-sm font-light italic leading-relaxed mb-6">
+                                "El cambio de mi sonrisa con carillas en Aurum ha superado todas mis expectativas. Un trato humano increible, te explican cada detalle con paciencia. No parece la típica clínica impersonal."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-aurum-border/40 flex items-center justify-between">
+                            <div>
+                                <h5 class="text-white font-medium text-sm">Marta S.</h5>
+                                <span class="text-[11px] text-white/40">Barcelona (Les Corts)</span>
+                            </div>
+                            <span class="text-[10px] text-aurum-gold/70 bg-aurum-gold/10 px-2 py-1 rounded">Verificada</span>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="p-8 rounded-2xl bg-aurum-surface-card border border-aurum-border flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-aurum-gold mb-4">
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                            </div>
+                            <p class="text-white/80 text-sm font-light italic leading-relaxed mb-6">
+                                "Llevaba años con miedo al dentista hasta que conocí al equipo de Aurum Dental. Me realizaron un tratamiento complejo de implantología totalmente sin dolor. La mejor decisión."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-aurum-border/40 flex items-center justify-between">
+                            <div>
+                                <h5 class="text-white font-medium text-sm">Carlos M.</h5>
+                                <span class="text-[11px] text-white/40">Barcelona</span>
+                            </div>
+                            <span class="text-[10px] text-aurum-gold/70 bg-aurum-gold/10 px-2 py-1 rounded">Verificada</span>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="p-8 rounded-2xl bg-aurum-surface-card border border-aurum-border flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-aurum-gold mb-4">
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-aurum-gold"></i>
+                            </div>
+                            <p class="text-white/80 text-sm font-light italic leading-relaxed mb-6">
+                                "Excelente trato con toda la familia. Mis hijos van encantados y los adultos recibimos una odontología de una calidad superior. Es nuestro centro médico de referencia."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-aurum-border/40 flex items-center justify-between">
+                            <div>
+                                <h5 class="text-white font-medium text-sm">Elena & Familia</h5>
+                                <span class="text-[11px] text-white/40">Sarrià-Sant Gervasi</span>
+                            </div>
+                            <span class="text-[10px] text-aurum-gold/70 bg-aurum-gold/10 px-2 py-1 rounded">Verificada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APPOINTMENT / CONTACT SECTION (CONVERSION ENGINE) -->
+        <section id="contacto" class="py-28 relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                    
+                    <!-- Left Column: Info & Details -->
+                    <div class="lg:col-span-5 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs tracking-[0.3em] uppercase text-aurum-gold font-semibold mb-3 block">Reserva Tu Cita</span>
+                            <h2 class="font-serif-luxury text-4xl sm:text-6xl text-white font-light leading-tight mb-8">
+                                Empieza tu transformación.
+                            </h2>
+                            <p class="text-white/70 font-light text-base leading-relaxed mb-10">
+                                Agenda una consulta personalizada con nuestro equipo especialista. Evaluaremos tu caso con absoluta dedicación en nuestras instalaciones de Barcelona.
+                            </p>
+
+                            <!-- Direct Info Cards -->
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4 p-4 rounded-xl bg-aurum-surface-card/60 border border-aurum-border">
+                                    <div class="w-10 h-10 rounded-full bg-aurum-gold/10 flex items-center justify-center shrink-0 text-aurum-gold">
+                                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white text-sm font-medium">Ubicación de la Clínica</h5>
+                                        <p class="text-xs text-white/60 mt-1">C/ Marqués de Sentmenat 50 (local 2)<br>08029 Barcelona</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4 p-4 rounded-xl bg-aurum-surface-card/60 border border-aurum-border">
+                                    <div class="w-10 h-10 rounded-full bg-aurum-gold/10 flex items-center justify-center shrink-0 text-aurum-gold">
+                                        <i data-lucide="phone" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white text-sm font-medium">Teléfonos de Atención</h5>
+                                        <div class="flex flex-col sm:flex-row sm:gap-4 mt-1 text-xs">
+                                            <a href="tel:608898199" class="text-aurum-gold hover:underline">Móvil: 608 89 81 99</a>
+                                            <a href="tel:932470198" class="text-white/60 hover:text-white">Fijo: 932 47 01 98</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4 p-4 rounded-xl bg-aurum-surface-card/60 border border-aurum-border">
+                                    <div class="w-10 h-10 rounded-full bg-aurum-gold/10 flex items-center justify-center shrink-0 text-aurum-gold">
+                                        <i data-lucide="mail" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white text-sm font-medium">Correo Electrónico</h5>
+                                        <a href="mailto:info@aurumdentalbarcelona.com" class="text-xs text-white/60 hover:text-aurum-gold transition-colors mt-1 block">
+                                            info@aurumdentalbarcelona.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-12 pt-8 border-t border-aurum-border/40 text-xs text-white/40 flex items-center gap-4">
+                            <span>Sello Dental Quality® Garantizado</span>
+                            <span>•</span>
+                            <span>Aparcamiento cercano disponible</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Interactive Booking Form -->
+                    <div class="lg:col-span-7">
+                        <div class="p-8 sm:p-12 rounded-3xl bg-aurum-surface-card border border-aurum-border relative gold-glow">
+                            <h3 class="font-serif-luxury text-2xl sm:text-3xl text-white mb-2">Solicitud de Valoración Exclusiva</h3>
+                            <p class="text-xs text-white/50 mb-8">Completa el formulario y nuestro equipo te contactará para confirmar tu cita.</p>
+
+                            <form id="booking-form" onsubmit="event.preventDefault(); alert('¡Gracias por tu solicitud! Nos pondremos en contacto contigo a la brevedad.');" class="space-y-6">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-xs uppercase tracking-widest text-white/70 mb-2">Nombre y Apellidos *</label>
+                                        <input type="text" required placeholder="Ej. Ana García" 
+                                               class="w-full bg-aurum-dark border border-aurum-border rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-aurum-gold transition-colors">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs uppercase tracking-widest text-white/70 mb-2">Teléfono *</label>
+                                        <input type="tel" required placeholder="Ej. 600 000 000" 
+                                               class="w-full bg-aurum-dark border border-aurum-border rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-aurum-gold transition-colors">
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-xs uppercase tracking-widest text-white/70 mb-2">Email *</label>
+                                        <input type="email" required placeholder="tuemail@ejemplo.com" 
+                                               class="w-full bg-aurum-dark border border-aurum-border rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-aurum-gold transition-colors">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs uppercase tracking-widest text-white/70 mb-2">Tratamiento de Interés</label>
+                                        <select class="w-full bg-aurum-dark border border-aurum-border rounded-xl px-4 py-3.5 text-sm text-white/80 focus:outline-none focus:border-aurum-gold transition-colors">
+                                            <option>Estética Dental / Carillas</option>
+                                            <option>Implantología Avanzada</option>
+                                            <option>Ortodoncia Invisible</option>
+                                            <option>Revisión General / Limpieza</option>
+                                            <option>Otro Tratamiento</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs uppercase tracking-widest text-white/70 mb-2">Mensaje o Preferencia Horaria</label>
+                                    <textarea rows="4" placeholder="Indícanos brevemente tus necesidades o disponibilidad..." 
+                                              class="w-full bg-aurum-dark border border-aurum-border rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-aurum-gold transition-colors"></textarea>
+                                </div>
+
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" required id="privacy" class="accent-aurum-gold rounded">
+                                    <label for="privacy" class="text-xs text-white/50">
+                                        He leído y acepto la <a href="#" class="text-aurum-gold underline">política de privacidad</a>.
+                                    </label>
+                                </div>
+
+                                <button type="submit" 
+                                        class="btn-magnetic w-full py-4 rounded-xl bg-aurum-gold hover:bg-aurum-gold-light text-aurum-dark font-semibold text-xs tracking-widest uppercase transition-all duration-300 gold-glow">
+                                    Confirmar Solicitar Cita
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="bg-black border-t border-aurum-border/60 py-16 text-white/60 text-xs">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12 pb-12 border-b border-aurum-border/40">
+                
+                <!-- Logo Footer -->
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 border border-aurum-gold/40 rounded-full flex items-center justify-center">
+                        <span class="font-serif-luxury text-aurum-gold text-lg">A</span>
+                    </div>
+                    <span class="font-serif-luxury text-lg tracking-widest text-white uppercase">AURUM DENTAL</span>
+                </div>
+
+                <!-- Footer Nav -->
+                <div class="flex flex-wrap gap-8 uppercase tracking-widest text-[10px]">
+                    <a href="#filosofia" class="hover:text-aurum-gold transition-colors">Filosofía</a>
+                    <a href="#diferenciadores" class="hover:text-aurum-gold transition-colors">Diferenciación</a>
+                    <a href="#especialidades" class="hover:text-aurum-gold transition-colors">Especialidades</a>
+                    <a href="#contacto" class="hover:text-aurum-gold transition-colors">Ubicación</a>
+                </div>
+
+                <!-- Socials -->
+                <div class="flex items-center gap-4 text-white/80">
+                    <a href="https://www.instagram.com/clinica_aurumdental" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-aurum-surface border border-aurum-border flex items-center justify-center hover:border-aurum-gold transition-colors">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61550047092409" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-aurum-surface border border-aurum-border flex items-center justify-center hover:border-aurum-gold transition-colors">
+                        <i data-lucide="facebook" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-white/40">
+                <p>© Aurum Odontología Avanzada SLP. Todos los derechos reservados. Barcelona.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:underline">Aviso Legal</a>
+                    <a href="#" class="hover:underline">Política de Privacidad</a>
+                    <a href="#" class="hover:underline">Política de Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING CONVERSION TRIGGER -->
+    <a href="https://wa.me/34608898199?text=Hola,%20quisiera%20pedir%20informaci%C3%B3n%20para%20una%20cita" 
+       target="_blank" rel="noopener" aria-label="Contacto por WhatsApp"
+       class="fixed bottom-8 right-8 z-50 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 group">
+        <span class="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30"></span>
+        <i data-lucide="message-circle" class="w-7 h-7 relative z-10 fill-white text-transparent"></i>
+        <!-- Tooltip -->
+        <span class="absolute right-16 top-1/2 -translate-y-1/2 bg-aurum-dark border border-aurum-border text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+            ¿Hablamos por WhatsApp?
+        </span>
+    </a>
+
+    <!-- JAVASCRIPT ANIMATIONS & INTERACTIONS ENGINE -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Initialize Smooth Scroll with Lenis
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothTouch: false
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                document.body.style.overflow = '';
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        mobileNavLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // GSAP Motion Dynamics
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Parallax Background Animation
+        gsap.to(".hero-bg-img", {
+            yPercent: 20,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "main",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        // Hero Fade-in Elements
+        gsap.from(".hero-title", {
+            duration: 1.4,
+            y: 60,
+            opacity: 0,
+            ease: "power4.out",
+            delay: 0.2
+        });
+
+        gsap.from(".hero-element", {
+            duration: 1.2,
+            y: 40,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "power3.out",
+            delay: 0.5
+        });
+
+        // Pillars Cards Scroll Entrance
+        gsap.from(".pillar-card", {
+            scrollTrigger: {
+                trigger: "#diferenciadores",
+                start: "top 75%",
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out"
+        });
+
+        // Magnetic Effect on Primary Buttons
+        const magneticBtns = document.querySelectorAll('.btn-magnetic');
+        magneticBtns.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0px, 0px)';
+            });
+        });
+    </script>
+</body>
+</html>
