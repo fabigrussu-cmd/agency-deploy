@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Dental Aurum | Odontología de Excelencia en Barcelona</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <style>
+        :root {
+            --gold-primary: #C5A059;
+            --gold-hover: #B28E46;
+            --gold-light: #F9F5EC;
+            --dark-heading: #0F172A;
+            --text-body: #475569;
+            --bg-light: #FAFAFA;
+            --bg-white: #FFFFFF;
+            --card-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05);
+            --card-shadow-hover: 0 30px 60px -12px rgba(197, 160, 89, 0.15);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            color: var(--dark-heading);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--gold-light);
+            color: var(--gold-primary);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        /* Header / Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        header.scrolled {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--gold-primary), #E6CA65);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 8px 16px rgba(197, 160, 89, 0.25);
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark-heading);
+            letter-spacing: -0.01em;
+        }
+
+        .logo-text span {
+            color: var(--gold-primary);
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-heading);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--gold-primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--dark-heading);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 10px 18px;
+            border-radius: 100px;
+            background: rgba(0, 0, 0, 0.03);
+            transition: var(--transition);
+        }
+
+        .btn-phone:hover {
+            background: rgba(0, 0, 0, 0.06);
+        }
+
+        .btn-primary {
+            background: var(--dark-heading);
+            color: white;
+            text-decoration: none;
+            padding: 12px 26px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.15);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(197, 160, 89, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 170px;
+            padding-bottom: 100px;
+            position: relative;
+            background: radial-gradient(circle at 80% 20%, rgba(197, 160, 89, 0.08) 0%, transparent 50%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 3.8rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #A37C33 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-body);
+            margin-bottom: 36px;
+            max-width: 540px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--dark-heading);
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            color: var(--text-body);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-card-main {
+            width: 100%;
+            height: 540px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: white;
+            padding: 20px 24px;
+            border-radius: var(--radius-md);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .floating-badge i {
+            font-size: 2rem;
+            color: var(--gold-primary);
+        }
+
+        .floating-badge div h5 {
+            font-size: 0.95rem;
+            color: var(--dark-heading);
+        }
+
+        .floating-badge div p {
+            font-size: 0.8rem;
+            color: var(--text-body);
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 60px auto;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        /* Pillars Section */
+        .pillars {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .pillar-card {
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .pillar-img-container {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .pillar-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .pillar-card:hover .pillar-img-container img {
+            transform: scale(1.05);
+        }
+
+        .pillar-content {
+            padding: 32px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pillar-content h3 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+        }
+
+        .pillar-content p {
+            font-size: 0.95rem;
+            color: var(--text-body);
+        }
+
+        /* Specialties Section */
+        .specialties {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .spec-card {
+            background: white;
+            padding: 36px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .spec-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-5px);
+        }
+
+        .spec-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--gold-light);
+            color: var(--gold-primary);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .spec-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .spec-card p {
+            font-size: 0.9rem;
+            color: var(--text-body);
+        }
+
+        /* Team Section */
+        .team {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .team-card {
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow);
+        }
+
+        .team-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+        }
+
+        .team-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .team-role {
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .team-bio {
+            font-size: 0.88rem;
+            color: var(--text-body);
+        }
+
+        /* Booking / Calendly Widget Section */
+        .booking {
+            padding: 100px 0;
+            background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.05) 0%, transparent 70%), var(--bg-light);
+        }
+
+        .booking-container {
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .booking-info {
+            background: var(--dark-heading);
+            color: white;
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .booking-info h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .booking-info p {
+            color: #94A3B8;
+            margin-bottom: 32px;
+        }
+
+        .info-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 0.95rem;
+        }
+
+        .info-list i {
+            color: var(--gold-primary);
+            font-size: 1.2rem;
+        }
+
+        /* Simulated Calendly Widget */
+        .calendly-widget {
+            padding: 40px;
+            background: white;
+        }
+
+        .widget-step {
+            display: none;
+        }
+
+        .widget-step.active {
+            display: block;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--dark-heading);
+        }
+
+        .services-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .service-btn {
+            padding: 14px;
+            border: 1.5px solid #E2E8F0;
+            border-radius: var(--radius-sm);
+            background: transparent;
+            cursor: pointer;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            color: var(--dark-heading);
+        }
+
+        .service-btn:hover, .service-btn.selected {
+            border-color: var(--gold-primary);
+            background: var(--gold-light);
+            color: var(--gold-primary);
+        }
+
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .time-btn {
+            padding: 10px;
+            border: 1px solid #E2E8F0;
+            border-radius: var(--radius-sm);
+            background: white;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .time-btn:hover, .time-btn.selected {
+            background: var(--dark-heading);
+            color: white;
+            border-color: var(--dark-heading);
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--dark-heading);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #E2E8F0;
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .input-group input:focus {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-heading);
+            color: white;
+            padding: 80px 0 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand p {
+            color: #94A3B8;
+            margin-top: 16px;
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-col h5 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #64748B;
+            font-size: 0.85rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-links a {
+            color: #94A3B8;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--gold-primary);
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-grid, .booking-container {
+                grid-template-columns: 1fr;
+            }
+            .pillars-grid, .specialties-grid, .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .btn-phone {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .pillars-grid, .specialties-grid, .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .services-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header id="header">
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <div class="logo-icon">A</div>
+                <div class="logo-text">AURUM <span>DENTAL</span></div>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#diferencia">Nos Diferencia</a></li>
+                <li><a href="#especialidades">Especialidades</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="tel:608898199" class="btn-phone">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>608 89 81 99</span>
+                </a>
+                <a href="#calendario" class="btn-primary">Pedir Cita</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container hero-grid">
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <div class="badge">
+                    <i class="fa-solid fa-award"></i> Certificado Dental Quality
+                </div>
+                <h1 class="hero-title">Odontología de precisión, <span>pensada para ti.</span></h1>
+                <p class="hero-subtitle">
+                    Clínica independiente en Barcelona formada por odontólogos altamente especializados. Un enfoque moderno, ético y de máxima calidad humana.
+                </p>
+                <div style="display: flex; gap: 16px; align-items: center;">
+                    <a href="#calendario" class="btn-primary" style="padding: 16px 36px; font-size: 1rem;">Reserva tu Cita</a>
+                    <a href="#diferencia" class="btn-phone" style="padding: 16px 24px;">Conócenos <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Independiente</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Top 5%</h3>
+                        <p>Excelencia Médica</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>+10</h3>
+                        <p>Años cuidando tu boca</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image-wrapper" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <img src="https://www.aurumdentalbarcelona.com/wp-content/uploads/go-x/u/a9cad7c9-48d6-4d8d-9993-ae026e510822/l121,t449,w727,h727/image.jpg" alt="Clínica Dental Aurum" class="hero-card-main">
+                <div class="floating-badge" data-aos="zoom-in" data-aos-delay="500">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div>
+                        <h5>Garantía de Excelencia</h5>
+                        <p>Calidad certificada DentalQuality</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pillars / Differential Section -->
+    <section class="pillars" id="diferencia">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="badge">Nuestra Filosofía</div>
+                <h2>Lo que nos diferencia</h2>
+                <p>"Sólo puedes marcar la diferencia siendo diferente." — Rick Warren</p>
+            </div>
+
+            <div class="pillars-grid">
+                <!-- Pillar 1 -->
+                <div class="pillar-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pillar-img-container">
+                        <img src="https://www.aurumdentalbarcelona.com/wp-content/uploads/go-x/u/a9cad7c9-48d6-4d8d-9993-ae026e510822/l121,t449,w727,h727/image.jpg" alt="La Formación">
+                    </div>
+                    <div class="pillar-content">
+                        <h3>La Formación</h3>
+                        <p>Equipo multidisciplinar en formación continua. Docentes universitarios y ponentes en congresos nacionales e internacionales dedicados a la máxima exigencia científica.</p>
+                    </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="pillar-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pillar-img-container">
+                        <img src="https://www.aurumdentalbarcelona.com/wp-content/uploads/go-x/u/24e24344-80b1-46cb-b883-48bf1fc7721f/l334,t0,w1333,h1333/image-768x768.jpg" alt="El Producto">
+                    </div>
+                    <div class="pillar-content">
+                        <h3>El Producto</h3>
+                        <p>Trabajamos únicamente con materiales de gama alta respaldados por rigurosos estudios científicos e instalaciones modernas equipadas con los últimos avances.</p>
+                    </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="pillar-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pillar-img-container">
+                        <img src="https://www.aurumdentalbarcelona.com/wp-content/uploads/go-x/u/0277d7b5-1e2a-4f8b-9b30-4ccfbc2b2589/l250,t0,w1500,h1500/image-768x768.png" alt="La Proximidad">
+                    </div>
+                    <div class="pillar-content">
+                        <h3>La Proximidad</h3>
+                        <p>Huimos del mercantilismo de las grandes cadenas. En Aurum nos conocerás por nuestro nombre, ofreciendo un trato cálido, transparente y familiar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialties Grid -->
+    <section class="specialties" id="especialidades">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="badge">Especialidades</div>
+                <h2>Odontología Integral Multidisciplinar</h2>
+                <p>Soluciones avanzadas adaptadas a las necesidades de cada miembro de la familia.</p>
+            </div>
+
+            <div class="specialties-grid">
+                <div class="spec-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="spec-icon"><i class="fa-solid fa-tooth"></i></div>
+                    <h4>Implantología & Cirugía</h4>
+                    <p>Rehabilitación oral mediante implantes de titanio de máxima calidad y técnicas mínimamente invasivas.</p>
+                </div>
+
+                <div class="spec-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="spec-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h4>Estética Dental</h4>
+                    <p>Carillas de porcelana, blanqueamientos LED de última generación y diseño digital de la sonrisa.</p>
+                </div>
+
+                <div class="spec-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="spec-icon"><i class="fa-solid fa-align-center"></i></div>
+                    <h4>Ortodoncia Invisible</h4>
+                    <p>Alineadores transparentes Invisalign de alta precisión para alinear tus dientes sin alterar tu estilo de vida.</p>
+                </div>
+
+                <div class="spec-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="spec-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h4>Periodoncia</h4>
+                    <p>Cuidado especializado de las encías para prevenir y tratar la gingivitis y la periodontitis.</p>
+                </div>
+
+                <div class="spec-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="spec-icon"><i class="fa-solid fa-microscope"></i></div>
+                    <h4>Endodoncia Avanzada</h4>
+                    <p>Tratamientos conservadores de conductos para salvar piezas dentales dañadas evitando su extracción.</p>
+                </div>
+
+                <div class="spec-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="spec-icon"><i class="fa-solid fa-child"></i></div>
+                    <h4>Odontopediatría</h4>
+                    <p>Atención cercana y amigable para garantizar el correcto desarrollo bucal de los más pequeños.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="equipo">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="badge">Nuestro Equipo</div>
+                <h2>Manos expertas al cuidado de tu sonrisa</h2>
+                <p>Especialistas cualificados apasionados por la odontología moderna.</p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=400&auto=format&fit=crop" alt="Dr. Marc Aurum" class="team-avatar">
+                    <h4>Dr. Marc Aurum</h4>
+                    <div class="team-role">Director Médico - Implantología</div>
+                    <p class="team-bio">Especialista en cirugía oral, rehabilitación compleja y profesor universitario en Barcelona.</p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1594824813571-27a3f060ee06?q=80&w=400&auto=format&fit=crop" alt="Dra. Elena Sentmenat" class="team-avatar">
+                    <h4>Dra. Elena Sentmenat</h4>
+                    <div class="team-role">Ortodoncia & Estética Dental</div>
+                    <p class="team-bio">Experta acreditada en ortodoncia invisible y diseño digital de sonrisa con técnica mínimamente invasiva.</p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=400&auto=format&fit=crop" alt="Dr. Javier Martínez" class="team-avatar">
+                    <h4>Dr. Javier Martínez</h4>
+                    <div class="team-role">Periodoncia & Endodoncia</div>
+                    <p class="team-bio">Dedicado a la conservación dental avanzada y tratamiento integral de patologías de la encía.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Calendly-Style Booking Section -->
+    <section class="booking" id="calendario">
+        <div class="container">
+            <div class="booking-container" data-aos="zoom-in" data-aos-duration="800">
+                <div class="booking-info">
+                    <div>
+                        <div class="badge" style="background: rgba(255,255,255,0.1); color: var(--gold-primary);">Reserva Online</div>
+                        <h3>Agenda tu primera visita</h3>
+                        <p>Selecciona la especialidad, fecha y hora que mejor se adapte a tu rutina. Es rápido, fácil e inmediato.</p>
+                    </div>
+
+                    <ul class="info-list">
+                        <li><i class="fa-solid fa-location-dot"></i> C/ Marqués de Sentmenat 50 (local 2), Barcelona</li>
+                        <li><i class="fa-solid fa-phone"></i> Móvil: 608 89 81 99 | Fijo: 932 47 01 98</li>
+                        <li><i class="fa-solid fa-envelope"></i> info@aurumdentalbarcelona.com</li>
+                        <li><i class="fa-solid fa-clock"></i> Lunes a Viernes: 09:30 - 20:00h</li>
+                    </ul>
+                </div>
+
+                <div class="calendly-widget">
+                    <!-- Step 1: Select Service -->
+                    <div class="widget-step active" id="step-1">
+                        <h4 class="step-title">1. Selecciona la especialidad</h4>
+                        <div class="services-options">
+                            <button class="service-btn" onclick="selectService(this, 'Primera Visita / Diagnóstico')">Primera Visita / Diagnóstico</button>
+                            <button class="service-btn" onclick="selectService(this, 'Limpieza / Higiene Dental')">Limpieza / Higiene Dental</button>
+                            <button class="service-btn" onclick="selectService(this, 'Ortodoncia / Invisalign')">Ortodoncia / Invisalign</button>
+                            <button class="service-btn" onclick="selectService(this, 'Estética Dental')">Estética Dental</button>
+                            <button class="service-btn" onclick="selectService(this, 'Implantes Dentales')">Implantes Dentales</button>
+                            <button class="service-btn" onclick="selectService(this, 'Urgencia Dental')">Urgencia Dental</button>
+                        </div>
+                        <button class="btn-primary" style="width: 100%; text-align: center;" onclick="nextStep(2)">Siguiente <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+
+                    <!-- Step 2: Select Date & Time -->
+                    <div class="widget-step" id="step-2">
+                        <h4 class="step-title">2. Selecciona Fecha y Hora</h4>
+                        <div class="input-group">
+                            <label>Fecha deseada</label>
+                            <input type="date" id="booking-date" value="2025-03-01">
+                        </div>
+                        <label style="font-size: 0.85rem; font-weight: 600; color: var(--dark-heading);">Horarios disponibles</label>
+                        <div class="time-slots">
+                            <button class="time-btn" onclick="selectTime(this, '09:30')">09:30 h</button>
+                            <button class="time-btn" onclick="selectTime(this, '11:00')">11:00 h</button>
+                            <button class="time-btn" onclick="selectTime(this, '12:30')">12:30 h</button>
+                            <button class="time-btn" onclick="selectTime(this, '16:00')">16:00 h</button>
+                            <button class="time-btn" onclick="selectTime(this, '17:30')">17:30 h</button>
+                            <button class="time-btn" onclick="selectTime(this, '19:00')">19:00 h</button>
+                        </div>
+                        <div style="display: flex; gap: 12px; margin-top: 24px;">
+                            <button class="btn-phone" style="flex: 1;" onclick="nextStep(1)">Atrás</button>
+                            <button class="btn-primary" style="flex: 2;" onclick="nextStep(3)">Continuar</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Patient Info -->
+                    <div class="widget-step" id="step-3">
+                        <h4 class="step-title">3. Tus Datos de Contacto</h4>
+                        <div class="input-group">
+                            <label>Nombre y Apellidos</label>
+                            <input type="text" placeholder="Ej. Juan Pérez" id="patient-name">
+                        </div>
+                        <div class="input-group">
+                            <label>Teléfono móvil</label>
+                            <input type="tel" placeholder="Ej. 600 000 000" id="patient-phone">
+                        </div>
+                        <div class="input-group">
+                            <label>Correo electrónico</label>
+                            <input type="email" placeholder="ejemplo@email.com" id="patient-email">
+                        </div>
+                        <div style="display: flex; gap: 12px; margin-top: 20px;">
+                            <button class="btn-phone" style="flex: 1;" onclick="nextStep(2)">Atrás</button>
+                            <button class="btn-primary" style="flex: 2;" onclick="confirmBooking()">Confirmar Reserva</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Success Message -->
+                    <div class="widget-step" id="step-4">
+                        <div style="text-align: center; padding: 30px 0;">
+                            <div style="width: 70px; height: 70px; background: #DEF7EC; color: #03543F; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; font-size: 2rem;">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <h3 style="margin-bottom: 10px;">¡Solicitud Recibida!</h3>
+                            <p style="font-size: 0.95rem; color: var(--text-body); margin-bottom: 24px;">Nos pondremos en contacto contigo a la brevedad para confirmar tu cita.</p>
+                            <button class="btn-primary" onclick="resetBooking()">Realizar otra consulta</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">A</div>
+                        <div class="logo-text" style="color: white;">AURUM <span style="color: var(--gold-primary);">DENTAL</span></div>
+                    </a>
+                    <p>Odontología avanzada en Barcelona. Calidad, honestidad y cercanía en cada tratamiento.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#diferencia">Nos Diferencia</a></li>
+                        <li><a href="#especialidades">Especialidades</a></li>
+                        <li><a href="#equipo">Nuestro Equipo</a></li>
+                        <li><a href="#calendario">Reserva tu Cita</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Contacto</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">C/ Marqués de Sentmenat 50 (local 2)</a></li>
+                        <li><a href="#">08029 Barcelona</a></li>
+                        <li><a href="tel:608898199">Móvil: 608 89 81 99</a></li>
+                        <li><a href="tel:932470198">Fijo: 932 47 01 98</a></li>
+                        <li><a href="mailto:info@aurumdentalbarcelona.com">info@aurumdentalbarcelona.com</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Síguenos</h5>
+                    <p style="color: #94A3B8; font-size: 0.88rem; margin-bottom: 16px;">Mantente informado sobre nuestros consejos de salud bucal.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61550047092409" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/clinica_aurumdental" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="mailto:info@aurumdentalbarcelona.com"><i class="fa-regular fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Aurum Odontología Avanzada SLP. Todos los derechos reservados.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="https://www.aurumdentalbarcelona.com/aviso-legal/" style="color: #64748B; text-decoration: none;">Aviso Legal</a>
+                    <a href="https://www.aurumdentalbarcelona.com/politica-de-privacidad/" style="color: #64748B; text-decoration: none;">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS Library CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+
+        // Sticky Navbar Effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Booking Interactive Logic
+        let bookingData = {
+            service: '',
+            time: ''
+        };
+
+        function selectService(element, serviceName) {
+            document.querySelectorAll('.service-btn').forEach(btn => btn.classList.remove('selected'));
+            element.classList.add('selected');
+            bookingData.service = serviceName;
+        }
+
+        function selectTime(element, timeSlot) {
+            document.querySelectorAll('.time-btn').forEach(btn => btn.classList.remove('selected'));
+            element.classList.add('selected');
+            bookingData.time = timeSlot;
+        }
+
+        function nextStep(stepNumber) {
+            if (stepNumber === 2 && !bookingData.service) {
+                alert('Por favor selecciona una especialidad para continuar.');
+                return;
+            }
+            if (stepNumber === 3 && !bookingData.time) {
+                alert('Por favor selecciona un horario para tu cita.');
+                return;
+            }
+
+            document.querySelectorAll('.widget-step').forEach(step => step.classList.remove('active'));
+            document.getElementById('step-' + stepNumber).classList.add('active');
+        }
+
+        function confirmBooking() {
+            const name = document.getElementById('patient-name').value;
+            const phone = document.getElementById('patient-phone').value;
+
+            if (!name || !phone) {
+                alert('Por favor completa tu nombre y número de teléfono.');
+                return;
+            }
+
+            nextStep(4);
+        }
+
+        function resetBooking() {
+            bookingData = { service: '', time: '' };
+            document.querySelectorAll('.service-btn, .time-btn').forEach(btn => btn.classList.remove('selected'));
+            document.getElementById('patient-name').value = '';
+            document.getElementById('patient-phone').value = '';
+            document.getElementById('patient-email').value = '';
+            nextStep(1);
+        }
+    </script>
+</body>
+</html>
