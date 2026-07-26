@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIT GROW | Cambio Físico Definitivo</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            900: '#064e3b',
+                            accent: '#22c55e',
+                            glow: '#4ade80'
+                        },
+                        dark: {
+                            base: '#080c14',
+                            surface: '#0f172a',
+                            card: '#1e293b',
+                            border: '#334155'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Syne', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            background-color: #080c14;
+            color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-display {
+            font-family: 'Syne', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-effect {
+            box-shadow: 0 0 40px -10px rgba(16, 185, 129, 0.3);
+        }
+        /* Clip Path Animation Target */
+        .window-opening {
+            clip-path: inset(12% 10% 12% 10% round 24px);
+            will-change: transform, clip-path;
+        }
+    </style>
+</head>
+<body class="bg-dark-base text-slate-100 antialiased selection:bg-brand-500 selection:text-black">
+
+    <!-- STICKY HEADER -->
+    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 glass-panel border-b border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-400 flex items-center justify-center text-black font-extrabold text-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                    FG
+                </div>
+                <span class="font-display text-2xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-brand-400">
+                    FIT GROW
+                </span>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
+                <a href="#metodo" class="hover:text-brand-400 transition-colors">El Método</a>
+                <a href="#servicios" class="hover:text-brand-400 transition-colors">Servicios</a>
+                <a href="#equipo" class="hover:text-brand-400 transition-colors">Equipo</a>
+                <a href="#testimonios" class="hover:text-brand-400 transition-colors">Resultados</a>
+                <a href="#contacto" class="hover:text-brand-400 transition-colors">Ubicación</a>
+            </nav>
+
+            <!-- Actions & Language Selector -->
+            <div class="flex items-center gap-4">
+                <!-- Language Selector -->
+                <div class="relative inline-block text-left text-xs font-semibold">
+                    <select class="bg-slate-900 border border-slate-700 text-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-brand-500 cursor-pointer">
+                        <option value="es" selected>ES</option>
+                        <option value="en">EN</option>
+                        <option value="ca">CA</option>
+                    </select>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="#reservar" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-brand-500 to-brand-400 hover:from-brand-400 hover:to-brand-300 text-slate-950 font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-brand-500/25 transition-all duration-300 hover:scale-[1.02] active:scale-95 text-sm">
+                    <span>Reserva Tu Plan</span>
+                    <i class="fa-solid font-black fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen pt-32 pb-20 flex items-center overflow-hidden">
+        <!-- Ambient Glow Backdrops -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-[350px] h-[350px] bg-emerald-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content Column -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left hero-text">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-brand-500/30 text-brand-400 text-xs font-semibold tracking-wide uppercase">
+                        <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+                        Programa de Transformación Personalizada
+                    </div>
+
+                    <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1]">
+                        Consigue el <br>
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-400 via-emerald-300 to-white">
+                            Cambio Físico Definitivo
+                        </span>
+                    </h1>
+
+                    <p class="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Descubre tu plan 100% personalizado adaptado a tu estilo de vida. Sin dietas restrictivas ni rutinas genéricas. Ciencia, estructura y acompañamiento continuo.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#reservar" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-brand-500 hover:bg-brand-400 text-slate-950 font-extrabold text-base px-8 py-4 rounded-xl shadow-xl shadow-brand-500/20 transition-all transform hover:-translate-y-0.5">
+                            <span>Comenzar Mi Transformación</span>
+                            <i class="fa-solid fa-chevron-right text-sm"></i>
+                        </a>
+                        <a href="#metodo" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 glass-card hover:bg-slate-800/80 text-slate-200 font-semibold text-base px-6 py-4 rounded-xl border border-slate-700/60 transition-all">
+                            <i class="fa-regular fa-circle-play text-brand-400"></i>
+                            <span>Ver Método</span>
+                        </a>
+                    </div>
+
+                    <!-- Metrics / Trust Badges -->
+                    <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
+                        <div>
+                            <div class="font-display text-2xl sm:text-3xl font-bold text-white">+500</div>
+                            <div class="text-xs text-slate-400 font-medium mt-1">Alumnos Transformados</div>
+                        </div>
+                        <div>
+                            <div class="font-display text-2xl sm:text-3xl font-bold text-brand-400">98%</div>
+                            <div class="text-xs text-slate-400 font-medium mt-1">Tasa de Éxito</div>
+                        </div>
+                        <div>
+                            <div class="font-display text-2xl sm:text-3xl font-bold text-white">100%</div>
+                            <div class="text-xs text-slate-400 font-medium mt-1">Garantía Personal</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Column / Hero Card Feature -->
+                <div class="lg:col-span-5 relative hero-image-container">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-brand-500 to-emerald-600 blur-xl opacity-30"></div>
+                        <div class="relative rounded-3xl glass-card border border-slate-700/80 p-6 overflow-hidden">
+                            
+                            <!-- Dynamic Visual Gradient Card Header -->
+                            <div class="w-full h-72 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950/60 flex flex-col justify-between p-6 relative overflow-hidden group">
+                                <div class="absolute inset-0 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
+                                
+                                <div class="relative z-10 flex justify-between items-start">
+                                    <span class="bg-brand-500/20 text-brand-300 text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md border border-brand-500/30">
+                                        FIT GROW SYSTEM
+                                    </span>
+                                    <i class="fa-solid fa-dumbbell text-slate-600 text-3xl"></i>
+                                </div>
+
+                                <div class="relative z-10 space-y-2">
+                                    <p class="text-xs uppercase tracking-widest text-slate-400 font-bold">Enfoque Integral</p>
+                                    <h3 class="font-display text-2xl font-bold text-white">Entrenamiento & Nutrición A Medida</h3>
+                                </div>
+                            </div>
+
+                            <!-- Hero Quick Stats Floating Panel -->
+                            <div class="mt-4 grid grid-cols-2 gap-3">
+                                <div class="bg-slate-900/90 p-3.5 rounded-xl border border-slate-800 flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-lg bg-brand-500/10 flex items-center justify-center text-brand-400">
+                                        <i class="fa-solid fa-chart-line"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-slate-400">Progreso</div>
+                                        <div class="text-sm font-bold text-white">Semanal</div>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-900/90 p-3.5 rounded-xl border border-slate-800 flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                                        <i class="fa-solid fa-comments"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-slate-400">Soporte</div>
+                                        <div class="text-sm font-bold text-white">24/7 Directo</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GSAP WINDOW OPENING SHOWCASE SECTION -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10">
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white">
+                Diseñado Para Obtener Resultados Reales
+            </h2>
+            <p class="text-slate-400 mt-4 max-w-2xl mx-auto">
+                Un entorno optimizado para maximizar tu rendimiento físico y mental.
+            </p>
+        </div>
+
+        <!-- Opening Window Dynamic Frame -->
+        <div class="relative max-w-6xl mx-auto h-[450px] sm:h-[600px] rounded-3xl overflow-hidden window-opening border border-slate-700/50 shadow-2xl">
+            <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-brand-950 flex items-center justify-center">
+                <!-- Background Geometric Glow -->
+                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-500/20 via-transparent to-transparent"></div>
+                
+                <div class="relative z-10 text-center px-6 max-w-3xl space-y-6">
+                    <div class="w-20 h-20 mx-auto rounded-full bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-400 text-3xl mb-4">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                    </div>
+                    <h3 class="font-display text-3xl sm:text-5xl font-bold text-white tracking-tight">
+                        Rompe Tus Límites Con El Método FIT GROW
+                    </h3>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Olvídate de la improvisación. Nuestro método combina planificación científica de hipertrofia y pérdida de grasa con hábitos sostenibles a largo plazo.
+                    </p>
+                    <div class="pt-4">
+                        <a href="#reservar" class="inline-flex items-center gap-2 bg-white text-slate-950 font-bold px-8 py-3.5 rounded-xl hover:bg-slate-200 transition-all">
+                            <span>Solicita Tu Evaluación</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- METHOD / SERVICES SECTION -->
+    <section id="metodo" class="py-24 relative bg-slate-950/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-400 font-bold text-xs uppercase tracking-widest">¿Cómo lo logramos?</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white">Los 4 Pilares De Tu Cambio</h2>
+                <p class="text-slate-400 text-base">
+                    Un proceso integral de acompañamiento paso a paso diseñado específicamente para ti.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-2xl border border-slate-800 hover:border-brand-500/40 transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-14 h-14 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">1. Plan de Entreno</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Rutinas estructuradas paso a paso con vídeos explicativos, series y repeticiones ajustadas a tu nivel y material disponible.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-2xl border border-slate-800 hover:border-brand-500/40 transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-14 h-14 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">2. Nutrición Flexible</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Pautas nutricionales realistas. Come lo que te gusta mientras cumples tus macronutrientes sin pasar hambre.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-2xl border border-slate-800 hover:border-brand-500/40 transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-14 h-14 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">3. Revisa Semanal</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Analizamos métricas, fotos y sensaciones cada semana para realizar los ajustes necesarios y garantizar avances continuos.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card p-8 rounded-2xl border border-slate-800 hover:border-brand-500/40 transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-14 h-14 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">4. Acompañamiento</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Resolución de dudas diarias vía WhatsApp/App privada para mantener tu motivación y asegurar la correcta ejecución.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM / EQUIPO SECTION (Hover Slide-Up Panels) -->
+    <section id="equipo" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-400 font-bold text-xs uppercase tracking-widest">Profesionales Dedicados</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white">Conoce a Tu Equipo</h2>
+                <p class="text-slate-400 text-base">
+                    Especialistas apasionados por la salud, el rendimiento físico y el bienestar integral.
+                </p>
+            </div>
+
+            <!-- Team Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Team Card 1: Yannis PRN -->
+                <div class="relative rounded-2xl overflow-hidden glass-card border border-slate-800 group h-[420px] shadow-xl">
+                    <!-- Background Visual Gradient Frame -->
+                    <div class="absolute inset-0 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 flex flex-col items-center justify-center p-6 text-center">
+                        <div class="w-28 h-28 rounded-full bg-gradient-to-tr from-brand-500 to-emerald-300 p-1 mb-4 shadow-lg shadow-brand-500/20">
+                            <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center text-brand-400 font-extrabold text-3xl">
+                                Y
+                            </div>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-white">Yannis PRN</h3>
+                        <p class="text-brand-400 font-semibold text-sm mt-1">Head Coach & Founder</p>
+                        <span class="mt-4 text-xs text-slate-400 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">Pasa el ratón para ver más</span>
+                    </div>
+
+                    <!-- Slide-Up Info Panel on Hover -->
+                    <div class="absolute inset-0 bg-slate-900/95 p-8 flex flex-col justify-end translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out border-t-2 border-brand-500">
+                        <span class="text-brand-400 text-xs font-bold uppercase tracking-wider mb-2">Especialidad & Trayectoria</span>
+                        <h4 class="font-display text-xl font-bold text-white mb-3">Especialista en Recomposición Corporal</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Más de 6 años liderando transformaciones físicas definitivas. Apasionado del entrenamiento basado en evidencia y la optimización de hábitos.
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <a href="https://www.instagram.com/yannisprn_" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-slate-950 bg-brand-400 px-4 py-2 rounded-lg hover:bg-brand-300 transition-colors">
+                                <i class="fa-brands fa-instagram"></i>
+                                <span>Ver Perfil</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Card 2: Asesoría Nutricional -->
+                <div class="relative rounded-2xl overflow-hidden glass-card border border-slate-800 group h-[420px] shadow-xl">
+                    <div class="absolute inset-0 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 flex flex-col items-center justify-center p-6 text-center">
+                        <div class="w-28 h-28 rounded-full bg-gradient-to-tr from-brand-500 to-emerald-300 p-1 mb-4 shadow-lg shadow-brand-500/20">
+                            <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center text-brand-400 font-extrabold text-3xl">
+                                N
+                            </div>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-white">Equipo Nutrición</h3>
+                        <p class="text-brand-400 font-semibold text-sm mt-1">Nutrición Deportiva</p>
+                        <span class="mt-4 text-xs text-slate-400 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">Pasa el ratón para ver más</span>
+                    </div>
+
+                    <div class="absolute inset-0 bg-slate-900/95 p-8 flex flex-col justify-end translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out border-t-2 border-brand-500">
+                        <span class="text-brand-400 text-xs font-bold uppercase tracking-wider mb-2">Especialidad</span>
+                        <h4 class="font-display text-xl font-bold text-white mb-3">Planificación Dietética Flexible</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Especialistas en adaptar la alimentación a la rutina diaria de cada cliente, garantizando adherencia sin pasar restricciones extremas.
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs text-slate-400 font-medium">Fit Grow Certified</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Card 3: Soporte Técnico & Biomecánica -->
+                <div class="relative rounded-2xl overflow-hidden glass-card border border-slate-800 group h-[420px] shadow-xl">
+                    <div class="absolute inset-0 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 flex flex-col items-center justify-center p-6 text-center">
+                        <div class="w-28 h-28 rounded-full bg-gradient-to-tr from-brand-500 to-emerald-300 p-1 mb-4 shadow-lg shadow-brand-500/20">
+                            <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center text-brand-400 font-extrabold text-3xl">
+                                S
+                            </div>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-white">Soporte & Biomecánica</h3>
+                        <p class="text-brand-400 font-semibold text-sm mt-1">Corrección de Técnica</p>
+                        <span class="mt-4 text-xs text-slate-400 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">Pasa el ratón para ver más</span>
+                    </div>
+
+                    <div class="absolute inset-0 bg-slate-900/95 p-8 flex flex-col justify-end translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out border-t-2 border-brand-500">
+                        <span class="text-brand-400 text-xs font-bold uppercase tracking-wider mb-2">Especialidad</span>
+                        <h4 class="font-display text-xl font-bold text-white mb-3">Análisis de Movimiento</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Revisión detallada en vídeo de tus ejercicios para prevenir lesiones y optimizar el estímulo muscular en cada repetición.
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs text-slate-400 font-medium">Fit Grow Certified</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS / RESULTS SECTION -->
+    <section id="testimonios" class="py-24 bg-slate-950/80 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-400 font-bold text-xs uppercase tracking-widest">Historias de Éxito</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white">Resultados Comprobados</h2>
+                <p class="text-slate-400 text-base">Personas reales que tomaron la decisión de transformar su vida.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4">
+                    <div class="flex text-amber-400 gap-1 text-sm">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed italic">
+                        "Había intentado decenas de dietas y ninguna duraba más de un mes. Con Yannis he logrado perder 12kg sin pasar hambre y disfrutando del gimnasio."
+                    </p>
+                    <div class="pt-4 border-t border-slate-800 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center font-bold text-brand-400">
+                            C
+                        </div>
+                        <div>
+                            <div class="text-white font-bold text-sm">Carlos M.</div>
+                            <div class="text-xs text-slate-400">-12 kg en 4 meses</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4">
+                    <div class="flex text-amber-400 gap-1 text-sm">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed italic">
+                        "Lo que más valoro es la atención diaria. Tener la tranquilidad de que estás haciendo las cosas bien no tiene precio."
+                    </p>
+                    <div class="pt-4 border-t border-slate-800 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center font-bold text-brand-400">
+                            L
+                        </div>
+                        <div>
+                            <div class="text-white font-bold text-sm">Laura G.</div>
+                            <div class="text-xs text-slate-400">Recomposición Corporal</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4">
+                    <div class="flex text-amber-400 gap-1 text-sm">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed italic">
+                        "Estructura 10/10. Mi rendimiento en el gimnasio ha aumentado muchísimo y he logrado ganar masa muscular de forma limpia."
+                    </p>
+                    <div class="pt-4 border-t border-slate-800 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center font-bold text-brand-400">
+                            D
+                        </div>
+                        <div>
+                            <div class="text-white font-bold text-sm">David R.</div>
+                            <div class="text-xs text-slate-400">+6 kg Masa Muscular</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MANDATORY BOOKING SECTION -->
+    <section id="reservar" class="py-24 relative bg-slate-900/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <span class="text-brand-400 font-bold text-xs uppercase tracking-widest">Paso Final</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white">
+                    Reserva Tu Cita De Valoración
+                </h2>
+                <p class="text-slate-400 text-base">
+                    Selecciona el horario que mejor se adapte a ti para agendar tu llamada inicial y comenzar a diseñar tu plan personalizado.
+                </p>
+            </div>
+
+            <!-- Mandatory Embed Container -->
+            <div class="w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl my-10 border border-slate-800 bg-slate-950">
+                <iframe src="https://cal.com/fabio-grussu-ubggf7/prima-visita" width="100%" height="700px" frameborder="0" style="background-color: transparent;"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & LOCATION SECTION -->
+    <section id="contacto" class="py-20 relative bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Contact Details -->
+                <div class="space-y-8">
+                    <div>
+                        <span class="text-brand-400 font-bold text-xs uppercase tracking-widest">Contacto Directo</span>
+                        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2">
+                            ¿Tienes dudas sobre el programa?
+                        </h2>
+                        <p class="text-slate-400 mt-4 text-base">
+                            Estamos aquí para ayudarte a tomar la mejor decisión para tu salud física.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-brand-400 text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-base">Ubicación Principal</h4>
+                                <p class="text-slate-400 text-sm mt-1">Atención Presencial & Online Global</p>
+                                <p class="text-slate-500 text-xs mt-0.5">Av. Principal de Entrenamiento, Centro Deportivo FIT GROW</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-brand-400 text-xl shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-base">Correo Electrónico</h4>
+                                <p class="text-slate-400 text-sm mt-1">info@fitgrowcoaching.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-brand-400 text-xl shrink-0">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-base">Comunidad Instagram</h4>
+                                <a href="https://www.instagram.com/yannisprn_" target="_blank" class="text-brand-400 hover:underline text-sm mt-1 inline-block">
+                                    @yannisprn_
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Maps Embed Placeholder Container -->
+                <div class="rounded-2xl overflow-hidden border border-slate-800 h-[380px] relative glass-card shadow-xl">
+                    <iframe 
+                        title="FIT GROW Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-3.8196207!3d40.4167754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDI1JzAwLjQiTiAzwrA0OScwOC42Ilc!5e0!3m2!1ses!2ses!4v1620000000000!5m2!1ses!2ses" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; filter: grayscale(0.9) contrast(1.2) invert(0.9);" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800/60 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center text-slate-950 font-bold text-base">
+                        FG
+                    </div>
+                    <span class="font-display text-xl font-bold text-white tracking-wider">FIT GROW</span>
+                </div>
+
+                <div class="text-slate-400 text-xs text-center md:text-left">
+                    &copy; 2026 FIT GROW by Yannis PRN. Todos los derechos reservados.
+                </div>
+
+                <div class="flex items-center gap-6 text-slate-400 text-sm">
+                    <a href="#" class="hover:text-brand-400 transition-colors">Privacidad</a>
+                    <a href="#" class="hover:text-brand-400 transition-colors">Términos</a>
+                    <a href="https://www.instagram.com/yannisprn_" target="_blank" class="hover:text-brand-400 transition-colors">
+                        <i class="fa-brands fa-instagram text-lg"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP ANIMATIONS SCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Sticky Header Blur effect on Scroll
+            ScrollTrigger.create({
+                start: 'top -50',
+                end: 99999,
+                toggleClass: { className: 'py-2', targets: '#header' }
+            });
+
+            // Hero Elements Fade In & Slide Up
+            gsap.from(".hero-text > *", {
+                duration: 1,
+                y: 40,
+                opacity: 0,
+                stagger: 0.15,
+                ease: "power3.out"
+            });
+
+            gsap.from(".hero-image-container", {
+                duration: 1.2,
+                scale: 0.9,
+                opacity: 0,
+                ease: "power2.out",
+                delay: 0.3
+            });
+
+            // GSAP Opening Window ScrollTrigger Animation
+            gsap.to(".window-opening", {
+                clipPath: "inset(0% 0% 0% 0% round 0px)",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".window-opening",
+                    start: "top bottom",
+                    end: "center center",
+                    scrub: 1
+                }
+            });
+
+            // Fade in cards on scroll
+            gsap.utils.toArray(".glass-card").forEach((card) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 88%",
+                        toggleActions: "play none none reverse"
+                    },
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
+            });
+        });
+    </script>
+</body>
+</html>
