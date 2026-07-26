@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Figlia del Presidente - La Pizzeria di Maria Cacialli | Napoli</title>
-    <meta name="description" content="L'autentica pizzeria napoletana nel cuore di Napoli. Dal 1994, la tradizione di Ernesto Cacialli, il pizzaiolo del Presidente Bill Clinton.">
+    <meta name="description" content="La storica pizzeria nel cuore di Napoli guidata da Maria Cacialli. Dalla celebre pizza a Bill Clinton nel 1994 all'iconica Pizza Fritta 'La Regina'.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,180 +22,183 @@
                 extend: {
                     colors: {
                         brand: {
-                            red: '#9B1C1C',
-                            darkRed: '#7A1212',
-                            gold: '#D97706',
-                            goldLight: '#FBBF24',
-                            cream: '#FAF7F2',
-                            dark: '#111827',
-                            card: '#1F2937'
+                            red: '#C8232B',
+                            redDark: '#93151A',
+                            gold: '#D4AF37',
+                            goldHover: '#B59226',
+                            dark: '#120E0C',
+                            darkCard: '#1C1613',
+                            cream: '#FAF4EB',
+                            creamMuted: '#E8DCCB'
                         }
                     },
                     fontFamily: {
-                        serif: ['Playfair Display', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Cinzel', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
                     }
                 }
             }
         }
     </script>
 
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- GSAP & ScrollTrigger CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <style>
-        .clip-opening {
-            clip-path: inset(12% 10% 12% 10% round 24px);
+        .glass-header {
+            background: rgba(18, 14, 12, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-        .hero-gradient {
-            background: linear-gradient(180deg, rgba(17,24,39,0.85) 0%, rgba(17,24,39,0.95) 100%);
+        .hero-clip {
+            clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
         }
-        .text-glow {
-            text-shadow: 0 0 20px rgba(217, 119, 6, 0.3);
+        .img-mask-window {
+            clip-path: inset(8% 8% 8% 8% round 24px);
+            transition: clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .img-mask-window.active {
+            clip-path: inset(0% 0% 0% 0% round 16px);
+        }
+        /* Fallback gradient styling for broken images */
+        img {
+            background: linear-gradient(135deg, #1C1613 0%, #2A211C 100%);
         }
     </style>
 </head>
-<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white overflow-x-hidden">
+<body class="bg-brand-dark text-brand-cream font-sans antialiased selection:bg-brand-red selection:text-white overflow-x-hidden">
 
     <!-- STICKY HEADER -->
-    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-brand-dark/90 backdrop-blur-md border-b border-white/10">
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/10 glass-header">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- LOGO -->
+            <!-- Logo -->
             <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-full bg-brand-red flex items-center justify-center text-brand-goldLight font-serif font-bold text-xl border border-brand-gold/30 shadow-lg group-hover:scale-105 transition-transform">
-                    P
+                <div class="w-10 h-10 rounded-full bg-brand-red flex items-center justify-center font-serif font-bold text-lg text-white shadow-lg group-hover:scale-105 transition-transform">
+                    FP
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-serif font-bold text-lg sm:text-xl text-white tracking-wide leading-tight">La Figlia del Presidente</span>
-                    <span class="text-xs text-brand-gold tracking-widest uppercase font-medium">Maria Cacialli • Napoli</span>
+                    <span class="font-serif font-bold text-lg sm:text-xl tracking-wider text-brand-cream uppercase leading-none">La Figlia del Presidente</span>
+                    <span class="text-xs text-brand-gold font-medium tracking-widest uppercase mt-1">Pizzeria di Maria Cacialli</span>
                 </div>
             </a>
 
-            <!-- NAV LINKS -->
-            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-200">
-                <a href="#storia" class="hover:text-brand-gold transition-colors">La Storia</a>
-                <a href="#specialita" class="hover:text-brand-gold transition-colors">La Regina</a>
-                <a href="#famiglia" class="hover:text-brand-gold transition-colors">Famiglia</a>
-                <a href="#recensioni" class="hover:text-brand-gold transition-colors">Recensioni</a>
-                <a href="#faq" class="hover:text-brand-gold transition-colors">FAQ</a>
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="#eredita" class="hover:text-brand-gold transition-colors">L'Eredità G7</a>
+                <a href="#regina" class="hover:text-brand-gold transition-colors">La Regina</a>
+                <a href="#famiglia" class="hover:text-brand-gold transition-colors">La Famiglia</a>
+                <a href="#faq" class="hover:text-brand-gold transition-colors">FAQ & Info</a>
+                <a href="#contatti" class="hover:text-brand-gold transition-colors">Dove Siamo</a>
             </nav>
 
-            <!-- RIGHT CTA & LANGUAGE SELECTOR -->
-            <div class="flex items-center gap-4">
+            <!-- Right Controls: Language Selector & CTA -->
+            <div class="flex items-center space-x-4">
+                
                 <!-- Language Selector -->
                 <div class="relative group">
-                    <button class="flex items-center gap-1.5 text-xs font-semibold text-gray-300 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full hover:bg-white/10 transition">
-                        <i class="fa-solid fa-globe text-brand-gold"></i>
+                    <button class="flex items-center space-x-1 text-xs font-semibold uppercase bg-white/5 hover:bg-white/10 px-3 py-2 rounded-lg border border-white/10 transition-colors">
+                        <i class="fa-solid fa-globe text-brand-gold mr-1"></i>
                         <span>IT</span>
-                        <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
+                        <i class="fa-solid fa-chevron-down text-[10px] opacity-60 ml-1"></i>
                     </button>
-                    <div class="absolute right-0 mt-2 w-24 bg-brand-dark border border-white/10 rounded-xl shadow-xl opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 overflow-hidden py-1">
-                        <a href="#" class="block px-4 py-1.5 text-xs text-white hover:bg-brand-red/80 transition font-medium">IT (Italiano)</a>
-                        <a href="#" class="block px-4 py-1.5 text-xs text-gray-300 hover:bg-brand-red/80 hover:text-white transition">EN (English)</a>
-                        <a href="#" class="block px-4 py-1.5 text-xs text-gray-300 hover:bg-brand-red/80 hover:text-white transition">ES (Español)</a>
+                    <div class="absolute right-0 mt-2 w-24 bg-brand-darkCard border border-white/10 rounded-lg shadow-2xl py-2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 z-50">
+                        <a href="#" class="block px-4 py-1.5 text-xs font-medium hover:bg-brand-red/20 hover:text-brand-gold transition-colors">IT (Italiano)</a>
+                        <a href="#" class="block px-4 py-1.5 text-xs font-medium hover:bg-brand-red/20 hover:text-brand-gold transition-colors">EN (English)</a>
+                        <a href="#" class="block px-4 py-1.5 text-xs font-medium hover:bg-brand-red/20 hover:text-brand-gold transition-colors">ES (Español)</a>
                     </div>
                 </div>
 
-                <!-- CTA Button -->
-                <a href="#prenota" class="hidden sm:inline-flex items-center gap-2 bg-brand-red hover:bg-brand-darkRed text-white font-semibold text-xs uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg shadow-brand-red/30 transition-all transform hover:-translate-y-0.5">
-                    <i class="fa-regular fa-calendar-check"></i>
-                    <span>Richiedi Info & Visita</span>
+                <!-- Action Button -->
+                <a href="#prenota" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-brand-red hover:bg-brand-redDark text-white shadow-lg hover:shadow-brand-red/30 transition-all transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-calendar-check mr-2"></i> Contattaci
                 </a>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden text-white text-2xl focus:outline-none">
-                    <i class="fa-solid fa-bars"></i>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-brand-cream hover:text-brand-gold focus:outline-none" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Drawer -->
-        <div id="mobileDrawer" class="hidden md:hidden bg-brand-dark border-b border-white/10 px-6 py-6 flex flex-col gap-4">
-            <a href="#storia" class="text-gray-200 text-lg font-medium hover:text-brand-gold">La Storia</a>
-            <a href="#specialita" class="text-gray-200 text-lg font-medium hover:text-brand-gold">La Regina</a>
-            <a href="#famiglia" class="text-gray-200 text-lg font-medium hover:text-brand-gold">Famiglia</a>
-            <a href="#recensioni" class="text-gray-200 text-lg font-medium hover:text-brand-gold">Recensioni</a>
-            <a href="#faq" class="text-gray-200 text-lg font-medium hover:text-brand-gold">FAQ</a>
-            <a href="#prenota" class="bg-brand-red text-white text-center py-3 rounded-xl font-bold uppercase tracking-wider text-sm mt-2">Richiedi Info & Visita</a>
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-brand-darkCard border-b border-white/10 px-6 py-6 space-y-4">
+            <a href="#eredita" class="mobile-link block text-base font-medium text-brand-cream hover:text-brand-gold">L'Eredità G7</a>
+            <a href="#regina" class="mobile-link block text-base font-medium text-brand-cream hover:text-brand-gold">La Regina</a>
+            <a href="#famiglia" class="mobile-link block text-base font-medium text-brand-cream hover:text-brand-gold">La Famiglia</a>
+            <a href="#faq" class="mobile-link block text-base font-medium text-brand-cream hover:text-brand-gold">FAQ & Info</a>
+            <a href="#contatti" class="mobile-link block text-base font-medium text-brand-cream hover:text-brand-gold">Dove Siamo</a>
+            <a href="#prenota" class="mobile-link block w-full text-center py-3 rounded-lg bg-brand-red text-white font-bold uppercase text-xs">Richiedi Info / Contatti</a>
         </div>
     </header>
 
     <!-- HERO SECTION -->
-    <section class="relative min-h-screen pt-28 pb-16 bg-brand-dark text-white flex items-center overflow-hidden">
-        <!-- Background Overlay Image -->
-        <div class="absolute inset-0 z-0 opacity-25 bg-cover bg-center filter blur-xs" style="background-image: url('https://figliadelpresidente.com/wp-content/uploads/2024/06/315982972_5535461006552959_2760824366240390531_n-768x960.jpg');"></div>
-        <div class="absolute inset-0 z-0 hero-gradient"></div>
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden hero-clip bg-gradient-to-b from-brand-dark via-brand-darkCard to-brand-dark">
+        <!-- Subtle Glow BG -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-red/15 rounded-full blur-[140px] pointer-events-none"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                 
-                <!-- Left Column Text -->
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 bg-brand-gold/10 border border-brand-gold/30 px-4 py-1.5 rounded-full text-brand-goldLight text-xs font-semibold uppercase tracking-widest">
-                        <i class="fa-solid fa-crown text-brand-gold"></i>
-                        <span>Dal G7 del 1994 a Oggi</span>
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs font-semibold uppercase tracking-widest">
+                        <i class="fa-solid fa-crown"></i>
+                        L'Originale Pizza del Presidente a Napoli
                     </div>
 
-                    <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight text-white tracking-tight">
-                        L'Autentico <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-goldLight via-brand-gold to-brand-red italic">Pezzo di Napoli</span> nel Cuore del Centro Storico.
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-extrabold tracking-tight text-white leading-tight">
+                        La Vera Tradizione <br class="hidden sm:inline">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-yellow-200 to-brand-gold">Napoletana nel Cuore</span> di Napoli
                     </h1>
 
-                    <p class="text-gray-300 text-base sm:text-lg lg:text-xl font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                        Fondata da <strong class="text-white font-semibold">Maria Cacialli</strong>, figlia del leggendario Ernesto che offrì la vera pizza napoletana al Presidente Bill Clinton. Una tradizione di passione, umiltà e farina tramandata da tre generazioni.
+                    <p class="text-lg sm:text-xl text-brand-creamMuted max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Dalla celebre visita del Presidente Bill Clinton nel 1994, gestita dal leggendario Ernesto Cacialli, fino alla passione indomabile di sua figlia <strong class="text-white font-semibold">Maria Cacialli</strong> e della terza generazione.
                     </p>
 
-                    <!-- Trust Stats Badge -->
-                    <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-6 border-t border-white/10 text-left">
-                        <div class="flex items-center gap-3">
-                            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-gold text-xl">
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div>
-                                <div class="font-bold text-lg text-white">6.548+</div>
-                                <div class="text-xs text-gray-400">Recensioni Google</div>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-3">
-                            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-gold text-xl">
-                                <i class="fa-solid fa-fire-burner"></i>
-                            </div>
-                            <div>
-                                <div class="font-bold text-lg text-white">3 Generazioni</div>
-                                <div class="text-xs text-gray-400">Mastri Pizzaioli</div>
-                            </div>
-                        </div>
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#prenota" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold uppercase text-xs tracking-widest bg-brand-red hover:bg-brand-redDark text-white shadow-xl shadow-brand-red/20 transition-all transform hover:-translate-y-1 text-center">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> Invia una Richiesta
+                        </a>
+                        <a href="#regina" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold uppercase text-xs tracking-widest bg-white/5 hover:bg-white/10 text-brand-cream border border-white/15 transition-all text-center">
+                            <i class="fa-solid fa-utensils mr-2 text-brand-gold"></i> Scopri 'La Regina'
+                        </a>
                     </div>
 
-                    <!-- Hero Actions -->
-                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                        <a href="#prenota" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-brand-red hover:bg-brand-darkRed text-white font-bold text-sm uppercase tracking-wider px-8 py-4 rounded-xl shadow-xl shadow-brand-red/30 transition-all transform hover:-translate-y-1">
-                            <span>Richiedi un Appuntamento</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                        <a href="#storia" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/15 text-white font-semibold text-sm px-7 py-4 rounded-xl transition">
-                            <i class="fa-solid fa-play text-brand-gold text-xs"></i>
-                            <span>La Nostra Storia</span>
-                        </a>
+                    <!-- Trust Indicators -->
+                    <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-serif font-bold text-brand-gold">6.500+</div>
+                            <div class="text-xs text-brand-creamMuted mt-1">Recensioni Google</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-serif font-bold text-white">1994</div>
+                            <div class="text-xs text-brand-creamMuted mt-1">Anno del G7 Storico</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-serif font-bold text-brand-gold">3ª</div>
+                            <div class="text-xs text-brand-creamMuted mt-1">Generazione Pizzaioli</div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Right Column: Historic Clinton Photo Frame -->
-                <div class="lg:col-span-5 flex justify-center">
-                    <div class="relative w-full max-w-md">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-gold to-brand-red rounded-3xl blur-lg opacity-40 animate-pulse"></div>
-                        <div class="relative bg-brand-card border border-white/15 rounded-3xl p-4 shadow-2xl overflow-hidden">
+                <!-- Right Visual Hero Image -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Decorative Frame -->
+                        <div class="absolute -inset-4 rounded-3xl bg-gradient-to-r from-brand-red/30 to-brand-gold/20 blur-xl opacity-70"></div>
+                        
+                        <div id="hero-img-container" class="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-brand-darkCard group">
                             <img src="https://figliadelpresidente.com/wp-content/uploads/2024/06/ernestocacialliebillclinton.png" 
-                                 alt="Ernesto Cacialli e Bill Clinton 1994" 
-                                 class="w-full h-80 sm:h-96 object-cover rounded-2xl filter grayscale hover:grayscale-0 transition-all duration-700">
-                            <div class="mt-4 p-3 bg-black/40 backdrop-blur-sm rounded-xl border border-white/5 text-center">
-                                <p class="text-xs text-brand-gold font-serif italic">"Il Pizzaiolo del Presidente"</p>
-                                <p class="text-xs text-gray-300 font-medium">Ernesto Cacialli con Bill Clinton durante il G7 del 1994 a Napoli</p>
+                                 alt="Ernesto Cacialli e Bill Clinton nel 1994" 
+                                 class="w-full h-[420px] sm:h-[480px] object-cover object-top transform group-hover:scale-105 transition-transform duration-700">
+                            
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-brand-gold">Scatto Storico · G7 Napoli 1994</span>
+                                <h3 class="text-lg font-serif font-bold text-white">Ernesto Cacialli & Bill Clinton</h3>
+                                <p class="text-xs text-brand-creamMuted mt-1">Quando Ernesto "trascinò" con orgoglio il Presidente degli Stati Uniti a mangiare la vera pizza piegata a libretto.</p>
                             </div>
                         </div>
                     </div>
@@ -202,243 +208,250 @@
         </div>
     </section>
 
-    <!-- GSAP WINDOW REVEAL SECTION (Opening Window Animation) -->
-    <section class="py-24 bg-brand-dark relative overflow-hidden">
-        <div id="windowRevealContainer" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div id="windowRevealImage" class="relative rounded-3xl overflow-hidden shadow-2xl h-[450px] sm:h-[550px] clip-opening transition-all duration-1000">
-                <img src="https://figliadelpresidente.com/wp-content/uploads/2024/06/reginadellepizzefritte-min.png" 
-                     alt="La Regina delle Pizze Fritte" 
-                     class="w-full h-full object-cover transform scale-125 transition-transform duration-1000" id="windowImg">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end p-8 sm:p-14">
-                    <div class="max-w-2xl text-white space-y-3">
-                        <span class="text-brand-gold font-serif italic text-lg sm:text-xl">Tradizione Inconfondibile</span>
-                        <h2 class="font-serif text-3xl sm:text-5xl font-bold leading-tight">La Vera Pizza Napoletana, Senza Compromessi.</h2>
-                        <p class="text-gray-300 text-sm sm:text-base font-light">Lievitazione naturale, ingredienti selezionati a km zero e una passione ardente che si tramanda da padre in figlia.</p>
-                    </div>
+    <!-- PROOF / BADGE BAR -->
+    <section class="py-8 bg-brand-red/10 border-y border-brand-red/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap items-center justify-around gap-6 text-center">
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-map-pin text-brand-gold text-xl"></i>
+                    <span class="text-sm font-semibold tracking-wide">Via del Grande Archivio 24, Napoli</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-star text-brand-gold text-xl"></i>
+                    <span class="text-sm font-semibold tracking-wide">Valutazione Google: 4.8 / 5.0</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-heart text-brand-red text-xl"></i>
+                    <span class="text-sm font-semibold tracking-wide">Impasto Tradizionale e Passione Incondizionata</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- LA STORIA / HERITAGE SECTION -->
-    <section id="storia" class="py-20 sm:py-28 bg-brand-cream relative">
+    <!-- HERITAGE SECTION -->
+    <section id="eredita" class="py-24 relative overflow-hidden bg-brand-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-brand-red font-semibold uppercase tracking-widest text-xs">Eredità Storica</span>
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-dark">La Storia di Ernesto & Maria Cacialli</h2>
-                <div class="w-20 h-1 bg-brand-gold mx-auto rounded-full"></div>
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-gold">La Nostra Storia</h2>
+                <p class="text-3xl sm:text-4xl font-serif font-bold text-white">Un'Eredità di Orgoglio e Gusto Napoletano</p>
+                <div class="w-16 h-1 bg-brand-red mx-auto rounded-full"></div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <!-- Text Story -->
-                <div class="space-y-6 text-gray-700 leading-relaxed text-base sm:text-lg">
-                    <p class="font-serif italic text-xl text-brand-red font-medium border-l-4 border-brand-red pl-4 py-1">
-                        "Nel 1994, durante il vertice G7 a Napoli, Ernesto Cacialli trascinò con bonaria sfrontatezza il Presidente degli Stati Uniti Bill Clinton nella sua pizzeria per offrirgli un pezzo autentico di Napoli."
-                    </p>
-                    <p>
-                        Da quel giorno memorabile, Ernesto divenne per tutti <strong class="text-brand-dark font-semibold">"Il Pizzaiolo del Presidente"</strong>. Una storia fatta di coraggio, veracità e amore sconfinato per l'arte bianca.
-                    </p>
-                    <p>
-                        Oggi la pizzeria <strong class="text-brand-dark font-semibold">"La Figlia del Presidente"</strong> guidata da <strong class="text-brand-dark font-semibold">Maria Cacialli</strong> in Via del Grande Archivio 24 custodisce la medesima anima. Maria è la vera matriarca napoletana: forte, orgogliosa, perno indiscutibile della famiglia e della tradizione.
-                    </p>
-                    <div class="pt-4 grid grid-cols-2 gap-4">
-                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
-                            <i class="fa-solid fa-location-dot text-brand-red text-2xl mb-2"></i>
-                            <h4 class="font-bold text-brand-dark text-base">Via Grande Archivio 24</h4>
-                            <p class="text-xs text-gray-500 mt-1">A due passi da San Gregorio Armeno e Metro Duomo</p>
-                        </div>
-                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
-                            <i class="fa-solid fa-heart text-brand-gold text-2xl mb-2"></i>
-                            <h4 class="font-bold text-brand-dark text-base">Passione Familiare</h4>
-                            <p class="text-xs text-gray-500 mt-1">Tre generazioni al servizio dell'eccellenza</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Visual Image Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div class="bg-brand-dark rounded-3xl overflow-hidden shadow-xl border border-gray-200 group">
-                        <img src="https://figliadelpresidente.com/wp-content/uploads/2024/06/marialafigliadelpresidente-min.png" 
-                             alt="Maria Cacialli" 
-                             class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="p-5 text-white bg-brand-dark">
-                            <h3 class="font-serif font-bold text-xl text-brand-goldLight">Maria Cacialli</h3>
-                            <p class="text-xs text-gray-400 mt-1">La Matriarca & Anima del Progetto</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-brand-dark rounded-3xl overflow-hidden shadow-xl border border-gray-200 group sm:translate-y-8">
-                        <img src="https://figliadelpresidente.com/wp-content/uploads/2024/06/felicemessinapizzaiolo-min-1024x855.png" 
-                             alt="Felice Messina" 
-                             class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="p-5 text-white bg-brand-dark">
-                            <h3 class="font-serif font-bold text-xl text-brand-goldLight">Felice Messina</h3>
-                            <p class="text-xs text-gray-400 mt-1">Il Maestro del Forno & della Cucina</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SPOTLIGHT LA REGINA (PIZZA FRITTA) -->
-    <section id="specialita" class="py-20 bg-brand-dark text-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-br from-gray-900 to-brand-card rounded-3xl border border-white/10 p-8 sm:p-14 shadow-2xl relative overflow-hidden">
-                <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-brand-red/20 rounded-full blur-3xl pointer-events-none"></div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
-                    <div class="lg:col-span-6 space-y-6">
-                        <span class="inline-block bg-brand-gold/20 text-brand-goldLight border border-brand-gold/30 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
-                            Imperdibile al Centro Storico
-                        </span>
-                        <h2 class="font-serif text-3xl sm:text-5xl font-bold leading-tight">
-                            "La Regina" <br><span class="text-brand-gold italic">La Pizza Fritta per Eccellenza</span>
-                        </h2>
-                        <p class="text-gray-300 text-base leading-relaxed font-light">
-                            È impossibile passeggiare per il centro storico di Napoli senza assaggiare "La Regina". Dorata, fragrante, ripiena della migliore ricotta di bufala, cicoli selezionati, fior di latte e un tocco di pepe nero.
-                        </p>
-                        
-                        <div class="flex flex-wrap gap-4 pt-2">
-                            <div class="flex items-center gap-2 text-xs bg-white/5 border border-white/10 px-3 py-2 rounded-lg text-gray-300">
-                                <i class="fa-solid fa-check text-brand-gold"></i> Lievitazione 36 ore
-                            </div>
-                            <div class="flex items-center gap-2 text-xs bg-white/5 border border-white/10 px-3 py-2 rounded-lg text-gray-300">
-                                <i class="fa-solid fa-check text-brand-gold"></i> Frittura ad alta temperatura
-                            </div>
-                            <div class="flex items-center gap-2 text-xs bg-white/5 border border-white/10 px-3 py-2 rounded-lg text-gray-300">
-                                <i class="fa-solid fa-check text-brand-gold"></i> Ricetta Tradizionale
-                            </div>
-                        </div>
-
-                        <div>
-                            <a href="#prenota" class="inline-flex items-center gap-3 bg-brand-gold hover:bg-brand-goldLight text-brand-dark font-bold text-sm uppercase tracking-wider px-7 py-3.5 rounded-xl shadow-lg transition transform hover:-translate-y-0.5">
-                                <span>Vieni a Gustarla</span>
-                                <i class="fa-solid fa-utensils"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="lg:col-span-6 flex justify-center">
-                        <div class="relative max-w-md w-full">
-                            <img src="https://figliadelpresidente.com/wp-content/uploads/2024/06/reginadellepizzefritte-min.png" 
-                                 alt="Pizza Fritta La Regina" 
-                                 class="w-full h-80 sm:h-96 object-cover rounded-2xl shadow-2xl border border-white/10 transform hover:scale-105 transition-transform duration-500">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TEAM / EQUIPO (HOVER REVEAL CARDS) -->
-    <section id="famiglia" class="py-20 sm:py-28 bg-brand-cream">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-brand-red font-semibold uppercase tracking-widest text-xs">N'ata Generation</span>
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-dark">I Nipoti del Presidente</h2>
-                <p class="text-gray-600 text-base">Cresciuti con le mani in pasta, la terza generazione custodisce l'amore e l'umiltà del mestiere.</p>
-                <div class="w-20 h-1 bg-brand-gold mx-auto rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 
-                <!-- Team Member 1: Maria -->
-                <div class="relative group rounded-3xl overflow-hidden bg-brand-dark shadow-xl h-96 cursor-pointer border border-gray-200">
+                <!-- Animated Scale Window Image -->
+                <div class="gsap-reveal-window relative overflow-hidden rounded-2xl shadow-2xl bg-brand-darkCard border border-white/10">
+                    <img src="https://figliadelpresidente.com/wp-content/uploads/2024/06/marialafigliadelpresidente-min.png" 
+                         alt="Maria Cacialli - La Figlia del Presidente" 
+                         class="w-full h-[500px] object-cover object-top hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
+                        <div>
+                            <span class="text-xs text-brand-gold font-bold uppercase tracking-widest">La Matriarca Napoletana</span>
+                            <h3 class="text-2xl font-serif font-bold text-white">Maria Cacialli</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Narrative Content -->
+                <div class="space-y-6 text-brand-creamMuted text-base sm:text-lg font-light leading-relaxed">
+                    <p class="text-white font-medium text-xl font-serif leading-snug">
+                        "Maria Cacialli è una donna tosta, la vera matriarca napoletana. Difende la famiglia a tutti i costi, la mostra con orgoglio e la protegge con determinazione."
+                    </p>
+                    <p>
+                        La pizzeria nasce dal progetto di <strong class="text-white">Felice Messina</strong> e <strong class="text-white">Maria Cacialli</strong>, figlia del mitico Ernesto. Ernesto divenne famoso in tutto il mondo nel 1994 quando, in occasione del summit G7 a Napoli, invitò simpaticamente il Presidente degli Stati Uniti Bill Clinton a gustare la sua pizza appena sfornata.
+                    </p>
+                    <p>
+                        Da quel giorno, Ernesto divenne ufficialmente <em class="text-brand-gold italic">"Il Pizzaiolo del Presidente"</em>. Oggi Maria porta avanti quel nome con grinta e rispetto sacro per la tradizione gastronomica partenopea.
+                    </p>
+
+                    <div class="pt-4 grid grid-cols-2 gap-4">
+                        <div class="p-4 rounded-xl bg-brand-darkCard border border-white/5">
+                            <i class="fa-solid fa-fire text-brand-red text-2xl mb-2"></i>
+                            <h4 class="font-bold text-white text-sm uppercase tracking-wider">Forno a Legna</h4>
+                            <p class="text-xs text-brand-creamMuted mt-1">Cottura ad alta temperatura come vuole l'antica scuola.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-darkCard border border-white/5">
+                            <i class="fa-solid fa-wheat-awn text-brand-gold text-2xl mb-2"></i>
+                            <h4 class="font-bold text-white text-sm uppercase tracking-wider">Materia Prima</h4>
+                            <p class="text-xs text-brand-creamMuted mt-1">Ingredienti selezionati e farina di altissima qualità.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED DISH: LA REGINA (PIZZA FRITTA) -->
+    <section id="regina" class="py-24 bg-brand-darkCard relative border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-red/20 text-brand-red text-xs font-bold uppercase tracking-widest border border-brand-red/30">
+                        <i class="fa-solid fa-star"></i> Il Nostro Capolavoro
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white leading-tight">
+                        A' Regina: <br>
+                        <span class="text-brand-gold">La Pizza Fritta per Eccellenza</span>
+                    </h2>
+                    <p class="text-lg text-brand-creamMuted font-light leading-relaxed">
+                        È impossibile passare per il centro storico di Napoli senza assaggiare <strong>"La Regina"</strong>. Una doratura perfetta, un ripieno filante e saporito che racchiude tutta l'anima del fritto napoletano.
+                    </p>
+                    <ul class="space-y-3 text-sm text-brand-cream font-medium">
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-brand-gold"></i>
+                            <span>Impasto leggero e ad altissima digeribilità</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-brand-gold"></i>
+                            <span>Ricetta storica tramandata di generazione in generazione</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-brand-gold"></i>
+                            <span>Frittura dorata, asciutta e croccante fuori, morbida dentro</span>
+                        </li>
+                    </ul>
+                    <div class="pt-4">
+                        <a href="#prenota" class="inline-flex items-center px-6 py-3 rounded-xl bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-bold text-xs uppercase tracking-widest transition-all">
+                            Vieni ad Assaggiarla <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Visual Dish -->
+                <div class="lg:col-span-6">
+                    <div class="relative group">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-brand-gold to-brand-red rounded-3xl blur-lg opacity-40 group-hover:opacity-60 transition duration-500"></div>
+                        <div class="relative rounded-2xl overflow-hidden border border-white/10 bg-brand-dark">
+                            <img src="https://figliadelpresidente.com/wp-content/uploads/2024/06/reginadellepizzefritte-min.png" 
+                                 alt="La Regina Pizza Fritta" 
+                                 class="w-full h-[450px] object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM / LA FAMIGLIA SECTION -->
+    <section id="famiglia" class="py-24 bg-brand-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-gold">N'ata Generation</h2>
+                <p class="text-3xl sm:text-4xl font-serif font-bold text-white">La Famiglia Messina & Cacialli</p>
+                <p class="text-brand-creamMuted text-base font-light">
+                    Tre generazioni con le mani in pasta. Scorri con il mouse sulle schede per scoprire il ruolo di ciascuno.
+                </p>
+                <div class="w-16 h-1 bg-brand-red mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Team Cards Grid with Hover Slide-Up Panel -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Card 1: Maria Cacialli -->
+                <div class="group relative rounded-2xl overflow-hidden bg-brand-darkCard border border-white/10 h-[400px] shadow-xl">
                     <img src="https://figliadelpresidente.com/wp-content/uploads/2024/06/marialafigliadelpresidente-min.png" 
                          alt="Maria Cacialli" 
-                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                         class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700">
                     
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 class="font-serif font-bold text-2xl text-brand-goldLight">Maria Cacialli</h3>
-                        <p class="text-xs text-gray-300 font-medium">La Figlia del Presidente</p>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-6 flex flex-col justify-end">
+                        <span class="text-xs text-brand-gold font-bold uppercase tracking-wider">Fondatrice & Guida</span>
+                        <h3 class="text-xl font-serif font-bold text-white">Maria Cacialli</h3>
                     </div>
 
-                    <!-- Slide-up Info Overlay -->
-                    <div class="absolute inset-0 bg-brand-dark/95 p-6 flex flex-col justify-end text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <span class="text-brand-gold font-serif italic text-sm">La Matriarca</span>
-                        <h4 class="font-serif font-bold text-xl mb-2 text-white">Maria Cacialli</h4>
-                        <p class="text-xs text-gray-300 leading-relaxed mb-4">
-                            Donna tosta e vera guida della famiglia. Difende l'autenticità del marchio con orgoglio e determinazione quotidiana.
-                        </p>
-                        <div class="pt-2 border-t border-white/10 text-xs text-brand-gold">
-                            <i class="fa-solid fa-certificate mr-1"></i> Fondatrice & Custode del Marchio
+                    <!-- Slide-Up Hover Panel -->
+                    <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out bg-brand-darkCard/95 backdrop-blur-md p-6 border-t border-brand-gold/30 flex flex-col justify-between h-full z-20">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">La Figlia del Presidente</span>
+                            <h4 class="text-xl font-serif font-bold text-white mt-1">Maria Cacialli</h4>
+                            <p class="text-xs text-brand-creamMuted mt-3 leading-relaxed">
+                                La vera anima e testa della struttura. Custodisce l'eredità di papà Ernesto, gestendo l'accoglienza e la qualità con grinta inconfondibile.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 text-xs text-brand-gold font-semibold">
+                            <i class="fa-solid fa-award mr-1"></i> Icona della Pizzeria Napoletana
                         </div>
                     </div>
                 </div>
 
-                <!-- Team Member 2: Felice -->
-                <div class="relative group rounded-3xl overflow-hidden bg-brand-dark shadow-xl h-96 cursor-pointer border border-gray-200">
+                <!-- Card 2: Felice Messina -->
+                <div class="group relative rounded-2xl overflow-hidden bg-brand-darkCard border border-white/10 h-[400px] shadow-xl">
                     <img src="https://figliadelpresidente.com/wp-content/uploads/2024/06/felicemessinapizzaiolo-min-1024x855.png" 
                          alt="Felice Messina" 
-                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                         class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700">
                     
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 class="font-serif font-bold text-2xl text-brand-goldLight">Felice Messina</h3>
-                        <p class="text-xs text-gray-300 font-medium">Maestro Pizzaiolo</p>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-6 flex flex-col justify-end">
+                        <span class="text-xs text-brand-gold font-bold uppercase tracking-wider">Maestro Pizzaiolo</span>
+                        <h3 class="text-xl font-serif font-bold text-white">Felice Messina</h3>
                     </div>
 
-                    <!-- Slide-up Info Overlay -->
-                    <div class="absolute inset-0 bg-brand-dark/95 p-6 flex flex-col justify-end text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <span class="text-brand-gold font-serif italic text-sm">Il Mastro Fornaio</span>
-                        <h4 class="font-serif font-bold text-xl mb-2 text-white">Felice Messina</h4>
-                        <p class="text-xs text-gray-300 leading-relaxed mb-4">
-                            Insieme alla moglie Maria manda avanti la tradizione di Ernesto con esperienza, costanza e insuperabile qualità al forno.
-                        </p>
-                        <div class="pt-2 border-t border-white/10 text-xs text-brand-gold">
-                            <i class="fa-solid fa-fire mr-1"></i> Chef Pizzaiolo & Operativo
+                    <!-- Slide-Up Hover Panel -->
+                    <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out bg-brand-darkCard/95 backdrop-blur-md p-6 border-t border-brand-gold/30 flex flex-col justify-between h-full z-20">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">Forno & Cucina</span>
+                            <h4 class="text-xl font-serif font-bold text-white mt-1">Felice Messina</h4>
+                            <p class="text-xs text-brand-creamMuted mt-3 leading-relaxed">
+                                Marito di Maria e forza infaticabile tra la cucina e il forno a legna. Anni di esperienza per garantire una qualità immutata nel tempo.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 text-xs text-brand-gold font-semibold">
+                            <i class="fa-solid fa-fire-burner mr-1"></i> Maestro dell'Impasto
                         </div>
                     </div>
                 </div>
 
-                <!-- Team Member 3: Armando -->
-                <div class="relative group rounded-3xl overflow-hidden bg-brand-dark shadow-xl h-96 cursor-pointer border border-gray-200">
-                    <img src="https://figliadelpresidente.com/wp-content/uploads/elementor/thumbs/273680148_641021753805745_3088817271667211133_n-qqh0cqoc2pgx8bt66ejm7i6nrm5hrt64ywucve6efc.jpg" 
+                <!-- Card 3: Armando Messina -->
+                <div class="group relative rounded-2xl overflow-hidden bg-brand-darkCard border border-white/10 h-[400px] shadow-xl">
+                    <img src="https://figliadelpresidente.com/wp-content/uploads/elementor/thumbs/WhatsApp-Image-2024-07-01-at-14.26.42-qqh0cqoc2pgx8bt66ejm7i6nrm5hrt64ywucve6efc.jpeg" 
                          alt="Armando Messina" 
-                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                         class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700">
                     
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 class="font-serif font-bold text-2xl text-brand-goldLight">Armando Messina</h3>
-                        <p class="text-xs text-gray-300 font-medium">Terza Generazione</p>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-6 flex flex-col justify-end">
+                        <span class="text-xs text-brand-gold font-bold uppercase tracking-wider">Terza Generazione</span>
+                        <h3 class="text-xl font-serif font-bold text-white">Armando Messina</h3>
                     </div>
 
-                    <!-- Slide-up Info Overlay -->
-                    <div class="absolute inset-0 bg-brand-dark/95 p-6 flex flex-col justify-end text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <span class="text-brand-gold font-serif italic text-sm">Nipote del Presidente</span>
-                        <h4 class="font-serif font-bold text-xl mb-2 text-white">Armando Messina</h4>
-                        <p class="text-xs text-gray-300 leading-relaxed mb-4">
-                            Cresciuto al banco delle pizze, rappresenta l'energia giovane e la continuità del progetto nel futuro.
-                        </p>
-                        <div class="pt-2 border-t border-white/10 text-xs text-brand-gold">
-                            <i class="fa-solid fa-hands-holding-dough mr-1"></i> Gestione & Innovazione
+                    <!-- Slide-Up Hover Panel -->
+                    <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out bg-brand-darkCard/95 backdrop-blur-md p-6 border-t border-brand-gold/30 flex flex-col justify-between h-full z-20">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">I Nipoti del Presidente</span>
+                            <h4 class="text-xl font-serif font-bold text-white mt-1">Armando Messina</h4>
+                            <p class="text-xs text-brand-creamMuted mt-3 leading-relaxed">
+                                Cresciuto con le mani in pasta. Rappresenta il futuro della pizzeria, unendo l'insegnamento dei genitori a un tocco di innovazione organizzativa.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 text-xs text-brand-gold font-semibold">
+                            <i class="fa-solid fa-hands-holding-dough mr-1"></i> Tradizione in Evoluzione
                         </div>
                     </div>
                 </div>
 
-                <!-- Team Member 4: Ernesto Jr -->
-                <div class="relative group rounded-3xl overflow-hidden bg-brand-dark shadow-xl h-96 cursor-pointer border border-gray-200">
-                    <img src="https://figliadelpresidente.com/wp-content/uploads/2024/06/308580928_510585424237542_2718228624138916878_n-819x1024.jpg" 
+                <!-- Card 4: Ernesto Messina -->
+                <div class="group relative rounded-2xl overflow-hidden bg-brand-darkCard border border-white/10 h-[400px] shadow-xl">
+                    <img src="https://figliadelpresidente.com/wp-content/uploads/elementor/thumbs/WhatsApp-Image-2024-07-01-at-14.26.40-qqh0cqoc2pgx8bt66ejm7i6nrm5hrt64ywucve6efc.jpeg" 
                          alt="Ernesto Messina" 
-                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                         class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700">
                     
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 class="font-serif font-bold text-2xl text-brand-goldLight">Ernesto Messina</h3>
-                        <p class="text-xs text-gray-300 font-medium">Terza Generazione</p>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-6 flex flex-col justify-end">
+                        <span class="text-xs text-brand-gold font-bold uppercase tracking-wider">Terza Generazione</span>
+                        <h3 class="text-xl font-serif font-bold text-white">Ernesto Messina</h3>
                     </div>
 
-                    <!-- Slide-up Info Overlay -->
-                    <div class="absolute inset-0 bg-brand-dark/95 p-6 flex flex-col justify-end text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <span class="text-brand-gold font-serif italic text-sm">Nipote del Presidente</span>
-                        <h4 class="font-serif font-bold text-xl mb-2 text-white">Ernesto Messina</h4>
-                        <p class="text-xs text-gray-300 leading-relaxed mb-4">
-                            Porta con orgoglio il nome del nonno. Passione pura e perfezionamento della cottura nel forno a legna.
-                        </p>
-                        <div class="pt-2 border-t border-white/10 text-xs text-brand-gold">
-                            <i class="fa-solid fa-star mr-1"></i> Maestro Impastatore
+                    <!-- Slide-Up Hover Panel -->
+                    <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out bg-brand-darkCard/95 backdrop-blur-md p-6 border-t border-brand-gold/30 flex flex-col justify-between h-full z-20">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">Nel Nome del Nonno</span>
+                            <h4 class="text-xl font-serif font-bold text-white mt-1">Ernesto Messina</h4>
+                            <p class="text-xs text-brand-creamMuted mt-3 leading-relaxed">
+                                Porta con orgoglio il nome dello storico nonno Ernesto. Dedizione quotidiana al banco per mantenere vivo il vero sapore napoletano.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 text-xs text-brand-gold font-semibold">
+                            <i class="fa-solid fa-pizza-slice mr-1"></i> Passione di Famiglia
                         </div>
                     </div>
                 </div>
@@ -447,137 +460,119 @@
         </div>
     </section>
 
-    <!-- SOCIAL PROOF & REVIEWS -->
-    <section id="recensioni" class="py-20 bg-brand-dark text-white relative">
+    <!-- TESTIMONIALS / GOOGLE REVIEWS -->
+    <section class="py-20 bg-brand-darkCard border-y border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-brand-gold text-xs font-bold">
-                    <i class="fa-brands fa-google text-brand-gold"></i>
-                    <span>Oltre 6.548 Recensioni Certificate</span>
+            
+            <div class="flex flex-col md:flex-row items-center justify-between mb-12">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">Cosa Dicono di Noi</span>
+                    <h2 class="text-3xl font-serif font-bold text-white mt-1">Oltre 6.500 Recensioni su Google</h2>
                 </div>
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold">Cosa Dicono i Nostri Ospiti</h2>
-                <p class="text-gray-400 text-base">Trasparenza, gentilezza e qualità riconosciuta da napoletani e turisti da tutto il mondo.</p>
+                <div class="mt-4 md:mt-0 flex items-center space-x-2 bg-white/5 px-4 py-2 rounded-xl border border-white/10">
+                    <i class="fa-brands fa-google text-brand-gold text-xl"></i>
+                    <span class="text-sm font-bold">4.8 / 5.0 Stelle</span>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Review Card 1 -->
-                <div class="bg-brand-card p-8 rounded-3xl border border-white/10 shadow-xl flex flex-col justify-between hover:border-brand-gold/40 transition">
-                    <div class="space-y-4">
-                        <div class="flex text-brand-gold text-sm gap-1">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed italic">
-                            "Dovete assolutamente provare la pizza Margherita, enorme e buonissima! Il locale è caratteristico e i ragazzi sono tutti gentili!"
-                        </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="p-6 rounded-2xl bg-brand-dark border border-white/10 space-y-4">
+                    <div class="flex items-center space-x-1 text-brand-gold text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-brand-red flex items-center justify-center font-bold text-white text-sm">
-                            SS
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-sm text-white">Simona Squatrito</h4>
-                            <p class="text-xs text-gray-400">Recensione Google</p>
-                        </div>
+                    <p class="text-sm text-brand-creamMuted italic">
+                        "Dovete assolutamente provare la Margherita e la Pizza Fritta, enormi e deliziose! Il locale è caratteristico e i ragazzi sono tutti gentilissimi!"
+                    </p>
+                    <div class="pt-2 border-t border-white/10 flex items-center justify-between text-xs">
+                        <span class="font-bold text-white">Simona Squatrito</span>
+                        <span class="text-brand-creamMuted">Recensione Google</span>
                     </div>
                 </div>
 
-                <!-- Review Card 2 -->
-                <div class="bg-brand-card p-8 rounded-3xl border border-white/10 shadow-xl flex flex-col justify-between hover:border-brand-gold/40 transition">
-                    <div class="space-y-4">
-                        <div class="flex text-brand-gold text-sm gap-1">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed italic">
-                            "Io e mia moglie siamo stati in questa pizzeria napoletana per cena... tutto ottimo, personale cordiale e la titolare sempre col sorriso. Consigliatissimo!"
-                        </p>
+                <div class="p-6 rounded-2xl bg-brand-dark border border-white/10 space-y-4">
+                    <div class="flex items-center space-x-1 text-brand-gold text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-brand-gold flex items-center justify-center font-bold text-brand-dark text-sm">
-                            EL
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-sm text-white">Emanuele Leone</h4>
-                            <p class="text-xs text-gray-400">Recensione Google</p>
-                        </div>
+                    <p class="text-sm text-brand-creamMuted italic">
+                        "Mio marito ed io siamo stati in questa pizzeria napoletana venerdì sera per cena... tutto ottimo, personale cordiale e la titolare sorridente. Consigliatissimo!"
+                    </p>
+                    <div class="pt-2 border-t border-white/10 flex items-center justify-between text-xs">
+                        <span class="font-bold text-white">Emanuele Leone</span>
+                        <span class="text-brand-creamMuted">Recensione Google</span>
                     </div>
                 </div>
 
-                <!-- Review Card 3 -->
-                <div class="bg-brand-card p-8 rounded-3xl border border-white/10 shadow-xl flex flex-col justify-between hover:border-brand-gold/40 transition">
-                    <div class="space-y-4">
-                        <div class="flex text-brand-gold text-sm gap-1">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed italic">
-                            "In attesa del nostro volo siamo venuti a mangiare in questo posto speciale. Per me rappresenta un'istituzione vera a Napoli. Pizza superlativa!"
-                        </p>
+                <div class="p-6 rounded-2xl bg-brand-dark border border-white/10 space-y-4">
+                    <div class="flex items-center space-x-1 text-brand-gold text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-red-700 flex items-center justify-center font-bold text-white text-sm">
-                            MR
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-sm text-white">Marta Riselli</h4>
-                            <p class="text-xs text-gray-400">Recensione Google</p>
-                        </div>
+                    <p class="text-sm text-brand-creamMuted italic">
+                        "In attesa del volo siamo venuti a mangiare in questo posto speciale. Per me un'istituzione vera nel cuore di Napoli."
+                    </p>
+                    <div class="pt-2 border-t border-white/10 flex items-center justify-between text-xs">
+                        <span class="font-bold text-white">Marta Riselli</span>
+                        <span class="text-brand-creamMuted">Recensione Google</span>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- FAQ ACCORDION SECTION -->
-    <section id="faq" class="py-20 sm:py-28 bg-brand-cream">
+    <!-- FAQ SECTION ('AND QUESTIONS) -->
+    <section id="faq" class="py-24 bg-brand-dark relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
             <div class="text-center mb-16 space-y-4">
-                <span class="text-brand-red font-semibold uppercase tracking-widest text-xs">Informazioni Utili</span>
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-dark">Domande Frequenti ('O Questions)</h2>
-                <p class="text-gray-600 text-sm sm:text-base">Tutto ciò che devi sapere prima di venire a trovarci nel centro storico.</p>
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-gold">'and Questions</h2>
+                <p class="text-3xl sm:text-4xl font-serif font-bold text-white">Domande Frequenti</p>
+                <p class="text-brand-creamMuted text-sm">C'è una risposta ad ogni curiosità. Se non trovi quello che cerchi, contattaci liberamente.</p>
             </div>
 
-            <div class="space-y-4" id="faqAccordion">
+            <div class="space-y-4">
                 
                 <!-- FAQ Item 1 -->
-                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm transition">
-                    <button class="w-full p-6 text-left font-serif font-bold text-lg text-brand-dark flex justify-between items-center focus:outline-none faq-toggle">
+                <div class="rounded-xl bg-brand-darkCard border border-white/10 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left font-serif font-bold text-white flex justify-between items-center hover:text-brand-gold transition-colors">
                         <span>Dove vi trovate esattamente?</span>
-                        <i class="fa-solid fa-chevron-down text-brand-gold transition-transform duration-300"></i>
+                        <i class="fa-solid fa-plus text-brand-gold transition-transform duration-300"></i>
                     </button>
-                    <div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed hidden faq-content">
-                        Ci troviamo in <strong class="text-brand-dark">Via del Grande Archivio 24</strong>, nel cuore del centro storico di Napoli, a due passi dalla stazione Metro "DUOMO" e vicino alla celebre via dei presepi San Gregorio Armeno.
+                    <div class="faq-content hidden px-6 pb-5 text-sm text-brand-creamMuted leading-relaxed">
+                        Siamo in <strong class="text-white">Via del Grande Archivio 24, Napoli</strong>, a due passi dalla stazione della metropolitana "DUOMO" e vicino alla famosa via dei presepi di San Gregorio Armeno.
                     </div>
                 </div>
 
                 <!-- FAQ Item 2 -->
-                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm transition">
-                    <button class="w-full p-6 text-left font-serif font-bold text-lg text-brand-dark flex justify-between items-center focus:outline-none faq-toggle">
-                        <span>Quanto si aspetta per un tavolo?</span>
-                        <i class="fa-solid fa-chevron-down text-brand-gold transition-transform duration-300"></i>
+                <div class="rounded-xl bg-brand-darkCard border border-white/10 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left font-serif font-bold text-white flex justify-between items-center hover:text-brand-gold transition-colors">
+                        <span>Si può prenotare un tavolo?</span>
+                        <i class="fa-solid fa-plus text-brand-gold transition-transform duration-300"></i>
                     </button>
-                    <div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed hidden faq-content">
-                        Durante la settimana l'attesa è generalmente minima o assente. Nei fine settimana o nei giorni festivi ci può essere un po' di fila all'ingresso, ma la gestione è velocissima: nell'attesa potrai gustare uno sfizio fritto appena fatto!
+                    <div class="faq-content hidden px-6 pb-5 text-sm text-brand-creamMuted leading-relaxed">
+                        Di norma gestiamo l'ingresso con lista d'attesa all'arrivo alla porta. Durante la settimana l'attesa è minima o nulla, mentre nei fine settimana potrebbe esserci un po' di fila: ne approfitterai per gustare un fritto di benvenuto! Per richieste speciali o gruppi puoi contattarci tramite il modulo sottostante.
                     </div>
                 </div>
 
                 <!-- FAQ Item 3 -->
-                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm transition">
-                    <button class="w-full p-6 text-left font-serif font-bold text-lg text-brand-dark flex justify-between items-center focus:outline-none faq-toggle">
-                        <span>C'è parcheggio nelle vicinanze?</span>
-                        <i class="fa-solid fa-chevron-down text-brand-gold transition-transform duration-300"></i>
+                <div class="rounded-xl bg-brand-darkCard border border-white/10 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left font-serif font-bold text-white flex justify-between items-center hover:text-brand-gold transition-colors">
+                        <span>Quali sono i giorni e gli orari di apertura?</span>
+                        <i class="fa-solid fa-plus text-brand-gold transition-transform duration-300"></i>
                     </button>
-                    <div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed hidden faq-content">
-                        È possibile trovare posto per la macchina lungo Corso Umberto I, la strada principale adiacente a Via del Grande Archivio 24, oppure nei garage custoditi di zona.
+                    <div class="faq-content hidden px-6 pb-5 text-sm text-brand-creamMuted leading-relaxed">
+                        Siamo aperti il Lunedì solo a pranzo, dal Martedì al Sabato sia a pranzo che a cena. La Domenica aperti a pranzo nei mesi di Novembre e Dicembre.
                     </div>
                 </div>
 
                 <!-- FAQ Item 4 -->
-                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm transition">
-                    <button class="w-full p-6 text-left font-serif font-bold text-lg text-brand-dark flex justify-between items-center focus:outline-none faq-toggle">
-                        <span>Quali sono i giorni e gli orari di apertura?</span>
-                        <i class="fa-solid fa-chevron-down text-brand-gold transition-transform duration-300"></i>
+                <div class="rounded-xl bg-brand-darkCard border border-white/10 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left font-serif font-bold text-white flex justify-between items-center hover:text-brand-gold transition-colors">
+                        <span>C'è parcheggio nelle vicinanze?</span>
+                        <i class="fa-solid fa-plus text-brand-gold transition-transform duration-300"></i>
                     </button>
-                    <div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed hidden faq-content">
-                        Siamo aperti il lunedì solo a pranzo, dal martedì al sabato sia a pranzo che a cena. La domenica siamo aperti solo a pranzo nei mesi di novembre e dicembre.
+                    <div class="faq-content hidden px-6 pb-5 text-sm text-brand-creamMuted leading-relaxed">
+                        Puoi trovare posto su Corso Umberto I, strada adiacente a Via del Grande Archivio, oppure nei garage custoditi della zona.
                     </div>
                 </div>
 
@@ -585,142 +580,140 @@
         </div>
     </section>
 
-    <!-- MANDATORY CONTACT & APPOINTMENT SECTION WITH INTEGRATED IFRAME -->
-    <section id="prenota" class="py-20 sm:py-28 bg-brand-dark text-white relative">
+    <!-- BOOKING / CONTACT SECTION (MANDATORY IFRAME INTEGRATION) -->
+    <section id="prenota" class="py-24 bg-brand-darkCard border-t border-white/10 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
-                <span class="text-brand-gold font-semibold uppercase tracking-widest text-xs">Servizio & Contatti</span>
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold">Richiedi Informazioni o Prenota una Visita</h2>
-                <p class="text-gray-300 text-sm sm:text-base">
-                    Utilizza il nostro calendario ufficiale per selezionare la data migliore e metterti in contatto diretto con la nostra struttura.
+            
+            <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">Contatto Diretto</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">Invia una Richiesta o Pianifica la Visita</h2>
+                <p class="text-brand-creamMuted text-sm">
+                    Utilizza il nostro sistema integrato per inviare una richiesta diretta alla struttura.
                 </p>
             </div>
 
-            <!-- MANDATORY CAL.COM IFRAME CONTAINER -->
-            <div class="w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl my-10 border border-white/10 bg-brand-card">
+            <!-- EXACT MANDATORY IFRAME CONTAINER -->
+            <div class="w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl my-10 bg-brand-dark border border-white/10">
                 <iframe src="https://cal.com/fabio-grussu-ubggf7/prima-visita" width="100%" height="700px" frameborder="0" style="background-color: transparent;"></iframe>
             </div>
 
-            <!-- LOCATION & MAP DIRECTORY INFO -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16 pt-12 border-t border-white/10">
-                <div class="bg-brand-card p-8 rounded-3xl border border-white/10 space-y-6">
-                    <h3 class="font-serif font-bold text-2xl text-brand-goldLight">Come Raggiungerci</h3>
-                    <div class="space-y-4 text-sm text-gray-300">
-                        <div class="flex items-start gap-4">
-                            <i class="fa-solid fa-map-pin text-brand-red text-xl mt-1"></i>
+        </div>
+    </section>
+
+    <!-- CONTACTS & GOOGLE MAPS SECTION -->
+    <section id="contatti" class="py-24 bg-brand-dark relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Contact Info -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">Dove Trovarci</span>
+                        <h2 class="text-3xl font-serif font-bold text-white mt-1">Vieni a Trovarci a Napoli</h2>
+                        <p class="text-brand-creamMuted text-sm mt-2">Nel cuore del centro storico partenopeo, a pochi passi dai principali luoghi d'interesse.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-red/10 border border-brand-red/30 flex items-center justify-center text-brand-red flex-shrink-0">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
                             <div>
-                                <strong class="text-white block font-semibold">Indirizzo:</strong>
-                                Via del Grande Archivio 24, 80138 Napoli (NA), Italia
+                                <h4 class="text-white font-bold text-sm">Indirizzo</h4>
+                                <p class="text-brand-creamMuted text-sm">Via del Grande Archivio 24, 80138 Napoli (NA)</p>
+                                <p class="text-xs text-brand-gold mt-1">Vicino Metro Duomo e San Gregorio Armeno</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4">
-                            <i class="fa-solid fa-train text-brand-gold text-xl mt-1"></i>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold flex-shrink-0">
+                                <i class="fa-solid fa-clock text-xl"></i>
+                            </div>
                             <div>
-                                <strong class="text-white block font-semibold">Metropolitana:</strong>
-                                Fermata DUOMO (Linea 1) a 3 minuti a piedi.
+                                <h4 class="text-white font-bold text-sm">Orari di Apertura</h4>
+                                <p class="text-brand-creamMuted text-sm">Lunedì: 12:00 – 15:30 (Solo Pranzo)</p>
+                                <p class="text-brand-creamMuted text-sm">Martedì – Sabato: 12:00 – 15:30 | 19:00 – 23:30</p>
+                                <p class="text-brand-creamMuted text-sm">Domenica: Chiuso (Aperti a pranzo Nov/Dic)</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4">
-                            <i class="fa-solid fa-clock text-brand-gold text-xl mt-1"></i>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white flex-shrink-0">
+                                <i class="fa-solid fa-share-nodes text-xl"></i>
+                            </div>
                             <div>
-                                <strong class="text-white block font-semibold">Orari di Apertura:</strong>
-                                Lunedì: 12:00 - 15:30 <br>
-                                Martedì - Sabato: 12:00 - 15:30 | 19:00 - 23:30
+                                <h4 class="text-white font-bold text-sm">Seguici sui Social</h4>
+                                <div class="flex space-x-3 mt-2">
+                                    <a href="https://www.facebook.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-brand-red text-white transition-colors">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-brand-red text-white transition-colors">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- GOOGLE MAPS IFRAME -->
-                <div class="rounded-3xl overflow-hidden border border-white/10 shadow-xl min-h-[300px]">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.36142100867!2d14.258839076579621!3d40.84859992900742!2m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b0845a7b63f2b%3A0x8e87d0e41712a208!2sVia%20del%20Grande%20Archivio%2C%2024%2C%2080138%20Napoli%20NA!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0; min-height: 320px;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+                <!-- Google Maps Embed -->
+                <div class="lg:col-span-7">
+                    <div class="w-full h-[420px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.021183204987!2d14.2583!3d40.8491!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b0845a7c2957b%3A0x7d6a9a08e1e7f6f0!2sVia%20del%20Grande%20Archivio%2024%2C%2080138%20Napoli%20NA!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; filter: grayscale(0.3) contrast(1.1);" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-black text-gray-400 py-12 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-brand-red flex items-center justify-center text-brand-goldLight font-serif font-bold text-xl border border-brand-gold/30">
-                        P
-                    </div>
-                    <div>
-                        <span class="font-serif font-bold text-white text-lg block leading-tight">La Figlia del Presidente</span>
-                        <span class="text-xs text-gray-500">La Pizzeria di Maria Cacialli • Via del Grande Archivio 24, Napoli</span>
-                    </div>
+    <footer class="bg-black py-12 border-t border-white/10 text-xs text-brand-creamMuted">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-full bg-brand-red flex items-center justify-center font-serif font-bold text-white text-xs">
+                    FP
                 </div>
+                <span class="font-serif font-bold text-white text-sm">La Figlia del Presidente</span>
+            </div>
 
-                <div class="flex gap-6 text-lg text-gray-300">
-                    <a href="https://facebook.com" target="_blank" class="hover:text-brand-gold transition"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://instagram.com" target="_blank" class="hover:text-brand-gold transition"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://tripadvisor.com" target="_blank" class="hover:text-brand-gold transition"><i class="fa-solid fa-utensils"></i></a>
-                </div>
+            <p class="text-center sm:text-left">
+                © <span id="year"></span> La Figlia del Presidente di Maria Cacialli · Via del Grande Archivio 24, Napoli. tutti i diritti riservati.
+            </p>
 
-                <div class="text-xs text-center md:text-right text-gray-500">
-                    &copy; <span id="year"></span> La Figlia del Presidente. Tutti i diritti riservati.<br>
-                    Designed with Excellence & Conversion Focus.
-                </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Cookie Policy</a>
             </div>
         </div>
     </footer>
 
-    <!-- JAVASCRIPT ANIMATIONS & LOGIC -->
+    <!-- INTERACTIVE JAVASCRIPT & GSAP ANIMATIONS -->
     <script>
-        // Set Year in Footer
+        // Set dynamic current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // GSAP ScrollTrigger Registration
-        gsap.registerPlugin(ScrollTrigger);
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        // Header Background Blur on Scroll
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('shadow-xl', 'bg-brand-dark/95');
-            } else {
-                header.classList.remove('shadow-xl', 'bg-brand-dark/95');
-            }
-        });
-
-        // Mobile Menu Drawer Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileDrawer = document.getElementById('mobileDrawer');
         mobileMenuBtn.addEventListener('click', () => {
-            mobileDrawer.classList.toggle('hidden');
+            mobileMenu.classList.toggle('hidden');
         });
 
-        // GSAP Window Reveal Animation for Image
-        gsap.to('#windowRevealImage', {
-            clipPath: 'inset(0% 0% 0% 0% round 24px)',
-            scrollTrigger: {
-                trigger: '#windowRevealContainer',
-                start: 'top 75%',
-                end: 'bottom 40%',
-                scrub: 1
-            }
-        });
-
-        gsap.to('#windowImg', {
-            scale: 1,
-            scrollTrigger: {
-                trigger: '#windowRevealContainer',
-                start: 'top 75%',
-                end: 'bottom 40%',
-                scrub: 1
-            }
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
         });
 
         // FAQ Accordion Toggle
@@ -730,10 +723,44 @@
                 const content = toggle.nextElementSibling;
                 const icon = toggle.querySelector('i');
                 
-                // Toggle Current
                 content.classList.toggle('hidden');
-                icon.classList.toggle('rotate-180');
+                if (content.classList.contains('hidden')) {
+                    icon.classList.replace('fa-minus', 'fa-plus');
+                } else {
+                    icon.classList.replace('fa-plus', 'fa-minus');
+                }
             });
+        });
+
+        // GSAP ScrollTrigger Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Window clip-path / scale animation on key section images
+        gsap.utils.toArray('.gsap-reveal-window').forEach(container => {
+            gsap.fromTo(container, 
+                { scale: 0.92, opacity: 0.8 },
+                {
+                    scale: 1,
+                    opacity: 1,
+                    duration: 1.2,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: container,
+                        start: "top 85%",
+                        end: "top 30%",
+                        scrub: 1
+                    }
+                }
+            );
+        });
+
+        // Hero Image Entrance
+        gsap.from('#hero-img-container', {
+            duration: 1.2,
+            y: 40,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.2
         });
     </script>
 </body>
