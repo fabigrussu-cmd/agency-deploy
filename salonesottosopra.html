@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELIXHAIR | Specialisti Ricostruzione Capelli e Miss Balayage a Cagliari</title>
+    <meta name="description" content="Il 1° Salone di Parrucchieri a Cagliari specializzato nella Ricostruzione e Cura dei Capelli. Scopri il nostro esclusivo Miss Balayage e i trattamenti rigeneranti Relix.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#121113',
+                            charcoal: '#1E1C20',
+                            card: '#252228',
+                            gold: '#D4AF37',
+                            goldLight: '#F3E5AB',
+                            rose: '#E8C5B8',
+                            cream: '#FAF7F2',
+                            muted: '#A19B91'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- GSAP & ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #121113;
+            color: #FAF7F2;
+            overflow-x: hidden;
+        }
+        
+        .font-serif-title {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Gold Gradient Text */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #FFF0CA 0%, #D4AF37 50%, #AA820A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Luxury Card Glow */
+        .luxury-card {
+            background: linear-gradient(180deg, rgba(37, 34, 40, 0.8) 0%, rgba(25, 23, 27, 0.9) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .luxury-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.15);
+        }
+
+        /* Window Animation Mask */
+        .window-mask {
+            clip-path: inset(10% 10% 10% 10% round 24px);
+            transition: clip-path 0.5s ease;
+        }
+
+        /* Smooth Glassmorphism Header */
+        .header-glass {
+            background: rgba(18, 17, 19, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-gold selection:text-brand-dark">
+
+    <!-- STICKY HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 header-glass transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full border border-brand-gold/40 flex items-center justify-center bg-brand-charcoal group-hover:border-brand-gold transition-colors">
+                        <span class="font-serif-title font-bold text-xl text-brand-gold">E</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif-title text-2xl font-bold tracking-widest text-brand-cream">ELIXHAIR</span>
+                        <span class="text-[9px] uppercase tracking-[0.2em] text-brand-gold -mt-1">Cagliari • Cura & Ricostruzione</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+                    <a href="#chi-siamo" class="text-brand-cream/80 hover:text-brand-gold transition-colors">Il Salone</a>
+                    <a href="#specialita" class="text-brand-cream/80 hover:text-brand-gold transition-colors">Miss Balayage</a>
+                    <a href="#trattamenti" class="text-brand-cream/80 hover:text-brand-gold transition-colors">Ricostruzione Relix</a>
+                    <a href="#team" class="text-brand-cream/80 hover:text-brand-gold transition-colors">Staff</a>
+                    <a href="#recensioni" class="text-brand-cream/80 hover:text-brand-gold transition-colors">Recensioni</a>
+                    <a href="#contatti" class="text-brand-cream/80 hover:text-brand-gold transition-colors">Dove Siamo</a>
+                </nav>
+
+                <!-- Header Actions & Language Selector -->
+                <div class="flex items-center gap-4">
+                    <!-- Multi-Language Selector -->
+                    <div class="relative group">
+                        <button class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-brand-cream/70 hover:text-brand-gold bg-brand-charcoal px-3 py-1.5 rounded-full border border-white/10 transition-colors" aria-label="Seleziona Lingua">
+                            <i class="fa-solid me-1 fa-globe text-brand-gold"></i>
+                            <span id="current-lang">IT</span>
+                            <i class="fa-solid fa-chevron-down text-[10px] ml-0.5 opacity-60"></i>
+                        </button>
+                        <div class="absolute right-0 mt-2 w-28 bg-brand-charcoal border border-brand-gold/20 rounded-xl shadow-2xl py-2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 z-50">
+                            <a href="#" onclick="changeLanguage('IT')" class="flex items-center justify-between px-4 py-1.5 text-xs text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold transition-colors">
+                                <span>Italiano</span> <span class="font-bold text-[10px] text-brand-gold">IT</span>
+                            </a>
+                            <a href="#" onclick="changeLanguage('EN')" class="flex items-center justify-between px-4 py-1.5 text-xs text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold transition-colors">
+                                <span>English</span> <span class="font-bold text-[10px] text-brand-gold">EN</span>
+                            </a>
+                            <a href="#" onclick="changeLanguage('ES')" class="flex items-center justify-between px-4 py-1.5 text-xs text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold transition-colors">
+                                <span>Español</span> <span class="font-bold text-[10px] text-brand-gold">ES</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Main Call To Action Button -->
+                    <a href="#prenota" class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-brand-dark bg-gradient-to-r from-brand-goldLight via-brand-gold to-yellow-600 hover:brightness-110 shadow-lg shadow-brand-gold/10 transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-regular fa-calendar-check mr-2 text-sm"></i>
+                        Prenota Ora
+                    </a>
+
+                    <!-- Mobile Menu Trigger -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-brand-cream hover:text-brand-gold focus:outline-none" aria-label="Apri Menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 border-b border-brand-gold/20 px-6 py-6 space-y-4">
+            <a href="#chi-siamo" class="block text-brand-cream hover:text-brand-gold font-medium">Il Salone</a>
+            <a href="#specialita" class="block text-brand-cream hover:text-brand-gold font-medium">Miss Balayage</a>
+            <a href="#trattamenti" class="block text-brand-cream hover:text-brand-gold font-medium">Ricostruzione Relix</a>
+            <a href="#team" class="block text-brand-cream hover:text-brand-gold font-medium">Staff</a>
+            <a href="#recensioni" class="block text-brand-cream hover:text-brand-gold font-medium">Recensioni</a>
+            <a href="#contatti" class="block text-brand-cream hover:text-brand-gold font-medium">Dove Siamo</a>
+            <a href="#prenota" class="inline-block w-full text-center px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-brand-dark bg-brand-gold">
+                Prenota un Appuntamento
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH GSAP REVEAL -->
+    <section class="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden">
+        <!-- Background Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-gold/10 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-brand-rose/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Copy & CTAs -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-charcoal border border-brand-gold/30 text-brand-gold text-xs font-semibold tracking-wider uppercase">
+                        <i class="fa-solid fa-crown text-xs"></i>
+                        <span>Il 1° Salone a Cagliari Specializzato</span>
+                    </div>
+
+                    <h1 class="font-serif-title text-4xl sm:text-6xl xl:text-7xl font-bold text-brand-cream leading-[1.1]">
+                        Rigenera i tuoi capelli.<br>
+                        <span class="text-gold-gradient italic font-normal">Risplendi con Miss Balayage.</span>
+                    </h1>
+
+                    <p class="text-brand-cream/80 text-base sm:text-lg font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Addio capelli rovinati da trattamenti aggressivi. Nel nostro salone a Cagliari uniamo la scienza della <strong class="text-brand-cream font-semibold">Ricostruzione Capelli Relix</strong> all'arte delle schiariture naturali, per regalarvi una chioma forte, lucida e mozzafiato.
+                    </p>
+
+                    <!-- Trust Bar Badges -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 py-2 border-y border-white/10 text-xs text-brand-cream/70">
+                        <div class="flex items-center gap-2">
+                            <div class="flex text-amber-400 text-sm">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="font-bold text-brand-cream">4.9 / 5.0</span>
+                        </div>
+                        <div class="hidden sm:block w-px h-4 bg-white/20"></div>
+                        <div>
+                            <span class="font-bold text-brand-cream">870+</span> Recensioni Verificate
+                        </div>
+                        <div class="hidden sm:block w-px h-4 bg-white/20"></div>
+                        <div class="flex items-center gap-1.5 text-brand-gold">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Garanzia Capelli Sani</span>
+                        </div>
+                    </div>
+
+                    <!-- Call To Action Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#prenota" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider text-brand-dark bg-gradient-to-r from-brand-goldLight via-brand-gold to-yellow-600 hover:brightness-110 shadow-xl shadow-brand-gold/20 transition-all transform hover:-translate-y-1 text-center">
+                            Richiedi il tuo Appuntamento
+                        </a>
+                        <a href="#specialita" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wider text-brand-cream border border-brand-gold/30 hover:border-brand-gold hover:bg-brand-gold/10 transition-all text-center flex items-center justify-center gap-2">
+                            <span>Scopri Miss Balayage</span>
+                            <i class="fa-solid fa-arrow-right text-xs text-brand-gold"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Animated Visual Reveal -->
+                <div class="lg:col-span-5 relative">
+                    <div class="hero-window-container relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-brand-gold/20">
+                        <!-- High quality editorial hair photography -->
+                        <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?q=80&w=1200&auto=format&fit=crop" 
+                             alt="Balayage e cura capelli Elixhair Cagliari" 
+                             class="hero-image object-cover w-full h-full transform scale-105 transition-transform duration-1000">
+                        
+                        <!-- Overlay gradient -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80"></div>
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute bottom-6 left-6 right-6 p-5 luxury-card rounded-2xl backdrop-blur-md">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-brand-gold/20 border border-brand-gold flex items-center justify-center text-brand-gold flex-shrink-0">
+                                    <i class="fa-solid fa-sparkles text-xl"></i>
+                                </div>
+                                <div>
+                                    <h2 class="text-sm font-bold text-brand-cream">Effetto Seta & Riflessi Naturali</h2>
+                                    <p class="text-xs text-brand-muted mt-0.5">Trattamento di ricostruzione profonda incluso in ogni seduta.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHT: MISS BALAYAGE & RELIX -->
+    <section id="specialita" class="py-24 bg-brand-charcoal/50 border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-gold text-xs font-bold tracking-widest uppercase">I Nostri Cavalli di Battaglia</span>
+                <h2 class="font-serif-title text-3xl sm:text-5xl font-bold text-brand-cream">
+                    Sentiti una vera Miss con i trattamenti firma ELIXHAIR
+                </h2>
+                <p class="text-brand-muted text-sm sm:text-base">
+                    Creati su misura per proteggere la struttura del capello garantendo sfumature luminose e una morbidezza mai provata prima.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Card 1: Miss Balayage -->
+                <div class="luxury-card rounded-3xl p-8 sm:p-10 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-gold/10 rounded-bl-full pointer-events-none group-hover:bg-brand-gold/20 transition-all"></div>
+                    
+                    <div class="w-14 h-14 rounded-2xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-2xl mb-6">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+
+                    <span class="text-xs font-bold text-brand-gold uppercase tracking-wider">Schiariture d'Autore</span>
+                    <h3 class="font-serif-title text-3xl font-bold text-brand-cream mt-1 mb-4">Miss Balayage</h3>
+                    
+                    <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                        Lo speciale Balayage firmato Elixhair concepito per donare splendidi riflessi naturali, tridimensionalità e massima luminosità alla tua chioma, rispettando al 100% l'integrità del capello.
+                    </p>
+
+                    <ul class="space-y-3 text-xs text-brand-cream/90 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-brand-gold"></i>
+                            <span>Sfumatura personalizzata sulla forma del viso</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-brand-gold"></i>
+                            <span>Zero righe nette, ricrescita morbida ed elegante</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-brand-gold"></i>
+                            <span>Protezione integrata anti-rottura durante la schiaritura</span>
+                        </li>
+                    </ul>
+
+                    <a href="#prenota" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-gold group-hover:text-brand-goldLight transition-colors">
+                        <span>Prenota Miss Balayage</span>
+                        <i class="fa-solid fa-arrow-right text-xs transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Card 2: Trattamento Relix -->
+                <div id="trattamenti" class="luxury-card rounded-3xl p-8 sm:p-10 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-rose/10 rounded-bl-full pointer-events-none group-hover:bg-brand-rose/20 transition-all"></div>
+
+                    <div class="w-14 h-14 rounded-2xl bg-brand-rose/10 border border-brand-rose/30 flex items-center justify-center text-brand-rose text-2xl mb-6">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+
+                    <span class="text-xs font-bold text-brand-rose uppercase tracking-wider">Ricostruzione Molecolare</span>
+                    <h3 class="font-serif-title text-3xl font-bold text-brand-cream mt-1 mb-4">Trattamento Relix</h3>
+                    
+                    <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                        La cura definitiva per capelli rovinati, sfibrati, secchi o trattati. Relix penetra nelle fibre ripristinando la cheratina persa e restituendo alla chioma corpo, lucentezza e pettinabilità immediata.
+                    </p>
+
+                    <ul class="space-y-3 text-xs text-brand-cream/90 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-brand-rose"></i>
+                            <span>Ripara i danni da piastra, decolorazione e agenti atmosferici</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-brand-rose"></i>
+                            <span>Elimina l'effetto crespo causato dall'umidità di Cagliari</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-brand-rose"></i>
+                            <span>Risultati visibili e tangibili fin dalla prima applicazione</span>
+                        </li>
+                    </ul>
+
+                    <a href="#prenota" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-rose group-hover:text-brand-cream transition-colors">
+                        <span>Scopri il Trattamento Relix</span>
+                        <i class="fa-solid fa-arrow-right text-xs transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LISTA SERVIZI COMPLETA -->
+    <section class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-brand-gold text-xs font-bold tracking-widest uppercase">Menu Servizi</span>
+                    <h2 class="font-serif-title text-3xl sm:text-5xl font-bold text-brand-cream mt-2">
+                        I nostri servizi esclusivi per la tua chioma
+                    </h2>
+                </div>
+                <p class="text-brand-muted text-sm max-w-md">
+                    Ogni trattamento nel nostro salone comprende una consulenza approfondita sul capello per garantire risultati sartoriali.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Service Item 1 -->
+                <div class="p-6 rounded-2xl bg-brand-charcoal/40 border border-white/5 hover:border-brand-gold/30 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-serif-title text-xl font-bold text-brand-cream">Taglio Stylist D'Autore</h3>
+                        <span class="text-brand-gold font-bold text-sm">Bob, Pixie, Clavicut</span>
+                    </div>
+                    <p class="text-xs text-brand-muted leading-relaxed">
+                        Tagli moderni, freschi e pratici progettati per valorizzare i lineamenti del tuo viso ed essere gestiti con facilità anche a casa.
+                    </p>
+                </div>
+
+                <!-- Service Item 2 -->
+                <div class="p-6 rounded-2xl bg-brand-charcoal/40 border border-white/5 hover:border-brand-gold/30 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-serif-title text-xl font-bold text-brand-cream">Schiariture su Capelli Lisci</h3>
+                        <span class="text-brand-gold font-bold text-sm">Luce & Profondità</span>
+                    </div>
+                    <p class="text-xs text-brand-muted leading-relaxed">
+                        Tecnica specifica per trasformare capelli lisci o piatti in una cascata di riflessi multidimensionali e setosi.
+                    </p>
+                </div>
+
+                <!-- Service Item 3 -->
+                <div class="p-6 rounded-2xl bg-brand-charcoal/40 border border-white/5 hover:border-brand-gold/30 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-serif-title text-xl font-bold text-brand-cream">Tonalizzazioni & Capelli Rame</h3>
+                        <span class="text-brand-gold font-bold text-sm">Nuances Calde</span>
+                    </div>
+                    <p class="text-xs text-brand-muted leading-relaxed">
+                        Pigmenti ad alta definizione per tonalizzare, illuminare e dare nuova energia a toni caldi, rame, dorati o freddi.
+                    </p>
+                </div>
+
+                <!-- Service Item 4 -->
+                <div class="p-6 rounded-2xl bg-brand-charcoal/40 border border-white/5 hover:border-brand-gold/30 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-serif-title text-xl font-bold text-brand-cream">Piega & Styling Anti-Salsedine</h3>
+                        <span class="text-brand-gold font-bold text-sm">Durata Estrema</span>
+                    </div>
+                    <p class="text-xs text-brand-muted leading-relaxed">
+                        Piega personalizzata con trattamenti sigillanti per resistere all'umidità e al vento del lungomare di Cagliari.
+                    </p>
+                </div>
+
+                <!-- Service Item 5 -->
+                <div class="p-6 rounded-2xl bg-brand-charcoal/40 border border-white/5 hover:border-brand-gold/30 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-serif-title text-xl font-bold text-brand-cream">Rituale Cura Cute & Stelo</h3>
+                        <span class="text-brand-gold font-bold text-sm">Detox Profondo</span>
+                    </div>
+                    <p class="text-xs text-brand-muted leading-relaxed">
+                        Purificazione e nutrimento per il cuoio capelluto rigenerando la crescita sana e forte dei capelli alla radice.
+                    </p>
+                </div>
+
+                <!-- Service Item 6 -->
+                <div class="p-6 rounded-2xl bg-brand-charcoal/40 border border-white/5 hover:border-brand-gold/30 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-serif-title text-xl font-bold text-brand-cream">Consultazione & Check-up Capello</h3>
+                        <span class="text-brand-gold font-bold text-sm">Gratuito in Salone</span>
+                    </div>
+                    <p class="text-xs text-brand-muted leading-relaxed">
+                        Analisi accurata dello stato di salute delle lunghezze prima di qualsiasi decolorazione o cambio look importante.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM / EQUIPO SECTION WITH SLIDE-UP HOVER PANELS -->
+    <section id="team" class="py-24 bg-brand-charcoal/30 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-gold text-xs font-bold tracking-widest uppercase">I Nostri Professionisti</span>
+                <h2 class="font-serif-title text-3xl sm:text-5xl font-bold text-brand-cream">
+                    Mani esperte e passione per i tuoi capelli
+                </h2>
+                <p class="text-brand-muted text-sm sm:text-base">
+                    Un team affiatato formato sui protocolli di ricostruzione e sulle migliori tecniche di colorazione internazionale.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Team Member 1: Valentina Spiga -->
+                <div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-white/10 aspect-[3/4] shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=800&auto=format&fit=crop" 
+                         alt="Valentina Spiga - Founder & Master Stylist" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent opacity-90"></div>
+                    
+                    <!-- Permanent Label -->
+                    <div class="absolute bottom-4 left-4 right-4 transition-opacity duration-300 group-hover:opacity-0">
+                        <h3 class="font-serif-title text-2xl font-bold text-brand-cream">Valentina Spiga</h3>
+                        <p class="text-xs text-brand-gold font-medium">Founder & Master Stylist</p>
+                    </div>
+
+                    <!-- Slide-Up Info Panel on Hover -->
+                    <div class="absolute inset-0 bg-brand-dark/95 p-6 flex flex-col justify-end transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                        <span class="text-[10px] uppercase tracking-widest text-brand-gold font-bold mb-1">Founder & Master Stylist</span>
+                        <h3 class="font-serif-title text-2xl font-bold text-brand-cream mb-2">Valentina Spiga</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed mb-4">
+                            Ideatrice dei protocolli di ricostruzione Elixhair e specialista nelle schiariture d'alta moda.
+                        </p>
+                        <div class="border-t border-white/10 pt-3 flex items-center justify-between text-[11px] text-brand-cream/80">
+                            <span>Specializzazioni:</span>
+                            <span class="text-brand-gold font-semibold">Miss Balayage & Relix</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2: Alessia -->
+                <div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-white/10 aspect-[3/4] shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" 
+                         alt="Alessia - Specialist Ricostruzione" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent opacity-90"></div>
+                    
+                    <div class="absolute bottom-4 left-4 right-4 transition-opacity duration-300 group-hover:opacity-0">
+                        <h3 class="font-serif-title text-2xl font-bold text-brand-cream">Alessia</h3>
+                        <p class="text-xs text-brand-gold font-medium">Specialist Ricostruzione</p>
+                    </div>
+
+                    <div class="absolute inset-0 bg-brand-dark/95 p-6 flex flex-col justify-end transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                        <span class="text-[10px] uppercase tracking-widest text-brand-gold font-bold mb-1">Specialist Ricostruzione</span>
+                        <h3 class="font-serif-title text-2xl font-bold text-brand-cream mb-2">Alessia</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed mb-4">
+                            Mano esperta nel recupero di chiome fortemente rovinate da trattamenti chimici errati.
+                        </p>
+                        <div class="border-t border-white/10 pt-3 flex items-center justify-between text-[11px] text-brand-cream/80">
+                            <span>Specializzazioni:</span>
+                            <span class="text-brand-gold font-semibold">Cura & Trattamenti</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3: Paola -->
+                <div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-white/10 aspect-[3/4] shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=800&auto=format&fit=crop" 
+                         alt="Paola - Colorist & Stylist" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent opacity-90"></div>
+                    
+                    <div class="absolute bottom-4 left-4 right-4 transition-opacity duration-300 group-hover:opacity-0">
+                        <h3 class="font-serif-title text-2xl font-bold text-brand-cream">Paola</h3>
+                        <p class="text-xs text-brand-gold font-medium">Senior Colorist</p>
+                    </div>
+
+                    <div class="absolute inset-0 bg-brand-dark/95 p-6 flex flex-col justify-end transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                        <span class="text-[10px] uppercase tracking-widest text-brand-gold font-bold mb-1">Senior Colorist</span>
+                        <h3 class="font-serif-title text-2xl font-bold text-brand-cream mb-2">Paola</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed mb-4">
+                            Vera artista nella creazione di nuance calde, rame e trasformazioni da castano a biondo luminoso.
+                        </p>
+                        <div class="border-t border-white/10 pt-3 flex items-center justify-between text-[11px] text-brand-cream/80">
+                            <span>Specializzazioni:</span>
+                            <span class="text-brand-gold font-semibold">Colorazioni & Toni Rame</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 4: Alessandra -->
+                <div class="group relative rounded-2xl overflow-hidden bg-brand-card border border-white/10 aspect-[3/4] shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" 
+                         alt="Alessandra - Hair Care Specialist" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent opacity-90"></div>
+                    
+                    <div class="absolute bottom-4 left-4 right-4 transition-opacity duration-300 group-hover:opacity-0">
+                        <h3 class="font-serif-title text-2xl font-bold text-brand-cream">Alessandra</h3>
+                        <p class="text-xs text-brand-gold font-medium">Hair Care Specialist</p>
+                    </div>
+
+                    <div class="absolute inset-0 bg-brand-dark/95 p-6 flex flex-col justify-end transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                        <span class="text-[10px] uppercase tracking-widest text-brand-gold font-bold mb-1">Hair Care Specialist</span>
+                        <h3 class="font-serif-title text-2xl font-bold text-brand-cream mb-2">Alessandra</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed mb-4">
+                            Attenta alla cura del cliente, accoglienza e massaggi della cute rilassanti durante i lavaggi.
+                        </p>
+                        <div class="border-t border-white/10 pt-3 flex items-center justify-between text-[11px] text-brand-cream/80">
+                            <span>Specializzazioni:</span>
+                            <span class="text-brand-gold font-semibold">Accoglienza & Wellness</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- REAL REVIEWS SECTION FROM GOOGLE DATA -->
+    <section id="recensioni" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="flex items-center justify-center gap-2 text-amber-400">
+                    <i class="fa-solid fa-star text-lg"></i>
+                    <i class="fa-solid fa-star text-lg"></i>
+                    <i class="fa-solid fa-star text-lg"></i>
+                    <i class="fa-solid fa-star text-lg"></i>
+                    <i class="fa-solid fa-star text-lg"></i>
+                </div>
+                <h2 class="font-serif-title text-3xl sm:text-5xl font-bold text-brand-cream">
+                    Cosa dicono le nostre clienti
+                </h2>
+                <p class="text-brand-muted text-sm sm:text-base">
+                    Valutazione media di <strong class="text-brand-gold">4.9 / 5.0</strong> basata su oltre 871 recensioni reali su Google.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Review Card 1 -->
+                <div class="luxury-card rounded-2xl p-8 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <i class="fa-brands fa-google text-brand-muted text-sm"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-brand-cream/90 italic leading-relaxed">
+                            "Sono arrivata con i capelli molto rovinati e sono riusciti a recuperarli completamente. Il taglio è bellissimo, esattamente come lo immaginavo! Tutto il personale è stato incredibilmente gentile, accogliente e professionale."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-6 pt-4 border-t border-white/10">
+                        <img src="https://lh3.googleusercontent.com/a/ACg8ocI2tEeaKAP2-V1s4eV1gfQdL4UeUz6vMHix1DM3UoE_Iz_uFg=s128-c0x00000000-cc-rp-mo" 
+                             alt="Caro Kitzelmann G" class="w-10 h-10 rounded-full object-cover border border-brand-gold/30">
+                        <div>
+                            <h4 class="text-xs font-bold text-brand-cream">Caro Kitzelmann G.</h4>
+                            <span class="text-[10px] text-brand-muted">Cliente Verificata su Google</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="luxury-card rounded-2xl p-8 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <i class="fa-brands fa-google text-brand-muted text-sm"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-brand-cream/90 italic leading-relaxed">
+                            "Prima volta per me e non le lascerò mai più! Un grazie di cuore ad Alessia che ha realizzato un lavoro nettamente superiore alle mie aspettative... Venivo da uno scempio fatto da un altro parrucchiere. Vi straconsiglio loro!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-6 pt-4 border-t border-white/10">
+                        <img src="https://lh3.googleusercontent.com/a-/ALV-UjUk_FjILeyajTjMglCEW_vFIT88gXJUwAdx-_8UeY-mI8lHzbJH=s128-c0x00000000-cc-rp-mo" 
+                             alt="Francesca Maxia G" class="w-10 h-10 rounded-full object-cover border border-brand-gold/30">
+                        <div>
+                            <h4 class="text-xs font-bold text-brand-cream">Francesca Maxia G.</h4>
+                            <span class="text-[10px] text-brand-muted">Cliente Verificata su Google</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="luxury-card rounded-2xl p-8 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <i class="fa-brands fa-google text-brand-muted text-sm"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-brand-cream/90 italic leading-relaxed">
+                            "Ho fatto il trattamento Relix e i miei capelli sono tornati lucidi, setosi, corposi. Ho acquistato lo shampoo e la maschera per continuare a curarli a casa. Consigliatissimo!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-6 pt-4 border-t border-white/10">
+                        <img src="https://lh3.googleusercontent.com/a/ACg8ocLH34M0PtPtQ9mIeiGo3wjr4bUfk1DgtMzEE19YDj2b8dSxdw=s128-c0x00000000-cc-rp-mo" 
+                             alt="Alessandra Roni G" class="w-10 h-10 rounded-full object-cover border border-brand-gold/30">
+                        <div>
+                            <h4 class="text-xs font-bold text-brand-cream">Alessandra Roni G.</h4>
+                            <span class="text-[10px] text-brand-muted">Cliente Verificata su Google</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Google Review Callout Link -->
+            <div class="text-center mt-12">
+                <a href="https://search.google.com/local/reviews?placeid=ChIJoSU3z3I05xIRonWyWRQtte8" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-brand-gold hover:underline">
+                    <span>Leggi tutte le 871 recensioni su Google</span>
+                    <i class="fa-solid fa-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRENOTAZIONE ONLINE SECTION (CONTAINING MANDATORY IFRAME) -->
+    <section id="prenota" class="py-24 bg-brand-charcoal/40 border-t border-brand-gold/20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10 space-y-4">
+                <span class="text-brand-gold text-xs font-bold tracking-widest uppercase">Agenda Online</span>
+                <h2 class="font-serif-title text-3xl sm:text-5xl font-bold text-brand-cream">
+                    Prenota la tua seduta in salone
+                </h2>
+                <p class="text-brand-muted text-sm">
+                    Seleziona la data e l'orario più comodo per la tua prima visita o per il tuo trattamento.
+                </p>
+            </div>
+
+            <!-- MANDATORY EXACT IFRAME CODE -->
+            <div class="w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl my-10 border border-brand-gold/20 bg-brand-card">
+                <iframe src="https://cal.com/fabio-grussu-ubggf7/prima-visita" width="100%" height="700px" frameborder="0" style="background-color: transparent;"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & CONTACTS SECTION -->
+    <section id="contatti" class="py-24 bg-brand-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Contact Details -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-brand-gold text-xs font-bold tracking-widest uppercase">Dove Trovarci</span>
+                        <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-brand-cream mt-2">
+                            Vieni a trovarci a Cagliari
+                        </h2>
+                    </div>
+
+                    <div class="space-y-6 text-sm">
+                        <!-- Address -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-charcoal border border-brand-gold/30 flex items-center justify-center text-brand-gold flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-brand-cream">Indirizzo Salone</h3>
+                                <p class="text-brand-muted mt-0.5">Via Pasquale Tola, 5 (traversa di Via Paoli)</p>
+                                <p class="text-brand-muted">09128 - Cagliari - Italia</p>
+                            </div>
+                        </div>
+
+                        <!-- Phone & WhatsApp -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-charcoal border border-brand-gold/30 flex items-center justify-center text-brand-gold flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-brand-cream">Telefono & WhatsApp</h3>
+                                <p class="text-brand-muted mt-0.5">Telefono: <a href="tel:+390703495247" class="text-brand-gold hover:underline">070 34 95 247</a></p>
+                                <p class="text-brand-muted">WhatsApp: <a href="https://wa.me/+390703495247" target="_blank" rel="noopener noreferrer" class="text-brand-gold hover:underline">+39 070 34 95 247</a></p>
+                            </div>
+                        </div>
+
+                        <!-- Hours -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-charcoal border border-brand-gold/30 flex items-center justify-center text-brand-gold flex-shrink-0 mt-1">
+                                <i class="fa-regular fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-brand-cream">Orari di Apertura (Orario Continuato)</h3>
+                                <p class="text-brand-muted mt-0.5">Dal Lunedì al Sabato: <strong class="text-brand-cream">08:00 - 20:00</strong></p>
+                                <p class="text-brand-muted">Domenica: <span class="text-rose-400">Chiuso</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Action Buttons -->
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="https://wa.me/+390703495247" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-500 transition-colors inline-flex items-center gap-2 shadow-lg">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span>Scrivi su WhatsApp</span>
+                        </a>
+                        <a href="tel:+390703495247" class="px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-brand-cream border border-brand-gold/40 hover:bg-brand-gold/10 transition-colors inline-flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-xs text-brand-gold"></i>
+                            <span>Chiama Ora</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Google Maps Embedded Section -->
+                <div class="lg:col-span-7">
+                    <div class="w-full h-[450px] rounded-3xl overflow-hidden border border-brand-gold/20 shadow-2xl relative">
+                        <iframe 
+                            title="Mappa Salone Elixhair Cagliari"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3092.124800234125!2d9.124538576579294!3d39.21731672777174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e73472cf3725a1%3A0xefb5f51459b175a2!2sVia%20Pasquale%20Tola%2C%205%2C%2009128%20Cagliari%20CA!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; filter: grayscale(0.8) contrast(1.2) opacity(0.95);" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-charcoal border-t border-white/10 py-12 text-xs text-brand-muted">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/5">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full border border-brand-gold/40 flex items-center justify-center bg-brand-dark">
+                        <span class="font-serif-title font-bold text-sm text-brand-gold">E</span>
+                    </div>
+                    <span class="font-serif-title text-xl font-bold tracking-widest text-brand-cream">ELIXHAIR</span>
+                </div>
+
+                <div class="flex gap-6">
+                    <a href="https://www.facebook.com/elixhair.it/" target="_blank" rel="noopener noreferrer" class="text-brand-cream/70 hover:text-brand-gold text-lg transition-colors" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/elixhair.it/" target="_blank" rel="noopener noreferrer" class="text-brand-cream/70 hover:text-brand-gold text-lg transition-colors" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                <p>© ELIXHAIR - Via Pasquale Tola, 5 (traversa di Via Paoli) - 09128 Cagliari - P.IVA: 03873610921</p>
+                <div class="flex gap-4">
+                    <a href="https://elixhair.it/privacy-policy/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors">Privacy Policy</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-brand-gold transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP CTA BUTTON -->
+    <a href="https://wa.me/+390703495247" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center shadow-2xl transform hover:scale-110 transition-all duration-300"
+       aria-label="Contattaci su WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- JAVASCRIPT & ANIMATIONS -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Simple Language Switcher Simulation
+        function changeLanguage(langCode) {
+            document.getElementById('current-lang').innerText = langCode;
+        }
+
+        // GSAP ScrollTrigger Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Hero Image Window Zoom/Reveal Effect
+            gsap.from('.hero-window-container', {
+                scale: 0.9,
+                opacity: 0,
+                duration: 1.2,
+                ease: 'power3.out'
+            });
+
+            // Luxury Cards Reveal On Scroll
+            gsap.utils.toArray('.luxury-card').forEach(card => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse'
+                    },
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: 'power2.out'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
