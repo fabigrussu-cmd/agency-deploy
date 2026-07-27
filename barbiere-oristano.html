@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="it" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbiere Oristano — High-End Grooming & Atelier</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#E6C687',
+                            500: '#D4AF37',
+                            600: '#AA820A',
+                        },
+                        obsidian: '#090A0F',
+                        surface: '#12141C'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lenis Smooth Scroll CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.css">
+    
+    <!-- GSAP & ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Lenis CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <style>
+        .glass-panel {
+            background: rgba(18, 20, 28, 0.55);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.35);
+            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.15);
+        }
+        .metallic-shimmer {
+            background: linear-gradient(135deg, #1f232e 0%, #0d0e12 50%, #2a2e3d 100%);
+            background-size: 200% 200%;
+            animation: shimmer 8s ease infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090A0F;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262935;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-zinc-200 font-sans antialiased selection:bg-gold-500 selection:text-black overflow-x-hidden">
+
+    <!-- NAVBAR HEADER -->
+    <header class="fixed top-0 left-0 w-full z-50 px-6 py-4 transition-all duration-300">
+        <nav class="max-w-7xl mx-auto glass-panel rounded-full px-6 py-3 flex items-center justify-between shadow-2xl">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-gold-600 to-amber-200 flex items-center justify-center text-obsidian font-serif font-bold text-lg shadow-lg group-hover:scale-105 transition-transform">
+                    O
+                </div>
+                <span class="font-serif text-lg font-semibold tracking-wider text-white uppercase group-hover:text-gold-400 transition-colors" data-i18n="brand_name">
+                    Barbiere Oristano
+                </span>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-300">
+                <a href="#about" class="hover:text-gold-400 transition-colors" data-i18n="nav_about">Chi Siamo</a>
+                <a href="#services" class="hover:text-gold-400 transition-colors" data-i18n="nav_services">Servizi & Atelier</a>
+                <a href="#experience" class="hover:text-gold-400 transition-colors" data-i18n="nav_experience">L'Esperienza</a>
+                <a href="#booking" class="hover:text-gold-400 transition-colors" data-i18n="nav_location">Dove Siamo</a>
+            </div>
+
+            <!-- Language Switcher & Actions -->
+            <div class="flex items-center space-x-4">
+                <div class="glass-card rounded-full px-3 py-1 flex items-center space-x-2 text-xs font-semibold">
+                    <button onclick="setLanguage('it')" id="lang-it" class="px-2 py-0.5 rounded-full transition-all text-gold-400 bg-white/10">IT</button>
+                    <span class="text-zinc-600">|</span>
+                    <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-0.5 rounded-full transition-all text-zinc-400 hover:text-white">EN</button>
+                    <span class="text-zinc-600">|</span>
+                    <button onclick="setLanguage('es')" id="lang-es" class="px-2 py-0.5 rounded-full transition-all text-zinc-400 hover:text-white">ES</button>
+                </div>
+                
+                <a href="#booking" class="hidden sm:inline-flex px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-gold-500 text-obsidian hover:bg-gold-400 transition-all transform hover:scale-105 shadow-lg shadow-gold-500/20" data-i18n="nav_book_btn">
+                    Prenota
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative w-full h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center" style="background-image: url('https://replicate.delivery/czjl/deHaeKfYmnYPhIzBt7d16nmXfxwiVMSKiJbkqXXJp7NO4Q1bB/output.png');">
+        <!-- Overlay Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/70 to-obsidian/40"></div>
+        <div class="absolute inset-0 bg-black/30 backdrop-blur-[2px]"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center">
+            <span class="hero-anim inline-block px-4 py-1.5 rounded-full glass-panel text-gold-400 text-xs font-semibold uppercase tracking-widest mb-6 border border-gold-500/30" data-i18n="hero_badge">
+                L'Eccellenza del Grooming Maschile ad Oristano
+            </span>
+            <h1 class="hero-anim font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-none mb-6" data-i18n="hero_title">
+                Sartoria dell'Immagine Maschile.
+            </h1>
+            <p class="hero-anim max-w-2xl text-base sm:text-lg md:text-xl text-zinc-300 font-light mb-10 leading-relaxed" data-i18n="hero_subtitle">
+                Rituali di rasatura tradizionale, tagli sartoriali su misura e trattamenti rigeneranti in un'atmosfera di puro lusso e riservatezza nel cuore della Sardegna.
+            </p>
+            <div class="hero-anim flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                <a href="#booking" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gold-500 text-obsidian font-semibold text-sm uppercase tracking-wider hover:bg-gold-400 transition-all transform hover:-translate-y-1 shadow-xl shadow-gold-500/25 flex items-center justify-center gap-2" data-i18n="hero_cta_reserve">
+                    Riserva la tua Poltrona
+                </a>
+                <a href="https://www.google.com/maps/search/?api=1&query=barbiere-oristano" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card text-white font-semibold text-sm uppercase tracking-wider hover:bg-white/10 transition-all flex items-center justify-center gap-2 border border-white/15" data-i18n="hero_cta_location">
+                    <svg class="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    Come Raggiungerci
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-zinc-400 animate-bounce">
+            <span class="text-[10px] uppercase tracking-widest text-gold-400" data-i18n="scroll_explore">Scorri</span>
+            <svg class="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7"/></svg>
+        </div>
+    </section>
+
+    <!-- CHI SIAMO / CRAFTSMANSHIP SECTION -->
+    <section id="about" class="py-28 px-6 relative z-10 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Info Block -->
+            <div class="lg:col-span-5 space-y-6">
+                <div class="inline-flex items-center space-x-2 text-gold-400 text-xs font-semibold uppercase tracking-widest">
+                    <span class="w-2 h-2 rounded-full bg-gold-400"></span>
+                    <span data-i18n="about_tag">Filosofia & Maestria</span>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight" data-i18n="about_title">
+                    L'Arte del Grooming elevated to Perfection.
+                </h2>
+                <p class="text-zinc-400 text-base leading-relaxed font-light" data-i18n="about_desc_1">
+                    Barbiere Oristano non è semplicemente un salone, ma un santuario della cura personale maschile. Fondiamo le antiche tecniche sartoriali italiane con le più moderne metodologie di estetica rigenerante.
+                </p>
+                <p class="text-zinc-400 text-base leading-relaxed font-light" data-i18n="about_desc_2">
+                    Ogni appuntamento è uno studio personalizzato delle proporzioni del viso, della consistenza del capello e dello stile di vita del cliente. Un’esperienza riservata, misurata sul tuo tempo.
+                </p>
+
+                <!-- Stats grid -->
+                <div class="grid grid-cols-2 gap-6 pt-6 border-t border-white/10">
+                    <div>
+                        <div class="font-serif text-3xl font-bold text-gold-400" data-i18n="stat_1_val">100%</div>
+                        <div class="text-xs text-zinc-400 uppercase tracking-wider mt-1" data-i18n="stat_1_lbl">Su Misura</div>
+                    </div>
+                    <div>
+                        <div class="font-serif text-3xl font-bold text-gold-400" data-i18n="stat_2_val">15+</div>
+                        <div class="text-xs text-zinc-400 uppercase tracking-wider mt-1" data-i18n="stat_2_lbl">Anni di Eccellenza</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual Layout / Metallic Gradient Card -->
+            <div class="lg:col-span-7 relative">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Placeholder Card 1 -->
+                    <div class="glass-card rounded-3xl p-8 metallic-shimmer min-h-[280px] flex flex-col justify-end relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+                        <div class="relative z-10">
+                            <span class="text-gold-400 text-xs uppercase tracking-widest font-semibold" data-i18n="about_card1_tag">Atelier Privatizzato</span>
+                            <h3 class="font-serif text-xl text-white font-semibold mt-1" data-i18n="about_card1_title">Ambiente Esclusivo</h3>
+                            <p class="text-zinc-400 text-xs mt-2 font-light" data-i18n="about_card1_desc">Relax profondo, bevande premium selezionate e massima riservatezza durante la sessione.</p>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder Card 2 -->
+                    <div class="glass-card rounded-3xl p-8 metallic-shimmer min-h-[280px] flex flex-col justify-end relative overflow-hidden group md:translate-y-8">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+                        <div class="relative z-10">
+                            <span class="text-gold-400 text-xs uppercase tracking-widest font-semibold" data-i18n="about_card2_tag">Prodotti Organici</span>
+                            <h3 class="font-serif text-xl text-white font-semibold mt-1" data-i18n="about_card2_title">Formulazioni di Lusso</h3>
+                            <p class="text-zinc-400 text-xs mt-2 font-light" data-i18n="about_card2_desc">Oli essenziali naturali, balsami botanici e trattamenti specifici per la pelle.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BENTO GRID SERVICES SECTION -->
+    <section id="services" class="py-28 px-6 bg-surface/50 border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-400 text-xs font-semibold uppercase tracking-widest" data-i18n="services_tag">Menu dei Servizi</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mt-2 mb-4" data-i18n="services_title">
+                    Rituali di Stile & Grooming
+                </h2>
+                <p class="text-zinc-400 text-base font-light" data-i18n="services_subtitle">
+                    Scegli tra i nostri trattamenti signature progettati per definire la tua presenza con classe ineguagliabile.
+                </p>
+            </div>
+
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                
+                <!-- BENTO ITEM 1: Taglio Sartoriale (Large 2 Cols) -->
+                <div class="bento-card md:col-span-2 lg:col-span-2 glass-card rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gold-500/10 rounded-full blur-3xl group-hover:bg-gold-500/20 transition-all"></div>
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold-400 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20" data-i18n="service_1_badge">Signature</span>
+                            <span class="font-serif text-2xl font-bold text-white" data-i18n="service_1_price">€35</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3" data-i18n="service_1_title">Taglio Sartoriale & Styling</h3>
+                        <p class="text-zinc-400 text-sm font-light leading-relaxed mb-6" data-i18n="service_1_desc">
+                            Consulenza d'immagine morfologica, lavaggio sensoriale con massaggio al cuoio capelluto, taglio di precisione eseguito a forbice e pettine, finishing con prodotti botanici ad alta definizione.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex justify-between items-center text-xs text-zinc-400">
+                        <span data-i18n="service_1_time">Durata: 45 Minuti</span>
+                        <a href="#booking" class="text-gold-400 font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1" data-i18n="service_book_now">
+                            Seleziona →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- BENTO ITEM 2: Rasatura Panno Caldo (1 Col) -->
+                <div class="bento-card md:col-span-1 lg:col-span-2 glass-card rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold-400 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20" data-i18n="service_2_badge">Tradizione</span>
+                            <span class="font-serif text-2xl font-bold text-white" data-i18n="service_2_price">€30</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3" data-i18n="service_2_title">Rasatura Tradizionale al Rasoio</h3>
+                        <p class="text-zinc-400 text-sm font-light leading-relaxed mb-6" data-i18n="service_2_desc">
+                            Il classico rituale italiano con panno caldo idratante, sapone montato a pennello di tasso, doppi passaggi a rasoio a mano libera e panno freddo tonificante finale.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex justify-between items-center text-xs text-zinc-400">
+                        <span data-i18n="service_2_time">Durata: 40 Minuti</span>
+                        <a href="#booking" class="text-gold-400 font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1" data-i18n="service_book_now">
+                            Seleziona →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- BENTO ITEM 3: Trattamento Barba Luxury (1 Col) -->
+                <div class="bento-card md:col-span-1 lg:col-span-2 glass-card rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold-400 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20" data-i18n="service_3_badge">Cura Barba</span>
+                            <span class="font-serif text-2xl font-bold text-white" data-i18n="service_3_price">€25</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3" data-i18n="service_3_title">Modellatura Barba Luxury</h3>
+                        <p class="text-zinc-400 text-sm font-light leading-relaxed mb-6" data-i18n="service_3_desc">
+                            Sagomatura di precisione strutturata sulla geometria della mascella, sfumatura millimetrica, applicazione di olio nutriente caldo e trattamento condizionante antibatterico.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex justify-between items-center text-xs text-zinc-400">
+                        <span data-i18n="service_3_time">Durata: 30 Minuti</span>
+                        <a href="#booking" class="text-gold-400 font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1" data-i18n="service_book_now">
+                            Seleziona →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- BENTO ITEM 4: Rituale Completo VIP (Large 2 Cols) -->
+                <div class="bento-card md:col-span-2 lg:col-span-2 glass-card rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group metallic-shimmer border-gold-500/30">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-xs font-bold uppercase tracking-widest text-obsidian bg-gold-400 px-3 py-1 rounded-full shadow-lg" data-i18n="service_4_badge">Esperienza Total VIP</span>
+                            <span class="font-serif text-3xl font-bold text-gold-400" data-i18n="service_4_price">€65</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-3" data-i18n="service_4_title">Rituale Capelli & Barba "Oristano Experience"</h3>
+                        <p class="text-zinc-300 text-sm font-light leading-relaxed mb-6" data-i18n="service_4_desc">
+                            Il servizio più completo: Taglio Sartoriale, modellatura barba VIP o rasatura tradizionale con panni caldi aromaterapici, scrub viso purificante all'argilla ed un drink al lounge bar riservato.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex justify-between items-center text-xs text-zinc-300">
+                        <span data-i18n="service_4_time">Durata: 75 Minuti</span>
+                        <a href="#booking" class="text-gold-400 font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1" data-i18n="service_book_now">
+                            Seleziona →
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE / ATMOSPHERE SECTION -->
+    <section id="experience" class="py-28 px-6 max-w-7xl mx-auto">
+        <div class="glass-panel rounded-3xl p-8 md:p-14 relative overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                <div class="space-y-6">
+                    <span class="text-gold-400 text-xs font-semibold uppercase tracking-widest" data-i18n="exp_tag">Ambiente Riservato</span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-white leading-tight" data-i18n="exp_title">
+                        Più di un Taglio. Un Momento per Te Stesso.
+                    </h2>
+                    <p class="text-zinc-400 font-light leading-relaxed" data-i18n="exp_desc">
+                        Abbiamo riprogettato il concetto di barbershop eliminando le attese rumorose e la frenesia. Riceviamo solo su appuntamento per garantirti la massima concentrazione, musica selezionata, un espresso artigianale o un bicchiere di distillato pregiato.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <div class="flex items-center gap-2 text-xs text-zinc-300 bg-white/5 border border-white/10 rounded-full px-4 py-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span>
+                            <span data-i18n="exp_feat_1">Solo su Appuntamento</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-zinc-300 bg-white/5 border border-white/10 rounded-full px-4 py-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span>
+                            <span data-i18n="exp_feat_2">Lounge Beverage Incluso</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-zinc-300 bg-white/5 border border-white/10 rounded-full px-4 py-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span>
+                            <span data-i18n="exp_feat_3">Musica Hi-Fi Analitica</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Animated Metallic Visual Card -->
+                <div class="h-80 rounded-2xl metallic-shimmer border border-white/10 flex items-center justify-center p-8 text-center relative overflow-hidden shadow-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    <div class="relative z-10 space-y-4">
+                        <div class="w-16 h-16 mx-auto rounded-full bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                        </div>
+                        <h4 class="font-serif text-2xl font-semibold text-white" data-i18n="exp_visual_title">Standard Elevati ad Oristano</h4>
+                        <p class="text-zinc-400 text-xs max-w-sm mx-auto" data-i18n="exp_visual_desc">Sperimenta la differenza di una sessione di grooming curata nei minimi dettagli anatomici ed estetici.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: BOOKING WIDGET CONTAINER & LOCATION (STRICT BENTO WRAPPER - NO INVENTED FORM) -->
+    <section id="booking" class="py-28 px-6 bg-surface/50 border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-400 text-xs font-semibold uppercase tracking-widest" data-i18n="booking_tag">Prenota o Raggiungici</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mt-2 mb-4" data-i18n="booking_title">
+                    Riserva la Tua Sessione
+                </h2>
+                <p class="text-zinc-400 text-base font-light" data-i18n="booking_subtitle">
+                    Trova la nostra sede ad Oristano e fissa subito il tuo appuntamento per un'esperienza senza attese.
+                </p>
+            </div>
+
+            <!-- Bento Container for Booking & Map -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- Booking Widget Wrapper Container (Requirement 5) -->
+                <div class="lg:col-span-7 glass-card rounded-3xl p-8 flex flex-col justify-between border-gold-500/20 relative overflow-hidden">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold" data-i18n="book_box_tag">Agenda Privata</span>
+                            <span class="inline-flex items-center gap-2 text-xs text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span data-i18n="book_box_status">Disponibilità In Tempo Reale</span>
+                            </span>
+                        </div>
+
+                        <h3 class="font-serif text-2xl font-bold text-white" data-i18n="book_box_title">Prenotazione Diretta Online</h3>
+                        <p class="text-zinc-400 text-sm font-light leading-relaxed" data-i18n="book_box_desc">
+                            Accedi al nostro sistema integrato per selezionare l'orario perfetto, il maestro barbiere ed i rituali desiderati con un semplice tocco.
+                        </p>
+
+                        <!-- BOOKING WIDGET MANDATORY WRAPPER BLOCK -->
+                        <div class="p-6 rounded-2xl bg-black/40 border border-white/10 space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 flex-shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium text-base" data-i18n="widget_heading">Modulo Ufficiale di Prenotazione</h4>
+                                    <p class="text-zinc-400 text-xs" data-i18n="widget_subheading">Nessuna attesa telefonica necessaria. Riserva 24/7.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Widget Action Trigger Button -->
+                            <div class="pt-4">
+                                <a href="https://www.google.com/maps/search/?api=1&query=barbiere-oristano" target="_blank" rel="noopener noreferrer" class="w-full py-4 rounded-xl bg-gold-500 text-obsidian font-semibold text-sm uppercase tracking-wider hover:bg-gold-400 transition-all flex items-center justify-center gap-2 shadow-lg shadow-gold-500/20" data-i18n="widget_btn">
+                                    Apri Calendario & Mappa Oristano
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-white/10 text-xs text-zinc-500 flex items-center justify-between">
+                        <span data-i18n="book_cancel_policy">Cancellazione gratuita fino a 24h prima</span>
+                        <span class="text-gold-400" data-i18n="book_oristano_location">Oristano, Sardegna</span>
+                    </div>
+                </div>
+
+                <!-- Google Maps Location Bento Item -->
+                <div class="lg:col-span-5 glass-card rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden metallic-shimmer">
+                    <div class="space-y-6 relative z-10">
+                        <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-400">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span data-i18n="map_card_tag">Posizione Geografica</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-white" data-i18n="map_card_title">Nel Cuore di Oristano</h3>
+                        <p class="text-zinc-300 text-sm font-light leading-relaxed" data-i18n="map_card_desc">
+                            Il nostro atelier si trova nel centro storico di Oristano, facilmente raggiungibile con parcheggi riservati nelle immediate vicinanze.
+                        </p>
+
+                        <div class="space-y-3 pt-2">
+                            <div class="flex items-center gap-3 text-sm text-zinc-300">
+                                <span class="w-2 h-2 rounded-full bg-gold-400"></span>
+                                <span data-i18n="map_info_city">Oristano (OR) - Sardegna</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-zinc-300">
+                                <span class="w-2 h-2 rounded-full bg-gold-400"></span>
+                                <span data-i18n="map_info_hours">Mar - Sab: 09:00 - 19:30 (Orario Continuato)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-8 relative z-10">
+                        <a href="https://www.google.com/maps/search/?api=1&query=barbiere-oristano" target="_blank" rel="noopener noreferrer" class="w-full py-4 rounded-xl glass-panel text-white font-semibold text-xs uppercase tracking-wider hover:bg-white/15 transition-all flex items-center justify-center gap-2 border border-white/20" data-i18n="map_card_btn">
+                            Apri in Google Maps →
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 px-6 border-t border-white/10 relative z-10 bg-black">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-zinc-500">
+            <div class="flex items-center gap-3">
+                <div class="w-6 h-6 rounded-full bg-gold-500 flex items-center justify-center text-obsidian font-serif font-bold text-xs">
+                    O
+                </div>
+                <span class="text-zinc-300 font-serif font-semibold uppercase tracking-wider" data-i18n="footer_brand">
+                    Barbiere Oristano Atelier
+                </span>
+            </div>
+
+            <p class="text-center md:text-left" data-i18n="footer_copy">
+                © <span id="year"></span> Barbiere Oristano. Tutti i diritti riservati. Sartoria dell'Immagine Maschile.
+            </p>
+
+            <div class="flex items-center gap-6 text-zinc-400">
+                <a href="https://www.google.com/maps/search/?api=1&query=barbiere-oristano" target="_blank" class="hover:text-gold-400 transition-colors" data-i18n="footer_maps">Google Maps</a>
+                <a href="#services" class="hover:text-gold-400 transition-colors" data-i18n="footer_serv">Servizi</a>
+                <a href="#booking" class="hover:text-gold-400 transition-colors" data-i18n="footer_book">Prenota</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- I18N JS DICTIONARY & SCRIPT LOGIC -->
+    <script>
+        // Set dynamic copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 1. Lenis Smooth Scrolling Initialization
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smoothWheel: true,
+            wheelMultiplier: 1,
+            touchMultiplier: 2,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // 2. GSAP Animations with ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Entrance Animation
+        gsap.from(".hero-anim", {
+            y: 50,
+            opacity: 0,
+            duration: 1.2,
+            stagger: 0.15,
+            ease: "power3.out"
+        });
+
+        // Bento Cards Animation
+        gsap.utils.toArray(".bento-card").forEach((card, index) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 60,
+                opacity: 0,
+                scale: 0.95,
+                duration: 0.8,
+                delay: index * 0.1,
+                ease: "power2.out"
+            });
+        });
+
+        // 3. Complete i18n Multi-Language System (IT, EN, ES)
+        const i18nData = {
+            it: {
+                brand_name: "Barbiere Oristano",
+                nav_about: "Chi Siamo",
+                nav_services: "Servizi & Atelier",
+                nav_experience: "L'Esperienza",
+                nav_location: "Dove Siamo",
+                nav_book_btn: "Prenota",
+                hero_badge: "L'Eccellenza del Grooming Maschile ad Oristano",
+                hero_title: "Sartoria dell'Immagine Maschile.",
+                hero_subtitle: "Rituali di rasatura tradizionale, tagli sartoriali su misura e trattamenti rigeneranti in un'atmosfera di puro lusso e riservatezza nel cuore della Sardegna.",
+                hero_cta_reserve: "Riserva la tua Poltrona",
+                hero_cta_location: "Come Raggiungerci",
+                scroll_explore: "Scorri",
+                about_tag: "Filosofia & Maestria",
+                about_title: "L'Arte del Grooming elevated to Perfection.",
+                about_desc_1: "Barbiere Oristano non è semplicemente un salone, ma un santuario della cura personale maschile. Fondiamo le antiche tecniche sartoriali italiane con le più moderne metodologie di estetica rigenerante.",
+                about_desc_2: "Ogni appuntamento è uno studio personalizzato delle proporzioni del viso, della consistenza del capello e dello stile di vita del cliente. Un’esperienza riservata, misurata sul tuo tempo.",
+                stat_1_val: "100%",
+                stat_1_lbl: "Su Misura",
+                stat_2_val: "15+",
+                stat_2_lbl: "Anni di Eccellenza",
+                about_card1_tag: "Atelier Privatizzato",
+                about_card1_title: "Ambiente Esclusivo",
+                about_card1_desc: "Relax profondo, bevande premium selezionate e massima riservatezza durante la sessione.",
+                about_card2_tag: "Prodotti Organici",
+                about_card2_title: "Formulazioni di Lusso",
+                about_card2_desc: "Oli essenziali naturali, balsami botanici e trattamenti specifici per la pelle.",
+                services_tag: "Menu dei Servizi",
+                services_title: "Rituali di Stile & Grooming",
+                services_subtitle: "Scegli tra i nostri trattamenti signature progettati per definire la tua presenza con classe ineguagliabile.",
+                service_1_badge: "Signature",
+                service_1_price: "€35",
+                service_1_title: "Taglio Sartoriale & Styling",
+                service_1_desc: "Consulenza d'immagine morfologica, lavaggio sensoriale con massaggio al cuoio capelluto, taglio di precisione eseguito a forbice e pettine, finishing con prodotti botanici ad alta definizione.",
+                service_1_time: "Durata: 45 Minuti",
+                service_2_badge: "Tradizione",
+                service_2_price: "€30",
+                service_2_title: "Rasatura Tradizionale al Rasoio",
+                service_2_desc: "Il classico rituale italiano con panno caldo idratante, sapone montato a pennello di tasso, doppi passaggi a rasoio a mano libera e panno freddo tonificante finale.",
+                service_2_time: "Durata: 40 Minuti",
+                service_3_badge: "Cura Barba",
+                service_3_price: "€25",
+                service_3_title: "Modellatura Barba Luxury",
+                service_3_desc: "Sagomatura di precisione strutturata sulla geometria della mascella, sfumatura millimetrica, applicazione di olio nutriente caldo e trattamento condizionante antibatterico.",
+                service_3_time: "Durata: 30 Minuti",
+                service_4_badge: "Esperienza Total VIP",
+                service_4_price: "€65",
+                service_4_title: "Rituale Capelli & Barba 'Oristano Experience'",
+                service_4_desc: "Il servizio più completo: Taglio Sartoriale, modellatura barba VIP o rasatura tradizionale con panni caldi aromaterapici, scrub viso purificante all'argilla ed un drink al lounge bar riservato.",
+                service_4_time: "Durata: 75 Minuti",
+                service_book_now: "Seleziona →",
+                exp_tag: "Ambiente Riservato",
+                exp_title: "Più di un Taglio. Un Momento per Te Stesso.",
+                exp_desc: "Abbiamo riprogettato il concetto di barbershop eliminando le attese rumorose e la frenesia. Riceviamo solo su appuntamento per garantirti la massima concentrazione, musica selezionata, un espresso artigianale o un bicchiere di distillato pregiato.",
+                exp_feat_1: "Solo su Appuntamento",
+                exp_feat_2: "Lounge Beverage Incluso",
+                exp_feat_3: "Musica Hi-Fi Analitica",
+                exp_visual_title: "Standard Elevati ad Oristano",
+                exp_visual_desc: "Sperimenta la differenza di una sessione di grooming curata nei minimi dettagli anatomici ed estetici.",
+                booking_tag: "Prenota o Raggiungici",
+                booking_title: "Riserva la Tua Sessione",
+                booking_subtitle: "Trova la nostra sede ad Oristano e fissa subito il tuo appuntamento per un'esperienza senza attese.",
+                book_box_tag: "Agenda Privata",
+                book_box_status: "Disponibilità In Tempo Reale",
+                book_box_title: "Prenotazione Diretta Online",
+                book_box_desc: "Accedi al nostro sistema integrato per selezionare l'orario perfetto, il maestro barbiere ed i rituali desiderati con un semplice tocco.",
+                widget_heading: "Modulo Ufficiale di Prenotazione",
+                widget_subheading: "Nessuna attesa telefonica necessaria. Riserva 24/7.",
+                widget_btn: "Apri Calendario & Mappa Oristano",
+                book_cancel_policy: "Cancellazione gratuita fino a 24h prima",
+                book_oristano_location: "Oristano, Sardegna",
+                map_card_tag: "Posizione Geografica",
+                map_card_title: "Nel Cuore di Oristano",
+                map_card_desc: "Il nostro atelier si trova nel centro storico di Oristano, facilmente raggiungibile con parcheggi riservati nelle immediate vicinanze.",
+                map_info_city: "Oristano (OR) - Sardegna",
+                map_info_hours: "Mar - Sab: 09:00 - 19:30 (Orario Continuato)",
+                map_card_btn: "Apri in Google Maps →",
+                footer_brand: "Barbiere Oristano Atelier",
+                footer_copy: "© " + new Date().getFullYear() + " Barbiere Oristano. Tutti i diritti riservati. Sartoria dell'Immagine Maschile.",
+                footer_maps: "Google Maps",
+                footer_serv: "Servizi",
+                footer_book: "Prenota"
+            },
+            en: {
+                brand_name: "Barbiere Oristano",
+                nav_about: "About Us",
+                nav_services: "Services & Atelier",
+                nav_experience: "The Experience",
+                nav_location: "Location",
+                nav_book_btn: "Book Now",
+                hero_badge: "The Pinnacle of Male Grooming in Oristano",
+                hero_title: "Bespoke Male Image Craftsmanship.",
+                hero_subtitle: "Traditional razor shaving rituals, tailored haircuts, and skin rejuvenating treatments in a luxurious, private atmosphere in the heart of Sardinia.",
+                hero_cta_reserve: "Reserve Your Chair",
+                hero_cta_location: "Get Directions",
+                scroll_explore: "Scroll",
+                about_tag: "Philosophy & Craft",
+                about_title: "The Art of Grooming Elevated to Perfection.",
+                about_desc_1: "Barbiere Oristano is not just a salon, but a sanctuary for male self-care. We blend classic Italian barbering techniques with modern skin regeneration methods.",
+                about_desc_2: "Every appointment begins with a personalized study of facial proportions, hair density, and lifestyle. A private experience tailored strictly to your schedule.",
+                stat_1_val: "100%",
+                stat_1_lbl: "Tailor Made",
+                stat_2_val: "15+",
+                stat_2_lbl: "Years of Mastery",
+                about_card1_tag: "Private Atelier",
+                about_card1_title: "Exclusive Ambience",
+                about_card1_desc: "Deep relaxation, selected premium spirits, and total privacy throughout your appointment.",
+                about_card2_tag: "Organic Formulations",
+                about_card2_title: "Luxury Skincare",
+                about_card2_desc: "Natural essential oils, botanical balms, and targeted dermal treatments.",
+                services_tag: "Service Menu",
+                services_title: "Style & Grooming Rituals",
+                services_subtitle: "Choose from our signature treatments engineered to elevate your personal style.",
+                service_1_badge: "Signature",
+                service_1_price: "€35",
+                service_1_title: "Tailored Haircut & Styling",
+                service_1_desc: "Morphological image consultation, sensory scalp massage wash, precision scissor-and-comb haircut, and high-definition botanical finishing.",
+                service_1_time: "Duration: 45 Mins",
+                service_2_badge: "Heritage",
+                service_2_price: "€30",
+                service_2_title: "Traditional Straight Shave",
+                service_2_desc: "Classic Italian hot towel ritual, badger brush lathering, dual straight-razor passes, and an invigorating cold towel finish.",
+                service_2_time: "Duration: 40 Mins",
+                service_3_badge: "Beard Care",
+                service_3_price: "€25",
+                service_3_title: "Luxury Beard Sculpting",
+                service_3_desc: "Precision shaping mapped to jawline geometry, seamless fading, warm nourishing oils, and antibacterial conditioning.",
+                service_3_time: "Duration: 30 Mins",
+                service_4_badge: "Total VIP Experience",
+                service_4_price: "€65",
+                service_4_title: "The 'Oristano Experience' Ritual",
+                service_4_desc: "Our ultimate ritual: Bespoke Haircut, VIP Beard Sculpting or Hot Towel Shave, clay facial scrub, and complimentary lounge bar spirits.",
+                service_4_time: "Duration: 75 Mins",
+                service_book_now: "Select →",
+                exp_tag: "Private Sanctuary",
+                exp_title: "More Than a Cut. A Moment for Yourself.",
+                exp_desc: "We redesigned the barbering concept by eliminating noisy waiting rooms. We operate strictly by appointment to guarantee absolute focus, curated audio, artisanal espresso, or fine spirits.",
+                exp_feat_1: "By Appointment Only",
+                exp_feat_2: "Lounge Beverages Included",
+                exp_feat_3: "Analogue Hi-Fi Audio",
+                exp_visual_title: "Elevated Standards in Oristano",
+                exp_visual_desc: "Experience the distinction of a grooming session meticulously crafted around your unique features.",
+                booking_tag: "Book or Visit Us",
+                booking_title: "Reserve Your Session",
+                booking_subtitle: "Find our location in Oristano and secure your preferred time for a zero-wait luxury appointment.",
+                book_box_tag: "Private Calendar",
+                book_box_status: "Real-Time Availability",
+                book_box_title: "Direct Online Booking",
+                book_box_desc: "Access our integrated system to select your ideal time slot, master barber, and desired rituals with one touch.",
+                widget_heading: "Official Booking Hub",
+                widget_subheading: "No phone waiting required. Reserve 24/7 online.",
+                widget_btn: "Open Calendar & Map Oristano",
+                book_cancel_policy: "Free cancellation up to 24h prior",
+                book_oristano_location: "Oristano, Sardinia",
+                map_card_tag: "Geographic Location",
+                map_card_title: "In the Heart of Oristano",
+                map_card_desc: "Our atelier is located in the historic center of Oristano, easily accessible with dedicated parking nearby.",
+                map_info_city: "Oristano (OR) - Sardinia, Italy",
+                map_info_hours: "Tue - Sat: 09:00 - 19:30 (Continuous)",
+                map_card_btn: "Open in Google Maps →",
+                footer_brand: "Barbiere Oristano Atelier",
+                footer_copy: "© " + new Date().getFullYear() + " Barbiere Oristano. All rights reserved. Male Image Tailoring.",
+                footer_maps: "Google Maps",
+                footer_serv: "Services",
+                footer_book: "Book"
+            },
+            es: {
+                brand_name: "Barbiere Oristano",
+                nav_about: "Nosotros",
+                nav_services: "Servicios & Atelier",
+                nav_experience: "La Experiencia",
+                nav_location: "Ubicación",
+                nav_book_btn: "Reservar",
+                hero_badge: "La Excelencia del Grooming Masculino en Oristano",
+                hero_title: "Sastrería de la Imagen Masculina.",
+                hero_subtitle: "Rituales de afeitado tradicional, cortes a medida y tratamientos regenerativos en una atmósfera de puro lujo y privacidad en Cerdeña.",
+                hero_cta_reserve: "Reserva tu Sillón",
+                hero_cta_location: "Cómo Llegar",
+                scroll_explore: "Explora",
+                about_tag: "Filosofía y Maestría",
+                about_title: "El Arte del Grooming Elevado a la Perfección.",
+                about_desc_1: "Barbiere Oristano no es simplemente una barbería, es un santuario del cuidado personal masculino. Fusionamos antiguas técnicas italianas con tratamientos estéticos de vanguardia.",
+                about_desc_2: "Cada cita inicia con un estudio personalizado de la morfología facial, textura del cabello y estilo de vida. Una experiencia íntima y exclusiva.",
+                stat_1_val: "100%",
+                stat_1_lbl: "A Medida",
+                stat_2_val: "15+",
+                stat_2_lbl: "Años de Excelencia",
+                about_card1_tag: "Atelier Privado",
+                about_card1_title: "Ambiente Exclusivo",
+                about_card1_desc: "Relajación profunda, bebidas premium seleccionadas y máxima privacidad durante tu sesión.",
+                about_card2_tag: "Productos Orgánicos",
+                about_card2_title: "Formulaciones de Lujo",
+                about_card2_desc: "Aceites esenciales naturales, bálsamos botánicos y tratamientos faciales específicos.",
+                services_tag: "Menú de Servicios",
+                services_title: "Rituales de Estilo y Cuidado",
+                services_subtitle: "Elige entre nuestros tratamientos signature diseñados para potenciar tu presencia con distinción.",
+                service_1_badge: "Signature",
+                service_1_price: "€35",
+                service_1_title: "Corte A Medida & Styling",
+                service_1_desc: "Asesoría de imagen morfológica, lavado sensorial con masaje capilar, corte de precisión con tijera y acabado con productos botánicos.",
+                service_1_time: "Duración: 45 Minutos",
+                service_2_badge: "Tradición",
+                service_2_price: "€30",
+                service_2_title: "Afeitado Tradicional con Navaja",
+                service_2_desc: "El clásico ritual italiano con toalla caliente, espuma en brocha de tejón, doble pasada a navaja y toalla fría tonificante.",
+                service_2_time: "Duración: 40 Minutos",
+                service_3_badge: "Cuidado Barba",
+                service_3_price: "€25",
+                service_3_title: "Perfilado de Barba Luxury",
+                service_3_desc: "Esculpido de precisión adaptado a la mandíbula, degradado milimétrico, aceite caliente nutritivo y acondicionador purificante.",
+                service_3_time: "Duración: 30 Minutos",
+                service_4_badge: "Experiencia Total VIP",
+                service_4_price: "€65",
+                service_4_title: "Ritual Completo 'Oristano Experience'",
+                service_4_desc: "Nuestro servicio estelar: Corte A Medida, profilado de barba VIP o afeitado tradicional, exfoliación facial de arcilla y bebida en el lounge privado.",
+                service_4_time: "Duración: 75 Minutos",
+                service_book_now: "Seleccionar →",
+                exp_tag: "Ambiente Privado",
+                exp_title: "Más que un Corte. Un Momento Para Ti.",
+                exp_desc: "Redefinimos el concepto de barbería eliminando las esperas ruidosas. Trabajamos únicamente con cita previa para garantizar máxima atención, música audiófila y bebidas de cortesía.",
+                exp_feat_1: "Exclusivamente con Cita",
+                exp_feat_2: "Bebidas de Lounge Incluidas",
+                exp_feat_3: "Sonido Hi-Fi Analógico",
+                exp_visual_title: "Altos Estándares en Oristano",
+                exp_visual_desc: "Vive la diferencia de un servicio diseñado al detalle según las características de tu rostro.",
+                booking_tag: "Reserva o Visítanos",
+                booking_title: "Asegura Tu Sesión",
+                booking_subtitle: "Encuentra nuestro atelier en Oristano y programa tu cita para una experiencia sin esperas.",
+                book_box_tag: "Agenda Privada",
+                book_box_status: "Disponibilidad en Tiempo Real",
+                book_box_title: "Reserva Directa Online",
+                book_box_desc: "Accede a nuestro sistema para seleccionar tu horario ideal, barbero y tratamiento preferido en segundos.",
+                widget_heading: "Módulo Oficial de Reservas",
+                widget_subheading: "Sin esperas telefónicas. Reserva 24/7 en línea.",
+                widget_btn: "Abrir Calendario y Mapa Oristano",
+                book_cancel_policy: "Cancelación gratuita hasta 24h antes",
+                book_oristano_location: "Oristano, Cerdeña",
+                map_card_tag: "Ubicación Geográfica",
+                map_card_title: "En el Corazón de Oristano",
+                map_card_desc: "Nuestro atelier está situado en el centro histórico de Oristano, de fácil acceso y con aparcamiento cercano.",
+                map_info_city: "Oristano (OR) - Cerdeña, Italia",
+                map_info_hours: "Mar - Sáb: 09:00 - 19:30 (Jornada Continua)",
+                map_card_btn: "Abrir en Google Maps →",
+                footer_brand: "Barbiere Oristano Atelier",
+                footer_copy: "© " + new Date().getFullYear() + " Barbiere Oristano. Todos los derechos reservados. Sastrería Masculina.",
+                footer_maps: "Google Maps",
+                footer_serv: "Servicios",
+                footer_book: "Reservar"
+            }
+        };
+
+        function setLanguage(lang) {
+            const dictionary = i18nData[lang];
+            if (!dictionary) return;
+
+            // Update text for all tags containing data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dictionary[key]) {
+                    el.textContent = dictionary[key];
+                }
+            });
+
+            // Toggle active state on language switcher buttons
+            ['it', 'en', 'es'].forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                if (btn) {
+                    if (l === lang) {
+                        btn.classList.add('text-gold-400', 'bg-white/10');
+                        btn.classList.remove('text-zinc-400');
+                    } else {
+                        btn.classList.remove('text-gold-400', 'bg-white/10');
+                        btn.classList.add('text-zinc-400');
+                    }
+                }
+            });
+
+            // Save language preference in LocalStorage
+            localStorage.setItem('pref_lang', lang);
+        }
+
+        // Initialize language from LocalStorage or default to Italian ('it')
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('pref_lang') || 'it';
+            setLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>
