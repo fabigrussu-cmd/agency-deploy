@@ -1,0 +1,782 @@
+Ecco la Single-Page Application HTML completa, ingegnerizzata e pronta per la produzione. 
+
+Il design adotta un'estetica **Dark Mode Luxe High-End** (stile Awwwards / Editorial), con layout a griglia Bento, effetti Glassmorphism, animazioni a tendina su misura con fisica `cubic-bezier`, sistema di traduzione i18n dinamico in 3 lingue (IT, EN, ES) e integrazione Cal.com.
+
+```html
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth bg-neutral-950 text-neutral-100 antialiased selection:bg-amber-500/30 selection:text-amber-200">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Barberia | Oristano</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome per Icone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Cinzel & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            400: '#e5c158',
+                            500: '#d4af37',
+                            600: '#b28e28',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .glass-nav {
+            background: rgba(10, 10, 10, 0.75);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF 0%, #D4AF37 50%, #8A6D1C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+    </style>
+</head>
+<body class="font-sans overflow-x-hidden">
+
+    <!-- NAVBAR GLASSMORPHISM -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center gap-3 group">
+                <span class="font-serif text-2xl font-black tracking-[0.2em] text-white group-hover:text-gold-500 transition-colors uppercase">
+                    La Barberia
+                </span>
+            </a>
+
+            <!-- Menu di Navigazione Desktop -->
+            <nav class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-[0.15em] uppercase">
+                <a href="#identita" data-i18n="nav_identity" class="text-neutral-400 hover:text-white transition-colors">Identità</a>
+                <a href="#servizi" data-i18n="nav_services" class="text-neutral-400 hover:text-white transition-colors">Servizi</a>
+                <a href="#prodotti" data-i18n="nav_products" class="text-neutral-400 hover:text-white transition-colors">Prodotti</a>
+                <a href="#recensioni" data-i18n="nav_reviews" class="text-neutral-400 hover:text-white transition-colors">Recensioni</a>
+                <a href="#prenota" data-i18n="nav_book" class="text-gold-500 hover:text-gold-400 transition-colors">Prenota</a>
+            </nav>
+
+            <!-- Controlli: Selettore Lingua & Call Contatto -->
+            <div class="flex items-center gap-6">
+                <!-- i18n Selector -->
+                <div class="flex items-center glass-panel rounded-full p-1 text-xs font-bold tracking-wider">
+                    <button onclick="setLanguage('it')" id="lang-it" class="px-2.5 py-1 rounded-full transition-all bg-gold-500 text-black">IT</button>
+                    <button onclick="setLanguage('en')" id="lang-en" class="px-2.5 py-1 rounded-full transition-all text-neutral-400 hover:text-white">EN</button>
+                    <button onclick="setLanguage('es')" id="lang-es" class="px-2.5 py-1 rounded-full transition-all text-neutral-400 hover:text-white">ES</button>
+                </div>
+
+                <!-- Call Direct -->
+                <a href="tel:3485643498" class="hidden sm:flex items-center gap-2 glass-panel px-4 py-2 rounded-full text-xs font-semibold tracking-wider hover:border-gold-500/50 transition-all">
+                    <i class="fa-solid fa-phone text-gold-500 text-xs"></i>
+                    <span>348 564 3498</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (TASSATIVO CODE FORMAT) -->
+    <section id="hero" class="relative w-full">
+        <div class="relative w-full h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center" style="background-image: url('[]');">
+            <!-- Overlay Scuro per Massimizzare la Leggibilità -->
+            <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+
+            <div class="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center">
+                <span data-i18n="hero_subtitle" class="gsap-hero text-gold-500 font-serif text-xs md:text-sm tracking-[0.3em] uppercase mb-4 block">
+                    Piazza Roma, 71 • Oristano
+                </span>
+                
+                <h1 data-i18n="hero_title" class="gsap-hero font-serif text-4xl sm:text-6xl md:text-8xl font-black tracking-tight text-white mb-6 uppercase leading-tight">
+                    Un Piccolo Universo <span class="gold-gradient-text block italic font-normal">Maschile</span>
+                </h1>
+
+                <p data-i18n="hero_desc" class="gsap-hero text-neutral-300 text-base sm:text-lg md:text-xl font-light max-w-2xl mb-10 leading-relaxed">
+                    Dove il vintage incontra l’innovazione, diviene il luogo ideale nel quale ritagliarsi un momento per la cura di se stessi.
+                </p>
+
+                <div class="gsap-hero flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                    <a href="#prenota" data-i18n="hero_cta_book" class="bg-gold-500 hover:bg-gold-400 text-black font-semibold text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:shadow-[0_0_45px_rgba(212,175,55,0.5)]">
+                        Prenota Esperienza
+                    </a>
+                    <a href="#servizi" data-i18n="hero_cta_services" class="glass-panel hover:bg-white/10 text-white font-semibold text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-full transition-all duration-300">
+                        Scopri i Servizi
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+                <span data-i18n="scroll_down" class="text-[10px] uppercase tracking-[0.3em] text-neutral-400">Scroll</span>
+                <div class="w-[1px] h-8 bg-gradient-to-b from-gold-500 to-transparent animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IDENTITÀ & BRAND CONCEPT (BENTO GRID EDITORIALE) -->
+    <section id="identita" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+                <span data-i18n="identity_tag" class="text-gold-500 text-xs font-serif uppercase tracking-[0.25em] block mb-2">La Nostra Identità</span>
+                <h2 data-i18n="identity_title" class="font-serif text-3xl md:text-5xl font-bold uppercase tracking-wide">Un'esperienza Irrinunciabile</h2>
+            </div>
+            <p data-i18n="identity_lead" class="text-neutral-400 max-w-md text-sm leading-relaxed">
+                La Barberia, situata nel pieno centro di Oristano, nasce dall’idea di prendersi cura delle esigenze di un pubblico prettamente maschile.
+            </p>
+        </div>
+
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <!-- Box Grande Concept -->
+            <div class="md:col-span-8 glass-panel rounded-3xl p-8 sm:p-12 flex flex-col justify-between relative overflow-hidden group">
+                <div class="absolute -right-20 -top-20 w-80 h-80 bg-gold-500/5 rounded-full blur-3xl group-hover:bg-gold-500/10 transition-all duration-700"></div>
+                <div class="relative z-10 mb-8">
+                    <i class="fa-solid fa-crown text-gold-500 text-2xl mb-6 block"></i>
+                    <h3 data-i18n="bento_1_title" class="font-serif text-2xl md:text-3xl font-bold mb-4 uppercase">Qualità e Innovazione</h3>
+                    <p data-i18n="bento_1_desc" class="text-neutral-300 font-light leading-relaxed max-w-2xl">
+                        Qualità e innovazione sono prerogative del nostro servizio, arricchito da un background che affonda le radici nelle filosofie oldschool: l’utilizzo di tecniche tradizionali si affianca a trattamenti sofisticati e di alta qualità.
+                    </p>
+                </div>
+                <div class="relative z-10 pt-6 border-t border-white/10 flex items-center justify-between text-xs tracking-widest text-neutral-400 uppercase">
+                    <span data-i18n="bento_1_footer">Oldschool Philosophy • Modern Rituals</span>
+                    <i class="fa-solid fa-scissors text-gold-500"></i>
+                </div>
+            </div>
+
+            <!-- Box Posizione -->
+            <div class="md:col-span-4 glass-panel rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group">
+                <div>
+                    <i class="fa-solid fa-location-dot text-gold-500 text-2xl mb-6 block"></i>
+                    <h3 data-i18n="bento_2_title" class="font-serif text-xl font-bold mb-2 uppercase">Cuore Urbano</h3>
+                    <p data-i18n="bento_2_desc" class="text-neutral-400 text-sm leading-relaxed mb-6">
+                        Piazza Roma, 71 — Oristano. Un ambiente suggestivo che fa da cornice a uno dei momenti essenziali nella giornata di un uomo.
+                    </p>
+                </div>
+                <a href="https://www.google.com/maps/search/?api=1&query=Piazza+Roma,+71+-+Oristano+-+Italy" target="_blank" rel="noopener noreferrer" data-i18n="bento_2_link" class="inline-flex items-center gap-2 text-xs font-semibold text-gold-500 hover:text-gold-400 tracking-wider uppercase">
+                    <span>Mappa Navigabile</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIZI E LISTINO PREZZI (BENTO GRID CON EFFETTO HOVER "A TENDINA") -->
+    <section id="servizi" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-20">
+            <span data-i18n="services_tag" class="text-gold-500 text-xs font-serif uppercase tracking-[0.25em] block mb-2">Listino & Ritualitá</span>
+            <h2 data-i18n="services_title" class="font-serif text-3xl md:text-5xl font-bold uppercase tracking-wide mb-4">I Nostri Servizi</h2>
+            <p data-i18n="services_subtitle" class="text-neutral-400 text-sm">Passa il cursore sulle card per scoprire la descrizione dei trattamenti.</p>
+        </div>
+
+        <!-- Bento Grid Servizi -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Card 1: Taglio Tradizionale -->
+            <div class="group relative overflow-hidden glass-panel rounded-2xl p-8 min-h-[260px] flex flex-col justify-between border border-white/10 hover:border-gold-500/40 transition-colors">
+                <div>
+                    <span data-i18n="cat_hair" class="text-[10px] font-bold tracking-[0.2em] text-gold-500 uppercase block mb-2">Capelli</span>
+                    <h3 data-i18n="s1_title" class="font-serif text-xl font-bold text-white uppercase mb-2">Taglio Tradizionale</h3>
+                </div>
+                <div class="flex items-end justify-between pt-4 border-t border-white/10">
+                    <span class="text-2xl font-serif text-gold-500 font-bold">€ 15.00</span>
+                    <span data-i18n="hover_hint" class="text-[10px] text-neutral-500 uppercase tracking-widest">Dettagli +</span>
+                </div>
+                <!-- Tendina Hover Animata -->
+                <div class="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 bg-neutral-900/95 backdrop-blur-xl p-8 h-full flex flex-col justify-center border-t border-gold-500/30 z-20">
+                    <h4 data-i18n="s1_title" class="font-serif text-lg font-bold text-gold-500 uppercase mb-2">Taglio Tradizionale</h4>
+                    <p data-i18n="s1_desc" class="text-xs text-neutral-300 leading-relaxed mb-4">Servizio di taglio, seguito a forbici e/o macchinetta con rifiniture a rasoio.</p>
+                    <span class="text-xl font-serif text-white font-bold">€ 15.00</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Rasata -->
+            <div class="group relative overflow-hidden glass-panel rounded-2xl p-8 min-h-[260px] flex flex-col justify-between border border-white/10 hover:border-gold-500/40 transition-colors">
+                <div>
+                    <span data-i18n="cat_hair" class="text-[10px] font-bold tracking-[0.2em] text-gold-500 uppercase block mb-2">Capelli</span>
+                    <h3 data-i18n="s2_title" class="font-serif text-xl font-bold text-white uppercase mb-2">Rasata</h3>
+                </div>
+                <div class="flex items-end justify-between pt-4 border-t border-white/10">
+                    <span class="text-2xl font-serif text-gold-500 font-bold">€ 10.00</span>
+                    <span data-i18n="hover_hint" class="text-[10px] text-neutral-500 uppercase tracking-widest">Dettagli +</span>
+                </div>
+                <!-- Tendina Hover Animata -->
+                <div class="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 bg-neutral-900/95 backdrop-blur-xl p-8 h-full flex flex-col justify-center border-t border-gold-500/30 z-20">
+                    <h4 data-i18n="s2_title" class="font-serif text-lg font-bold text-gold-500 uppercase mb-2">Rasata</h4>
+                    <p data-i18n="s2_desc" class="text-xs text-neutral-300 leading-relaxed mb-4">Servizio taglio eseguito esclusivamente a macchinetta con rifiniture a rasoio.</p>
+                    <span class="text-xl font-serif text-white font-bold">€ 10.00</span>
+                </div>
+            </div>
+
+            <!-- Card 3: Little Gentleman -->
+            <div class="group relative overflow-hidden glass-panel rounded-2xl p-8 min-h-[260px] flex flex-col justify-between border border-white/10 hover:border-gold-500/40 transition-colors">
+                <div>
+                    <span data-i18n="cat_hair" class="text-[10px] font-bold tracking-[0.2em] text-gold-500 uppercase block mb-2">Capelli</span>
+                    <h3 data-i18n="s3_title" class="font-serif text-xl font-bold text-white uppercase mb-2">Little Gentleman</h3>
+                </div>
+                <div class="flex items-end justify-between pt-4 border-t border-white/10">
+                    <span class="text-2xl font-serif text-gold-500 font-bold">€ 10.00</span>
+                    <span data-i18n="hover_hint" class="text-[10px] text-neutral-500 uppercase tracking-widest">Dettagli +</span>
+                </div>
+                <!-- Tendina Hover Animata -->
+                <div class="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 bg-neutral-900/95 backdrop-blur-xl p-8 h-full flex flex-col justify-center border-t border-gold-500/30 z-20">
+                    <h4 data-i18n="s3_title" class="font-serif text-lg font-bold text-gold-500 uppercase mb-2">Little Gentleman</h4>
+                    <p data-i18n="s3_desc" class="text-xs text-neutral-300 leading-relaxed mb-4">Servizio di taglio riservato a bambini fino a 14 anni di età.</p>
+                    <span class="text-xl font-serif text-white font-bold">€ 10.00</span>
+                </div>
+            </div>
+
+            <!-- Card 4: Rifinitura Barba -->
+            <div class="group relative overflow-hidden glass-panel rounded-2xl p-8 min-h-[260px] flex flex-col justify-between border border-white/10 hover:border-gold-500/40 transition-colors">
+                <div>
+                    <span data-i18n="cat_beard" class="text-[10px] font-bold tracking-[0.2em] text-gold-500 uppercase block mb-2">Barba</span>
+                    <h3 data-i18n="s4_title" class="font-serif text-xl font-bold text-white uppercase mb-2">Rifinitura Barba</h3>
+                </div>
+                <div class="flex items-end justify-between pt-4 border-t border-white/10">
+                    <span class="text-2xl font-serif text-gold-500 font-bold">€ 8.00</span>
+                    <span data-i18n="hover_hint" class="text-[10px] text-neutral-500 uppercase tracking-widest">Dettagli +</span>
+                </div>
+                <!-- Tendina Hover Animata -->
+                <div class="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 bg-neutral-900/95 backdrop-blur-xl p-8 h-full flex flex-col justify-center border-t border-gold-500/30 z-20">
+                    <h4 data-i18n="s4_title" class="font-serif text-lg font-bold text-gold-500 uppercase mb-2">Rifinitura Barba</h4>
+                    <p data-i18n="s4_desc" class="text-xs text-neutral-300 leading-relaxed mb-4">Servizio di regolazione e rimodellatura a forbici e/o macchinetta.</p>
+                    <span class="text-xl font-serif text-white font-bold">€ 8.00</span>
+                </div>
+            </div>
+
+            <!-- Card 5: Rasatura all'Italiana -->
+            <div class="group relative overflow-hidden glass-panel rounded-2xl p-8 min-h-[260px] flex flex-col justify-between border border-white/10 hover:border-gold-500/40 transition-colors">
+                <div>
+                    <span data-i18n="cat_beard" class="text-[10px] font-bold tracking-[0.2em] text-gold-500 uppercase block mb-2">Barba • 20 Minuti</span>
+                    <h3 data-i18n="s5_title" class="font-serif text-xl font-bold text-white uppercase mb-2">Rasatura all'Italiana</h3>
+                </div>
+                <div class="flex items-end justify-between pt-4 border-t border-white/10">
+                    <span class="text-2xl font-serif text-gold-500 font-bold">€ 10.00</span>
+                    <span data-i18n="hover_hint" class="text-[10px] text-neutral-500 uppercase tracking-widest">Dettagli +</span>
+                </div>
+                <!-- Tendina Hover Animata -->
+                <div class="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 bg-neutral-900/95 backdrop-blur-xl p-8 h-full flex flex-col justify-center border-t border-gold-500/30 z-20">
+                    <h4 data-i18n="s5_title" class="font-serif text-lg font-bold text-gold-500 uppercase mb-2">Rasatura all'Italiana</h4>
+                    <p data-i18n="s5_desc" class="text-xs text-neutral-300 leading-relaxed mb-4">Servizio di rasatura barba pelo e contropelo, comprensivo di crema pre-barba, panno caldo prima e dopo la rasatura e dopobarba disinfettante.</p>
+                    <span class="text-xl font-serif text-white font-bold">€ 10.00</span>
+                </div>
+            </div>
+
+            <!-- Card 6: Shave Luxury -->
+            <div class="group relative overflow-hidden glass-panel rounded-2xl p-8 min-h-[260px] flex flex-col justify-between border border-gold-500/30 hover:border-gold-500 transition-colors">
+                <div>
+                    <span data-i18n="cat_luxury" class="text-[10px] font-bold tracking-[0.2em] text-gold-500 uppercase block mb-2">Rituale Premium</span>
+                    <h3 data-i18n="s6_title" class="font-serif text-xl font-bold text-white uppercase mb-2">Shave Luxury</h3>
+                </div>
+                <div class="flex items-end justify-between pt-4 border-t border-white/10">
+                    <span class="text-2xl font-serif text-gold-500 font-bold">€ 25.00</span>
+                    <span data-i18n="hover_hint" class="text-[10px] text-neutral-500 uppercase tracking-widest">Dettagli +</span>
+                </div>
+                <!-- Tendina Hover Animata -->
+                <div class="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 bg-neutral-900/95 backdrop-blur-xl p-8 h-full flex flex-col justify-center border-t border-gold-500/30 z-20">
+                    <h4 data-i18n="s6_title" class="font-serif text-lg font-bold text-gold-500 uppercase mb-2">Shave Luxury</h4>
+                    <p data-i18n="s6_desc" class="text-xs text-neutral-300 leading-relaxed mb-4">Servizio di rasatura relax pelo e contropelo in tre passaggi con impacco di olio pre-barba e panno caldo prima di ogni passaggio, balsamo viso, massaggio relax.</p>
+                    <span class="text-xl font-serif text-white font-bold">€ 25.00</span>
+                </div>
+            </div>
+
+            <!-- Card 7: Combo 1 -->
+            <div class="group relative overflow-hidden glass-panel rounded-2xl p-8 min-h-[260px] flex flex-col justify-between border border-white/10 hover:border-gold-500/40 transition-colors">
+                <div>
+                    <span data-i18n="cat_combo" class="text-[10px] font-bold tracking-[0.2em] text-gold-500 uppercase block mb-2">Combo</span>
+                    <h3 data-i18n="s7_title" class="font-serif text-xl font-bold text-white uppercase mb-2">Rifinitura Barba + Taglio Tradizionale</h3>
+                </div>
+                <div class="flex items-end justify-between pt-4 border-t border-white/10">
+                    <span class="text-2xl font-serif text-gold-500 font-bold">€ 20.00</span>
+                    <span data-i18n="hover_hint" class="text-[10px] text-neutral-500 uppercase tracking-widest">Dettagli +</span>
+                </div>
+                <div class="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 bg-neutral-900/95 backdrop-blur-xl p-8 h-full flex flex-col justify-center border-t border-gold-500/30 z-20">
+                    <h4 data-i18n="s7_title" class="font-serif text-lg font-bold text-gold-500 uppercase mb-2">Rifinitura Barba + Taglio Tradizionale</h4>
+                    <p data-i18n="s7_desc" class="text-xs text-neutral-300 leading-relaxed mb-4">Servizio combinato per la regolazione completa della barba associata al taglio tradizionale.</p>
+                    <span class="text-xl font-serif text-white font-bold">€ 20.00</span>
+                </div>
+            </div>
+
+            <!-- Card 8: Combo 2 -->
+            <div class="group relative overflow-hidden glass-panel rounded-2xl p-8 min-h-[260px] flex flex-col justify-between border border-white/10 hover:border-gold-500/40 transition-colors">
+                <div>
+                    <span data-i18n="cat_combo" class="text-[10px] font-bold tracking-[0.2em] text-gold-500 uppercase block mb-2">Combo</span>
+                    <h3 data-i18n="s8_title" class="font-serif text-xl font-bold text-white uppercase mb-2">Rasatura all'Italiana + Taglio Tradizionale</h3>
+                </div>
+                <div class="flex items-end justify-between pt-4 border-t border-white/10">
+                    <span class="text-2xl font-serif text-gold-500 font-bold">€ 25.00</span>
+                    <span data-i18n="hover_hint" class="text-[10px] text-neutral-500 uppercase tracking-widest">Dettagli +</span>
+                </div>
+                <div class="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 bg-neutral-900/95 backdrop-blur-xl p-8 h-full flex flex-col justify-center border-t border-gold-500/30 z-20">
+                    <h4 data-i18n="s8_title" class="font-serif text-lg font-bold text-gold-500 uppercase mb-2">Rasatura all'Italiana + Taglio Tradizionale</h4>
+                    <p data-i18n="s8_desc" class="text-xs text-neutral-300 leading-relaxed mb-4">Incontro perfetto tra il panno caldo tradizionale e lo stilismo del taglio capelli classico.</p>
+                    <span class="text-xl font-serif text-white font-bold">€ 25.00</span>
+                </div>
+            </div>
+
+            <!-- Card 9: Combo 3 -->
+            <div class="group relative overflow-hidden glass-panel rounded-2xl p-8 min-h-[260px] flex flex-col justify-between border border-gold-500/40 hover:border-gold-500 transition-colors">
+                <div>
+                    <span data-i18n="cat_luxury" class="text-[10px] font-bold tracking-[0.2em] text-gold-500 uppercase block mb-2">Combo Luxury</span>
+                    <h3 data-i18n="s9_title" class="font-serif text-xl font-bold text-white uppercase mb-2">Shave Luxury + Taglio Tradizionale</h3>
+                </div>
+                <div class="flex items-end justify-between pt-4 border-t border-white/10">
+                    <span class="text-2xl font-serif text-gold-500 font-bold">€ 30.00</span>
+                    <span data-i18n="hover_hint" class="text-[10px] text-neutral-500 uppercase tracking-widest">Dettagli +</span>
+                </div>
+                <div class="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 bg-neutral-900/95 backdrop-blur-xl p-8 h-full flex flex-col justify-center border-t border-gold-500/30 z-20">
+                    <h4 data-i18n="s9_title" class="font-serif text-lg font-bold text-gold-500 uppercase mb-2">Shave Luxury + Taglio Tradizionale</h4>
+                    <p data-i18n="s9_desc" class="text-xs text-neutral-300 leading-relaxed mb-4">La massima esperienza di relax maschile: rituale in tre passaggi con oli e massaggio unito al taglio sartoriale.</p>
+                    <span class="text-xl font-serif text-white font-bold">€ 30.00</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PRODOTTI & SHOP CORNER -->
+    <section id="prodotti" class="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5">
+                <span data-i18n="prod_tag" class="text-gold-500 text-xs font-serif uppercase tracking-[0.25em] block mb-2">I Nostri Prodotti</span>
+                <h2 data-i18n="prod_title" class="font-serif text-3xl md:text-5xl font-bold uppercase tracking-wide mb-6">Eccellenza Mondiale</h2>
+                <p data-i18n="prod_desc" class="text-neutral-300 font-light text-sm md:text-base leading-relaxed mb-8">
+                    Per i nostri servizi utilizziamo solo prodotti specializzati di alta qualità, per offrirvi sempre un servizio impeccabile. Nel corner specializzato troverete una vasta scelta di prodotti e accessori da tutto il mondo per la cura e la rasatura della barba.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="glass-panel px-4 py-2 rounded-full text-xs font-semibold tracking-wider text-gold-500">Proraso</span>
+                    <span class="glass-panel px-4 py-2 rounded-full text-xs font-semibold tracking-wider text-gold-500">Acqua di Parma</span>
+                    <span class="glass-panel px-4 py-2 rounded-full text-xs font-semibold tracking-wider text-gold-500">Solomon's Beard</span>
+                    <span class="glass-panel px-4 py-2 rounded-full text-xs font-semibold tracking-wider text-gold-500">Pepe Nero (Linea Naturale)</span>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 grid grid-cols-2 gap-4">
+                <div class="glass-panel rounded-2xl p-6 flex flex-col justify-center items-center text-center">
+                    <i class="fa-solid fa-pump-soap text-3xl text-gold-500 mb-3"></i>
+                    <h3 data-i18n="prod_card1_title" class="font-serif text-sm font-bold uppercase mb-1">Cura e Rasatura</h3>
+                    <p data-i18n="prod_card1_sub" class="text-[11px] text-neutral-400">Formule per ogni tipo di pelle e barba</p>
+                </div>
+                <div class="glass-panel rounded-2xl p-6 flex flex-col justify-center items-center text-center">
+                    <i class="fa-solid fa-earth-americas text-3xl text-gold-500 mb-3"></i>
+                    <h3 data-i18n="prod_card2_title" class="font-serif text-sm font-bold uppercase mb-1">Corner Internazionale</h3>
+                    <p data-i18n="prod_card2_sub" class="text-[11px] text-neutral-400">Accessori selezionati da tutto il mondo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECENSIONI / DICONO DI NOI -->
+    <section id="recensioni" class="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
+        <div class="text-center max-w-3xl mx-auto mb-20">
+            <span data-i18n="rev_tag" class="text-gold-500 text-xs font-serif uppercase tracking-[0.25em] block mb-2">Testimonianze</span>
+            <h2 data-i18n="rev_title" class="font-serif text-3xl md:text-5xl font-bold uppercase tracking-wide">Dicono Di Noi</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Review 1 -->
+            <div class="glass-panel rounded-3xl p-8 flex flex-col justify-between relative">
+                <i class="fa-solid fa-quote-left text-gold-500/30 text-4xl mb-4"></i>
+                <p data-i18n="rev_1_quote" class="text-neutral-300 italic text-sm leading-relaxed mb-6">
+                    "Barbiere scoperto per caso, ormai non riesco a farne a meno. Precisione e utilizzo di materiali numero uno."
+                </p>
+                <div class="flex items-center gap-1 text-gold-500 text-xs">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="glass-panel rounded-3xl p-8 flex flex-col justify-between relative">
+                <i class="fa-solid fa-quote-left text-gold-500/30 text-4xl mb-4"></i>
+                <p data-i18n="rev_2_quote" class="text-neutral-300 italic text-sm leading-relaxed mb-6">
+                    "Locale curato e differente dai soliti barber shop di moda ultimamente. Bravi nel capire le esigenze."
+                </p>
+                <div class="flex items-center gap-1 text-gold-500 text-xs">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="glass-panel rounded-3xl p-8 flex flex-col justify-between relative">
+                <i class="fa-solid fa-quote-left text-gold-500/30 text-4xl mb-4"></i>
+                <p data-i18n="rev_3_quote" class="text-neutral-300 italic text-sm leading-relaxed mb-6">
+                    "Barbiere scoperto per caso, ormai non riesco a farne a meno. Gruppo introvabile, precisione, artisti puri, con solo materiali numero uno."
+                </p>
+                <div class="flex items-center gap-1 text-gold-500 text-xs">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WIDGET PRENOTAZIONE (CAL.COM EMBEDDED - DIVIETO ASSOLUTO DI INVENZIONE) -->
+    <section id="prenota" class="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span data-i18n="book_tag" class="text-gold-500 text-xs font-serif uppercase tracking-[0.25em] block mb-2">Riserva Il Tuo Posto</span>
+            <h2 data-i18n="book_title" class="font-serif text-3xl md:text-5xl font-bold uppercase tracking-wide mb-4">Prenotazione Online</h2>
+            <p data-i18n="book_subtitle" class="text-neutral-400 text-sm">Scegli il servizio e l'orario perfetto per la tua sessione di cura personale.</p>
+        </div>
+
+        <!-- Bento Style Container per Embed Cal.com -->
+        <div class="glass-panel rounded-3xl p-4 md:p-8 max-w-5xl mx-auto shadow-2xl overflow-hidden border border-white/10">
+            <iframe src="https://cal.com/fabio-grussu-ubggf7" class="w-full h-[700px] border-0 rounded-2xl" bg-transparent></iframe>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="glass-nav border-t border-white/10 pt-20 pb-12 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="md:col-span-2">
+                <span class="font-serif text-2xl font-black tracking-[0.2em] text-white uppercase block mb-4">
+                    La Barberia
+                </span>
+                <p data-i18n="footer_about" class="text-neutral-400 text-xs leading-relaxed max-w-sm">
+                    Un piccolo universo maschile, dove il vintage incontra l’innovazione, diviene il luogo ideale nel quale ritagliarsi un momento per la cura di se stessi.
+                </p>
+            </div>
+
+            <div>
+                <h4 data-i18n="footer_contacts" class="text-xs font-serif font-bold uppercase tracking-widest text-gold-500 mb-4">Contatti</h4>
+                <ul class="space-y-3 text-xs text-neutral-300">
+                    <li>
+                        <a href="tel:3485643498" class="hover:text-gold-500 transition-colors flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-gold-500"></i> 348 564 3498
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/393485643498" target="_blank" rel="noopener noreferrer" class="hover:text-gold-500 transition-colors flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-gold-500"></i> WhatsApp Diretto
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 data-i18n="footer_location" class="text-xs font-serif font-bold uppercase tracking-widest text-gold-500 mb-4">Posizione</h4>
+                <p class="text-xs text-neutral-300 leading-relaxed mb-4">
+                    Piazza Roma, 71<br>
+                    Oristano - Italy
+                </p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Piazza+Roma,+71+-+Oristano+-+Italy" target="_blank" rel="noopener noreferrer" data-i18n="footer_maps_btn" class="inline-flex items-center gap-2 glass-panel px-4 py-2 rounded-full text-[10px] tracking-widest uppercase hover:border-gold-500/50 transition-colors">
+                    <i class="fa-solid fa-map-pin text-gold-500"></i>
+                    <span>Google Maps</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-[10px] text-neutral-500 uppercase tracking-widest gap-4">
+            <p>© <span id="year"></span> La Barberia Oristano. All rights reserved.</p>
+            <p data-i18n="footer_tagline">Quality & Oldschool Philosophy</p>
+        </div>
+    </footer>
+
+    <!-- BOTTONE FLOTTANTE WHATSAPP GLASSMORPHISM -->
+    <a href="https://wa.me/393485643498" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 glass-panel p-4 rounded-full border border-emerald-500/30 text-emerald-400 hover:scale-110 hover:border-emerald-400 transition-all duration-300 shadow-[0_0_25px_rgba(16,185,129,0.2)] flex items-center justify-center group" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- SCRIPT I18N E ANIMAZIONI GSAP -->
+    <script>
+        // Anno Corrente Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // DIZIONARIO MULTI-LINGUA (IT, EN, ES)
+        const i18nData = {
+            it: {
+                nav_identity: "Identità",
+                nav_services: "Servizi",
+                nav_products: "Prodotti",
+                nav_reviews: "Recensioni",
+                nav_book: "Prenota",
+                hero_subtitle: "Piazza Roma, 71 • Oristano",
+                hero_title: "Un Piccolo Universo Maschile",
+                hero_desc: "Dove il vintage incontra l’innovazione, diviene il luogo ideale nel quale ritagliarsi un momento per la cura di se stessi.",
+                hero_cta_book: "Prenota Esperienza",
+                hero_cta_services: "Scopri i Servizi",
+                scroll_down: "Scroll",
+                identity_tag: "La Nostra Identità",
+                identity_title: "Un'esperienza Irrinunciabile",
+                identity_lead: "La Barberia, situata nel pieno centro di Oristano, nasce dall’idea di prendersi cura delle esigenze di un pubblico prettamente maschile.",
+                bento_1_title: "Qualità e Innovazione",
+                bento_1_desc: "Qualità e innovazione sono prerogative del nostro servizio, arricchito da un background che affonda le radici nelle filosofie oldschool: l’utilizzo di tecniche tradizionali si affianca a trattamenti sofisticati e di alta qualità.",
+                bento_1_footer: "Oldschool Philosophy • Modern Rituals",
+                bento_2_title: "Cuore Urbano",
+                bento_2_desc: "Piazza Roma, 71 — Oristano. Un ambiente suggestivo che fa da cornice a uno dei momenti essenziali nella giornata di un uomo.",
+                bento_2_link: "Mappa Navigabile",
+                services_tag: "Listino & Ritualitá",
+                services_title: "I Nostri Servizi",
+                services_subtitle: "Passa il cursore sulle card per scoprire la descrizione dei trattamenti.",
+                cat_hair: "Capelli",
+                cat_beard: "Barba",
+                cat_luxury: "Rituale Premium",
+                cat_combo: "Combo",
+                hover_hint: "Dettagli +",
+                s1_title: "Taglio Tradizionale",
+                s1_desc: "Servizio di taglio, seguito a forbici e/o macchinetta con rifiniture a rasoio.",
+                s2_title: "Rasata",
+                s2_desc: "Servizio taglio eseguito esclusivamente a macchinetta con rifiniture a rasoio.",
+                s3_title: "Little Gentleman",
+                s3_desc: "Servizio di taglio riservato a bambini fino a 14 anni di età.",
+                s4_title: "Rifinitura Barba",
+                s4_desc: "Servizio di regolazione e rimodellatura a forbici e/o macchinetta.",
+                s5_title: "Rasatura all'Italiana",
+                s5_desc: "Servizio di rasatura barba pelo e contropelo, comprensivo di crema pre-barba, panno caldo prima e dopo la rasatura e dopobarba disinfettante.",
+                s6_title: "Shave Luxury",
+                s6_desc: "Servizio di rasatura relax pelo e contropelo in tre passaggi con impacco di olio pre-barba e panno caldo prima di ogni passaggio, balsamo viso, massaggio relax.",
+                s7_title: "Rifinitura Barba + Taglio Tradizionale",
+                s7_desc: "Servizio combinato per la regolazione completa della barba associata al taglio tradizionale.",
+                s8_title: "Rasatura all'Italiana + Taglio Tradizionale",
+                s8_desc: "Incontro perfetto tra il panno caldo tradizionale e lo stilismo del taglio capelli classico.",
+                s9_title: "Shave Luxury + Taglio Tradizionale",
+                s9_desc: "La massima esperienza di relax maschile: rituale in tre passaggi con oli e massaggio unito al taglio sartoriale.",
+                prod_tag: "I Nostri Prodotti",
+                prod_title: "Eccellenza Mondiale",
+                prod_desc: "Per i nostri servizi utilizziamo solo prodotti specializzati di alta qualità, per offrirvi sempre un servizio impeccabile. Nel corner specializzato troverete una vasta scelta di prodotti e accessori da tutto il mondo per la cura e la rasatura della barba.",
+                prod_card1_title: "Cura e Rasatura",
+                prod_card1_sub: "Formule per ogni tipo di pelle e barba",
+                prod_card2_title: "Corner Internazionale",
+                prod_card2_sub: "Accessori selezionati da tutto il mondo",
+                rev_tag: "Testimonianze",
+                rev_title: "Dicono Di Noi",
+                rev_1_quote: '"Barbiere scoperto per caso, ormai non riesco a farne a meno. Precisione e utilizzo di materiali numero uno."',
+                rev_2_quote: '"Locale curato e differente dai soliti barber shop di moda ultimamente. Bravi nel capire le esigenze."',
+                rev_3_quote: '"Barbiere scoperto per caso, ormai non riesco a farne a meno. Gruppo introvabile, precisione, artisti puri, con solo materiali numero uno."',
+                book_tag: "Riserva Il Tuo Posto",
+                book_title: "Prenotazione Online",
+                book_subtitle: "Scegli il servizio e l'orario perfetto per la tua sessione di cura personale.",
+                footer_about: "Un piccolo universo maschile, dove il vintage incontra l’innovazione, diviene il luogo ideale nel quale ritagliarsi un momento per la cura di se stessi.",
+                footer_contacts: "Contatti",
+                footer_location: "Posizione",
+                footer_maps_btn: "Google Maps",
+                footer_tagline: "Quality & Oldschool Philosophy"
+            },
+            en: {
+                nav_identity: "Identity",
+                nav_services: "Services",
+                nav_products: "Products",
+                nav_reviews: "Reviews",
+                nav_book: "Book Now",
+                hero_subtitle: "Piazza Roma, 71 • Oristano",
+                hero_title: "A Small Male Universe",
+                hero_desc: "Where vintage meets innovation, becoming the ideal place to carve out a moment for self-care.",
+                hero_cta_book: "Book Experience",
+                hero_cta_services: "Explore Services",
+                scroll_down: "Scroll",
+                identity_tag: "Our Identity",
+                identity_title: "An Essential Experience",
+                identity_lead: "La Barberia, located in the heart of Oristano, was born from the idea of taking care of a purely male audience.",
+                bento_1_title: "Quality & Innovation",
+                bento_1_desc: "Quality and innovation are key prerogatives of our service, enriched by an oldschool background: traditional techniques pair with sophisticated, high-end treatments.",
+                bento_1_footer: "Oldschool Philosophy • Modern Rituals",
+                bento_2_title: "Urban Heart",
+                bento_2_desc: "Piazza Roma, 71 — Oristano. An evocative setting framing one of the essential moments of a man's day.",
+                bento_2_link: "Open Map",
+                services_tag: "Menu & Rituals",
+                services_title: "Our Services",
+                services_subtitle: "Hover over the cards to reveal full treatment descriptions.",
+                cat_hair: "Hair",
+                cat_beard: "Beard",
+                cat_luxury: "Premium Ritual",
+                cat_combo: "Combo",
+                hover_hint: "Details +",
+                s1_title: "Traditional Haircut",
+                s1_desc: "Haircut service executed with scissors and/or clippers finished with straight razor precision.",
+                s2_title: "Buzz Cut",
+                s2_desc: "Full clipper haircut service finished with razor line-ups.",
+                s3_title: "Little Gentleman",
+                s3_desc: "Special haircut service reserved for children up to 14 years old.",
+                s4_title: "Beard Trim",
+                s4_desc: "Beard trimming and reshaping service with scissors and/or clippers.",
+                s5_title: "Italian Shave",
+                s5_desc: "With & against the grain beard shave, including pre-shave cream, hot towel before & after, and antiseptic aftershave.",
+                s6_title: "Luxury Shave",
+                s6_desc: "Relaxing 3-pass shave with pre-shave oil pack, hot towel before every pass, facial balm, and relax massage.",
+                s7_title: "Beard Trim + Traditional Haircut",
+                s7_desc: "Combined service for full beard adjustment and classic haircut.",
+                s8_title: "Italian Shave + Traditional Haircut",
+                s8_desc: "Perfect encounter between traditional hot towel shave and classic hair styling.",
+                s9_title: "Luxury Shave + Traditional Haircut",
+                s9_desc: "The ultimate male relaxation ritual: 3-pass shave with oils and massage combined with a tailored haircut.",
+                prod_tag: "Our Products",
+                prod_title: "Global Excellence",
+                prod_desc: "We only use high-end specialized products to ensure flawless service. In our specialized corner, you will find a global selection of beard care accessories and products.",
+                prod_card1_title: "Grooming & Shaving",
+                prod_card1_sub: "Formulas for every skin & beard type",
+                prod_card2_title: "International Corner",
+                prod_card2_sub: "Accessories selected worldwide",
+                rev_tag: "Testimonials",
+                rev_title: "What They Say",
+                rev_1_quote: '"Discovered by chance, now I can\'t do without it. Precision and top tier materials."',
+                rev_2_quote: '"Refined space, different from typical trendy barber shops. Great at understanding customer needs."',
+                rev_3_quote: '"Discovered by chance, unbeatable team, precision, pure artists using only number one materials."',
+                book_tag: "Reserve Your Spot",
+                book_title: "Online Booking",
+                book_subtitle: "Choose your service and the perfect time for your personal care session.",
+                footer_about: "A small male universe where vintage meets innovation, becoming the ideal place for self-care.",
+                footer_contacts: "Contacts",
+                footer_location: "Location",
+                footer_maps_btn: "Google Maps",
+                footer_tagline: "Quality & Oldschool Philosophy"
+            },
+            es: {
+                nav_identity: "Identidad",
+                nav_services: "Servicios",
+                nav_products: "Productos",
+                nav_reviews: "Reseñas",
+                nav_book: "Reservar",
+                hero_subtitle: "Piazza Roma, 71 • Oristano",
+                hero_title: "Un Pequeño Universo Masculino",
+                hero_desc: "Donde lo vintage se encuentra con la innovación, el lugar ideal para dedicarte un momento de cuidado personal.",
+                hero_cta_book: "Reservar Experiencia",
+                hero_cta_services: "Ver Servicios",
+                scroll_down: "Scroll",
+                identity_tag: "Nuestra Identidad",
+                identity_title: "Una Experiencia Imprescindible",
+                identity_lead: "La Barberia, ubicada en pleno centro de Oristano, nace de la idea de cuidar las necesidades del público masculino.",
+                bento_1_title: "Calidad e Innovación",
+                bento_1_desc: "La calidad y la innovación son la base de nuestro servicio, enriquecido por técnicas tradicionales combinadas con tratamientos sofisticados de alta gama.",
+                bento_1_footer: "Oldschool Philosophy • Modern Rituals",
+                bento_2_title: "Corazón Urbano",
+                bento_2_desc: "Piazza Roma, 71 — Oristano. Un ambiente sugerente para uno de los momentos esenciales del día de un hombre.",
+                bento_2_link: "Abrir Mapa",
+                services_tag: "Menú & Rituales",
+                services_title: "Nuestros Servicios",
+                services_subtitle: "Pasa el cursor sobre las tarjetas para ver la descripción de cada tratamiento.",
+                cat_hair: "Cabello",
+                cat_beard: "Barba",
+                cat_luxury: "Ritual Premium",
+                cat_combo: "Combo",
+                hover_hint: "Detalles +",
+                s1_title: "Corte Tradicional",
+                s1_desc: "Servicio de corte a tijera y/o máquina con acabados a navaja.",
+                s2_title: "Rapado",
+                s2_desc: "Servicio de corte realizado exclusivamente a máquina con contornos a navaja.",
+                s3_title: "Little Gentleman",
+                s3_desc: "Corte de pelo reservado para niños de hasta 14 años.",
+                s4_title: "Arreglo de Barba",
+                s4_desc: "Ajuste y perfilado de barba con tijera y/o máquina.",
+                s5_title: "Afeitado a la Italiana",
+                s5_desc: "Afeitado a favor y a contrapelo, con crema previa, toalla caliente antes y después y loción desinfectante.",
+                s6_title: "Afeitado Luxury",
+                s6_desc: "Afeitado relax en tres pasadas con aceite previo, toalla caliente en cada pasada, bálsamo facial y masaje relax.",
+                s7_title: "Arreglo de Barba + Corte Tradicional",
+                s7_desc: "Servicio combinado de perfilado de barba y corte de cabello clásico.",
+                s8_title: "Afeitado a la Italiana + Corte Tradicional",
+                s8_desc: "La combinación perfecta entre toalla caliente tradicional y estilismo de corte.",
+                s9_title: "Afeitado Luxury + Corte Tradicional",
+                s9_desc: "La máxima experiencia de relax: afeitado ritual en 3 pasos con aceites y masaje junto a un corte a medida.",
+                prod_tag: "Nuestros Productos",
+                prod_title: "Excelencia Mundial",
+                prod_desc: "Utilizamos solo productos especializados de alta calidad para garantizar un servicio impecable. En nuestro corner especializado encontrarás accesorios y cosmética de todo el mundo.",
+                prod_card1_title: "Cuidado y Afeitado",
+                prod_card1_sub: "Fórmulas para todo tipo de piel y barba",
+                prod_card2_title: "Corner Internacional",
+                prod_card2_sub: "Accesorios seleccionados mundialmente",
+                rev_tag: "Testimonios",
+                rev_title: "Lo Que Dicen",
+                rev_1_quote: '"Descubierto por casualidad, ya no puedo prescindir de él. Precisión y materiales de primera."',
+                rev_2_quote: '"Local cuidado y diferente a las barberías de moda habituales. Entienden muy bien lo que buscas."',
+                rev_3_quote: '"Descubierto por casualidad, equipo imbatible, precisión, artistas puros con materiales de nivel superior."',
+                book_tag: "Reserva Tu Espacio",
+                book_title: "Reserva Online",
+                book_subtitle: "Elige el servicio y la hora perfecta para tu sesión de cuidado personal.",
+                footer_about: "Un pequeño universo masculino donde lo vintage se une a la innovación para el cuidado personal.",
+                footer_contacts: "Contactos",
+                footer_location: "Ubicación",
+                footer_maps_btn: "Google Maps",
+                footer_tagline: "Quality & Oldschool Philosophy"
+            }
+        };
+
+        function setLanguage(lang) {
+            // Update Text Content via data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18nData[lang] && i18nData[lang][key]) {
+                    el.textContent = i18nData[lang][key];
+                }
+            });
+
+            // Update Active Button Style
+            ['it', 'en', 'es'].forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                if (l === lang) {
+                    btn.className = "px-2.5 py-1 rounded-full transition-all bg-gold-500 text-black font-bold";
+                } else {
+                    btn.className = "px-2.5 py-1 rounded-full transition-all text-neutral-400 hover:text-white";
+                }
+            });
+        }
+
+        // ANIMAZIONI GSAP
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Hero Fade In Elements
+            gsap.from(".gsap-hero", {
+                y: 40,
+                opacity: 0,
+                duration: 1.2,
+                stagger: 0.2,
+                ease: "power3.out"
+            });
+
+            // Scroll Reveal per Sezioni
+            gsap.utils.toArray('section').forEach(section => {
+                gsap.from(section, {
+                    opacity: 0,
+                    y: 30,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+```
