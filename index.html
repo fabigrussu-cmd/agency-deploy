@@ -1,4 +1,4 @@
-Ecco la Single-Page Application pronta per la produzione, sviluppata secondo i più elevati standard UX/UI, copy persuasivo e codice pulito.
+Ecco il codice HTML completo, pronto per la produzione. È stato progettato seguendo i più alti standard visivi dell'alta moda e dell'automotive di lusso, integrando micro-interazioni GSAP, Glassmorphism avanzato, effetto tendina dinamico sulle card e un sistema i18n trilingue (IT, EN, ES) privo di componenti inventati.
 
 ```html
 <!DOCTYPE html>
@@ -6,9 +6,7 @@ Ecco la Single-Page Application pronta per la produzione, sviluppata secondo i p
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="meta_title">WEST COAST QUAD | Escursioni in Quad d'Élite in Sardegna</title>
-    <meta name="description" content="Vivi l'adrenalina delle escursioni in quad tra miniere abbandonate e natura selvaggia a Guspini. Un'esperienza luxury off-road guidata da professionisti." data-i18n="meta_desc">
-
+    <title>WEST COAST QUAD | Off-Road Luxury Experiences in Sardinia</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -21,8 +19,7 @@ Ecco la Single-Page Application pronta per la produzione, sviluppata secondo i p
                             400: '#FACC15',
                             500: '#EAB308',
                             600: '#CA8A04',
-                        },
-                        sand: '#18181B',
+                        }
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
@@ -32,21 +29,18 @@ Ecco la Single-Page Application pronta per la produzione, sviluppata secondo i p
             }
         }
     </script>
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-
-    <!-- GSAP & ScrollTrigger -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #09090B;
-            color: #F4F4F5;
+            background-color: #050505;
+            color: #f3f4f6;
             overflow-x: hidden;
         }
         h1, h2, h3, .font-display {
@@ -58,297 +52,306 @@ Ecco la Single-Page Application pronta per la produzione, sviluppata secondo i p
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .glass-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .glass-panel-hover:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(234, 179, 8, 0.3);
         }
         .glass-nav {
-            background: rgba(9, 9, 11, 0.7);
+            background: rgba(5, 5, 5, 0.75);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .mesh-bg-1 {
-            background-image: radial-gradient(at 0% 0%, rgba(234, 179, 8, 0.15) 0px, transparent 50%),
-                              radial-gradient(at 100% 100%, rgba(255, 255, 255, 0.05) 0px, transparent 50%);
-        }
-        .mesh-bg-2 {
-            background-image: radial-gradient(at 100% 0%, rgba(234, 179, 8, 0.1) 0px, transparent 50%),
-                              radial-gradient(at 0% 100%, rgba(24, 24, 27, 0.8) 0px, transparent 50%);
+        .mesh-gradient {
+            background-image: radial-gradient(at 80% 0%, rgba(234, 179, 8, 0.15) 0px, transparent 50%),
+                              radial-gradient(at 0% 100%, rgba(255, 255, 255, 0.05) 0px, transparent 50%);
         }
     </style>
 </head>
-<body class="antialiased selection:bg-gold-500 selection:text-black">
+<body class="bg-black text-gray-100 antialiased selection:bg-gold-500 selection:text-black">
 
-    <!-- NAVBAR GLASSMORPHISM -->
-    <header class="fixed top-0 left-0 w-full z-50 glass-nav px-6 py-4 transition-all duration-300">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2 group">
-                <span class="text-xl font-extrabold tracking-wider uppercase font-display text-white group-hover:text-gold-400 transition-colors">
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full border border-gold-500/40 flex items-center justify-center bg-gold-500/10 group-hover:border-gold-500 transition-colors">
+                    <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                </div>
+                <span class="font-display font-extrabold text-xl tracking-wider text-white uppercase group-hover:text-gold-500 transition-colors">
                     WEST COAST <span class="text-gold-500">QUAD</span>
                 </span>
             </a>
 
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
-                <a href="#mission" class="hover:text-gold-400 transition-colors" data-i18n="nav_mission">MISSION</a>
-                <a href="#percorsi" class="hover:text-gold-400 transition-colors" data-i18n="nav_routes">PERCORSI</a>
-                <a href="#galleria" class="hover:text-gold-400 transition-colors" data-i18n="nav_gallery">GALLERIA</a>
-                <a href="#prenota" class="hover:text-gold-400 transition-colors" data-i18n="nav_booking">PRENOTA</a>
-                <a href="#contatti" class="hover:text-gold-400 transition-colors" data-i18n="nav_contacts">CONTATTI</a>
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-10 text-xs font-semibold tracking-widest uppercase text-gray-300">
+                <a href="#mission" class="hover:text-gold-500 transition-colors" data-i18n="nav_mission">Mission</a>
+                <a href="#percorsi" class="hover:text-gold-500 transition-colors" data-i18n="nav_routes">Percorsi</a>
+                <a href="#galleria" class="hover:text-gold-500 transition-colors" data-i18n="nav_gallery">Galleria</a>
+                <a href="#prenota" class="hover:text-gold-500 transition-colors" data-i18n="nav_booking">Prenota</a>
+                <a href="#contatti" class="hover:text-gold-500 transition-colors" data-i18n="nav_contacts">Contatti</a>
             </nav>
 
-            <!-- Language Switcher & CTA -->
-            <div class="flex items-center space-x-4">
-                <div class="glass-panel rounded-full p-1 flex items-center text-xs font-semibold">
-                    <button onclick="changeLanguage('it')" id="btn-it" class="px-2.5 py-1 rounded-full transition-all bg-gold-500 text-black font-bold">IT</button>
-                    <button onclick="changeLanguage('en')" id="btn-en" class="px-2.5 py-1 rounded-full transition-all text-zinc-400 hover:text-white">EN</button>
-                    <button onclick="changeLanguage('es')" id="btn-es" class="px-2.5 py-1 rounded-full transition-all text-zinc-400 hover:text-white">ES</button>
+            <!-- Language Switcher & Call CTA -->
+            <div class="flex items-center gap-6">
+                <!-- i18n Selector -->
+                <div class="flex items-center gap-1 bg-white/5 border border-white/10 rounded-full p-1 text-xs font-bold">
+                    <button onclick="setLanguage('it')" id="lang-it" class="px-2.5 py-1 rounded-full transition-all bg-gold-500 text-black">IT</button>
+                    <button onclick="setLanguage('en')" id="lang-en" class="px-2.5 py-1 rounded-full transition-all text-gray-400 hover:text-white">EN</button>
+                    <button onclick="setLanguage('es')" id="lang-es" class="px-2.5 py-1 rounded-full transition-all text-gray-400 hover:text-white">ES</button>
                 </div>
-                <a href="#prenota" class="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest bg-gold-500 text-black hover:bg-gold-400 transition-all transform hover:scale-105 shadow-lg shadow-gold-500/20" data-i18n="nav_cta">
-                    PRENOTA ORA
+
+                <a href="tel:+393460207324" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold-500/30 text-gold-500 font-semibold text-xs tracking-wider uppercase hover:bg-gold-500 hover:text-black transition-all duration-300">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    <span data-i18n="nav_call">Chiama Ora</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- HERO SECTION (TASSATIVO) -->
+    <!-- HERO SECTION (TASSATIVO CODE FORMAT) -->
     <section class="relative w-full h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center" style="background-image: url('https://www.westcoastquad.it/wp-content/uploads/2024/08/image00052.jpg');">
-        <div class="absolute inset-0 bg-black/60 backdrop-brightness-75"></div>
-        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center h-full pt-16">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel text-gold-400 text-xs font-semibold tracking-widest uppercase mb-6 animate-pulse">
-                <span class="w-2 h-2 rounded-full bg-gold-500"></span>
-                <span data-i18n="hero_badge">ESCURSIONI OFF-ROAD ESCLUSIVE IN SARDEGNA</span>
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-8 border border-gold-500/30">
+                <span class="w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
+                <span class="text-xs uppercase tracking-widest font-semibold text-gold-400" data-i18n="hero_badge">Sardinia Off-Road Experience</span>
             </div>
             
-            <h1 class="text-4xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white mb-6 leading-none" data-i18n="hero_title">
-                Diventa il Protagonista Dell'Avventura
+            <h1 class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white tracking-tight uppercase mb-6 leading-none" data-i18n="hero_title">
+                Diventa il protagonista della tua avventura
             </h1>
             
-            <p class="text-lg md:text-xl text-zinc-300 max-w-2xl font-light mb-10 leading-relaxed" data-i18n="hero_subtitle">
-                Esplora la natura come un vero eroe. Senti l'adrenalina scorrere nelle tue vene mentre guidi tra le storiche miniere e i paesaggi mozzafiato di Guspini.
+            <p class="max-w-2xl mx-auto text-base sm:text-xl text-gray-300 font-light leading-relaxed mb-10" data-i18n="hero_subtitle">
+                Esplora la natura come un vero eroe con le nostre emozionanti escursioni in quad. Senti l'adrenalina correre nelle tue vene mentre esplori paesaggi mozzafiato.
             </p>
-            
-            <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-                <a href="#percorsi" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gold-500 hover:bg-gold-400 text-black font-extrabold text-sm uppercase tracking-wider transition-all transform hover:-translate-y-1 shadow-xl shadow-gold-500/20 text-center" data-i18n="hero_primary_cta">
-                    SCOPRI I PERCORSI
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#prenota" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gold-500 text-black font-extrabold text-xs tracking-widest uppercase hover:bg-gold-400 transition-all duration-300 shadow-lg shadow-gold-500/20" data-i18n="hero_cta_book">
+                    Prenota L'Escursione
                 </a>
-                <a href="tel:+393460207324" class="w-full sm:w-auto px-8 py-4 rounded-full glass-panel hover:bg-white/10 text-white font-bold text-sm uppercase tracking-wider transition-all border border-white/20 text-center flex items-center justify-center gap-2">
-                    <svg class="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                    <span data-i18n="hero_secondary_cta">CHIAMA ORA</span>
+                <a href="#percorsi" class="w-full sm:w-auto px-8 py-4 rounded-full glass-panel text-white font-bold text-xs tracking-widest uppercase hover:bg-white/10 transition-all duration-300" data-i18n="hero_cta_explore">
+                    Esplora I Percorsi
                 </a>
             </div>
         </div>
-        
-        <!-- Bottom Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center opacity-60 hover:opacity-100 transition-opacity">
-            <span class="text-[10px] uppercase tracking-widest text-zinc-400 mb-2" data-i18n="scroll_down">SCORRI</span>
-            <div class="w-5 h-9 rounded-full border-2 border-white/30 flex items-start justify-center p-1">
-                <div class="w-1 h-2 bg-gold-400 rounded-full animate-bounce"></div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+            <span class="text-[10px] tracking-widest uppercase text-gray-400" data-i18n="hero_scroll">Scroll</span>
+            <div class="w-4 h-7 border border-white/30 rounded-full flex justify-center p-1">
+                <div class="w-1 h-2 bg-gold-500 rounded-full animate-bounce"></div>
             </div>
         </div>
     </section>
 
-    <!-- MISSION / ABOUT SECTION -->
-    <section id="mission" class="py-28 px-6 relative bg-zinc-950 overflow-hidden">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div class="lg:col-span-7 space-y-8 gsap-reveal">
-                <div class="inline-flex items-center gap-2 text-gold-500 font-semibold text-xs tracking-widest uppercase">
-                    <span class="w-8 h-[1px] bg-gold-500"></span>
-                    <span data-i18n="mission_tag">LA NOSTRA MISSION</span>
+    <!-- MISSION SECTION -->
+    <section id="mission" class="py-32 relative mesh-gradient border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <!-- Left Column Text -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="space-y-3">
+                        <span class="text-gold-500 font-semibold tracking-widest text-xs uppercase" data-i18n="mission_tag">West Coast Quad – La Mission</span>
+                        <h2 class="font-display text-3xl sm:text-5xl font-bold text-white leading-tight uppercase" data-i18n="mission_title">
+                            Un mix perfetto tra divertimento e meraviglia
+                        </h2>
+                    </div>
+
+                    <p class="text-gray-300 text-lg font-light leading-relaxed" data-i18n="mission_p1">
+                        Sei pronto per un’esperienza indimenticabile che unisce adrenalina e scoperta? Unisciti a noi per un’escursione in quad nelle affascinanti miniere, dove il passato minerario incontra l’emozione della guida off-road.
+                    </p>
+
+                    <p class="text-gray-400 text-base font-light leading-relaxed" data-i18n="mission_p2">
+                        Immagina di sfrecciare su sentieri avvincenti, affrontando ostacoli naturali che metteranno alla prova le tue capacità: pietre, fango, e curve strette si intrecciano in un percorso panoramico che ti porterà nel cuore della terra. Ogni tappa svelerà i segreti delle miniere abbandonate, con scenari mozzafiato e storie affascinanti.
+                    </p>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-6 border-t border-white/10">
+                        <div>
+                            <div class="font-display text-3xl font-extrabold text-white">100%</div>
+                            <div class="text-xs text-gray-400 uppercase tracking-wider mt-1" data-i18n="stat_adrenalin">Adrenalina</div>
+                        </div>
+                        <div>
+                            <div class="font-display text-3xl font-extrabold text-gold-500">3</div>
+                            <div class="text-xs text-gray-400 uppercase tracking-wider mt-1" data-i18n="stat_routes">Percorsi Unici</div>
+                        </div>
+                        <div>
+                            <div class="font-display text-3xl font-extrabold text-white">4x4</div>
+                            <div class="text-xs text-gray-400 uppercase tracking-wider mt-1" data-i18n="stat_safety">Sicurezza Guidata</div>
+                        </div>
+                    </div>
                 </div>
-                
-                <h2 class="text-3xl md:text-5xl font-extrabold uppercase text-white leading-tight" data-i18n="mission_title">
-                    Un'esperienza indimenticabile tra Adrenalina e Storia
-                </h2>
-                
-                <p class="text-zinc-400 text-lg leading-relaxed font-light" data-i18n="mission_p1">
-                    Unisciti a noi per un'escursione in quad nelle affascinanti miniere di Guspini, dove il passato minerario incontra l’emozione della guida off-road. Sfreccia su sentieri avvincenti, affrontando ostacoli naturali come pietre, fango e curve strette che metteranno alla prova le tue capacità.
-                </p>
 
-                <p class="text-zinc-400 text-base leading-relaxed font-light" data-i18n="mission_p2">
-                    Ogni tappa svela i segreti delle miniere abbandonate, con scenari mozzafiato e storie affascinanti. Perfetto per famiglie, gruppi di amici o chi cerca una nuova sfida. I nostri esperti istruttori ti guideranno in totale sicurezza.
-                </p>
-
-                <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/10">
-                    <div>
-                        <span class="text-3xl md:text-4xl font-extrabold text-gold-400 font-display">100%</span>
-                        <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1" data-i18n="stat_1">Sicurezza Garantita</p>
-                    </div>
-                    <div>
-                        <span class="text-3xl md:text-4xl font-extrabold text-gold-400 font-display">3</span>
-                        <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1" data-i18n="stat_2">Percorsi Esclusivi</p>
-                    </div>
-                    <div>
-                        <span class="text-3xl md:text-4xl font-extrabold text-gold-400 font-display">100km</span>
-                        <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1" data-i18n="stat_3">Max Avventura</p>
+                <!-- Right Column Visual Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-3xl overflow-hidden glass-panel p-3 border border-white/10 group">
+                        <img src="https://www.westcoastquad.it/wp-content/uploads/2024/06/hero4-1024x576.jpg" alt="West Coast Quad Mission" class="w-full h-[450px] object-cover rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-2xl flex items-end p-8">
+                            <p class="text-xs uppercase tracking-widest text-gold-400 font-semibold" data-i18n="mission_card_caption">
+                                Guida esperta & Equipaggiamento Completo Incluso
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="lg:col-span-5 relative gsap-reveal">
-                <div class="relative rounded-3xl overflow-hidden glass-card p-3">
-                    <img src="https://www.westcoastquad.it/wp-content/uploads/2024/06/hero4-1024x576.jpg" alt="West Coast Quad Mission" class="w-full h-[450px] object-cover rounded-2xl filter brightness-90 hover:brightness-100 transition-all duration-500">
-                    <div class="absolute bottom-6 left-6 right-6 p-6 glass-panel rounded-xl">
-                        <p class="text-xs text-gold-400 font-bold uppercase tracking-widest" data-i18n="mission_quote_tag">ESPERIENZA OFF-ROAD</p>
-                        <p class="text-sm font-medium text-white mt-1" data-i18n="mission_quote">"Un mix perfetto tra divertimento e meraviglia che lascerà il segno nel tuo cuore!"</p>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- BENTO GRID PERCORSI (INTERATTIVI CON EFFETTO TENDINA) -->
-    <section id="percorsi" class="py-28 px-6 bg-black relative">
-        <div class="max-w-7xl mx-auto">
-            
-            <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
-                <div class="inline-flex items-center gap-2 text-gold-500 font-semibold text-xs tracking-widest uppercase mb-3">
-                    <span class="w-2 h-2 rounded-full bg-gold-500"></span>
-                    <span data-i18n="routes_subtitle">SCEGLI LA TUA SFIDA</span>
-                </div>
-                <h2 class="text-4xl md:text-6xl font-black uppercase text-white tracking-tight" data-i18n="routes_title">
-                    I NOSTRI PERCORSI
+    <!-- ROUTES SECTION (BENTO GRID WITH TENDINA HOVER EFFECT) -->
+    <section id="percorsi" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+                <span class="text-gold-500 font-semibold tracking-widest text-xs uppercase" data-i18n="routes_tag">Le Nostre Avventure</span>
+                <h2 class="font-display text-4xl sm:text-5xl font-extrabold text-white uppercase tracking-tight" data-i18n="routes_title">
+                    I Nostri Percorsi
                 </h2>
-                <p class="text-zinc-400 mt-4 text-base" data-i18n="routes_desc">
-                    Tracciati studiati per ogni livello di esperienza, dal principiante all'orientista estremo.
+                <p class="text-gray-400 text-sm tracking-wide" data-i18n="routes_subtitle">
+                    Passa il cursore su ciascun percorso per scoprire la descrizione completa dell'itinerario.
                 </p>
             </div>
 
-            <!-- Bento Grid Container -->
+            <!-- Bento Grid Containers -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <!-- CARD 1: LE MINIERE -->
-                <div class="group relative h-[520px] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 mesh-bg-1 flex flex-col justify-between p-8 transition-all duration-500 hover:border-gold-500/50 gsap-reveal">
-                    <!-- Texture & Background Image Overlay -->
-                    <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://www.westcoastquad.it/wp-content/uploads/2024/08/hero21.jpg');"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-
-                    <!-- Top Card Content -->
-                    <div class="relative z-10 flex justify-between items-start">
-                        <span class="px-3 py-1 rounded-full text-[10px] font-extrabold tracking-wider uppercase bg-emerald-500/20 text-emerald-400 border border-emerald-500/30" data-i18n="diff_easy">FACILE</span>
-                        <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">01 / TOUR</span>
+                <!-- ROUTE 1: LE MINIERE -->
+                <div class="group relative rounded-3xl glass-panel glass-panel-hover overflow-hidden min-h-[500px] flex flex-col justify-between p-8 border border-white/10 transition-all duration-500">
+                    <!-- Texture & SVG Overlay -->
+                    <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <svg class="w-36 h-36 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                        </svg>
                     </div>
 
-                    <!-- SVG Background Decor -->
-                    <svg class="absolute right-4 top-1/3 w-36 h-36 text-white/5 pointer-events-none stroke-current" fill="none" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
-
-                    <!-- Bottom Content Visible Originally -->
-                    <div class="relative z-10 space-y-4">
-                        <div class="flex items-center space-x-4 text-xs font-semibold text-gold-400">
-                            <span>⏱️ 3/4 HR</span>
-                            <span>•</span>
-                            <span>🛣️ 70 KM</span>
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold text-[10px] tracking-widest uppercase" data-i18n="level_easy">FACILE</span>
+                            <span class="font-display text-sm font-bold text-gray-500">01</span>
                         </div>
-                        <h3 class="text-2xl font-black uppercase text-white font-display" data-i18n="route_1_name">LE MINIERE</h3>
-                        <p class="text-sm text-zinc-300 line-clamp-2" data-i18n="route_1_short">Un percorso avvincente, unico, meraviglioso nel cuore della storia mineraria.</p>
-                        <div class="pt-2 text-xs text-gold-400 font-bold uppercase tracking-wider flex items-center gap-1 group-hover:text-white transition-colors">
-                            <span data-i18n="hover_details">Passa sopra per dettagli</span> &rarr;
-                        </div>
+                        <h3 class="font-display text-2xl font-extrabold text-white uppercase mb-2" data-i18n="route1_name">LE MINIERE</h3>
+                        <p class="text-gold-500 text-sm font-medium" data-i18n="route1_short">Un percorso avvincente, unico, meraviglioso</p>
                     </div>
 
-                    <!-- EFFETTO TENDINA HOVER (FULL OVERLAY SLIDE UP) -->
-                    <div class="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 backdrop-blur-xl bg-black/90 p-8 flex flex-col justify-between h-full z-20 border-t border-gold-500/30">
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center border-b border-white/10 pb-4">
-                                <span class="text-xs font-bold text-gold-400 uppercase tracking-widest" data-i18n="diff_easy">DIFFICOLTÀ: FACILE</span>
-                                <span class="text-xs text-zinc-400">70 KM</span>
+                    <!-- Image Thumbnail Preview -->
+                    <div class="relative z-10 my-6 rounded-2xl overflow-hidden h-48">
+                        <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/hero21.jpg" alt="Le Miniere" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+
+                    <!-- Tech Specs -->
+                    <div class="relative z-10 flex items-center justify-between border-t border-white/10 pt-4 text-xs text-gray-400">
+                        <div><strong class="text-white">3/4</strong> HR</div>
+                        <div><strong class="text-white">70</strong> KM</div>
+                        <div class="text-gold-500 font-semibold" data-i18n="hover_detail">Dettagli &rarr;</div>
+                    </div>
+
+                    <!-- Pull-Up Curtain (Effetto Tendina) -->
+                    <div class="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 backdrop-blur-2xl bg-black/95 p-8 border-t border-gold-500/40 flex flex-col justify-between h-full z-20">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-xs uppercase tracking-widest text-gold-500 font-bold" data-i18n="curtain_tag">Scheda Percorso</span>
+                                <span class="px-2 py-0.5 rounded bg-white/10 text-white font-mono text-[10px]">01</span>
                             </div>
-                            <h4 class="text-xl font-extrabold uppercase text-white" data-i18n="route_1_name">LE MINIERE</h4>
-                            <p class="text-sm text-zinc-300 font-light leading-relaxed" data-i18n="route_1_full">
-                                Un viaggio straordinario attraverso i vecchi insediamenti minerari di Guspini. Ideale per chi vuole vivere l'emozione del quad per la prima volta in totale sicurezza senza rinunciare a panorami unici.
+                            <h4 class="font-display text-xl font-bold text-white uppercase mb-4" data-i18n="route1_name">LE MINIERE</h4>
+                            <p class="text-gray-300 text-xs font-light leading-relaxed mb-6" data-i18n="route1_full">
+                                Un viaggio avvincente tra i resti dell'archeologia mineraria della Sardegna occidentale. Il tracciato è ideale per tutti e combina passaggi panoramici con fondi sterrati regolari.
                             </p>
                         </div>
-                        <a href="#prenota" class="w-full py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-black font-extrabold text-xs uppercase tracking-wider text-center transition-all shadow-lg shadow-gold-500/20" data-i18n="book_this_route">
-                            PRENOTA QUESTO PERCORSO
+                        <a href="#prenota" class="w-full py-3 rounded-full bg-gold-500 text-black font-extrabold text-[10px] tracking-widest uppercase text-center hover:bg-gold-400 transition-colors" data-i18n="book_this">
+                            Prenota Questo Percorso
                         </a>
                     </div>
                 </div>
 
-                <!-- CARD 2: I FIUMI ROSSI -->
-                <div class="group relative h-[520px] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 mesh-bg-2 flex flex-col justify-between p-8 transition-all duration-500 hover:border-gold-500/50 gsap-reveal">
-                    <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://www.westcoastquad.it/wp-content/uploads/2024/08/hero31.jpg');"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-
-                    <div class="relative z-10 flex justify-between items-start">
-                        <span class="px-3 py-1 rounded-full text-[10px] font-extrabold tracking-wider uppercase bg-amber-500/20 text-amber-400 border border-amber-500/30" data-i18n="diff_medium">MEDIO</span>
-                        <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">02 / TOUR</span>
+                <!-- ROUTE 2: I FIUMI ROSSI -->
+                <div class="group relative rounded-3xl glass-panel glass-panel-hover overflow-hidden min-h-[500px] flex flex-col justify-between p-8 border border-white/10 transition-all duration-500">
+                    <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <svg class="w-36 h-36 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
                     </div>
 
-                    <svg class="absolute right-4 top-1/3 w-36 h-36 text-white/5 pointer-events-none stroke-current" fill="none" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-
-                    <div class="relative z-10 space-y-4">
-                        <div class="flex items-center space-x-4 text-xs font-semibold text-gold-400">
-                            <span>⏱️ 4/5 HR</span>
-                            <span>•</span>
-                            <span>🛣️ 90 KM</span>
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 font-bold text-[10px] tracking-widest uppercase" data-i18n="level_medium">MEDIO</span>
+                            <span class="font-display text-sm font-bold text-gray-500">02</span>
                         </div>
-                        <h3 class="text-2xl font-black uppercase text-white font-display" data-i18n="route_2_name">I FIUMI ROSSI</h3>
-                        <p class="text-sm text-zinc-300 line-clamp-2" data-i18n="route_2_short">Suggestivo, difficoltà tecnica e presenza di ostacoli naturali lungo il greto.</p>
-                        <div class="pt-2 text-xs text-gold-400 font-bold uppercase tracking-wider flex items-center gap-1 group-hover:text-white transition-colors">
-                            <span data-i18n="hover_details">Passa sopra per dettagli</span> &rarr;
-                        </div>
+                        <h3 class="font-display text-2xl font-extrabold text-white uppercase mb-2" data-i18n="route2_name">I FIUMI ROSSI</h3>
+                        <p class="text-gold-500 text-sm font-medium" data-i18n="route2_short">Suggestivo, difficoltà tecnica e ostacoli</p>
                     </div>
 
-                    <!-- TENDINA HOVER -->
-                    <div class="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 backdrop-blur-xl bg-black/90 p-8 flex flex-col justify-between h-full z-20 border-t border-gold-500/30">
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center border-b border-white/10 pb-4">
-                                <span class="text-xs font-bold text-amber-400 uppercase tracking-widest" data-i18n="diff_medium">DIFFICOLTÀ: MEDIO</span>
-                                <span class="text-xs text-zinc-400">90 KM</span>
+                    <div class="relative z-10 my-6 rounded-2xl overflow-hidden h-48">
+                        <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/hero31.jpg" alt="I Fiumi Rossi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+
+                    <div class="relative z-10 flex items-center justify-between border-t border-white/10 pt-4 text-xs text-gray-400">
+                        <div><strong class="text-white">4/5</strong> HR</div>
+                        <div><strong class="text-white">90</strong> KM</div>
+                        <div class="text-gold-500 font-semibold" data-i18n="hover_detail">Dettagli &rarr;</div>
+                    </div>
+
+                    <!-- Pull-Up Curtain -->
+                    <div class="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 backdrop-blur-2xl bg-black/95 p-8 border-t border-gold-500/40 flex flex-col justify-between h-full z-20">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-xs uppercase tracking-widest text-gold-500 font-bold" data-i18n="curtain_tag">Scheda Percorso</span>
+                                <span class="px-2 py-0.5 rounded bg-white/10 text-white font-mono text-[10px]">02</span>
                             </div>
-                            <h4 class="text-xl font-extrabold uppercase text-white" data-i18n="route_2_name">I FIUMI ROSSI</h4>
-                            <p class="text-sm text-zinc-300 font-light leading-relaxed" data-i18n="route_2_full">
-                                Un itinerario tecnico e suggestivo, caratterizzato dai tipici colori minerari dei corsi d'acqua. Supera guadi, rocce e sentieri sterrati per un'adrenalina pura.
+                            <h4 class="font-display text-xl font-bold text-white uppercase mb-4" data-i18n="route2_name">I FIUMI ROSSI</h4>
+                            <p class="text-gray-300 text-xs font-light leading-relaxed mb-6" data-i18n="route2_full">
+                                Un tracciato ad alto tasso tecnico che attraversa letti di fiume caratterizzati da pigmentazioni rosse naturali minerarie. Ostacoli, pietre e salite per veri appassionati off-road.
                             </p>
                         </div>
-                        <a href="#prenota" class="w-full py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-black font-extrabold text-xs uppercase tracking-wider text-center transition-all shadow-lg shadow-gold-500/20" data-i18n="book_this_route">
-                            PRENOTA QUESTO PERCORSO
+                        <a href="#prenota" class="w-full py-3 rounded-full bg-gold-500 text-black font-extrabold text-[10px] tracking-widest uppercase text-center hover:bg-gold-400 transition-colors" data-i18n="book_this">
+                            Prenota Questo Percorso
                         </a>
                     </div>
                 </div>
 
-                <!-- CARD 3: VILLA GINESTRA -->
-                <div class="group relative h-[520px] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 mesh-bg-1 flex flex-col justify-between p-8 transition-all duration-500 hover:border-gold-500/50 gsap-reveal">
-                    <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://www.westcoastquad.it/wp-content/uploads/2024/08/hero41.jpg');"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-
-                    <div class="relative z-10 flex justify-between items-start">
-                        <span class="px-3 py-1 rounded-full text-[10px] font-extrabold tracking-wider uppercase bg-rose-500/20 text-rose-400 border border-rose-500/30" data-i18n="diff_hard">DIFFICILE</span>
-                        <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">03 / TOUR</span>
+                <!-- ROUTE 3: VILLA GINESTRA -->
+                <div class="group relative rounded-3xl glass-panel glass-panel-hover overflow-hidden min-h-[500px] flex flex-col justify-between p-8 border border-white/10 transition-all duration-500">
+                    <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <svg class="w-36 h-36 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
                     </div>
 
-                    <svg class="absolute right-4 top-1/3 w-36 h-36 text-white/5 pointer-events-none stroke-current" fill="none" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-
-                    <div class="relative z-10 space-y-4">
-                        <div class="flex items-center space-x-4 text-xs font-semibold text-gold-400">
-                            <span>⏱️ 6/7 HR</span>
-                            <span>•</span>
-                            <span>🛣️ 100 KM</span>
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30 font-bold text-[10px] tracking-widest uppercase" data-i18n="level_hard">DIFFICILE</span>
+                            <span class="font-display text-sm font-bold text-gray-500">03</span>
                         </div>
-                        <h3 class="text-2xl font-black uppercase text-white font-display" data-i18n="route_3_name">VILLA GINESTRA</h3>
-                        <p class="text-sm text-zinc-300 line-clamp-2" data-i18n="route_3_short">Difficile ed emozionante, con ostacoli naturali e pendenze estreme.</p>
-                        <div class="pt-2 text-xs text-gold-400 font-bold uppercase tracking-wider flex items-center gap-1 group-hover:text-white transition-colors">
-                            <span data-i18n="hover_details">Passa sopra per dettagli</span> &rarr;
-                        </div>
+                        <h3 class="font-display text-2xl font-extrabold text-white uppercase mb-2" data-i18n="route3_name">VILLA GINESTRA</h3>
+                        <p class="text-gold-500 text-sm font-medium" data-i18n="route3_short">Difficile ed emozionante con ostacoli naturali</p>
                     </div>
 
-                    <!-- TENDINA HOVER -->
-                    <div class="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 backdrop-blur-xl bg-black/90 p-8 flex flex-col justify-between h-full z-20 border-t border-gold-500/30">
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center border-b border-white/10 pb-4">
-                                <span class="text-xs font-bold text-rose-400 uppercase tracking-widest" data-i18n="diff_hard">DIFFICOLTÀ: DIFFICILE</span>
-                                <span class="text-xs text-zinc-400">100 KM</span>
+                    <div class="relative z-10 my-6 rounded-2xl overflow-hidden h-48">
+                        <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/hero41.jpg" alt="Villa Ginestra" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+
+                    <div class="relative z-10 flex items-center justify-between border-t border-white/10 pt-4 text-xs text-gray-400">
+                        <div><strong class="text-white">6/7</strong> HR</div>
+                        <div><strong class="text-white">100</strong> KM</div>
+                        <div class="text-gold-500 font-semibold" data-i18n="hover_detail">Dettagli &rarr;</div>
+                    </div>
+
+                    <!-- Pull-Up Curtain -->
+                    <div class="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 backdrop-blur-2xl bg-black/95 p-8 border-t border-gold-500/40 flex flex-col justify-between h-full z-20">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-xs uppercase tracking-widest text-gold-500 font-bold" data-i18n="curtain_tag">Scheda Percorso</span>
+                                <span class="px-2 py-0.5 rounded bg-white/10 text-white font-mono text-[10px]">03</span>
                             </div>
-                            <h4 class="text-xl font-extrabold uppercase text-white" data-i18n="route_3_name">VILLA GINESTRA</h4>
-                            <p class="text-sm text-zinc-300 font-light leading-relaxed" data-i18n="route_3_full">
-                                La prova definitiva per chi cerca l'adrenalina pura. 100 km di percorso estremo con salite ripide, passaggi rocciosi e scorci panoramici impervi nel territorio selvaggio di Guspini.
+                            <h4 class="font-display text-xl font-bold text-white uppercase mb-4" data-i18n="route3_name">VILLA GINESTRA</h4>
+                            <p class="text-gray-300 text-xs font-light leading-relaxed mb-6" data-i18n="route3_full">
+                                L'esperienza regina per chi cerca la sfida definitiva. 100 km di immersione totale nella macchia mediterranea incontaminata, discese ripide e scenari imponenti.
                             </p>
                         </div>
-                        <a href="#prenota" class="w-full py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-black font-extrabold text-xs uppercase tracking-wider text-center transition-all shadow-lg shadow-gold-500/20" data-i18n="book_this_route">
-                            PRENOTA QUESTO PERCORSO
+                        <a href="#prenota" class="w-full py-3 rounded-full bg-gold-500 text-black font-extrabold text-[10px] tracking-widest uppercase text-center hover:bg-gold-400 transition-colors" data-i18n="book_this">
+                            Prenota Questo Percorso
                         </a>
                     </div>
                 </div>
@@ -357,355 +360,381 @@ Ecco la Single-Page Application pronta per la produzione, sviluppata secondo i p
         </div>
     </section>
 
-    <!-- GALLERIA ESPERIENZE -->
-    <section id="galleria" class="py-28 px-6 bg-zinc-950 border-t border-white/5">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+    <!-- GALLERY SECTION -->
+    <section id="galleria" class="py-32 bg-zinc-950/80 border-t border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                 <div>
-                    <span class="text-xs font-bold text-gold-500 uppercase tracking-widest" data-i18n="gallery_subtitle">MEMORIE IN OFF-ROAD</span>
-                    <h2 class="text-3xl md:text-5xl font-extrabold uppercase text-white mt-2" data-i18n="gallery_title">GALLERIA AVVENTURA</h2>
+                    <span class="text-gold-500 font-semibold tracking-widest text-xs uppercase" data-i18n="gallery_tag">Momenti Immortalati</span>
+                    <h2 class="font-display text-4xl sm:text-5xl font-extrabold text-white uppercase mt-2" data-i18n="gallery_title">Galleria Escursioni</h2>
                 </div>
-                <p class="text-zinc-400 text-sm max-w-md mt-4 md:mt-0 font-light" data-i18n="gallery_desc">
-                    Alcuni degli scatti più iconici catturati durante le nostre escursioni tra fango, roccia e paesaggi incontaminati.
+                <p class="text-gray-400 text-sm max-w-md font-light" data-i18n="gallery_sub">
+                    Scatti reali raccolti durante i nostri tour tra Miniere, Fiumi e Valli selvagge della Sardegna.
                 </p>
             </div>
 
             <!-- Image Grid -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="relative h-64 rounded-2xl overflow-hidden glass-panel group">
-                    <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00002-819x1024.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Quad 1">
+                <div class="overflow-hidden rounded-2xl glass-panel group">
+                    <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00002.jpg" alt="Gallery 1" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
-                <div class="relative h-64 rounded-2xl overflow-hidden glass-panel group">
-                    <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00004-1024x768.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Quad 2">
+                <div class="overflow-hidden rounded-2xl glass-panel group">
+                    <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00003.jpg" alt="Gallery 2" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
-                <div class="relative h-64 rounded-2xl overflow-hidden glass-panel group">
-                    <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00005-1024x768.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Quad 3">
+                <div class="overflow-hidden rounded-2xl glass-panel group">
+                    <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00004.jpg" alt="Gallery 3" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
-                <div class="relative h-64 rounded-2xl overflow-hidden glass-panel group">
-                    <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00011-1024x576.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Quad 4">
+                <div class="overflow-hidden rounded-2xl glass-panel group">
+                    <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00005.jpg" alt="Gallery 4" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="overflow-hidden rounded-2xl glass-panel group">
+                    <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00006.jpg" alt="Gallery 5" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="overflow-hidden rounded-2xl glass-panel group">
+                    <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00012.jpg" alt="Gallery 6" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="overflow-hidden rounded-2xl glass-panel group">
+                    <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00011.jpg" alt="Gallery 7" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="overflow-hidden rounded-2xl glass-panel group">
+                    <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00010.jpg" alt="Gallery 8" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CALENDARIO / WIDGET DI PRENOTAZIONE (TASSATIVO NO FORMS / SOLO EMBED) -->
-    <section id="prenota" class="py-28 px-6 bg-black relative">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-12">
-                <span class="text-xs font-bold text-gold-500 uppercase tracking-widest" data-i18n="booking_tag">PRENOTAZIONE DIRETTA</span>
-                <h2 class="text-3xl md:text-5xl font-black uppercase text-white mt-2" data-i18n="booking_title">RISERVA LA TUA USCITA</h2>
-                <p class="text-zinc-400 text-sm mt-3" data-i18n="booking_subtitle">Seleziona la data e l'ora direttamente dal nostro calendario ufficiale.</p>
+    <!-- CAL.COM BOOKING SECTION (INSERITO TASSATIVAMENTE IN CONTAINER BENTO) -->
+    <section id="prenota" class="py-32 relative mesh-gradient">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-gold-500 font-semibold tracking-widest text-xs uppercase" data-i18n="booking_tag">Prenotazione Online</span>
+                <h2 class="font-display text-4xl sm:text-5xl font-extrabold text-white uppercase" data-i18n="booking_title">Riserva La Tua Avventura</h2>
+                <p class="text-gray-400 text-sm" data-i18n="booking_sub">Seleziona la data e l'orario ideale in pochi click tramite il nostro sistema ufficiale.</p>
             </div>
 
-            <!-- Container Bento Style per Cal.com -->
-            <div class="glass-card rounded-3xl p-4 md:p-8 border border-white/10 shadow-2xl overflow-hidden">
-                <iframe src="https://cal.com/fabio-grussu-ubggf7" class="w-full h-[700px] border-0 rounded-2xl bg-zinc-950"></iframe>
+            <!-- Bento Container Wrapper per Cal.com -->
+            <div class="glass-panel p-4 md:p-8 rounded-3xl border border-white/10 shadow-2xl relative">
+                <div class="w-full overflow-hidden rounded-2xl min-h-[650px]">
+                    <iframe src="https://cal.com/fabio-grussu-ubggf7" class="w-full h-[650px] border-0 rounded-2xl" title="Sistema di Prenotazione West Coast Quad"></iframe>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTATTI & MAPPA -->
-    <section id="contatti" class="py-28 px-6 bg-zinc-950 border-t border-white/10">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-            
-            <div class="space-y-8">
-                <div>
-                    <span class="text-xs font-bold text-gold-500 uppercase tracking-widest" data-i18n="contact_tag">CONTATTI & SEDE</span>
-                    <h2 class="text-3xl md:text-5xl font-extrabold uppercase text-white mt-2" data-i18n="contact_title">CONTATTACI SUBITO</h2>
-                    <p class="text-zinc-400 text-sm mt-4 font-light" data-i18n="contact_desc">
-                        Un filo diretto con il nostro staff che ti aiuterà a scegliere l'avventura più adatta alle tue esigenze.
-                    </p>
-                </div>
+    <!-- CONTACTS & LOCATION SECTION -->
+    <section id="contatti" class="py-32 relative border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                
+                <!-- Left Info Panel -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-gold-500 font-semibold tracking-widest text-xs uppercase" data-i18n="contact_tag">Contatti & Sede</span>
+                        <h2 class="font-display text-4xl font-extrabold text-white uppercase mt-2" data-i18n="contact_title">Chiedi, informati, contattaci</h2>
+                    </div>
 
-                <div class="space-y-6">
-                    <div class="glass-panel p-6 rounded-2xl flex items-start space-x-4">
-                        <div class="p-3 bg-gold-500/10 rounded-xl text-gold-400">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="contact_desc">
+                        Un filo diretto con il nostro staff che ti aiuterà a scegliere l’avventura più adatta a te!
+                    </p>
+
+                    <div class="space-y-6 pt-4">
+                        <!-- Address -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl glass-panel border border-gold-500/30 flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase tracking-wider text-gray-400 font-semibold" data-i18n="contact_addr_label">Indirizzo Fisico</h4>
+                                <p class="text-white font-medium mt-1">Viale G. di Vittorio 36, 09036 GUSPINI SU IT</p>
+                            </div>
                         </div>
-                        <div>
-                            <h4 class="text-xs font-bold text-zinc-400 uppercase tracking-wider" data-i18n="address_label">INDIRIZZO FISICO</h4>
-                            <p class="text-white font-semibold mt-1">Viale G. di Vittorio 36, 09036 GUSPINI SU IT</p>
+
+                        <!-- Phone -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl glass-panel border border-gold-500/30 flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase tracking-wider text-gray-400 font-semibold" data-i18n="contact_phone_label">Telefono & Assistenza</h4>
+                                <a href="tel:+393460207324" class="text-white font-medium mt-1 block hover:text-gold-500 transition-colors">+39 346 0207324</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="glass-panel p-6 rounded-2xl flex items-start space-x-4">
-                        <div class="p-3 bg-gold-500/10 rounded-xl text-gold-400">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    <!-- Direct Buttons -->
+                    <div class="pt-6 flex flex-col sm:flex-row gap-4">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Viale+G.+di+Vittorio+36,+09036+GUSPINI+SU+IT" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-full glass-panel border border-gold-500/30 text-gold-500 font-bold text-xs tracking-widest uppercase hover:bg-gold-500 hover:text-black transition-all text-center flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+                            <span data-i18n="btn_maps">Apri Su Google Maps</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Card Box -->
+                <div class="lg:col-span-7">
+                    <div class="glass-panel rounded-3xl p-8 md:p-12 border border-white/10 relative overflow-hidden h-full flex flex-col justify-between">
+                        <div class="space-y-6">
+                            <span class="px-3 py-1 rounded-full bg-gold-500/10 text-gold-500 border border-gold-500/20 text-[10px] font-bold tracking-widest uppercase" data-i18n="vip_support">
+                                Staff Dedicato
+                            </span>
+                            <h3 class="font-display text-2xl font-bold text-white uppercase" data-i18n="call_us_now">
+                                Hai domande specifiche sui tracciati o sulle attrezzature?
+                            </h3>
+                            <p class="text-gray-300 text-sm font-light leading-relaxed" data-i18n="call_us_desc">
+                                I nostri istruttori qualificati ti guideranno nella scelta del percorso più idoneo alla tua preparazione fisica ed esperienza di guida off-road.
+                            </p>
                         </div>
-                        <div>
-                            <h4 class="text-xs font-bold text-zinc-400 uppercase tracking-wider" data-i18n="phone_label">TELEFONO / WHATSAPP</h4>
-                            <p class="text-white font-semibold mt-1">+39 346 0207324</p>
+
+                        <div class="mt-8 pt-8 border-t border-white/10 flex items-center justify-between">
+                            <span class="text-xs text-gray-500 uppercase tracking-widest" data-i18n="location_info">Sardinia • Guspini</span>
+                            <a href="tel:+393460207324" class="text-gold-500 font-bold text-lg hover:underline">+39 346 0207324</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    <!-- Bottone Mappe Reale -->
-                    <a href="https://www.google.com/maps/search/?api=1&query=Viale%20G.%20di%20Vittorio%2036,%2009036%20GUSPINI%20SU%20IT" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-full bg-gold-500 hover:bg-gold-400 text-black font-extrabold text-xs uppercase tracking-wider text-center transition-all flex items-center justify-center gap-2 shadow-lg shadow-gold-500/20">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
-                        <span data-i18n="open_maps">APRI SU GOOGLE MAPS</span>
-                    </a>
-                </div>
             </div>
-
-            <!-- Visual Decorative Card per Mappa -->
-            <div class="glass-card rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden min-h-[350px]">
-                <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://www.westcoastquad.it/wp-content/uploads/2024/08/image00018-1024x576.jpg');"></div>
-                <div class="relative z-10 space-y-4">
-                    <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-gold-500/20 text-gold-400 border border-gold-500/30 uppercase tracking-widest" data-i18n="map_status">MAPPA DETTAGLIATA</span>
-                    <h3 class="text-2xl font-bold uppercase text-white" data-i18n="map_card_title">GUSPINI & MONTEVECCHIO</h3>
-                    <p class="text-zinc-400 text-sm font-light leading-relaxed" data-i18n="map_card_desc">
-                        Tutti i nostri percorsi partono dal nostro centro situato a Guspini. A breve saranno disponibili le mappe tracciate in GPS direttamente scaricabili da app.
-                    </p>
-                </div>
-                <div class="relative z-10 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-zinc-500">
-                    <span>COORDINATE GPS: 39.5386° N, 8.6269° E</span>
-                    <span>SARDEGNA</span>
-                </div>
-            </div>
-
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-12 px-6 bg-black border-t border-white/5 text-xs text-zinc-500">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-            <p>© <span id="year"></span> WEST COAST QUAD. All Rights Reserved. Viale G. di Vittorio 36, 09036 Guspini (SU).</p>
-            <div class="flex space-x-6">
-                <a href="#" class="hover:text-white transition-colors" data-i18n="privacy">Privacy Policy</a>
-                <a href="#" class="hover:text-white transition-colors" data-i18n="terms">Termini e Condizioni</a>
+    <footer class="py-12 bg-black border-t border-white/10 text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <span class="font-display font-bold text-white uppercase tracking-wider">WEST COAST QUAD</span>
+                <span>© <script>document.write(new Date().getFullYear())</script> Tutti i diritti riservati.</span>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="#mission" class="hover:text-gold-500 transition-colors" data-i18n="nav_mission">Mission</a>
+                <a href="#percorsi" class="hover:text-gold-500 transition-colors" data-i18n="nav_routes">Percorsi</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Viale+G.+di+Vittorio+36,+09036+GUSPINI+SU+IT" target="_blank" class="hover:text-gold-500 transition-colors" data-i18n="btn_maps">Posizione</a>
             </div>
         </div>
     </footer>
 
-    <!-- FLOATING WHATSAPP BUTTON GLASSMORPHISM -->
-    <a href="https://wa.me/393460207324" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 glass-panel p-4 rounded-full flex items-center gap-3 hover:scale-105 transition-all shadow-2xl border border-emerald-500/40 text-emerald-400 group">
-        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></a href>
-        <span class="text-xs font-bold uppercase tracking-wider hidden sm:inline" data-i18n="chat_whatsapp">CHAT UNISCITI ORA</span>
+    <!-- FLOATING WHATSAPP BUTTON (GLASSMORPHISM) -->
+    <a href="https://wa.me/393460207324" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-50 w-14 h-14 rounded-full glass-panel border border-emerald-500/40 bg-emerald-950/40 text-emerald-400 flex items-center justify-center hover:scale-110 hover:bg-emerald-500 hover:text-black transition-all duration-300 shadow-2xl shadow-emerald-900/50 group" aria-label="WhatsApp">
+        <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
     </a>
 
-    <!-- I18N DICTIONARY & SCRIPT -->
+    <!-- SCRIPT MULTI-LINGUA (I18N) E ANIMAZIONI GSAP -->
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        const translations = {
+        // DIZIONARIO TRILINGUE INTEGRALE (IT, EN, ES)
+        const i18n = {
             it: {
-                meta_title: "WEST COAST QUAD | Escursioni in Quad d'Élite in Sardegna",
-                meta_desc: "Vivi l'adrenalina delle escursioni in quad tra miniere abbandonate e natura selvaggia a Guspini.",
-                nav_mission: "MISSION",
-                nav_routes: "PERCORSI",
-                nav_gallery: "GALLERIA",
-                nav_booking: "PRENOTA",
-                nav_contacts: "CONTATTI",
-                nav_cta: "PRENOTA ORA",
-                hero_badge: "ESCURSIONI OFF-ROAD ESCLUSIVE IN SARDEGNA",
-                hero_title: "Diventa il Protagonista Dell'Avventura",
-                hero_subtitle: "Esplora la natura come un vero eroe. Senti l'adrenalina scorrere nelle tue vene mentre guidi tra le storiche miniere e i paesaggi mozzafiato di Guspini.",
-                hero_primary_cta: "SCOPRI I PERCORSI",
-                hero_secondary_cta: "CHIAMA ORA",
-                scroll_down: "SCORRI",
-                mission_tag: "LA NOSTRA MISSION",
-                mission_title: "Un'esperienza indimenticabile tra Adrenalina e Storia",
-                mission_p1: "Unisciti a noi per un'escursione in quad nelle affascinanti miniere di Guspini, dove il passato minerario incontra l’emozione della guida off-road. Sfreccia su sentieri avvincenti, affrontando ostacoli naturali come pietre, fango e curve strette che metteranno alla prova le tue capacità.",
-                mission_p2: "Ogni tappa svela i segreti delle miniere abbandonate, con scenari mozzafiato e storie affascinanti. Perfetto per famiglie, gruppi di amici o chi cerca una nuova sfida. I nostri esperti istruttori ti guideranno in totale sicurezza.",
-                stat_1: "Sicurezza Garantita",
-                stat_2: "Percorsi Esclusivi",
-                stat_3: "Max Avventura",
-                mission_quote_tag: "ESPERIENZA OFF-ROAD",
-                mission_quote: "\"Un mix perfetto tra divertimento e meraviglia che lascerà il segno nel tuo cuore!\"",
-                routes_subtitle: "SCEGLI LA TUA SFIDA",
-                routes_title: "I NOSTRI PERCORSI",
-                routes_desc: "Tracciati studiati per ogni livello di esperienza, dal principiante all'orientista estremo.",
-                diff_easy: "FACILE",
-                diff_medium: "MEDIO",
-                diff_hard: "DIFFICILE",
-                hover_details: "Passa sopra per dettagli",
-                route_1_name: "LE MINIERE",
-                route_1_short: "Un percorso avvincente, unico, meraviglioso nel cuore della storia mineraria.",
-                route_1_full: "Un viaggio straordinario attraverso i vecchi insediamenti minerari di Guspini. Ideale per chi vuole vivere l'emozione del quad per la prima volta in totale sicurezza senza rinunciare a panorami unici.",
-                route_2_name: "I FIUMI ROSSI",
-                route_2_short: "Suggestivo, difficoltà tecnica e presenza di ostacoli naturali lungo il greto.",
-                route_2_full: "Un itinerario tecnico e suggestivo, caratterizzato dai tipici colori minerari dei corsi d'acqua. Supera guadi, rocce e sentieri sterrati per un'adrenalina pura.",
-                route_3_name: "VILLA GINESTRA",
-                route_3_short: "Difficile ed emozionante, con ostacoli naturali e pendenze estreme.",
-                route_3_full: "La prova definitiva per chi cerca l'adrenalina pura. 100 km di percorso estremo con salite ripide, passaggi rocciosi e scorci panoramici impervi nel territorio selvaggio di Guspini.",
-                book_this_route: "PRENOTA QUESTO PERCORSO",
-                gallery_subtitle: "MEMORIE IN OFF-ROAD",
-                gallery_title: "GALLERIA AVVENTURA",
-                gallery_desc: "Alcuni degli scatti più iconici catturati durante le nostre escursioni tra fango, roccia e paesaggi incontaminati.",
-                booking_tag: "PRENOTAZIONE DIRETTA",
-                booking_title: "RISERVA LA TUA USCITA",
-                booking_subtitle: "Seleziona la data e l'ora direttamente dal nostro calendario ufficiale.",
-                contact_tag: "CONTATTI & SEDE",
-                contact_title: "CONTATTACI SUBITO",
-                contact_desc: "Un filo diretto con il nostro staff che ti aiuterà a scegliere l'avventura più adatta alle tue esigenze.",
-                address_label: "INDIRIZZO FISICO",
-                phone_label: "TELEFONO / WHATSAPP",
-                open_maps: "APRI SU GOOGLE MAPS",
-                map_status: "MAPPA DETTAGLIATA",
-                map_card_title: "GUSPINI & MONTEVECCHIO",
-                map_card_desc: "Tutti i nostri percorsi partono dal nostro centro situato a Guspini. A breve saranno disponibili le mappe tracciate in GPS direttamente scaricabili da app.",
-                chat_whatsapp: "CHAT UNISCITI ORA",
-                privacy: "Privacy Policy",
-                terms: "Termini e Condizioni"
+                nav_mission: "Mission",
+                nav_routes: "Percorsi",
+                nav_gallery: "Galleria",
+                nav_booking: "Prenota",
+                nav_contacts: "Contatti",
+                nav_call: "Chiama Ora",
+                hero_badge: "Sardinia Off-Road Experience",
+                hero_title: "Diventa il protagonista della tua avventura",
+                hero_subtitle: "Esplora la natura come un vero eroe con le nostre emozionanti escursioni in quad. Senti l'adrenalina correre nelle tue vene mentre esplori paesaggi mozzafiato.",
+                hero_cta_book: "Prenota L'Escursione",
+                hero_cta_explore: "Esplora I Percorsi",
+                hero_scroll: "Scroll",
+                mission_tag: "West Coast Quad – La Mission",
+                mission_title: "Un mix perfetto tra divertimento e meraviglia",
+                mission_p1: "Sei pronto per un’esperienza indimenticabile che unisce adrenalina e scoperta? Unisciti a noi per un’escursione in quad nelle affascinanti miniere, dove il passato minerario incontra l’emozione della guida off-road.",
+                mission_p2: "Immagina di sfrecciare su sentieri avvincenti, affrontando ostacoli naturali che metteranno alla prova le tue capacità: pietre, fango, e curve strette si intrecciano in un percorso panoramico che ti porterà nel cuore della terra.",
+                stat_adrenalin: "Adrenalina",
+                stat_routes: "Percorsi Unici",
+                stat_safety: "Sicurezza Guidata",
+                mission_card_caption: "Guida esperta & Equipaggiamento Completo Incluso",
+                routes_tag: "Le Nostre Avventure",
+                routes_title: "I Nostri Percorsi",
+                routes_subtitle: "Passa il cursore su ciascun percorso per scoprire la descrizione completa dell'itinerario.",
+                level_easy: "FACILE",
+                level_medium: "MEDIO",
+                level_hard: "DIFFICILE",
+                route1_name: "LE MINIERE",
+                route1_short: "Un percorso avvincente, unico, meraviglioso",
+                route1_full: "Un viaggio avvincente tra i resti dell'archeologia mineraria della Sardegna occidentale. Il tracciato è ideale per tutti e combina passaggi panoramici con fondi sterrati regolari.",
+                route2_name: "I FIUMI ROSSI",
+                route2_short: "Suggestivo, difficoltà tecnica e ostacoli",
+                route2_full: "Un tracciato ad alto tasso tecnico che attraversa letti di fiume caratterizzati da pigmentazioni rosse naturali minerarie. Ostacoli, pietre e salite per veri appassionati off-road.",
+                route3_name: "VILLA GINESTRA",
+                route3_short: "Difficile ed emozionante con ostacoli naturali",
+                route3_full: "L'esperienza regina per chi cerca la sfida definitiva. 100 km di immersione totale nella macchia mediterranea incontaminata, discese ripide e scenari imponenti.",
+                hover_detail: "Dettagli →",
+                curtain_tag: "Scheda Percorso",
+                book_this: "Prenota Questo Percorso",
+                gallery_tag: "Momenti Immortalati",
+                gallery_title: "Galleria Escursioni",
+                gallery_sub: "Scatti reali raccolti durante i nostri tour tra Miniere, Fiumi e Valli selvagge della Sardegna.",
+                booking_tag: "Prenotazione Online",
+                booking_title: "Riserva La Tua Avventura",
+                booking_sub: "Seleziona la data e l'orario ideale in pochi click tramite il nostro sistema ufficiale.",
+                contact_tag: "Contatti & Sede",
+                contact_title: "Chiedi, informati, contattaci",
+                contact_desc: "Un filo diretto con il nostro staff che ti aiuterà a scegliere l’avventura più adatta a te!",
+                contact_addr_label: "Indirizzo Fisico",
+                contact_phone_label: "Telefono & Assistenza",
+                btn_maps: "Apri Su Google Maps",
+                vip_support: "Staff Dedicato",
+                call_us_now: "Hai domande specifiche sui tracciati o sulle attrezzature?",
+                call_us_desc: "I nostri istruttori qualificati ti guideranno nella scelta del percorso più idoneo alla tua preparazione fisica ed esperienza di guida off-road.",
+                location_info: "Sardinia • Guspini"
             },
             en: {
-                meta_title: "WEST COAST QUAD | Elite Quad Tours in Sardinia",
-                meta_desc: "Experience pure adrenaline with quad tours through abandoned mines and wild nature in Guspini.",
-                nav_mission: "MISSION",
-                nav_routes: "TOURS",
-                nav_gallery: "GALLERY",
-                nav_booking: "BOOK NOW",
-                nav_contacts: "CONTACTS",
-                nav_cta: "BOOK NOW",
-                hero_badge: "EXCLUSIVE OFF-ROAD TOURS IN SARDINIA",
-                hero_title: "Become the Hero of Your Adventure",
-                hero_subtitle: "Explore nature like a hero. Feel the adrenaline rush through your veins as you drive through historic mines and breathtaking landscapes in Guspini.",
-                hero_primary_cta: "DISCOVER TOURS",
-                hero_secondary_cta: "CALL NOW",
-                scroll_down: "SCROLL",
-                mission_tag: "OUR MISSION",
-                mission_title: "An Unforgettable Mix of Adrenaline & History",
-                mission_p1: "Join us for an exciting quad tour in the fascinating mines of Guspini, where mining history meets off-road driving thrills. Speed through gripping trails, tackling obstacles like stones, mud, and sharp turns.",
-                mission_p2: "Every stop reveals hidden secrets of abandoned mines with spectacular scenery. Perfect for families, friends, or challenge seekers. Our expert instructors guide you in total safety.",
-                stat_1: "Guaranteed Safety",
-                stat_2: "Exclusive Trails",
-                stat_3: "Max Adventure",
-                mission_quote_tag: "OFF-ROAD EXPERIENCE",
-                mission_quote: "\"A perfect mix of fun and wonder that will leave a mark in your heart!\"",
-                routes_subtitle: "CHOOSE YOUR CHALLENGE",
-                routes_title: "OUR ROUTES",
-                routes_desc: "Tracks designed for every skill level, from beginners to extreme explorers.",
-                diff_easy: "EASY",
-                diff_medium: "MEDIUM",
-                diff_hard: "HARD",
-                hover_details: "Hover for details",
-                route_1_name: "THE MINES",
-                route_1_short: "A captivating, unique, and wonderful trail through mining history.",
-                route_1_full: "An extraordinary journey through Guspini's old mining settlements. Ideal for first-time quad drivers seeking total safety and stunning views.",
-                route_2_name: "RED RIVERS",
-                route_2_short: "Picturesque, technical difficulty with natural riverbed obstacles.",
-                route_2_full: "A technical route featuring iconic mineral-colored waterbeds. Cross rivers, rocks, and dirt roads for pure adrenaline.",
-                route_3_name: "VILLA GINESTRA",
-                route_3_short: "Challenging and exciting, with natural obstacles and extreme slopes.",
-                route_3_full: "The ultimate test for adrenaline seekers. 100 km of extreme trail with steep climbs, rocky passages, and wild landscapes.",
-                book_this_route: "BOOK THIS ROUTE",
-                gallery_subtitle: "OFF-ROAD MEMORIES",
-                gallery_title: "ADVENTURE GALLERY",
-                gallery_desc: "A selection of iconic shots captured during our quad excursions.",
-                booking_tag: "DIRECT BOOKING",
-                booking_title: "RESERVE YOUR TOUR",
-                booking_subtitle: "Select date and time directly on our official live calendar.",
-                contact_tag: "CONTACT & LOCATION",
-                contact_title: "GET IN TOUCH",
-                contact_desc: "Direct contact with our team to help you choose your ideal adventure.",
-                address_label: "PHYSICAL ADDRESS",
-                phone_label: "PHONE / WHATSAPP",
-                open_maps: "OPEN IN GOOGLE MAPS",
-                map_status: "DETAILED MAP",
-                map_card_title: "GUSPINI & MONTEVECCHIO",
-                map_card_desc: "All tours depart from our Guspini center. GPS track maps will soon be available for app download.",
-                chat_whatsapp: "CHAT WITH US",
-                privacy: "Privacy Policy",
-                terms: "Terms & Conditions"
+                nav_mission: "Mission",
+                nav_routes: "Routes",
+                nav_gallery: "Gallery",
+                nav_booking: "Book Now",
+                nav_contacts: "Contacts",
+                nav_call: "Call Now",
+                hero_badge: "Sardinia Off-Road Experience",
+                hero_title: "Become the hero of your next adventure",
+                hero_subtitle: "Explore nature like a true adventurer with our thrilling quad excursions. Feel the adrenaline rush through your veins while discovering breathtaking landscapes.",
+                hero_cta_book: "Book Your Tour",
+                hero_cta_explore: "Explore Routes",
+                hero_scroll: "Scroll",
+                mission_tag: "West Coast Quad – The Mission",
+                mission_title: "A perfect blend of thrill and wonder",
+                mission_p1: "Are you ready for an unforgettable experience combining pure adrenaline and discovery? Join us for a quad tour into fascinating historic mines where ancient heritage meets off-road excitement.",
+                mission_p2: "Imagine speeding along thrilling trails, navigating natural obstacles that test your driving skills: rocks, mud, and tight turns intertwined in a panoramic journey taking you right into the heart of Sardinia.",
+                stat_adrenalin: "Adrenaline",
+                stat_routes: "Unique Trails",
+                stat_safety: "Guided Safety",
+                mission_card_caption: "Expert Guides & Full Equipment Included",
+                routes_tag: "Our Adventures",
+                routes_title: "Featured Routes",
+                routes_subtitle: "Hover over each route card to reveal full itinerary specifications.",
+                level_easy: "EASY",
+                level_medium: "MEDIUM",
+                level_hard: "HARD",
+                route1_name: "THE MINES",
+                route1_short: "A captivating, unique, and wonderful trail",
+                route1_full: "A captivating journey through western Sardinia's historic mining ruins. Perfect for beginners and families, offering smooth dirt roads and epic views.",
+                route2_name: "RED RIVERS",
+                route2_short: "Technical difficulty with exciting obstacles",
+                route2_full: "A technical off-road route crossing riverbeds rich in red mineral sediments. Features rocks, mud, and steep climbs for off-road enthusiasts.",
+                route3_name: "VILLA GINESTRA",
+                route3_short: "Challenging & thrilling natural terrain",
+                route3_full: "The ultimate 100km challenge for seasoned riders. Full immersion in wild Mediterranean scrub, steep drops, and dramatic cliffside landscapes.",
+                hover_detail: "Details →",
+                curtain_tag: "Route Info",
+                book_this: "Book This Trail",
+                gallery_tag: "Captured Moments",
+                gallery_title: "Excursion Gallery",
+                gallery_sub: "Real photos taken during our tours across Sardinian mines, red rivers, and wild valleys.",
+                booking_tag: "Online Booking",
+                booking_title: "Reserve Your Adventure",
+                booking_sub: "Choose your preferred date and time slot in just a few clicks through our official system.",
+                contact_tag: "Location & Contacts",
+                contact_title: "Ask, inquire, contact us",
+                contact_desc: "Direct communication with our team to help you pick the best expedition for your needs!",
+                contact_addr_label: "Physical Address",
+                contact_phone_label: "Phone & Support",
+                btn_maps: "Open Google Maps",
+                vip_support: "Dedicated Staff",
+                call_us_now: "Have specific questions about routes or safety gear?",
+                call_us_desc: "Our qualified instructors will assist you in selecting the ideal itinerary based on your driving experience.",
+                location_info: "Sardinia • Guspini"
             },
             es: {
-                meta_title: "WEST COAST QUAD | Excursiones Élite en Quad en Cerdeña",
-                meta_desc: "Siente la adrenalina del quad entre minas abandonadas y naturaleza salvaje en Guspini.",
-                nav_mission: "MISIÓN",
-                nav_routes: "RUTAS",
-                nav_gallery: "GALERÍA",
-                nav_booking: "RESERVAR",
-                nav_contacts: "CONTACTO",
-                nav_cta: "RESERVA YA",
-                hero_badge: "RUTAS OFF-ROAD EXCLUSIVAS EN CERDEÑA",
-                hero_title: "Sé el Protagonista de Tu Aventura",
-                hero_subtitle: "Explora la naturaleza como un héroe. Siente la adrenalina recorriendo tus venas mientras conduces por minas históricas en Guspini.",
-                hero_primary_cta: "DESCUBRE RUTAS",
-                hero_secondary_cta: "LLAMA AHORA",
-                scroll_down: "BAJAR",
-                mission_tag: "NUESTRA MISIÓN",
-                mission_tag: "NUESTRA MISIÓN",
-                mission_title: "Una experiencia inolvidable entre adrenalina e historia",
-                mission_p1: "Únete a nosotros para una emocionante ruta en quad por las fascinantes minas de Guspini. Conduce por senderos apasionantes enfrentando barro, piedras y curvas cerradas.",
-                mission_p2: "Descubre los secretos minerados en paisajes increíbles. Perfecto para familias y grupos. Nuestros guías expertos garantizarán tu seguridad.",
-                stat_1: "Seguridad 100%",
-                stat_2: "Rutas Exclusivas",
-                stat_3: "Máxima Aventura",
-                mission_quote_tag: "EXPERIENCIA OFF-ROAD",
-                mission_quote: "\"¡Una mezcla perfecta entre diversión y asombro que recordarás siempre!\"",
-                routes_subtitle: "ELIGE TU DESAFÍO",
-                routes_title: "NUESTRAS RUTAS",
-                routes_desc: "Senderos diseñados para todos los niveles de experiencia.",
-                diff_easy: "FÁCIL",
-                diff_medium: "MEDIO",
-                diff_hard: "DIFÍCIL",
-                hover_details: "Pasa el cursor para detalles",
-                route_1_name: "LAS MINAS",
-                route_1_short: "Un recorrido fascinante e único por la historia minera.",
-                route_1_full: "Un viaje extraordinario por los antiguos asentamientos mineros de Guspini. Ideal para principiantes que buscan vistas espectaculares.",
-                route_2_name: "RÍOS ROJOS",
-                route_2_short: "Paisajístico, dificultad técnica con obstáculos naturales.",
-                route_2_full: "Un itinerario técnico rodeado por los colores minerales de los ríos. Supera rocas y caminos rurales con adrenalina.",
-                route_3_name: "VILLA GINESTRA",
-                route_3_short: "Desafiante y emocionante, con pendientes extremas.",
-                route_3_full: "La prueba definitiva. 100 km de ruta extrema con subidas empinadas y paisajes salvajes e impetuosos.",
-                book_this_route: "RESERVAR ESTA RUTA",
-                gallery_subtitle: "RECUERDOS OFF-ROAD",
-                gallery_title: "GALERÍA DE AVENTURAS",
-                gallery_desc: "Fotos icónicas capturadas durante nuestras rutas todoterreno.",
-                booking_tag: "RESERVA DIRECTA",
-                booking_title: "RESERVA TU SALIDA",
-                booking_subtitle: "Selecciona fecha y hora en nuestro calendario en vivo.",
-                contact_tag: "CONTACTO Y UBICACIÓN",
-                contact_title: "CONTÁCTANOS",
-                contact_desc: "Contacto directo con nuestro equipo para ayudarte a elegir tu ruta.",
-                address_label: "DIRECCIÓN FÍSICA",
-                phone_label: "TELÉFONO / WHATSAPP",
-                open_maps: "ABRIR EN GOOGLE MAPS",
-                map_status: "MAPA DETALLADO",
-                map_card_title: "GUSPINI Y MONTEVECCHIO",
-                map_card_desc: "Todas las salidas comienzan en Guspini. Próximamente dispondremos de mapas GPS descargables.",
-                chat_whatsapp: "HABLA CON NOSOTROS",
-                privacy: "Política de Privacidad",
-                terms: "Términos y Condiciones"
+                nav_mission: "Misión",
+                nav_routes: "Rutas",
+                nav_gallery: "Galería",
+                nav_booking: "Reservar",
+                nav_contacts: "Contacto",
+                nav_call: "Llamar Ahora",
+                hero_badge: "Sardinia Off-Road Experience",
+                hero_title: "Conviértete en el héroe de tu aventura",
+                hero_subtitle: "Explora la naturaleza con nuestras emocionantes excursiones en quad. Siente la adrenalina mientras descubres paisajes deslumbrantes en Cerdeña.",
+                hero_cta_book: "Reservar Tour",
+                hero_cta_explore: "Explorar Rutas",
+                hero_scroll: "Scroll",
+                mission_tag: "West Coast Quad – La Misión",
+                mission_title: "Una mezcla perfecta de emoción y asombro",
+                mission_p1: "¿Listo para una experiencia inolvidable que combina adrenalina y descubrimiento? Únete a nuestras excursiones en quad por las fascinantes minas históricas de Cerdeña.",
+                mission_p2: "Imagina acelerar por senderos desafiantes, superando obstáculos naturales como piedras, barro y curvas cerradas en un recorrido panorámico único.",
+                stat_adrenalin: "Adrenalina",
+                stat_routes: "Rutas Únicas",
+                stat_safety: "Guías Expertos",
+                mission_card_caption: "Guía Experto y Equipamiento Completo Incluido",
+                routes_tag: "Nuestras Aventuras",
+                routes_title: "Nuestras Rutas",
+                routes_subtitle: "Pasa el cursor sobre cada tarjeta para revelar los detalles completos de la ruta.",
+                level_easy: "FÁCIL",
+                level_medium: "MEDIO",
+                level_hard: "DIFÍCIL",
+                route1_name: "LAS MINAS",
+                route1_short: "Un recorrido fascinante, único y maravilloso",
+                route1_full: "Un viaje fascinante por la arqueología minera de Cerdeña occidental. Ideal para todos, combinando pistas de tierra suaves y vistas increíbles.",
+                route2_name: "RÍOS ROJOS",
+                route2_short: "Dificultad técnica y obstáculos naturales",
+                route2_full: "Un trazado técnico que cruza cauces de ríos pigmentados con minerales rojos. Obstáculos y rocas para verdaderos amantes del off-road.",
+                route3_name: "VILLA GINESTRA",
+                route3_short: "Desafiante y emocionante con terrenos salvajes",
+                route3_full: "La experiencia definitiva de 100 km para quienes buscan el máximo desafío en la vegetación mediterránea salvaje.",
+                hover_detail: "Detalles →",
+                curtain_tag: "Ficha Técnica",
+                book_this: "Reservar Esta Ruta",
+                gallery_tag: "Momentos Capturados",
+                gallery_title: "Galería de Excursiones",
+                gallery_sub: "Fotografías reales tomadas durante nuestros tours por minas y valles salvajes.",
+                booking_tag: "Reserva Online",
+                booking_title: "Reserva Tu Aventura",
+                booking_sub: "Selecciona la fecha y hora ideal en pocos clics a través de nuestro sistema oficial.",
+                contact_tag: "Ubicación y Contacto",
+                contact_title: "Pregunta, infórmate, contáctanos",
+                contact_desc: "Contacto directo con nuestro equipo para ayudarte a elegir la excursión perfecta.",
+                contact_addr_label: "Dirección Física",
+                contact_phone_label: "Teléfono y Soporte",
+                btn_maps: "Abrir Google Maps",
+                vip_support: "Atención VIP",
+                call_us_now: "¿Tienes preguntas sobre el equipamiento o los trazados?",
+                call_us_desc: "Nuestros instructores cualificados te guiarán para elegir el recorrido más adecuado a tu nivel.",
+                location_info: "Cerdeña • Guspini"
             }
         };
 
-        function changeLanguage(lang) {
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
+        // FUNZIONE DI CAMBIO LINGUA ISTANTANEA
+        function setLanguage(lang) {
+            if (!i18n[lang]) return;
 
-            // Update Active Buttons
+            // Aggiorna classe attiva sui bottoni
             ['it', 'en', 'es'].forEach(l => {
-                const btn = document.getElementById(`btn-${l}`);
+                const btn = document.getElementById(`lang-${l}`);
                 if (l === lang) {
                     btn.className = "px-2.5 py-1 rounded-full transition-all bg-gold-500 text-black font-bold";
                 } else {
-                    btn.className = "px-2.5 py-1 rounded-full transition-all text-zinc-400 hover:text-white";
+                    btn.className = "px-2.5 py-1 rounded-full transition-all text-gray-400 hover:text-white font-normal";
                 }
             });
+
+            // Sovrascrivi tutti gli attributi data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang][key]) {
+                    el.textContent = i18n[lang][key];
+                }
+            });
+
+            // Imposta attributo lang all'HTML
+            document.documentElement.lang = lang;
         }
 
-        // GSAP ScrollTrigger Animations
-        document.addEventListener("DOMContentLoaded", () => {
+        // GSAP ANIMATIONS
+        document.addEventListener('DOMContentLoaded', () => {
             gsap.registerPlugin(ScrollTrigger);
 
-            gsap.utils.toArray('.gsap-reveal').forEach((el) => {
-                gsap.from(el, {
+            // Animate Section Headers
+            gsap.utils.toArray('section').forEach(section => {
+                gsap.from(section.querySelectorAll('h2, .font-display'), {
                     scrollTrigger: {
-                        trigger: el,
-                        start: "top 85%",
-                        toggleActions: "play none none reverse"
+                        trigger: section,
+                        start: 'top 80%',
                     },
-                    y: 40,
+                    y: 30,
                     opacity: 0,
                     duration: 1,
-                    ease: "power3.out"
+                    stagger: 0.1,
+                    ease: 'power3.out'
                 });
             });
         });
