@@ -1,124 +1,104 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="it" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WestCoastQuad | Fit Grow - El Cambio Físico Definitivo</title>
+    <title>West Coast Quad | Spedizioni Luxury Off-Road in Sardegna</title>
     
-    <!-- 1. Tailwind CSS CDN -->
+    <!-- Librerie Obbligatorie -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Configuration Tailwind & CSS Personalizzato -->
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
                     },
                     colors: {
-                        brand: {
-                            gold: '#D4AF37',
-                            emerald: '#10B981',
-                            accent: '#34D399',
-                            dark: '#0A0A0A',
-                            card: '#121212',
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        copper: {
+                            500: '#e07a5f',
+                            600: '#d1583b',
                         }
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'shimmer': 'shimmer 2.5s linear infinite',
+                        'pulse-glow': 'pulse-glow 3s infinite',
                         'marquee': 'marquee 25s linear infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-12px)' },
-                        },
-                        shimmer: {
-                            '100%': { transform: 'translateX(100%)' },
-                        },
-                        marquee: {
-                            '0%': { transform: 'translateX(0%)' },
-                            '100%': { transform: 'translateX(-50%)' },
-                        }
+                        'shimmer': 'shimmer 2.5s infinite',
                     }
                 }
             }
         }
     </script>
 
-    <!-- 2. Alpine.js Plugins & Core -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <!-- 3. Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- 4. Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,800;1,800&display=swap" rel="stylesheet">
-
-    <!-- 5. Advanced CSS Effects -->
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #050505;
-            color: #F3F4F6;
+            background-color: #09090b;
+            color: #f4f4f5;
             overflow-x: hidden;
         }
 
         .glass {
-            background: rgba(18, 18, 18, 0.55);
+            background: rgba(18, 18, 22, 0.55);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .glass-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        .glass-gold {
+            background: rgba(245, 158, 11, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(245, 158, 11, 0.2);
         }
 
-        .glass-card:hover {
-            border-color: rgba(16, 185, 129, 0.3);
-            box-shadow: 0 20px 50px rgba(16, 185, 129, 0.15);
+        .glass-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .text-gradient {
-            background: linear-gradient(135deg, #FFFFFF 0%, #A1A1AA 50%, #10B981 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .glass-hover:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(245, 158, 11, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(245, 158, 11, 0.15);
         }
 
-        .text-gradient-accent {
-            background: linear-gradient(135deg, #34D399 0%, #10B981 50%, #059669 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
         }
 
-        /* Ambient Lighting Orbs */
-        .ambient-orb-1 {
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes shimmer {
+            100% { transform: translateX(100%); }
+        }
+
+        .glow-ambient {
             position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-            top: -100px;
-            left: -100px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .ambient-orb-2 {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(52, 211, 153, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
-            bottom: 10%;
-            right: -150px;
+            border-radius: 50%;
+            filter: blur(120px);
             pointer-events: none;
             z-index: 0;
         }
@@ -128,472 +108,509 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #050505;
+            background: #09090b;
         }
         ::-webkit-scrollbar-thumb {
-            background: #262626;
+            background: #27272a;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #10B981;
+            background: #f59e0b;
         }
     </style>
 </head>
-<body class="bg-neutral-950 text-neutral-100 antialiased selection:bg-emerald-500 selection:text-black">
+<body class="bg-neutral-950 text-neutral-100 antialiased selection:bg-amber-500 selection:text-black">
 
-    <!-- Ambient Lighting -->
-    <div class="ambient-orb-1"></div>
-    <div class="ambient-orb-2"></div>
+    <!-- Ambient Lights Dynamic Backdrops -->
+    <div class="glow-ambient w-96 h-96 bg-amber-600/15 top-10 left-1/4"></div>
+    <div class="glow-ambient w-[30rem] h-[30rem] bg-orange-700/10 top-[40%] right-10"></div>
+    <div class="glow-ambient w-96 h-96 bg-amber-500/10 bottom-20 left-10"></div>
 
-    <!-- NAVIGATION BAR -->
-    <header class="fixed top-0 left-0 w-full z-50 px-4 sm:px-8 py-4 transition-all duration-300">
-        <nav class="max-w-7xl mx-auto glass rounded-full px-6 py-3 flex items-center justify-between shadow-2xl">
+    <!-- NAVBAR GLASS -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-4 transition-all duration-300">
+        <nav class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3.5 flex items-center justify-between shadow-2xl">
             <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
-                    <i data-lucide="zap" class="w-5 h-5"></i>
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-neutral-950 font-black shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+                    <i data-lucide="compass" class="w-6 h-6 stroke-[2.5]"></i>
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-extrabold text-lg tracking-wider text-white">WESTCOASTQUAD</span>
-                    <span class="text-[10px] tracking-widest text-emerald-400 font-semibold uppercase -mt-1">Fit Grow Elite</span>
+                    <span class="font-extrabold text-lg tracking-wider text-white uppercase leading-none">West Coast</span>
+                    <span class="text-[10px] font-bold text-amber-500 tracking-[0.2em] uppercase">Quad Experience</span>
                 </div>
             </a>
 
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-300">
-                <a href="#filosofia" class="hover:text-emerald-400 transition-colors">El Método</a>
-                <a href="#servicios" class="hover:text-emerald-400 transition-colors">Programas</a>
-                <a href="#reserva" class="hover:text-emerald-400 transition-colors">Evaluación</a>
-                <a href="#contacto" class="hover:text-emerald-400 transition-colors">Contacto</a>
+                <a href="#esperienze" class="hover:text-amber-400 transition-colors">Itinerari</a>
+                <a href="#perche-noi" class="hover:text-amber-400 transition-colors">Esclusività</a>
+                <a href="#prenota" class="hover:text-amber-400 transition-colors">Prenotazioni</a>
+                <a href="#contatti" class="hover:text-amber-400 transition-colors">Contatti</a>
             </div>
 
-            <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener" class="relative group overflow-hidden rounded-full p-[1px] focus:outline-none">
-                <span class="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full transition-all group-hover:opacity-100 opacity-70"></span>
-                <span class="relative px-5 py-2.5 rounded-full bg-neutral-950 flex items-center gap-2 text-xs font-bold text-white uppercase tracking-wider group-hover:bg-opacity-80 transition-all">
-                    <span>Empezar Ahora</span>
-                    <i data-lucide="arrow-right" class="w-4 h-4 text-emerald-400 group-hover:translate-x-1 transition-transform"></i>
+            <a href="#prenota" class="relative group overflow-hidden rounded-xl p-[1px] font-semibold text-xs uppercase tracking-wider">
+                <span class="absolute inset-0 bg-gradient-to-r from-amber-500 to-amber-300 rounded-xl"></span>
+                <span class="relative block px-5 py-2.5 rounded-[11px] bg-neutral-950 text-amber-400 group-hover:bg-transparent group-hover:text-neutral-950 transition-all duration-300 font-bold">
+                    Prenota Ora
                 </span>
             </a>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4 overflow-hidden">
-        <!-- Hero Background Image with Gradient Overlay -->
+    <!-- HERO SECTION HERO-MOTION ULTRA-LUXURY -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+        <!-- Hero Background Image with Filters -->
         <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-gradient-to-b from-neutral-950/80 via-neutral-950/60 to-neutral-950 z-10"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-neutral-950 via-transparent to-neutral-950 z-10"></div>
-            <div class="w-full h-full bg-cover bg-center scale-105 animate-pulse-slow" style="background-image: url('https://replicate.delivery/czjl/ySBA0RYObRZkHZ81PPr8hN7nygEqwYvfMr1mGG7b48t14weWA/output.png');"></div>
+            <div class="w-full h-full bg-cover bg-center bg-no-repeat scale-105 animate-pulse-glow" 
+                 style="background-image: url('https://www.westcoastquad.it/wp-content/uploads/2024/08/image00052.jpg');">
+            </div>
+            <!-- Gradienti per oscurare e rendere il testo ultra leggibile -->
+            <div class="absolute inset-0 bg-gradient-to-b from-neutral-950/80 via-neutral-950/65 to-neutral-950"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-neutral-950/90 via-transparent to-neutral-950/90"></div>
         </div>
 
-        <div class="relative z-20 max-w-5xl mx-auto text-center px-4 pt-12">
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
             
-            <!-- Floating Badge -->
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 animate-float shadow-2xl">
-                <div class="flex -space-x-1">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <!-- Badge Recensioni / Status -->
+            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass border border-amber-500/30 mb-8 animate-float">
+                <div class="flex text-amber-400">
+                    <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                 </div>
-                <span class="text-xs font-semibold text-neutral-200 tracking-wide">
-                    Fit Grow Protocol <span class="text-emerald-400 ml-1 font-bold">★ 4.98/5 Resultados Reales</span>
+                <span class="text-xs font-semibold tracking-wide text-neutral-200">
+                    Eccellenza 5.0 sulla Costa Verde
                 </span>
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
             </div>
 
-            <!-- Main Headline -->
-            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
-                Descubre tu plan personalizado <br class="hidden sm:inline"/>
-                <span class="text-gradient-accent">para el cambio físico definitivo.</span>
+            <!-- Titolo Titanico -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white mb-6 uppercase leading-[1.05]">
+                Domina la Costa <br class="hidden sm:inline" />
+                <span class="bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500 bg-clip-text text-transparent drop-shadow-2xl">
+                    Verde in Quad
+                </span>
             </h1>
 
-            <!-- Subtitle -->
-            <p class="max-w-2xl mx-auto text-lg sm:text-xl text-neutral-300 mb-10 font-light leading-relaxed">
-                Ingeniería biomecánica, nutrición adaptativa de alta precisión y seguimiento uno a uno para esculpir la mejor versión de tu vida. Sin fórmulas genéricas.
+            <!-- Sottotitolo -->
+            <p class="max-w-2xl text-base sm:text-xl text-neutral-300 font-light mb-10 leading-relaxed">
+                Spedizioni guidate off-road attraverso vecchie miniere, canyon selvaggi, fiumi rossi e le imponenti dune di Piscinas. Un’avventura senza eguali in Sardegna.
             </p>
 
-            <!-- CTA Actions -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-                <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener" class="w-full sm:w-auto px-8 py-4 rounded-full bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-extrabold text-sm uppercase tracking-wider transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] flex items-center justify-center gap-3">
-                    <i data-lucide="sparkles" class="w-5 h-5"></i>
-                    <span>Solicitar Plan Personalizado</span>
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                <a href="#esperienze" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-neutral-950 font-extrabold text-sm uppercase tracking-wider hover:brightness-110 transition-all shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 group">
+                    <span>Esplora i Tour</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                 </a>
-                
-                <a href="#servicios" class="w-full sm:w-auto px-8 py-4 rounded-full glass hover:bg-white/10 text-white font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2 border border-white/10">
-                    <span>Explorar Programas</span>
-                    <i data-lucide="chevron-down" class="w-4 h-4 text-neutral-400"></i>
+                <a href="#prenota" class="w-full sm:w-auto px-8 py-4 rounded-xl glass hover:bg-white/10 text-white font-bold text-sm uppercase tracking-wider transition-all border border-white/10 flex items-center justify-center gap-2">
+                    <i data-lucide="calendar" class="w-4 h-4 text-amber-400"></i>
+                    <span>Verifica Disponibilità</span>
                 </a>
             </div>
 
-            <!-- Quick Trust Signals -->
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-white/10 max-w-4xl mx-auto">
-                <div class="text-center">
-                    <span class="block text-2xl md:text-3xl font-extrabold text-white">100%</span>
-                    <span class="text-xs text-neutral-400 uppercase tracking-widest font-medium">Personalizado</span>
+            <!-- Quick Specs Hero Footer -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 w-full max-w-4xl">
+                <div class="glass p-4 rounded-2xl text-center">
+                    <span class="block text-2xl font-black text-amber-400">100%</span>
+                    <span class="text-xs text-neutral-400 uppercase tracking-wider font-semibold">Off-Road Puro</span>
                 </div>
-                <div class="text-center">
-                    <span class="block text-2xl md:text-3xl font-extrabold text-emerald-400">+350</span>
-                    <span class="text-xs text-neutral-400 uppercase tracking-widest font-medium">Transformaciones</span>
+                <div class="glass p-4 rounded-2xl text-center">
+                    <span class="block text-2xl font-black text-amber-400">Fino a 100 KM</span>
+                    <span class="text-xs text-neutral-400 uppercase tracking-wider font-semibold">Percorso Max</span>
                 </div>
-                <div class="text-center">
-                    <span class="block text-2xl md:text-3xl font-extrabold text-white">24/7</span>
-                    <span class="text-xs text-neutral-400 uppercase tracking-widest font-medium">Soporte Directo</span>
+                <div class="glass p-4 rounded-2xl text-center">
+                    <span class="block text-2xl font-black text-amber-400">Dune Piscinas</span>
+                    <span class="text-xs text-neutral-400 uppercase tracking-wider font-semibold">Scenario UNESCO</span>
                 </div>
-                <div class="text-center">
-                    <span class="block text-2xl md:text-3xl font-extrabold text-emerald-400">12 Wks</span>
-                    <span class="text-xs text-neutral-400 uppercase tracking-widest font-medium">Garantía Cambio</span>
+                <div class="glass p-4 rounded-2xl text-center">
+                    <span class="block text-2xl font-black text-amber-400">Guide Pro</span>
+                    <span class="text-xs text-neutral-400 uppercase tracking-wider font-semibold">Assistenza VIP</span>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- TICKER ANIMADO -->
-    <div class="w-full py-5 bg-neutral-900/80 border-y border-white/10 overflow-hidden relative z-20 backdrop-blur-md">
+    <!-- TICKER ANIMATO A SCORRIMENTO INFINITO -->
+    <div class="w-full bg-amber-500/10 border-y border-amber-500/20 py-4 overflow-hidden relative backdrop-blur-md">
         <div class="flex whitespace-nowrap animate-marquee">
-            <div class="flex items-center gap-12 text-sm font-bold tracking-widest uppercase text-neutral-400 pr-12">
-                <span class="flex items-center gap-3"><i data-lucide="flame" class="w-4 h-4 text-emerald-400"></i> RECOMPOSICIÓN CORPORAL</span>
-                <span class="text-neutral-700">•</span>
-                <span class="flex items-center gap-3"><i data-lucide="target" class="w-4 h-4 text-emerald-400"></i> NUTRICIÓN DE ÉLITE</span>
-                <span class="text-neutral-700">•</span>
-                <span class="flex items-center gap-3"><i data-lucide="zap" class="w-4 h-4 text-emerald-400"></i> ALTO RENDIMIENTO</span>
-                <span class="text-neutral-700">•</span>
-                <span class="flex items-center gap-3"><i data-lucide="trophy" class="w-4 h-4 text-emerald-400"></i> CAMBIO FÍSICO DEFINITIVO</span>
-                <span class="text-neutral-700">•</span>
-                <span class="flex items-center gap-3"><i data-lucide="activity" class="w-4 h-4 text-emerald-400"></i> WESTCOASTQUAD FIT GROW</span>
-                <span class="text-neutral-700">•</span>
+            <div class="flex items-center gap-8 text-amber-400 font-extrabold tracking-widest text-sm uppercase px-4">
+                <span>Montevecchio Miniere</span> <i data-lucide="sparkles" class="w-4 h-4 inline"></i>
+                <span>Dune di Piscinas</span> <i data-lucide="sparkles" class="w-4 h-4 inline"></i>
+                <span>Costa Verde Escursioni</span> <i data-lucide="sparkles" class="w-4 h-4 inline"></i>
+                <span>Fiumi Rossi & Off-Road</span> <i data-lucide="sparkles" class="w-4 h-4 inline"></i>
+                <span>Ingurtosu Wild Trail</span> <i data-lucide="sparkles" class="w-4 h-4 inline"></i>
+                <span>Villa Ginestra Expedition</span> <i data-lucide="sparkles" class="w-4 h-4 inline"></i>
             </div>
-            <div class="flex items-center gap-12 text-sm font-bold tracking-widest uppercase text-neutral-400 pr-12">
-                <span class="flex items-center gap-3"><i data-lucide="flame" class="w-4 h-4 text-emerald-400"></i> RECOMPOSICIÓN CORPORAL</span>
-                <span class="text-neutral-700">•</span>
-                <span class="flex items-center gap-3"><i data-lucide="target" class="w-4 h-4 text-emerald-400"></i> NUTRICIÓN DE ÉLITE</span>
-                <span class="text-neutral-700">•</span>
-                <span class="flex items-center gap-3"><i data-lucide="zap" class="w-4 h-4 text-emerald-400"></i> ALTO RENDIMIENTO</span>
-                <span class="text-neutral-700">•</span>
-                <span class="flex items-center gap-3"><i data-lucide="trophy" class="w-4 h-4 text-emerald-400"></i> CAMBIO FÍSICO DEFINITIVO</span>
-                <span class="text-neutral-700">•</span>
-                <span class="flex items-center gap-3"><i data-lucide="activity" class="w-4 h-4 text-emerald-400"></i> WESTCOASTQUAD FIT GROW</span>
-                <span class="text-neutral-700">•</span>
+            <div class="flex items-center gap-8 text-amber-400 font-extrabold tracking-widest text-sm uppercase px-4">
+                <span>Montevecchio Miniere</span> <i data-lucide="sparkles" class="w-4 h-4 inline"></i>
+                <span>Dune di Piscinas</span> <i data-lucide="sparkles" class="w-4 h-4 inline"></i>
+                <span>Costa Verde Escursioni</span> <i data-lucide="sparkles" class="w-4 h-4 inline"></i>
+                <span>Fiumi Rossi & Off-Road</span> <i data-lucide="sparkles" class="w-4 h-4 inline"></i>
+                <span>Ingurtosu Wild Trail</span> <i data-lucide="sparkles" class="w-4 h-4 inline"></i>
+                <span>Villa Ginestra Expedition</span> <i data-lucide="sparkles" class="w-4 h-4 inline"></i>
             </div>
         </div>
     </div>
 
-    <!-- BENTO GRID 2.0 (SERVICIOS EXPANDIBLES ALPINE.JS) -->
-    <section id="servicios" class="py-28 px-4 max-w-7xl mx-auto relative z-20">
+    <!-- BENTO GRID 2.0 - ITINERARI E SERVIZI -->
+    <section id="esperienze" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+        
         <div class="text-center max-w-3xl mx-auto mb-16">
-            <h2 class="text-xs font-extrabold uppercase tracking-widest text-emerald-400 mb-3">Programas Exclusivos</h2>
-            <p class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Diseñados para resultados garantizados.</p>
-            <p class="mt-4 text-neutral-400 text-base">Selecciona un programa para desplegar la estructura técnica del tratamiento físico.</p>
+            <h2 class="text-xs font-bold text-amber-500 tracking-widest uppercase mb-3">Seleziona la tua Sfida</h2>
+            <p class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">ITINERARI ED ESCURSIONI</p>
+            <p class="mt-4 text-neutral-400 text-base">Scegli tra percorsi avvincenti pensati per ogni livello di esperienza, tra archeologia industriale e natura selvaggia.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-            <!-- BENTO CARD 1: HERO SPOT (WIDE CARD) -->
-            <div x-data="{ expanded: false }" class="md:col-span-2 glass-card rounded-3xl p-8 transition-all duration-500 relative overflow-hidden group">
-                <div class="flex flex-col h-full justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-                                <i data-lucide="flame" class="w-7 h-7"></i>
-                            </div>
-                            <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold text-xs uppercase tracking-wider">
-                                Más Popular
-                            </span>
-                        </div>
-                        
-                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-4">
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Programa Fit Grow 360°</h3>
-                            <span class="text-2xl font-black text-emerald-400">149€ <span class="text-xs text-neutral-400 font-normal">/ mes</span></span>
-                        </div>
-                        
-                        <p class="text-neutral-300 text-sm leading-relaxed mb-6">
-                            El protocolo definitivo de recomposición corporal integral. Diseñado específicamente para eliminar grasa recalcitrante mientras maximizamos el tono muscular denso y la vitalidad.
-                        </p>
-                    </div>
-
-                    <div>
-                        <!-- Expandable content via Alpine.js -->
-                        <div x-show="expanded" x-collapse x-cloak class="pt-4 border-t border-white/10 mb-6 space-y-3 text-sm text-neutral-300">
-                            <div class="flex items-start gap-3">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
-                                <span>Plan de nutrición macro-calculado con menú adaptativo según tus gustos y ritmo diario.</span>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
-                                <span>Rutina de entrenamiento biomecánico (Gimnasio o Casa) con videos explicativos HD.</span>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
-                                <span>Revisión biomecánica y métrica cada 7 días con ajuste directo de cargas.</span>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
-                                <span>Acceso prioritario a comunicación directa WhatsApp 1-a-1 con Fabio Grussu.</span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-between pt-4 border-t border-white/10">
-                            <button @click="expanded = !expanded" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400 hover:text-emerald-300 transition-colors">
-                                <span x-text="expanded ? 'Ocultar detalles' : 'Ver desglose completo'"></span>
-                                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300" :class="{ 'rotate-180': expanded }"></i>
-                            </button>
-
-                            <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-full bg-white text-neutral-950 font-extrabold text-xs uppercase tracking-wider hover:bg-emerald-400 transition-colors">
-                                Reservar Cupo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- BENTO CARD 2 -->
-            <div x-data="{ expanded: false }" class="glass-card rounded-3xl p-8 transition-all duration-500 flex flex-col justify-between">
-                <div>
-                    <div class="w-14 h-14 rounded-2xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 mb-6">
-                        <i data-lucide="zap" class="w-7 h-7"></i>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <h3 class="text-2xl font-extrabold text-white">Alto Rendimiento</h3>
-                        <span class="text-xl font-bold text-emerald-400">220€ <span class="text-xs text-neutral-400 font-normal">/ mes</span></span>
-                    </div>
-
-                    <p class="text-neutral-300 text-sm leading-relaxed mb-6">
-                        Optimización metabólica y hormonal para atletas, ejecutivos y personas con alta exigencia.
-                    </p>
-
-                    <div x-show="expanded" x-collapse x-cloak class="pt-4 border-t border-white/10 mb-6 space-y-3 text-sm text-neutral-300">
-                        <div class="flex items-start gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span>Estrategias de suplementación avanzada y longevidad.</span>
-                        </div>
-                        <div class="flex items-start gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span>Periodización del descanso, HRV y optimización del sueño.</span>
-                        </div>
-                    </div>
+            <!-- CARD 1: LE MINIERE (FACILE) -->
+            <div x-data="{ expanded: false }" class="glass rounded-3xl p-6 sm:p-8 flex flex-col justify-between glass-hover border border-white/10 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <i data-lucide="compass" class="w-32 h-32 text-amber-400"></i>
                 </div>
 
-                <div class="pt-4 border-t border-white/10 flex items-center justify-between">
-                    <button @click="expanded = !expanded" class="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-emerald-400">
-                        <span x-text="expanded ? 'Menos' : 'Detalles'"></span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300" :class="{ 'rotate-180': expanded }"></i>
-                    </button>
-                    <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener" class="px-4 py-2 rounded-full glass hover:bg-emerald-500/20 text-xs font-bold text-white">
-                        Solicitar
-                    </a>
-                </div>
-            </div>
-
-            <!-- BENTO CARD 3 -->
-            <div x-data="{ expanded: false }" class="glass-card rounded-3xl p-8 transition-all duration-500 flex flex-col justify-between">
-                <div>
-                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-6">
-                        <i data-lucide="target" class="w-7 h-7"></i>
-                    </div>
-
-                    <div class="mb-4">
-                        <h3 class="text-2xl font-extrabold text-white">Reto Express 12 Wks</h3>
-                        <span class="text-xl font-bold text-emerald-400">390€ <span class="text-xs text-neutral-400 font-normal">/ pago único</span></span>
-                    </div>
-
-                    <p class="text-neutral-300 text-sm leading-relaxed mb-6">
-                        Inmersión intensiva de 12 semanas para conseguir un choque estético rápido, saludable y sostenible.
-                    </p>
-
-                    <div x-show="expanded" x-collapse x-cloak class="pt-4 border-t border-white/10 mb-6 space-y-3 text-sm text-neutral-300">
-                        <div class="flex items-start gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
-                            <span>Plan de choque nutricional antiinflamatorio inicial.</span>
-                        </div>
-                        <div class="flex items-start gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
-                            <span>Evaluación semanal estricta de fotos y perímetros corporales.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pt-4 border-t border-white/10 flex items-center justify-between">
-                    <button @click="expanded = !expanded" class="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-emerald-400">
-                        <span x-text="expanded ? 'Menos' : 'Detalles'"></span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300" :class="{ 'rotate-180': expanded }"></i>
-                    </button>
-                    <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener" class="px-4 py-2 rounded-full glass hover:bg-emerald-500/20 text-xs font-bold text-white">
-                        Comenzar
-                    </a>
-                </div>
-            </div>
-
-            <!-- BENTO CARD 4: WIDE BOTTOM CARD -->
-            <div x-data="{ expanded: false }" class="md:col-span-2 glass-card rounded-3xl p-8 transition-all duration-500 flex flex-col justify-between">
                 <div>
                     <div class="flex items-center justify-between mb-6">
-                        <div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
-                            <i data-lucide="activity" class="w-7 h-7"></i>
-                        </div>
-                        <span class="text-xs text-neutral-400 font-semibold uppercase tracking-wider">Presencial / Online</span>
-                    </div>
-
-                    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-4">
-                        <h3 class="text-2xl font-extrabold text-white">Evaluación Biomecánica & Postural</h3>
-                        <span class="text-xl font-bold text-emerald-400">89€ <span class="text-xs text-neutral-400 font-normal">/ sesión única</span></span>
-                    </div>
-
-                    <p class="text-neutral-300 text-sm leading-relaxed mb-6">
-                        Análisis exhaustivo del patrón de movimiento, desbalances musculares y postura para entrenar sin dolores ni riesgo de lesión.
-                    </p>
-
-                    <div x-show="expanded" x-collapse x-cloak class="pt-4 border-t border-white/10 mb-6 space-y-3 text-sm text-neutral-300">
-                        <div class="flex items-start gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span>Test de movilidad articular completa e informe técnico digital.</span>
-                        </div>
-                        <div class="flex items-start gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span>Corrección postural y ejercicios específicos de activación neuromuscular.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pt-4 border-t border-white/10 flex items-center justify-between">
-                    <button @click="expanded = !expanded" class="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-emerald-400">
-                        <span x-text="expanded ? 'Ocultar' : 'Ver Detalles Biomecánicos'"></span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300" :class="{ 'rotate-180': expanded }"></i>
-                    </button>
-                    <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener" class="px-5 py-2 rounded-full glass hover:bg-emerald-500/20 text-xs font-bold text-white">
-                        Agendar Valoración
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- WIDGET PRENOTAZIONE (PRENO EMBED OR DIRECT ACTION) -->
-    <section id="reserva" class="py-24 px-4 relative z-20 bg-neutral-900/40 border-t border-white/5">
-        <div class="max-w-6xl mx-auto">
-            <div class="glass-card rounded-3xl p-8 md:p-12 border border-emerald-500/20 relative overflow-hidden">
-                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-5">
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-6">
-                            <i data-lucide="calendar" class="w-4 h-4"></i>
-                            <span>Agenda Privada</span>
-                        </div>
-                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4 tracking-tight">Reserva tu Sesión Diagnóstica Gratuita</h2>
-                        <p class="text-neutral-300 text-sm leading-relaxed mb-8">
-                            Analizaremos tu punto de partida, composición corporal actual y metas personales para trazar tu roadmap de transformación física personalizada.
-                        </p>
-
-                        <div class="space-y-4 text-sm text-neutral-300">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
-                                    <i data-lucide="clock" class="w-4 h-4"></i>
-                                </div>
-                                <span>Duración: 20 Minutos por videollamada / presencial</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
-                                    <i data-lucide="shield-check" class="w-4 h-4"></i>
-                                </div>
-                                <span>Sin compromiso - Estudio 100% individualizado</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lg:col-span-7">
-                        <!-- Direct Cal.com CTA Frame Card -->
-                        <div class="glass rounded-2xl p-6 sm:p-8 text-center border border-white/10 flex flex-col items-center justify-center min-h-[320px]">
-                            <div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6 animate-pulse-slow">
-                                <i data-lucide="calendar" class="w-8 h-8"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Selecciona Fecha y Hora</h3>
-                            <p class="text-xs text-neutral-400 mb-8 max-w-sm">
-                                Accede directamente al calendario interactivo oficial de Fabio Grussu para coordinar tu cita.
-                            </p>
-
-                            <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener" class="w-full sm:w-auto px-10 py-4 rounded-full bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3">
-                                <span>Abrir Calendario Cal.com</span>
-                                <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER & MAP LOCATION -->
-    <footer id="contacto" class="relative z-20 pt-20 pb-12 bg-neutral-950 border-t border-white/10 text-neutral-400 text-sm">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
-                
-                <!-- Brand Col -->
-                <div class="md:col-span-5 space-y-6">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-                            <i data-lucide="zap" class="w-5 h-5"></i>
-                        </div>
-                        <span class="font-extrabold text-xl tracking-wider text-white">WESTCOASTQUAD</span>
-                    </div>
-                    
-                    <p class="text-neutral-400 text-sm max-w-md font-light leading-relaxed">
-                        Transformación física, hipertrofia funcional y coaching de rendimiento de máximo nivel. Resultados medibles apoyados en biomecánica.
-                    </p>
-
-                    <!-- Dynamic Live Status -->
-                    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass text-xs font-semibold">
-                        <span class="relative flex h-2.5 w-2.5">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 uppercase tracking-wider">
+                            FACILE
                         </span>
-                        <span class="text-white">Studio Abierto — Plazas de Entrenamiento Activas</span>
+                        <div class="flex items-center text-xs font-semibold text-neutral-400 gap-3">
+                            <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-amber-500"></i> 3/4 HR</span>
+                            <span class="flex items-center gap-1"><i data-lucide="map" class="w-3.5 h-3.5 text-amber-500"></i> 70 KM</span>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-extrabold text-white mb-2 group-hover:text-amber-400 transition-colors">
+                        LE MINIERE
+                    </h3>
+                    <p class="text-neutral-400 text-sm mb-6 line-clamp-2">
+                        Un percorso avvincente, unico e meraviglioso. Ideale per chi desidera immergersi nella storia mineraria e nella natura incontaminata.
+                    </p>
+                </div>
+
+                <div>
+                    <!-- Contenuto Espandibile Alpine.js -->
+                    <div x-show="expanded" x-collapse class="text-xs text-neutral-300 space-y-3 pt-4 border-t border-white/10 mb-6">
+                        <p class="leading-relaxed">
+                            Percorrendo i vecchi binari del treno, potrai immergerti nelle miniere di Montevecchio e nel suo suggestivo borgo minerario. 
+                        </p>
+                        <p class="leading-relaxed">
+                            Seguendo l'ex strada dei minatori entreremo a Ingurtosu per poi raggiungere le famose dune di Piscinas, tra le più grandi d'Europa. Risaliremo verso punti panoramici mozzafiato con possibili avvistamenti di cervi e cinghiali.
+                        </p>
+                        <div class="p-3 bg-neutral-900/80 rounded-xl border border-white/5 space-y-1 text-amber-400 font-medium">
+                            <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Adatto ai principianti</div>
+                            <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Vista panoramica Piscinas</div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <button @click="expanded = !expanded" class="flex-1 py-3 px-4 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 border border-white/10">
+                            <span x-text="expanded ? 'Riduci Dettagli' : 'Dettagli Tour'"></span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300" :class="expanded ? 'rotate-180' : ''"></i>
+                        </button>
+                        <a href="#prenota" class="p-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-neutral-950 transition-colors flex items-center justify-center">
+                            <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2: I FIUMI ROSSI (MEDIO) -->
+            <div x-data="{ expanded: false }" class="glass rounded-3xl p-6 sm:p-8 flex flex-col justify-between glass-hover border border-amber-500/30 relative overflow-hidden group bg-gradient-to-b from-amber-500/5 to-transparent">
+                <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <i data-lucide="flame" class="w-32 h-32 text-amber-400"></i>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/40 uppercase tracking-wider">
+                            MEDIO
+                        </span>
+                        <div class="flex items-center text-xs font-semibold text-neutral-400 gap-3">
+                            <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-amber-500"></i> 4/5 HR</span>
+                            <span class="flex items-center gap-1"><i data-lucide="map" class="w-3.5 h-3.5 text-amber-500"></i> 90 KM</span>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-extrabold text-white mb-2 group-hover:text-amber-400 transition-colors">
+                        I FIUMI ROSSI
+                    </h3>
+                    <p class="text-neutral-400 text-sm mb-6 line-clamp-2">
+                        Suggestivo, con difficoltà tecnica ed ostacoli naturali. Un mix perfetto di adrenalina off-road e scenari unici.
+                    </p>
+                </div>
+
+                <div>
+                    <!-- Contenuto Espandibile Alpine.js -->
+                    <div x-show="expanded" x-collapse class="text-xs text-neutral-300 space-y-3 pt-4 border-t border-white/10 mb-6">
+                        <p class="leading-relaxed">
+                            Percorreremo il tracciato ferroviario abbandonato fino alla vetta di Puntaleone. Affronteremo la sfida off-road di Croccorigas tra salite ripide, discese accidentate e terreni instabili.
+                        </p>
+                        <p class="leading-relaxed">
+                            Partendo dal grande guado a Piscinas, attraverseremo numerosi fiumi rossi. Al ritorno, guideremo lungo la suggestiva "strada dei cervi" immersa in boschi lussureggianti.
+                        </p>
+                        <div class="p-3 bg-neutral-900/80 rounded-xl border border-amber-500/20 space-y-1 text-amber-400 font-medium">
+                            <div class="flex items-center gap-2"><i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i> Minima esperienza richiesta</div>
+                            <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Guado dei Fiumi Rossi</div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <button @click="expanded = !expanded" class="flex-1 py-3 px-4 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 border border-amber-500/30">
+                            <span x-text="expanded ? 'Riduci Dettagli' : 'Dettagli Tour'"></span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300" :class="expanded ? 'rotate-180' : ''"></i>
+                        </button>
+                        <a href="#prenota" class="p-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-neutral-950 transition-colors flex items-center justify-center">
+                            <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3: VILLA GINESTRA (DIFFICILE) -->
+            <div x-data="{ expanded: false }" class="glass rounded-3xl p-6 sm:p-8 flex flex-col justify-between glass-hover border border-red-500/30 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <i data-lucide="zap" class="w-32 h-32 text-red-500"></i>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-red-500/20 text-red-400 border border-red-500/30 uppercase tracking-wider">
+                            DIFFICILE
+                        </span>
+                        <div class="flex items-center text-xs font-semibold text-neutral-400 gap-3">
+                            <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-amber-500"></i> 6/7 HR</span>
+                            <span class="flex items-center gap-1"><i data-lucide="map" class="w-3.5 h-3.5 text-amber-500"></i> 100 KM</span>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-extrabold text-white mb-2 group-hover:text-amber-400 transition-colors">
+                        VILLA GINESTRA
+                    </h3>
+                    <p class="text-neutral-400 text-sm mb-6 line-clamp-2">
+                        Il tour più lungo, tecnico ed emozionante. Slalom tra ostacoli naturali, archeologia storica e spiagge inaccessibili.
+                    </p>
+                </div>
+
+                <div>
+                    <!-- Contenuto Espandibile Alpine.js -->
+                    <div x-show="expanded" x-collapse class="text-xs text-neutral-300 space-y-3 pt-4 border-t border-white/10 mb-6">
+                        <p class="leading-relaxed">
+                            Attraverseremo fitti sottoboschi e slalom tecnici verso la valle di Croccorigas e i pozzi minerari storici. Visiteremo il borgo di Ingurtosu e la maestosa Villa Ginestra dell'inizio del '900.
+                        </p>
+                        <p class="leading-relaxed">
+                            Passando accanto all'ex stabilimento carcerario di Is Arenas, raggiungeremo le calette nascoste della Costa Verde, Gutturu e Flumini con percorsi di montagna mozzafiato.
+                        </p>
+                        <div class="p-3 bg-neutral-900/80 rounded-xl border border-red-500/20 space-y-1 text-red-400 font-medium">
+                            <div class="flex items-center gap-2"><i data-lucide="shield-alert" class="w-3.5 h-3.5"></i> Per guidatori esperti</div>
+                            <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> 100 KM Esplorazione Totale</div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <button @click="expanded = !expanded" class="flex-1 py-3 px-4 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 border border-white/10">
+                            <span x-text="expanded ? 'Riduci Dettagli' : 'Dettagli Tour'"></span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300" :class="expanded ? 'rotate-180' : ''"></i>
+                        </button>
+                        <a href="#prenota" class="p-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-neutral-950 transition-colors flex items-center justify-center">
+                            <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- BENTO ROW 2: EQUIPMENT & SAFETY INCLUDED -->
+        <div id="perche-noi" class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="glass p-6 rounded-3xl flex items-start gap-4 md:col-span-2">
+                <div class="p-3 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0">
+                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white text-base mb-1">Equipaggiamento Premium Incluso</h4>
+                    <p class="text-xs text-neutral-400 leading-relaxed">
+                        Forniamo caschi igienizzati, sottocaschi monouso, occhiali protettivi e quad di ultima generazione 4x4 regolarmente revisionati per la massima sicurezza.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass p-6 rounded-3xl flex items-start gap-4">
+                <div class="p-3 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0">
+                    <i data-lucide="user-check" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white text-base mb-1">Guide Certificate</h4>
+                    <p class="text-xs text-neutral-400 leading-relaxed">
+                        Accompagnatori esperti del territorio per garantirvi sicurezza e segreti storici della Costa Verde.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass p-6 rounded-3xl flex items-start gap-4">
+                <div class="p-3 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0">
+                    <i data-lucide="camera" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white text-base mb-1">Foto & Video HD</h4>
+                    <p class="text-xs text-neutral-400 leading-relaxed">
+                        Scatti nei punti più panoramici inclusi per rendere immortale la tua avventura in quad.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION PRENOTAZIONE / CAL.COM INTEGRATION WIDGET -->
+    <section id="prenota" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+        <div class="glass-gold rounded-3xl p-8 sm:p-12 border border-amber-500/30 relative overflow-hidden">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30 uppercase tracking-widest">
+                        Riserva il tuo Quad
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                        PRONTO PER L'AVVENTURA?
+                    </h2>
+                    <p class="text-neutral-300 text-sm leading-relaxed">
+                        I posti sono limitati per garantire la massima qualità e sicurezza del gruppo. Prenota la tua data online in pochi secondi oppure contattaci direttamente su WhatsApp per richieste personalizzate.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-center gap-3 text-sm text-neutral-200">
+                            <i data-lucide="check" class="w-5 h-5 text-amber-400"></i>
+                            <span>Nessun costo nascosto - Carburante e Attrezzatura inclusi</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-neutral-200">
+                            <i data-lucide="check" class="w-5 h-5 text-amber-400"></i>
+                            <span>Cancellazione flessibile entro 48h</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-neutral-200">
+                            <i data-lucide="check" class="w-5 h-5 text-amber-400"></i>
+                            <span>Patente B richiesta per la guida</span>
+                        </div>
+                    </div>
+
+                    <!-- Direct WhatsApp Fast Call -->
+                    <div class="pt-4 flex flex-wrap items-center gap-4">
+                        <a href="https://wa.me/393460207324?text=Ciao!%20Vorrei%20informazioni%20per%20prenotare%20un%20tour%20in%20quad." target="_blank" class="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2 shadow-lg shadow-emerald-600/20">
+                            <i data-lucide="message-square" class="w-4 h-4"></i>
+                            <span>Chatta su WhatsApp</span>
+                        </a>
+                        <a href="tel:+393460207324" class="px-6 py-3.5 rounded-xl glass hover:bg-white/10 text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-amber-400"></i>
+                            <span>Chiama Ora</span>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Contact & Address -->
-                <div class="md:col-span-4 space-y-4">
-                    <h4 class="text-white font-extrabold text-xs uppercase tracking-widest">Ubicación & Sede</h4>
-                    <div class="flex items-start gap-3 text-neutral-300">
-                        <i data-lucide="map-pin" class="w-5 h-5 text-emerald-400 shrink-0 mt-1"></i>
-                        <div>
-                            <p class="font-semibold text-white">WestCoastQuad Studio</p>
-                            <p>Viale G. di Vittorio 36</p>
-                            <p>09036 GUSPINI SU, Italia</p>
-                            <p class="text-xs text-neutral-500 mt-2">VAT ID: IT3460207324</p>
-                        </div>
+                <!-- Cal.com Interactive Booking Box -->
+                <div class="lg:col-span-7 bg-neutral-900/90 rounded-2xl p-6 sm:p-8 border border-white/10 shadow-2xl relative">
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-bold text-white mb-1">Calendario Prenotazioni Dirette</h3>
+                        <p class="text-xs text-neutral-400">Seleziona la data ideale dal nostro sistema interattivo Cal.com</p>
                     </div>
-                </div>
 
-                <!-- Dummy Map Frame -->
-                <div class="md:col-span-3">
-                    <div class="glass rounded-2xl h-40 w-full relative overflow-hidden flex items-center justify-center border border-white/10 group">
-                        <!-- Dark style map background preview -->
-                        <div class="absolute inset-0 bg-neutral-900 opacity-90 group-hover:scale-105 transition-transform duration-500">
-                            <div class="w-full h-full opacity-20 bg-[radial-gradient(#10B981_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                    <!-- Button Embed / Redirect Direct Action -->
+                    <div class="flex flex-col items-center justify-center py-12 px-4 rounded-xl bg-neutral-950/60 border border-amber-500/20 text-center space-y-6">
+                        <div class="w-16 h-16 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400">
+                            <i data-lucide="calendar-days" class="w-8 h-8"></i>
                         </div>
-                        <div class="relative z-10 text-center p-4">
-                            <div class="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center text-emerald-400 mx-auto mb-2">
-                                <i data-lucide="map-pin" class="w-5 h-5"></i>
-                            </div>
-                            <span class="text-xs font-bold text-white block">GUSPINI SU</span>
-                            <span class="text-[10px] text-emerald-400 uppercase tracking-wider font-semibold">Ver en Google Maps</span>
+                        <div class="max-w-md">
+                            <h4 class="text-lg font-bold text-white mb-2">Prenotazione Online Immediata</h4>
+                            <p class="text-xs text-neutral-400 leading-relaxed">
+                                Accedi al sistema Cal.com di West Coast Quad per verificare gli slot disponibili in tempo reale e confermare il tuo tour.
+                            </p>
                         </div>
+                        <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener font-bold" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-neutral-950 font-black text-xs uppercase tracking-widest hover:scale-105 transition-transform shadow-xl shadow-amber-500/25 flex items-center justify-center gap-2">
+                            <span>Apri Calendario Cal.com</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Bottom Copyright -->
-            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
-                <p>&copy; <span x-data x-text="new Date().getFullYear()"></span> WESTCOASTQUAD / Fit Grow. Todos los derechos reservados.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER & MAP CONTATTI -->
+    <footer id="contatti" class="bg-neutral-950 border-t border-white/10 pt-16 pb-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/10">
+                
+                <!-- Brand Info -->
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-neutral-950 font-black">
+                            <i data-lucide="compass" class="w-6 h-6"></i>
+                        </div>
+                        <span class="font-extrabold text-xl text-white uppercase tracking-wider">West Coast Quad</span>
+                    </div>
+                    <p class="text-xs text-neutral-400 leading-relaxed max-w-sm">
+                        L'esperienza guida in quad numero uno nella Costa Verde in Sardegna. Percorsi tra dune, fiumi e miniere storiche per un lusso autentico e selvaggio.
+                    </p>
+                    
+                    <!-- Dynamic Status Indicator -->
+                    <div x-data="{ open: true }" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-900 border border-white/10 text-xs">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span class="text-neutral-300 font-medium">Stagione Attiva - Tours Prenotabili</span>
+                    </div>
+                </div>
+
+                <!-- Info e Indirizzo -->
+                <div class="md:col-span-4 space-y-3">
+                    <h4 class="text-xs font-bold text-amber-500 uppercase tracking-widest mb-2">Base Operativa & Contatti</h4>
+                    
+                    <div class="flex items-start gap-3 text-xs text-neutral-300">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-amber-500 shrink-0 mt-0.5"></i>
+                        <span>Viale G. di Vittorio 36, 09036 GUSPINI (SU), Sardegna, Italia</span>
+                    </div>
+
+                    <div class="flex items-center gap-3 text-xs text-neutral-300">
+                        <i data-lucide="phone" class="w-4 h-4 text-amber-500 shrink-0"></i>
+                        <a href="tel:+393460207324" class="hover:text-amber-400 transition-colors">+39 346 020 7324</a>
+                    </div>
+
+                    <div class="flex items-center gap-3 text-xs text-neutral-300">
+                        <i data-lucide="clock" class="w-4 h-4 text-amber-500 shrink-0"></i>
+                        <span>Lunedì - Domenica: 08:00 - 20:00</span>
+                    </div>
+                </div>
+
+                <!-- Quick Navigation -->
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="text-xs font-bold text-amber-500 uppercase tracking-widest mb-2">Navigazione Veloche</h4>
+                    <ul class="space-y-2 text-xs text-neutral-400">
+                        <li><a href="#esperienze" class="hover:text-amber-400 transition-colors">Tour Le Miniere</a></li>
+                        <li><a href="#esperienze" class="hover:text-amber-400 transition-colors">Tour I Fiumi Rossi</a></li>
+                        <li><a href="#esperienze" class="hover:text-amber-400 transition-colors">Tour Villa Ginestra</a></li>
+                        <li><a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" class="hover:text-amber-400 transition-colors">Prenota con Cal.com</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Credits -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-500 gap-4">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> West Coast Quad. Tutti i diritti riservati.</p>
                 <div class="flex items-center gap-6">
-                    <a href="#" class="hover:text-emerald-400 transition-colors">Privacidad</a>
-                    <a href="#" class="hover:text-emerald-400 transition-colors">Términos de Servicio</a>
-                    <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener" class="hover:text-emerald-400 transition-colors">Cal.com</a>
+                    <a href="#" class="hover:text-neutral-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-neutral-400 transition-colors">Termini & Condizioni</a>
+                    <a href="#" class="hover:text-neutral-400 transition-colors">Cookie Policy</a>
                 </div>
             </div>
+
         </div>
     </footer>
 
-    <!-- Initialize Lucide Icons -->
+    <!-- Inizializzazione Icone Lucide -->
     <script>
         lucide.createIcons();
     </script>
