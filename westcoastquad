@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>West Coast Quad — Escursioni Off-Road di Lusso in Sardegna</title>
+    
+    <!-- 1. Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 2. Alpine.js Collapse Plugin -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- 3. Alpine.js Core -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- 4. Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- 5. Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Styles & Animations -->
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #09090b;
+            color: #f4f4f5;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-gold {
+            background: rgba(245, 158, 11, 0.04);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(245, 158, 11, 0.3);
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.15);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-pulse-glow {
+            animation: pulse-glow 8s ease-in-out infinite;
+        }
+
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: marquee 22s linear infinite;
+        }
+
+        .shimmer-text {
+            background: linear-gradient(90deg, #f59e0b 0%, #fff 50%, #f59e0b 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+    </style>
+</head>
+<body class="bg-neutral-950 text-neutral-100 antialiased selection:bg-amber-500 selection:text-black">
+
+    <!-- Ambient Lighting Spheres -->
+    <div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-amber-600/15 rounded-full blur-[140px] pointer-events-none animate-pulse-glow z-0"></div>
+    <div class="fixed bottom-1/3 right-10 w-[600px] h-[600px] bg-orange-600/10 rounded-full blur-[160px] pointer-events-none animate-pulse-glow z-0" style="animation-delay: 3s;"></div>
+
+    <!-- NAVIGATION BAR -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex items-center justify-between glass rounded-full px-6 py-3 border border-white/10 shadow-2xl backdrop-blur-xl">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+                    <i data-lucide="compass" class="w-5 h-5"></i>
+                </div>
+                <span class="font-extrabold text-lg tracking-wider text-white">WEST COAST <span class="text-amber-400">QUAD</span></span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide text-neutral-300">
+                <a href="#esperienze" class="hover:text-amber-400 transition-colors">Esperienze</a>
+                <a href="#perche-noi" class="hover:text-amber-400 transition-colors">Esclusività</a>
+                <a href="#prenota" class="hover:text-amber-400 transition-colors">Prenotazione</a>
+                <a href="#contatti" class="hover:text-amber-400 transition-colors">Contatti</a>
+            </nav>
+
+            <a href="#prenota" class="relative group overflow-hidden rounded-full p-[1px] focus:outline-none">
+                <span class="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full animate-pulse"></span>
+                <span class="relative px-5 py-2.5 rounded-full bg-neutral-950 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white group-hover:bg-transparent transition-colors">
+                    <i data-lucide="calendar" class="w-4 h-4 text-amber-400 group-hover:text-white"></i>
+                    <span>Prenota VIP</span>
+                </span>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION ULTRA-MOTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden z-10"
+             style="background-image: url('https://replicate.delivery/czjl/JTjHQv6eftt1mUuUCGrv7L7WGzbK844JPZ5KcsrVIWZCvh9WA/output.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+        
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-neutral-950/80 via-neutral-950/60 to-neutral-950"></div>
+        
+        <div class="relative max-w-6xl mx-auto px-6 text-center z-20">
+            
+            <!-- Floating Badge Reviews -->
+            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass border border-amber-500/30 text-xs font-medium text-amber-300 mb-8 animate-float shadow-xl backdrop-blur-md">
+                <div class="flex text-amber-400">
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                </div>
+                <span class="text-neutral-200 border-l border-white/20 pl-3">4.9/5 Eccellenza Off-Road — Costa Verde & Piscinas</span>
+            </div>
+
+            <!-- Main Title -->
+            <h1 class="text-4xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-[1.05] mb-6">
+                Domina la Natura <br>
+                <span class="shimmer-text">Selvaggia della Sardegna</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-base md:text-xl text-neutral-300 font-normal leading-relaxed mb-10">
+                Sperimenta la libertà assoluta tra le dune di Piscinas, le miniere storiche di Montevecchio e la Costa Verde. Tour guidati in quad ad alte prestazioni ed esperienze esclusive su misura.
+            </p>
+
+            <!-- Actions CTA -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#prenota" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 font-extrabold text-neutral-950 text-sm uppercase tracking-wider hover:shadow-[0_0_35px_rgba(245,158,11,0.5)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
+                    <i data-lucide="zap" class="w-5 h-5 fill-neutral-950"></i>
+                    <span>Riserva il Tuo Tour VIP</span>
+                </a>
+                <a href="#esperienze" class="w-full sm:w-auto px-8 py-4 rounded-full glass font-bold text-white text-sm uppercase tracking-wider border border-white/10 hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="map" class="w-4 h-4 text-amber-400"></i>
+                    <span>Esplora gli Itinerari</span>
+                </a>
+            </div>
+
+            <!-- Stats Bar Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-16 pt-8 border-t border-white/10 text-left">
+                <div class="glass p-4 rounded-2xl">
+                    <div class="text-2xl md:text-3xl font-extrabold text-amber-400">100%</div>
+                    <div class="text-xs text-neutral-400 uppercase tracking-widest mt-1">Off-Road Puro</div>
+                </div>
+                <div class="glass p-4 rounded-2xl">
+                    <div class="text-2xl md:text-3xl font-extrabold text-amber-400">50+ KM</div>
+                    <div class="text-xs text-neutral-400 uppercase tracking-widest mt-1">Percorsi Esclusivi</div>
+                </div>
+                <div class="glass p-4 rounded-2xl">
+                    <div class="text-2xl md:text-3xl font-extrabold text-amber-400">VIP</div>
+                    <div class="text-xs text-neutral-400 uppercase tracking-widest mt-1">Guide Certificate</div>
+                </div>
+                <div class="glass p-4 rounded-2xl">
+                    <div class="text-2xl md:text-3xl font-extrabold text-amber-400">450 cc</div>
+                    <div class="text-xs text-neutral-400 uppercase tracking-widest mt-1">Quad di Ultima Gen</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INFINITE TICKER BANNER -->
+    <div class="relative z-20 py-4 bg-amber-500 text-neutral-950 font-black tracking-wider uppercase overflow-hidden text-sm shadow-xl">
+        <div class="animate-marquee whitespace-nowrap flex gap-8 items-center">
+            <span>• DUNE DI PISCINAS</span>
+            <span>• MONTEVECCHIO OFF-ROAD</span>
+            <span>• COSTA VERDE EXCURSIONS</span>
+            <span>• WEST COAST QUAD SARDEGNA</span>
+            <span>• TRAMONTI ESCLUSIVI</span>
+            <span>• AVVENTURA AD ALTA PRESTAZIONE</span>
+            <span>• GUIDA PRIVATA VIP</span>
+            <span>• DUNE DI PISCINAS</span>
+            <span>• MONTEVECCHIO OFF-ROAD</span>
+            <span>• COSTA VERDE EXCURSIONS</span>
+            <span>• WEST COAST QUAD SARDEGNA</span>
+            <span>• TRAMONTI ESCLUSIVI</span>
+        </div>
+    </div>
+
+    <!-- BENTO GRID 2.0 (ESPERIENZE E SERVIZI) -->
+    <section id="esperienze" class="relative z-10 py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-amber-400 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full glass border border-amber-500/20 inline-block mb-3">
+                Catalogo Esperienze
+            </span>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white">Scegli la Tua Avventura Su Misura</h2>
+            <p class="text-neutral-400 text-sm md:text-base mt-4">
+                Dalle imponenti dune di sabbia dorata alle storiche piste minerarie. Seleziona un tour ed espandilo per scoprire tutti i dettagli.
+            </p>
+        </div>
+
+        <!-- Asymmetrical Bento Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- Card 1: Sunset Piscinas Dune Tour (Large Featured Card) -->
+            <div x-data="{ expanded: false }" class="md:col-span-2 glass-card rounded-3xl p-6 md:p-8 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
+                
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-3 bg-amber-500/10 rounded-2xl border border-amber-500/20 text-amber-400">
+                            <i data-lucide="sun" class="w-8 h-8"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 bg-amber-500 text-neutral-950 rounded-full">Più Richiesto</span>
+                    </div>
+
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-2">Sunset Piscinas & Dune Wild Tour</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                        Un'escursione epica al calar del sole attraverso i sentieri nascosti della Costa Verde, raggiungendo le celebri dune desertiche di Piscinas.
+                    </p>
+
+                    <div class="flex items-center gap-4 text-xs text-neutral-300 mb-6 font-semibold">
+                        <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-4 h-4 text-amber-400"></i> 3,5 Ore</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-4 h-4 text-amber-400"></i> Piscinas & Costa Verde</span>
+                        <span class="flex items-center gap-1.5 text-amber-400 font-extrabold text-sm ml-auto">Da €130 / Quad</span>
+                    </div>
+                </div>
+
+                <!-- Accordion Expandable Content -->
+                <div x-show="expanded" x-collapse class="border-t border-white/10 pt-4 mt-2 text-sm text-neutral-300 space-y-3">
+                    <p><strong class="text-white">Cosa include:</strong> Noleggio quad 450cc bi-posto, casco, sottocasco igienico, carburante, guida esperta certificata e aperitivo VIP al tramonto in vista mare.</p>
+                    <p><strong class="text-white">Requisiti:</strong> Patente B in corso di validità per il conducente. Nessuna esperienza previa richiesta.</p>
+                    <a href="#prenota" class="inline-flex items-center justify-center w-full py-3 mt-2 rounded-xl bg-amber-500 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-400 transition-colors">
+                        Prenota Questo Tour
+                    </a>
+                </div>
+
+                <button @click="expanded = !expanded" class="w-full mt-4 py-2 flex items-center justify-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider border-t border-white/5 hover:text-amber-300 transition-colors">
+                    <span x-text="expanded ? 'Riduci Dettagli' : 'Mostra Dettagli & Equipaggiamento'"></span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform" :class="expanded ? 'rotate-180' : ''"></i>
+                </button>
+            </div>
+
+            <!-- Card 2: Mining Trail Montevecchio -->
+            <div x-data="{ expanded: false }" class="glass-card rounded-3xl p-6 md:p-8 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-3 bg-amber-500/10 rounded-2xl border border-amber-500/20 text-amber-400">
+                            <i data-lucide="mountain" class="w-8 h-8"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 bg-white/10 text-neutral-300 rounded-full">Storico</span>
+                    </div>
+
+                    <h3 class="text-xl font-extrabold text-white mb-2">Montevecchio Adventure Trail</h3>
+                    <p class="text-neutral-400 text-xs leading-relaxed mb-4">
+                        Esplora gli storici canyon minerari di Montevecchio, guadi di fiume e boschi di lecci millenari.
+                    </p>
+
+                    <div class="flex items-center justify-between text-xs text-neutral-300 mb-4 font-semibold">
+                        <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i> 2,5 Ore</span>
+                        <span class="text-amber-400 font-extrabold text-sm">Da €95 / Quad</span>
+                    </div>
+                </div>
+
+                <div x-show="expanded" x-collapse class="border-t border-white/10 pt-4 text-xs text-neutral-300 space-y-2">
+                    <p><strong class="text-white">Percorso:</strong> 35 km tra vecchie rotti minerarie, villaggi fantasma e natura selvaggia con avvistamento cervi sardi.</p>
+                    <a href="#prenota" class="inline-flex items-center justify-center w-full py-2.5 mt-2 rounded-xl bg-amber-500 text-neutral-950 font-bold text-xs uppercase tracking-wider">
+                        Seleziona Data
+                    </a>
+                </div>
+
+                <button @click="expanded = !expanded" class="w-full mt-4 py-2 flex items-center justify-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider border-t border-white/5">
+                    <span x-text="expanded ? 'Chiudi' : 'Espandi Dettagli'"></span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform" :class="expanded ? 'rotate-180' : ''"></i>
+                </button>
+            </div>
+
+            <!-- Card 3: Fit Grow & Extreme Safari -->
+            <div x-data="{ expanded: false }" class="glass-card rounded-3xl p-6 md:p-8 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-3 bg-amber-500/10 rounded-2xl border border-amber-500/20 text-amber-400">
+                            <i data-lucide="activity" class="w-8 h-8"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 bg-amber-500/20 text-amber-300 rounded-full">Fit & Performance</span>
+                    </div>
+
+                    <h3 class="text-xl font-extrabold text-white mb-2">Fit Grow Extreme Safari</h3>
+                    <p class="text-neutral-400 text-xs leading-relaxed mb-4">
+                        Combinazione dinamica di guida off-road tecnica ad alto tasso di adrenalina e training outdoor immersivo.
+                    </p>
+
+                    <div class="flex items-center justify-between text-xs text-neutral-300 mb-4 font-semibold">
+                        <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i> 4 Ore</span>
+                        <span class="text-amber-400 font-extrabold text-sm">Da €150 / Quad</span>
+                    </div>
+                </div>
+
+                <div x-show="expanded" x-collapse class="border-t border-white/10 pt-4 text-xs text-neutral-300 space-y-2">
+                    <p><strong class="text-white">Incluso:</strong> Percorso adrenalina su terreno impervio, test di guida tecnica, sessione outdoor guidata e piano personalizzato per la coordinazione di guida e resistenza.</p>
+                    <a href="#prenota" class="inline-flex items-center justify-center w-full py-2.5 mt-2 rounded-xl bg-amber-500 text-neutral-950 font-bold text-xs uppercase tracking-wider">
+                        Sblocca il Tuo Plan
+                    </a>
+                </div>
+
+                <button @click="expanded = !expanded" class="w-full mt-4 py-2 flex items-center justify-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider border-t border-white/5">
+                    <span x-text="expanded ? 'Chiudi' : 'Espandi Dettagli'"></span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform" :class="expanded ? 'rotate-180' : ''"></i>
+                </button>
+            </div>
+
+            <!-- Card 4: VIP Exclusive Private Tour -->
+            <div x-data="{ expanded: false }" class="md:col-span-2 glass-card rounded-3xl p-6 md:p-8 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-3 bg-amber-500/10 rounded-2xl border border-amber-500/20 text-amber-400">
+                            <i data-lucide="shield-check" class="w-8 h-8"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 bg-amber-400/20 text-amber-300 rounded-full border border-amber-400/30">100% Esclusivo</span>
+                    </div>
+
+                    <h3 class="text-2xl font-extrabold text-white mb-2">VIP Private Quad Experience</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                        Una guida dedicata al 100% solo per te o per il tuo gruppo privato. Personalizza l'orario, le tappe panoramiche e le soste fotografiche sul mare.
+                    </p>
+
+                    <div class="flex items-center gap-4 text-xs text-neutral-300 mb-4 font-semibold">
+                        <span class="flex items-center gap-1.5"><i data-lucide="users" class="w-4 h-4 text-amber-400"></i> Gruppi Privati</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i> Service Tailor-Made</span>
+                        <span class="flex items-center gap-1.5 text-amber-400 font-extrabold text-sm ml-auto">Da €280 / Esperienza</span>
+                    </div>
+                </div>
+
+                <div x-show="expanded" x-collapse class="border-t border-white/10 pt-4 text-sm text-neutral-300 space-y-3">
+                    <p><strong class="text-white">Trattamento Gold:</strong> Pickup su richiesta presso struttura ricettiva, quad top di gamma, video/foto drone HD inclusi, aperitivo gourmet con prodotti tipici sardi.</p>
+                    <a href="#prenota" class="inline-flex items-center justify-center w-full py-3 mt-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-neutral-950 font-extrabold text-xs uppercase tracking-wider">
+                        Richiedi Disponibilità VIP
+                    </a>
+                </div>
+
+                <button @click="expanded = !expanded" class="w-full mt-4 py-2 flex items-center justify-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider border-t border-white/5">
+                    <span x-text="expanded ? 'Mostra Meno' : 'Scopri i Servizi VIP inclusi'"></span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform" :class="expanded ? 'rotate-180' : ''"></i>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION WHY US / LUXURY ATTRIBUTES -->
+    <section id="perche-noi" class="relative z-10 py-20 px-6 bg-neutral-900/50 border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="flex flex-col items-start gap-4 p-6 rounded-2xl glass">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 border border-amber-500/20">
+                        <i data-lucide="shield" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Sicurezza & Flotta Top</h4>
+                    <p class="text-neutral-400 text-sm leading-relaxed">
+                        Mezzi di ultima generazione sottoposti a manutenzione ossessiva prima di ogni tour. Protezioni omologate incluse per massima tranquillità.
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-start gap-4 p-6 rounded-2xl glass">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 border border-amber-500/20">
+                        <i data-lucide="map" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Scenari Mozzafiato</h4>
+                    <p class="text-neutral-400 text-sm leading-relaxed">
+                        Accesso a sentieri esclusivi interdetti al normale traffico. Scorci panoramici unici tra dune di sabbia d'orata e mare cristallino.
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-start gap-4 p-6 rounded-2xl glass">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 border border-amber-500/20">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Guide Locali Certificate</h4>
+                    <p class="text-neutral-400 text-sm leading-relaxed">
+                        Accompagnatori esperti nati nel territorio che ti racconteranno i segreti della storia mineraria e della macchia mediterranea.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION WIDGET PRENOTAZIONE -->
+    <section id="prenota" class="relative z-10 py-24 px-6 max-w-5xl mx-auto">
+        <div class="glass-gold rounded-3xl p-8 md:p-12 relative overflow-hidden border border-amber-500/30 text-center">
+            
+            <div class="absolute -top-24 -left-24 w-60 h-60 bg-amber-500/20 rounded-full blur-3xl"></div>
+            
+            <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-full glass border border-amber-500/30 inline-block mb-4">
+                Prenotazione Istantanea
+            </span>
+            
+            <h2 class="text-3xl md:text-5xl font-black text-white mb-4">
+                Blocca la Tua Data VIP
+            </h2>
+            
+            <p class="text-neutral-300 max-w-xl mx-auto text-sm md:text-base mb-8">
+                Seleziona il giorno, controlla gli orari disponibili ed assicurati il quad per la tua avventura in Sardegna.
+            </p>
+
+            <!-- Booking Box Container -->
+            <div class="max-w-md mx-auto glass p-6 rounded-2xl border border-white/10 mb-8">
+                <div class="flex items-center justify-center gap-3 text-amber-400 mb-4">
+                    <i data-lucide="calendar-check" class="w-6 h-6"></i>
+                    <span class="font-extrabold text-lg text-white">Calendario Ufficiale</span>
+                </div>
+                <p class="text-xs text-neutral-400 mb-6">Scegli lo slot direttamente tramite il nostro sistema Cal.com riservato.</p>
+                
+                <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center justify-center gap-3 w-full py-4 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-neutral-950 font-black text-sm uppercase tracking-wider hover:scale-105 hover:shadow-[0_0_25px_rgba(245,158,11,0.4)] transition-all">
+                    <span>Apri Calendario Prenotazioni</span>
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <div class="flex items-center justify-center gap-6 text-xs text-neutral-400">
+                <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-amber-400"></i> Conferma Immediata</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i> Pagamento Sicuro</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER & CONTACTS -->
+    <footer id="contatti" class="relative z-10 bg-neutral-950 border-t border-white/10 pt-16 pb-12 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+            
+            <!-- Brand Info -->
+            <div>
+                <a href="#" class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400">
+                        <i data-lucide="compass" class="w-4 h-4"></i>
+                    </div>
+                    <span class="font-black text-base tracking-wider text-white">WEST COAST <span class="text-amber-400">QUAD</span></span>
+                </a>
+                <p class="text-neutral-400 text-xs leading-relaxed mb-6">
+                    L'esperienza off-road di riferimento nella Costa Verde sarda. Guidati dalla passione, dedicati all'eccellenza.
+                </p>
+                
+                <!-- Dynamic Status Indicator -->
+                <div x-data="{ open: true }" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass text-xs font-semibold">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    </span>
+                    <span class="text-neutral-300">Sede Operativa: <strong class="text-white">Aperta per Prenotazioni</strong></span>
+                </div>
+            </div>
+
+            <!-- Address & Location Info -->
+            <div>
+                <h5 class="text-xs font-extrabold uppercase tracking-widest text-amber-400 mb-4">Sede & Contatti</h5>
+                <ul class="space-y-3 text-xs text-neutral-300">
+                    <li class="flex items-start gap-2.5">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                        <span>Viale G. di Vittorio 36, 09036 GUSPINI (SU) — Sardegna, Italia</span>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i data-lucide="file-text" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                        <span>P.IVA / C.F.: IT3460207324</span>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i data-lucide="calendar" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                        <span>Tutti i giorni: 08:30 - 20:30 (Su Prenotazione)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Fast Action / Cal Booking -->
+            <div>
+                <h5 class="text-xs font-extrabold uppercase tracking-widest text-amber-400 mb-4">Quick VIP Booking</h5>
+                <p class="text-neutral-400 text-xs mb-4">Hai richieste particolari per gruppi o tour personalizzati?</p>
+                <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" class="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl glass border border-amber-500/40 text-amber-400 font-bold text-xs uppercase tracking-wider hover:bg-amber-500 hover:text-neutral-950 transition-all">
+                    <i data-lucide="message-square" class="w-4 h-4"></i>
+                    <span>Contatta l'Organizer</span>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Copyright Line -->
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 gap-4">
+            <p>© 2025 West Coast Quad. Tutti i diritti riservati.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-neutral-300 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-neutral-300 transition-colors">Termini & Condizioni</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
