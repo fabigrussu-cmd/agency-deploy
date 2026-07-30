@@ -3,46 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sa Scolla | Pizza & Cucina di Campagna a Cagliari</title>
+  <title>Sa Scolla | Cucina di Campagna & Pizza Gourmet - Cagliari</title>
+  <meta name="description" content="Sa Scolla Cagliari - Cucina di campagna, pizze iper-lievitate e dolci d'autore. Prenota un tavolo per un'esperienza gastronomica unica.">
   
-  <!-- Fonts -->
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Alpine.js CDN -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,800;1,400&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            display: ['"Syne"', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
           },
           colors: {
-            brand: {
-              bg: '#080706',
-              surface: '#12100d',
-              border: '#28231d',
-              accent: '#f59e0b',
-              flame: '#ea580c',
-              cream: '#fef3c7'
-            }
+            amber: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            },
+            flame: '#ff4d00',
+            terracotta: '#c85a32',
+            darkwood: '#0c0a09',
+            cardbg: '#141210'
           },
           animation: {
-            'mesh-slow': 'mesh 18s ease infinite alternate',
-            'glow-pulse': 'glowPulse 3s infinite',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'glow': 'glow 4s ease-in-out infinite alternate',
           },
           keyframes: {
-            mesh: {
-              '0%': { backgroundPosition: '0% 50%' },
-              '50%': { backgroundPosition: '100% 50%' },
-              '100%': { backgroundPosition: '0% 50%' },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-15px)' },
             },
-            glowPulse: {
-              '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
-              '50%': { opacity: '1', transform: 'scale(1.03)' },
+            glow: {
+              '0%': { opacity: '0.4', filter: 'blur(40px)' },
+              '100%': { opacity: '0.8', filter: 'blur(70px)' }
             }
           }
         }
@@ -50,381 +59,406 @@
     }
   </script>
 
-  <!-- Lucide Icons & AlpineJS -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
   <style>
-    /* Custom Mesh Gradient */
+    /* Custom Mesh Gradient Background for Restaurant Dark Mode Aesthetics */
     .mesh-gradient-bg {
-      background: radial-gradient(circle at 15% 20%, rgba(234, 88, 12, 0.25) 0%, transparent 45%),
-                  radial-gradient(circle at 85% 80%, rgba(245, 158, 11, 0.2) 0%, transparent 50%),
-                  radial-gradient(circle at 50% 50%, rgba(120, 40, 0, 0.15) 0%, transparent 65%),
-                  #080706;
-      background-size: 150% 150%;
+      background-color: #0c0a09;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(217, 119, 6, 0.25) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(255, 77, 0, 0.18) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(180, 83, 9, 0.12) 0px, transparent 60%),
+        radial-gradient(at 100% 100%, rgba(120, 53, 15, 0.3) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(245, 158, 11, 0.15) 0px, transparent 50%);
+    }
+
+    .hero-mesh {
+      background: radial-gradient(circle at 50% 30%, rgba(255, 115, 0, 0.22) 0%, rgba(217, 119, 6, 0.08) 45%, rgba(12, 10, 9, 1) 85%);
+    }
+
+    /* Subtle Grain Texture Overlay */
+    .bg-grain {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+
+    /* Glow Effects */
+    .btn-glow-amber {
+      box-shadow: 0 0 35px rgba(245, 158, 11, 0.45);
+    }
+    .btn-glow-amber:hover {
+      box-shadow: 0 0 50px rgba(255, 125, 0, 0.7);
     }
     
-    .text-glow {
-      text-shadow: 0 0 30px rgba(245, 158, 11, 0.35);
-    }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #080706;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #28231d;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #ea580c;
+    .glass-card {
+      background: rgba(22, 19, 16, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
     }
   </style>
 </head>
 
-<body class="bg-brand-bg text-stone-200 font-sans selection:bg-brand-flame selection:text-white antialiased overflow-x-hidden">
+<body class="bg-darkwood text-neutral-100 font-sans selection:bg-amber-500 selection:text-black overflow-x-hidden relative bg-grain">
 
-  <!-- 1. NAVBAR (GLASSMORPHISM) -->
-  <header class="fixed w-full z-50 bg-black/50 backdrop-blur-2xl border-b border-white/10 transition-all duration-300">
+  <!-- ================= 1. NAVBAR (GLASSMORPHISM) ================= -->
+  <header class="fixed w-full z-50 bg-black/60 backdrop-blur-2xl border-b border-white/10 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       
-      <!-- LOGO TIPOGRAFICO ELEGANTE -->
-      <a href="#" class="group flex flex-col justify-center">
-        <span class="font-display font-extrabold text-2xl tracking-widest text-white group-hover:text-brand-accent transition-colors duration-300">
-          SA SCOLLA
-        </span>
-        <span class="text-[9px] uppercase tracking-[0.3em] text-brand-accent font-semibold -mt-1">
-          Pizza & Cucina
-        </span>
+      <!-- Logo Tipografico d'Autore -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 via-flame to-amber-700 flex items-center justify-center font-serif text-black font-black text-xl shadow-[0_0_20px_rgba(245,158,11,0.4)] group-hover:scale-105 transition-transform duration-300">
+          S
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl font-bold tracking-wider text-white group-hover:text-amber-400 transition-colors">SA SCOLLA</span>
+          <span class="text-[9px] tracking-[0.3em] uppercase text-amber-500/80 font-semibold">Cucina & Pizza di Campagna</span>
+        </div>
       </a>
 
-      <!-- NAVIGATION LINKS -->
-      <nav class="hidden md:flex items-center space-x-10 text-xs font-semibold uppercase tracking-widest text-stone-400">
-        <a href="#about" class="hover:text-white transition-colors duration-300">La Filosofia</a>
-        <a href="#menu" class="hover:text-white transition-colors duration-300">Il Menù</a>
-        <a href="#prenota" class="hover:text-white transition-colors duration-300">Prenotazioni</a>
-        <a href="#contatti" class="hover:text-white transition-colors duration-300">Dove Siamo</a>
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest font-medium text-neutral-300">
+        <a href="#filosofia" class="hover:text-amber-400 transition-colors duration-200">Filosofia</a>
+        <a href="#menu" class="hover:text-amber-400 transition-colors duration-200">Il Menu</a>
+        <a href="#esperienza" class="hover:text-amber-400 transition-colors duration-200">Esperienza</a>
+        <a href="#contatti" class="hover:text-amber-400 transition-colors duration-200">Dove Siamo</a>
       </nav>
 
-      <!-- CTA LUMINOZA -->
-      <div class="flex items-center space-x-4">
-        <a href="https://wa.me/390708942262?text=Ciao%21%20Vorrei%20prenotare%20un%20tavolo%20da%20Sa%20Scolla" 
-           target="_blank"
-           class="relative group overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-brand-accent">
-          <span class="absolute inset-0 bg-gradient-to-r from-brand-accent to-brand-flame rounded-full animate-pulse group-hover:opacity-100 opacity-70 transition-opacity"></span>
-          <span class="relative px-6 py-2.5 rounded-full bg-stone-950 flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 group-hover:bg-opacity-0">
-            <i data-lucide="utensils" class="w-4 h-4 text-brand-accent group-hover:text-white transition-colors"></i>
-            <span>Prenota Ora</span>
-          </span>
+      <!-- Right CTA Header -->
+      <div class="flex items-center gap-4">
+        <a href="tel:0708942262" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 text-xs uppercase tracking-wider font-semibold text-neutral-300 hover:bg-white/10 transition-all">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span>070 894 2262</span>
+        </a>
+        <a href="https://wa.me/390708942262?text=Ciao%20Sa%20Scolla,%20vorrei%20prenotare%20un%20tavolo" target="_blank" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-500 to-flame text-black font-extrabold text-xs uppercase tracking-wider hover:opacity-95 transition-all btn-glow-amber transform hover:-translate-y-0.5">
+          Prenota Ora
         </a>
       </div>
+
     </div>
   </header>
 
-  <!-- 2. HERO SECTION CINEMATOGRAFICA -->
-  <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden mesh-gradient-bg animate-mesh-slow">
-    
-    <!-- Dynamic Glowing Light Orbs -->
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-flame/20 blur-[140px] rounded-full pointer-events-none"></div>
-    <div class="absolute bottom-10 right-10 w-[350px] h-[350px] bg-brand-accent/15 blur-[120px] rounded-full pointer-events-none"></div>
 
-    <div class="max-w-5xl mx-auto text-center relative z-10 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
+  <!-- ================= 2. HERO SECTION CINEMATOGRAFICA ================= -->
+  <section class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden hero-mesh">
+    
+    <!-- Dynamic Ambient Lighting Orbs -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-amber-600/20 rounded-full blur-[120px] pointer-events-none animate-glow"></div>
+    <div class="absolute bottom-10 left-10 w-96 h-96 bg-flame/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-6 text-center z-10 py-16">
       
-      <!-- Tag Feature -->
-      <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-brand-accent/30 bg-brand-accent/10 backdrop-blur-md mb-8">
-        <span class="w-2 h-2 rounded-full bg-brand-accent animate-ping"></span>
-        <span class="text-xs uppercase tracking-widest text-brand-cream font-semibold">Cagliari • Via Galvani, 2</span>
+      <!-- Tag Status -->
+      <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out inline-flex items-center gap-3 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 backdrop-blur-md mb-8">
+        <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+        <span class="text-xs uppercase tracking-[0.25em] font-semibold text-amber-300">Cagliari &bull; Aperto dal Martedì alla Domenica (dalle 17.30)</span>
       </div>
 
-      <!-- Main Headline -->
-      <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl font-extrabold text-white tracking-tight leading-[0.95] mb-8 text-glow">
-        LA PIZZA DI CAMPAGNA. <br/>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cream via-brand-accent to-brand-flame">
-          REINVENTATA.
-        </span>
+      <!-- Main Title H1 -->
+      <h1 class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out font-serif text-5xl sm:text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-100 to-amber-200/70 tracking-tight leading-[1.05] mb-8">
+        L'Anima della Campagna.<br/>
+        <span class="italic font-normal text-amber-400">L'Arte della Pizza.</span>
       </h1>
 
-      <p class="max-w-2xl mx-auto text-stone-300 text-base sm:text-xl font-light leading-relaxed mb-12">
-        Dalla terra alla tavola. Ingredienti genuini del territorio sardo, alta digeribilità e accostamenti audaci nel cuore di Cagliari.
+      <p class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out text-lg sm:text-xl text-neutral-300/90 max-w-2xl mx-auto font-light leading-relaxed mb-12">
+        Materia prima a km zero, lievitazioni estreme e accostamenti fuori dal comune. Una sinfonia di sapori autentici che ridefinisce la cucina sarda contemporanea.
       </p>
 
-      <!-- Hero Actions -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
-        <a href="#prenota" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-flame to-brand-accent text-stone-950 font-bold text-sm tracking-wider uppercase hover:shadow-[0_0_35px_rgba(234,88,12,0.5)] transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-3">
-          <span>Assapora l'Esperienza</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      <!-- Primary Action Buttons -->
+      <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out flex flex-col sm:flex-row items-center justify-center gap-5">
+        <a href="https://wa.me/390708942262?text=Buongiorno,%20vorrei%20riservare%20un%20tavolo" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 via-amber-600 to-flame text-black font-extrabold text-sm uppercase tracking-widest shadow-2xl btn-glow-amber transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3">
+          <i data-lucide="message-circle" class="w-5 h-5 fill-black"></i>
+          <span>Prenota su WhatsApp</span>
         </a>
-        <a href="#menu" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md text-white font-semibold text-sm tracking-wider uppercase transition-all duration-300 flex items-center justify-center space-x-2">
-          <span>Esplora il Menù</span>
+        
+        <a href="#menu" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white font-semibold text-sm uppercase tracking-widest transition-all duration-300 backdrop-blur-md flex items-center justify-center gap-2 group">
+          <span>Esplora il Menu</span>
+          <i data-lucide="arrow-down-right" class="w-4 h-4 text-amber-400 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform"></i>
         </a>
       </div>
 
-      <!-- Quick Badges -->
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto mt-20 pt-12 border-t border-white/10 text-left">
+      <!-- Quick Metrics -->
+      <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto mt-20 pt-10 border-t border-white/10 text-center">
         <div>
-          <p class="text-2xl font-display font-bold text-white">100% Sardo</p>
-          <p class="text-xs text-stone-400 mt-1">Materie prime selezionate da piccoli produttori locali</p>
+          <span class="block font-serif text-3xl font-bold text-amber-400">100%</span>
+          <span class="text-xs uppercase tracking-wider text-neutral-400 mt-1 block">Filiera Locale Sarda</span>
         </div>
         <div>
-          <p class="text-2xl font-display font-bold text-white">Lievitazione</p>
-          <p class="text-xs text-stone-400 mt-1">Lunga maturazione per una leggerezza inimitabile</p>
+          <span class="block font-serif text-3xl font-bold text-amber-400">48+ ore</span>
+          <span class="text-xs uppercase tracking-wider text-neutral-400 mt-1 block">Lievitazione Naturale</span>
         </div>
         <div class="col-span-2 md:col-span-1">
-          <p class="text-2xl font-display font-bold text-white">Martedì - Domenica</p>
-          <p class="text-xs text-stone-400 mt-1">Servizio serale dalle ore 17:30</p>
+          <span class="block font-serif text-3xl font-bold text-amber-400">Gourmet</span>
+          <span class="text-xs uppercase tracking-wider text-neutral-400 mt-1 block">Dolci & Pizze d'Autore</span>
         </div>
       </div>
 
     </div>
+
+    <!-- Bottom Scroll Indicator -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+      <span class="text-[10px] uppercase tracking-widest text-neutral-400">Scorri</span>
+      <div class="w-5 h-9 rounded-full border-2 border-white/20 flex items-start justify-center p-1">
+        <div class="w-1 h-2 bg-amber-400 rounded-full animate-bounce"></div>
+      </div>
+    </div>
   </section>
 
-  <!-- 3. PRENOTAZIONE SMART (CTA WHATSAPP GIGANTE) -->
-  <section id="prenota" class="py-24 px-6 relative bg-brand-surface border-y border-white/5">
-    <div class="max-w-5xl mx-auto text-center reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-      
-      <div class="p-8 sm:p-14 rounded-3xl bg-stone-900/60 border border-brand-accent/20 backdrop-blur-xl relative overflow-hidden shadow-2xl">
-        <!-- Glow Overlay -->
-        <div class="absolute -right-20 -top-20 w-80 h-80 bg-brand-flame/10 rounded-full blur-3xl pointer-events-none"></div>
-        
-        <span class="inline-block px-4 py-1.5 rounded-full bg-brand-accent/10 text-brand-accent text-xs font-bold uppercase tracking-widest mb-6">
-          Prenotazione Diretta & Immediata
-        </span>
 
-        <h2 class="font-display text-3xl sm:text-5xl font-bold text-white mb-6">
-          Assicurati un Tavolo stasera
-        </h2>
+  <!-- ================= 3. PRENOTAZIONE SMART / CALENDARIO (LOGICA) ================= -->
+  <section class="py-24 relative mesh-gradient-bg">
+    <div class="max-w-5xl mx-auto px-6">
+      
+      <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out glass-card rounded-3xl p-8 md:p-14 border border-amber-500/20 text-center relative overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)]">
         
-        <p class="text-stone-300 max-w-xl mx-auto mb-10 text-base sm:text-lg">
-          Prenota in pochi secondi tramite il nostro canale telefonico diretto o via WhatsApp. Conferma immediata senza attese.
+        <!-- Subtle background glowing accents inside card -->
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-amber-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-flame/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <span class="text-amber-500 uppercase text-xs font-bold tracking-[0.3em] mb-3 block">Prenotazione Istantanea</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-6">Assicurati un Tavolo da Sa Scolla</h2>
+        <p class="text-neutral-300 max-w-xl mx-auto mb-10 text-base leading-relaxed">
+          I posti sono limitati per garantire la massima qualità e cura per ciascun piatto. Contattaci direttamente per ricevere una conferma immediata.
         </p>
 
-        <!-- GIANT PULSING CTA BUTTON -->
+        <!-- CTA GIGANTE PULSANTE CON SHADOW GLOW -->
         <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-          <a href="https://wa.me/390708942262?text=Ciao%21%20Vorrei%20prenotare%20un%20tavolo%20da%20Sa%20Scolla" 
-             target="_blank"
-             class="w-full sm:w-auto px-10 py-6 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base tracking-wider uppercase animate-pulse shadow-[0_0_50px_rgba(16,185,129,0.4)] transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-4">
-            <i data-lucide="message-circle" class="w-6 h-6"></i>
+          <a href="https://wa.me/390708942262?text=Salve!%20Desidero%20prenotare%20un%20tavolo%20per%20questa%20sera." target="_blank" class="w-full sm:w-auto px-10 py-5 rounded-2xl bg-gradient-to-r from-amber-500 via-flame to-amber-600 text-black font-black text-base uppercase tracking-widest shadow-[0_0_50px_rgba(245,158,11,0.6)] animate-pulse hover:animate-none hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
+            <i data-lucide="message-square" class="w-6 h-6 fill-black"></i>
             <span>Prenota via WhatsApp</span>
           </a>
 
-          <a href="tel:0708942262" 
-             class="w-full sm:w-auto px-8 py-6 rounded-2xl bg-stone-800 hover:bg-stone-700 text-white font-bold text-base tracking-wider uppercase border border-white/10 transition-all duration-300 flex items-center justify-center space-x-3">
-            <i data-lucide="phone" class="w-5 h-5 text-brand-accent"></i>
+          <a href="tel:0708942262" class="w-full sm:w-auto px-8 py-5 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/20 text-white font-bold text-base tracking-wider transition-all flex items-center justify-center gap-3">
+            <i data-lucide="phone-call" class="w-5 h-5 text-amber-400"></i>
             <span>Chiama 070 894 2262</span>
           </a>
         </div>
 
-        <p class="text-xs text-stone-500 mt-6">
-          Linee telefoniche ed assistenza WhatsApp operative dalle ore 17:30
-        </p>
+        <div class="mt-8 flex items-center justify-center gap-6 text-xs text-neutral-400 border-t border-white/10 pt-6">
+          <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-4 h-4 text-amber-500"></i> Operativo dalle 17:30</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="calendar" class="w-4 h-4 text-amber-500"></i> Mar - Dom</span>
+        </div>
+
       </div>
 
     </div>
   </section>
 
-  <!-- 4. SEZIONE MENU E CREAZIONI (BENTO BOX + HOVER AWWWARDS EFFECT) -->
-  <section id="menu" class="py-32 px-6 relative">
-    <div class="max-w-7xl mx-auto">
+
+  <!-- ================= 4. SEZIONE MENU / SERVIZI (BENTO BOX CON HOVER AWWWARDS) ================= -->
+  <section id="menu" class="py-28 relative bg-black/80">
+    <div class="max-w-7xl mx-auto px-6">
       
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-20 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-brand-accent mb-3">La Nostra Cucina</h3>
-        <h2 class="font-display text-4xl sm:text-6xl font-extrabold text-white tracking-tight">
-          PIZZE E NOVITÀ ESTIVE
-        </h2>
-        <p class="text-stone-400 mt-4 text-base">
-          Passa il cursore (o tocca) sulle schede per scoprire gli ingredienti segreti ed i dettagli delle nostre creazioni.
-        </p>
+      <!-- Header Sezione -->
+      <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out text-center mb-16">
+        <span class="text-amber-500 text-xs uppercase font-extrabold tracking-[0.3em] block mb-2">Creazioni & Selezione</span>
+        <h2 class="font-serif text-4xl sm:text-6xl font-bold text-white tracking-tight">Il Nostro Menu d'Autore</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-amber-500 to-flame mx-auto mt-4 rounded-full"></div>
+        <p class="text-neutral-400 mt-4 max-w-lg mx-auto text-sm">Passa il mouse sopra le schede per scoprire gli ingredienti segreti e l'ispirazione dei nostri chef.</p>
       </div>
 
-      <!-- Bento Grid Container -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
+      <!-- GRIGLIA BENTO BOX CON TENDINA HOVER AWWWARDS -->
+      <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        <!-- ITEM 1: ESTRATTO DAI DATI GREZZI (Polpo nelle casse) -->
-        <div class="relative overflow-hidden group rounded-3xl bg-stone-900 border border-white/10 min-h-[420px] flex flex-col justify-between p-8 transition-all duration-700 hover:shadow-[0_0_40px_rgba(245,158,11,0.2)] hover:border-brand-accent/50">
-          
-          <!-- Background image or texture fallback -->
-          <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-110 transition-transform duration-700 ease-out" 
-               style="background-image: url('https://instagram.ffco5-1.fna.fbcdn.net/v/t39.30808-6/741257708_1939876020503781_3066776854701991699_n.jpg?stp=dst-jpg_e35_s1080x1080_sh2.08_tt6&_nc_ht=instagram.ffco5-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2gFGZPQaOvOdCUd73_5DGdCG3gVniWMtjxlIhoHbKWXTg9rkxW1UumFnVPLAicIc999ntbgBX5cYCPSNrskfIin4&_nc_ohc=Wb0tt3QUYhkQ7kNvwEvkNn6&_nc_gid=ZErTV_Fb1gKXPKTBZj_QNQ&edm=ADp7STQAAAAA&ccb=7-5&oh=00_AQHzMO3u9KyqxmKawdAFZDpKF0RtR14rglZ78SEiTB_yag&oe=6A7101EB&_nc_sid=c6f216');"></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/60 to-transparent"></div>
-
-          <!-- Front Content -->
-          <div class="relative z-0">
-            <span class="px-3 py-1 rounded-full bg-brand-flame text-white text-[10px] font-bold uppercase tracking-widest">
-              Star del Menù Estivo
-            </span>
-          </div>
-
-          <div class="relative z-0">
-            <h4 class="font-display text-3xl font-bold text-white mb-2">
-              Polpo nelle casse! 🤭
-            </h4>
-            <p class="text-stone-300 text-sm line-clamp-2">
-              Difficile resistere al polpo, anche di ritorno dal mare! Un’esplosione di sapori marini e rustici.
-            </p>
-            <div class="mt-4 flex items-center space-x-2 text-brand-accent text-xs font-bold uppercase tracking-wider">
-              <span>Scopri ingredienti</span>
-              <i data-lucide="chevron-up" class="w-4 h-4"></i>
+        <!-- CARD 1: IL DOLCE HERO (ESTRATTO DAI DATI GREZZI) -->
+        <div class="relative overflow-hidden group rounded-3xl bg-neutral-900 border border-amber-500/30 p-8 min-h-[380px] flex flex-col justify-between transition-all duration-700 hover:shadow-[0_0_35px_rgba(245,158,11,0.25)]">
+          <div class="z-0">
+            <div class="flex justify-between items-start mb-4">
+              <span class="px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-widest bg-amber-500/20 text-amber-400 border border-amber-500/30">Star Special</span>
+              <span class="font-serif text-2xl font-bold text-amber-400">€ 9</span>
             </div>
+            <h3 class="font-serif text-2xl font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">Dolce di Campagna Fuori dal Comune</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed line-clamp-3">
+              Il dessert di cui siamo più felici: un equilibrio irresistibile di freschezza, croccantezza ed un tocco di piccantezza inaspettato.
+            </p>
           </div>
 
-          <!-- EFFETTO TENDINA HOVER AWWWARDS -->
-          <div class="absolute inset-0 bg-stone-950/95 backdrop-blur-md translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-center p-8 text-white z-10">
-            <span class="text-brand-accent text-xs font-extrabold uppercase tracking-widest mb-2">Composizione Completa</span>
-            <h4 class="font-display text-2xl font-bold mb-4 text-white">Polpo nelle casse!</h4>
-            <ul class="space-y-2 text-stone-300 text-sm mb-6">
-              <li class="flex items-center space-x-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                <span>⚪️ Fiordilatte di latticini selezionati</span>
-              </li>
-              <li class="flex items-center space-x-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                <span>🥔 Patate schiacciate al profumo d'erbe</span>
-              </li>
-              <li class="flex items-center space-x-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                <span>🐙 Polpo scottato a fuoco vivo</span>
-              </li>
-              <li class="flex items-center space-x-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                <span>🍅 Crema di pomodorini arrosto</span>
-              </li>
-              <li class="flex items-center space-x-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                <span>🌱 Salsa marinara (olio, aglio e prezzemolo)</span>
-              </li>
-            </ul>
-            <p class="text-xs text-stone-400 italic">Disponibile questa settimana nei nostri locali.</p>
+          <div class="flex items-center gap-2 text-xs text-amber-400 font-semibold pt-4 border-t border-white/10">
+            <span>Passa sopra per gli ingredienti</span>
+            <i data-lucide="chevron-up" class="w-4 h-4"></i>
+          </div>
+
+          <!-- TENDINA HOVER AWWWARDS (SLIDE UP OVERLAY) -->
+          <div class="absolute inset-0 bg-gradient-to-b from-neutral-950/95 via-black/95 to-neutral-900/95 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-between p-8 text-white z-10 border border-amber-500/40 rounded-3xl">
+            <div>
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-xs uppercase tracking-widest font-extrabold text-amber-400">Composizione Piatto</span>
+                <i data-lucide="sparkles" class="w-5 h-5 text-amber-400"></i>
+              </div>
+              <h4 class="font-serif text-xl font-bold text-white mb-4">La Ricetta Integrale</h4>
+              <ul class="space-y-2 text-sm text-neutral-300">
+                <li class="flex items-center gap-2">🍋 <span class="font-semibold text-white">Spuma di lemon curd</span> fresco</li>
+                <li class="flex items-center gap-2">🍫 <span class="font-semibold text-white">Crumble</span> al cioccolato fondente</li>
+                <li class="flex items-center gap-2">🟡 <span class="font-semibold text-white">Polvere di Olio EVO</span> @accademiaolearia</li>
+                <li class="flex items-center gap-2">🌶️ <span class="font-semibold text-white">Gel dolce</span> al peperoncino</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/390708942262?text=Vorrei%20prenotare%20per%20assaggiare%20il%20Dolce%20 Lemon%20Curd" target="_blank" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs uppercase tracking-wider text-center transition-colors">
+              Ordina o Prenota Ora
+            </a>
           </div>
         </div>
 
-        <!-- ITEM 2: Margherita di Campagna -->
-        <div class="relative overflow-hidden group rounded-3xl bg-stone-900 border border-white/10 min-h-[420px] flex flex-col justify-between p-8 transition-all duration-700 hover:shadow-[0_0_40px_rgba(245,158,11,0.2)] hover:border-brand-accent/50">
-          <div class="relative z-0">
-            <span class="px-3 py-1 rounded-full bg-white/10 text-stone-300 text-[10px] font-bold uppercase tracking-widest">
-              Grande Classico
-            </span>
-          </div>
-
-          <div class="relative z-0">
-            <h4 class="font-display text-3xl font-bold text-white mb-2">
-              Margherita Autentica
-            </h4>
-            <p class="text-stone-400 text-sm">
-              La purezza degli ingredienti sardi celebrata in un disco d'oro lievitato alla perfezione.
-            </p>
-            <div class="mt-4 flex items-center space-x-2 text-brand-accent text-xs font-bold uppercase tracking-wider">
-              <span>Dettagli</span>
-              <i data-lucide="chevron-up" class="w-4 h-4"></i>
+        <!-- CARD 2: PIZZA GOURMET SARDA -->
+        <div class="relative overflow-hidden group rounded-3xl bg-neutral-900 border border-white/10 p-8 min-h-[380px] flex flex-col justify-between transition-all duration-700 hover:shadow-[0_0_35px_rgba(255,255,255,0.1)]">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <span class="px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-widest bg-white/10 text-neutral-300 border border-white/10">Pizza d'Autore</span>
+              <span class="font-serif text-2xl font-bold text-amber-400">€ 16</span>
             </div>
+            <h3 class="font-serif text-2xl font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">La Campidanese Iper-Lievitata</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              Impasto idratato al 80%, lievitato 48 ore. Salsiccia fresca campidanese al finocchietto, fior di latte e pecorino sardo stagionato.
+            </p>
           </div>
 
-          <!-- EFFETTO TENDINA HOVER AWWWARDS -->
-          <div class="absolute inset-0 bg-stone-950/95 backdrop-blur-md translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-center p-8 text-white z-10">
-            <span class="text-brand-accent text-xs font-extrabold uppercase tracking-widest mb-2">Ingredienti</span>
-            <h4 class="font-display text-2xl font-bold mb-4 text-white">Margherita Autentica</h4>
-            <p class="text-stone-300 text-sm leading-relaxed mb-6">
-              Pomodoro biologico sardo, mozzarella fiordilatte fresca di Thiesi, olio extravergine d'oliva monocultivar bosana e basilico fresco profumato.
-            </p>
-            <span class="text-xs text-brand-accent font-semibold uppercase">Lievitazione 48 ore</span>
+          <div class="flex items-center gap-2 text-xs text-neutral-400 font-semibold pt-4 border-t border-white/10">
+            <span>Scopri dettagli lavorazione</span>
+            <i data-lucide="chevron-up" class="w-4 h-4"></i>
+          </div>
+
+          <!-- TENDINA HOVER OVERLAY -->
+          <div class="absolute inset-0 bg-black/95 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-between p-8 text-white z-10 border border-white/20 rounded-3xl">
+            <div>
+              <span class="text-xs uppercase tracking-widest font-extrabold text-amber-400 mb-2 block">Lievitazione Madre</span>
+              <h4 class="font-serif text-xl font-bold text-white mb-3">Ingredienti & Note</h4>
+              <p class="text-xs text-neutral-300 leading-relaxed mb-4">
+                Farine tipo 1 macinate a pietra, pomodoro biologico sardo, fiordilatte d'alpeggio, salsiccia a punta di coltello profumata al mirto e scaglie di Fiore Sardo DOP.
+              </p>
+            </div>
+            <a href="https://wa.me/390708942262?text=Desidero%20prenotare%20un%20tavolo%20per%20provare%20le%20pizze" target="_blank" class="w-full py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs uppercase tracking-wider text-center transition-colors">
+              Prenota Tavolo
+            </a>
           </div>
         </div>
 
-        <!-- ITEM 3: Campidanese d'Eccellenza -->
-        <div class="relative overflow-hidden group rounded-3xl bg-stone-900 border border-white/10 min-h-[420px] flex flex-col justify-between p-8 transition-all duration-700 hover:shadow-[0_0_40px_rgba(245,158,11,0.2)] hover:border-brand-accent/50">
-          <div class="relative z-0">
-            <span class="px-3 py-1 rounded-full bg-brand-accent/20 text-brand-accent text-[10px] font-bold uppercase tracking-widest">
-              Tradizione Rivisitata
-            </span>
-          </div>
-
-          <div class="relative z-0">
-            <h4 class="font-display text-3xl font-bold text-white mb-2">
-              Saporita Campidanese
-            </h4>
-            <p class="text-stone-400 text-sm">
-              Un omaggio ai profumi intensi della nostra terra con salsiccia artigianale e pecorino.
-            </p>
-            <div class="mt-4 flex items-center space-x-2 text-brand-accent text-xs font-bold uppercase tracking-wider">
-              <span>Dettagli</span>
-              <i data-lucide="chevron-up" class="w-4 h-4"></i>
+        <!-- CARD 3: PIZZA MARGHERITA REALE -->
+        <div class="relative overflow-hidden group rounded-3xl bg-neutral-900 border border-white/10 p-8 min-h-[380px] flex flex-col justify-between transition-all duration-700 hover:shadow-[0_0_35px_rgba(255,255,255,0.1)]">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <span class="px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-widest bg-white/10 text-neutral-300 border border-white/10">Classica Rivisitata</span>
+              <span class="font-serif text-2xl font-bold text-amber-400">€ 12</span>
             </div>
+            <h3 class="font-serif text-2xl font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">Margherita di Campagna</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              Pomodoro rosso di Sardegna, stracciatella di bufala a crudo, olio di oliandolo e basilico fresco dell'orto.
+            </p>
           </div>
 
-          <!-- EFFETTO TENDINA HOVER AWWWARDS -->
-          <div class="absolute inset-0 bg-stone-950/95 backdrop-blur-md translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-center p-8 text-white z-10">
-            <span class="text-brand-accent text-xs font-extrabold uppercase tracking-widest mb-2">Ingredienti</span>
-            <h4 class="font-display text-2xl font-bold mb-4 text-white">Saporita Campidanese</h4>
-            <p class="text-stone-300 text-sm leading-relaxed mb-6">
-              Salsiccia fresca a punta di coltello aromatizzata al finocchietto selvatico, fonduta di Pecorino Sardo DOP, crema di pomodoro secco e basilico croccante.
-            </p>
-            <span class="text-xs text-brand-accent font-semibold uppercase">Prodotto a Km 0</span>
+          <div class="flex items-center gap-2 text-xs text-neutral-400 font-semibold pt-4 border-t border-white/10">
+            <span>Dettagli ricetta</span>
+            <i data-lucide="chevron-up" class="w-4 h-4"></i>
+          </div>
+
+          <!-- TENDINA HOVER OVERLAY -->
+          <div class="absolute inset-0 bg-black/95 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-between p-8 text-white z-10 border border-white/20 rounded-3xl">
+            <div>
+              <span class="text-xs uppercase tracking-widest font-extrabold text-amber-400 mb-2 block">L'Essenza della Semplicità</span>
+              <h4 class="font-serif text-xl font-bold text-white mb-3">La Nostra Margherita</h4>
+              <p class="text-xs text-neutral-300 leading-relaxed mb-4">
+                Pomodori maturati al sole di Sardegna, mozzarella lavorata a mano e un filo di Olio Extravergine d'Oliva Accademia Olearia a crudo.
+              </p>
+            </div>
+            <a href="https://wa.me/390708942262?text=Vorrei%20informazioni%20sul%20menu" target="_blank" class="w-full py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs uppercase tracking-wider text-center transition-colors">
+              Chiedi al Cameriere
+            </a>
           </div>
         </div>
 
-        <!-- ITEM 4: Tagliere di Baradili -->
-        <div class="relative overflow-hidden group rounded-3xl bg-stone-900 border border-white/10 min-h-[420px] flex flex-col justify-between p-8 transition-all duration-700 hover:shadow-[0_0_40px_rgba(245,158,11,0.2)] hover:border-brand-accent/50 lg:col-span-2">
-          <div class="relative z-0">
-            <span class="px-3 py-1 rounded-full bg-white/10 text-stone-300 text-[10px] font-bold uppercase tracking-widest">
-              Dalla Cucina
-            </span>
-          </div>
-
-          <div class="relative z-0 max-w-xl">
-            <h4 class="font-display text-3xl sm:text-4xl font-bold text-white mb-2">
-              Selezione di Salumi & Formaggi della Marmilla
-            </h4>
-            <p class="text-stone-400 text-sm">
-              L'antipasto perfetto da condividere: prodotti unici da piccoli pascoli e norcinerie storiche.
-            </p>
-            <div class="mt-4 flex items-center space-x-2 text-brand-accent text-xs font-bold uppercase tracking-wider">
-              <span>Scopri la selezione</span>
-              <i data-lucide="chevron-up" class="w-4 h-4"></i>
+        <!-- CARD 4: ANTIPASTO DELLA CAMPAGNA -->
+        <div class="relative overflow-hidden group rounded-3xl bg-neutral-900 border border-white/10 p-8 min-h-[380px] flex flex-col justify-between transition-all duration-700 hover:shadow-[0_0_35px_rgba(255,255,255,0.1)]">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <span class="px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-widest bg-white/10 text-neutral-300 border border-white/10">Antipasto</span>
+              <span class="font-serif text-2xl font-bold text-amber-400">€ 18</span>
             </div>
+            <h3 class="font-serif text-2xl font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">Tagliere Sa Scolla</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              Selezione di salumi artigianali di maiale nero sardo, formaggi a latte crudo, miele di corbezzolo e focaccia calda.
+            </p>
           </div>
 
-          <!-- EFFETTO TENDINA HOVER AWWWARDS -->
-          <div class="absolute inset-0 bg-stone-950/95 backdrop-blur-md translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-center p-8 text-white z-10">
-            <span class="text-brand-accent text-xs font-extrabold uppercase tracking-widest mb-2">Antipasti della Casa</span>
-            <h4 class="font-display text-2xl font-bold mb-4 text-white">Selezione Marmilla</h4>
-            <p class="text-stone-300 text-sm leading-relaxed mb-4">
-              Prosciutto crudo artigianale, coppa stagionata, pecorini a latte crudo di varie stagionature accompagnati da miele amaro di corbezzolo e focaccia calda di nostra produzione.
-            </p>
-            <p class="text-xs text-stone-400 italic">Consigliato per 2 persone.</p>
+          <div class="flex items-center gap-2 text-xs text-neutral-400 font-semibold pt-4 border-t border-white/10">
+            <span>Vedi composizione</span>
+            <i data-lucide="chevron-up" class="w-4 h-4"></i>
+          </div>
+
+          <!-- TENDINA HOVER OVERLAY -->
+          <div class="absolute inset-0 bg-black/95 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-between p-8 text-white z-10 border border-white/20 rounded-3xl">
+            <div>
+              <span class="text-xs uppercase tracking-widest font-extrabold text-amber-400 mb-2 block">Tradizione pura</span>
+              <h4 class="font-serif text-xl font-bold text-white mb-3">I Produttori</h4>
+              <p class="text-xs text-neutral-300 leading-relaxed mb-4">
+                Prosciutto di Desulo stagionato 24 mesi, Mustela al mirto, Pecorino di Barumini e mostarde fatte in casa secondo stagione.
+              </p>
+            </div>
+            <a href="https://wa.me/390708942262?text=Vorrei%20prenotare%20un%20tagliere%20Sa%20Scolla" target="_blank" class="w-full py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs uppercase tracking-wider text-center transition-colors">
+              Prenota ora
+            </a>
           </div>
         </div>
 
-        <!-- ITEM 5: Dolce Finale -->
-        <div class="relative overflow-hidden group rounded-3xl bg-stone-900 border border-white/10 min-h-[420px] flex flex-col justify-between p-8 transition-all duration-700 hover:shadow-[0_0_40px_rgba(245,158,11,0.2)] hover:border-brand-accent/50">
-          <div class="relative z-0">
-            <span class="px-3 py-1 rounded-full bg-brand-accent/20 text-brand-accent text-[10px] font-bold uppercase tracking-widest">
-              I Nostri Dolci
-            </span>
-          </div>
-
-          <div class="relative z-0">
-            <h4 class="font-display text-3xl font-bold text-white mb-2">
-              Seadas al Miele d'Ape
-            </h4>
-            <p class="text-stone-400 text-sm">
-              Sfoglia sottile croccante ripiena di formaggio fresco acidulo e colata di miele amaro.
-            </p>
-            <div class="mt-4 flex items-center space-x-2 text-brand-accent text-xs font-bold uppercase tracking-wider">
-              <span>Dettagli</span>
-              <i data-lucide="chevron-up" class="w-4 h-4"></i>
+        <!-- CARD 5: CUCINA D'AUTORE PRIMI -->
+        <div class="relative overflow-hidden group rounded-3xl bg-neutral-900 border border-white/10 p-8 min-h-[380px] flex flex-col justify-between transition-all duration-700 hover:shadow-[0_0_35px_rgba(255,255,255,0.1)]">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <span class="px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-widest bg-white/10 text-neutral-300 border border-white/10">Cucina</span>
+              <span class="font-serif text-2xl font-bold text-amber-400">€ 17</span>
             </div>
+            <h3 class="font-serif text-2xl font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">Culurgiones della Tradizione</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              Pasta fresca fatta a mano, ripieno di patate al mentastro, pecorino e conditi con salsa di pomodorini arrosto e menta.
+            </p>
           </div>
 
-          <!-- EFFETTO TENDINA HOVER AWWWARDS -->
-          <div class="absolute inset-0 bg-stone-950/95 backdrop-blur-md translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-center p-8 text-white z-10">
-            <span class="text-brand-accent text-xs font-extrabold uppercase tracking-widest mb-2">Dolce Tradizionale</span>
-            <h4 class="font-display text-2xl font-bold mb-4 text-white">Seadas Fatta in Casa</h4>
-            <p class="text-stone-300 text-sm leading-relaxed mb-6">
-              Preparata a mano ogni giorno secondo l'antica ricetta delle campagne sarde, fritta al momento per garantire fragranza e morbidezza.
+          <div class="flex items-center gap-2 text-xs text-neutral-400 font-semibold pt-4 border-t border-white/10">
+            <span>Dettagli piatto</span>
+            <i data-lucide="chevron-up" class="w-4 h-4"></i>
+          </div>
+
+          <!-- TENDINA HOVER OVERLAY -->
+          <div class="absolute inset-0 bg-black/95 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-between p-8 text-white z-10 border border-white/20 rounded-3xl">
+            <div>
+              <span class="text-xs uppercase tracking-widest font-extrabold text-amber-400 mb-2 block">Lavorazione Manuale</span>
+              <h4 class="font-serif text-xl font-bold text-white mb-3">La Spiga Perfetta</h4>
+              <p class="text-xs text-neutral-300 leading-relaxed mb-4">
+                Chiusura classica a spiga d'spiga realizzata ogni mattina dalle nostre sfogline. Un classico senza tempo della Sardegna centrale.
+              </p>
+            </div>
+            <a href="https://wa.me/390708942262?text=Vorrei%20prenotare%20un%20tavolo" target="_blank" class="w-full py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs uppercase tracking-wider text-center transition-colors">
+              Prenota un Tavolo
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 6: SELEZIONE CANTINA & OLIO -->
+        <div class="relative overflow-hidden group rounded-3xl bg-neutral-900 border border-white/10 p-8 min-h-[380px] flex flex-col justify-between transition-all duration-700 hover:shadow-[0_0_35px_rgba(255,255,255,0.1)]">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <span class="px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-widest bg-amber-500/20 text-amber-400 border border-amber-500/30">Cantina & Olio</span>
+              <span class="font-serif text-2xl font-bold text-amber-400">Carta Vini</span>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">Vini & Partner Oleari</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              Selezione di Cannonau, Vermentino e Carignano da piccole cantine etiche. In partnership con @accademiaolearia.
             </p>
+          </div>
+
+          <div class="flex items-center gap-2 text-xs text-neutral-400 font-semibold pt-4 border-t border-white/10">
+            <span>Leggi di più sulla cantina</span>
+            <i data-lucide="chevron-up" class="w-4 h-4"></i>
+          </div>
+
+          <!-- TENDINA HOVER OVERLAY -->
+          <div class="absolute inset-0 bg-black/95 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-between p-8 text-white z-10 border border-white/20 rounded-3xl">
+            <div>
+              <span class="text-xs uppercase tracking-widest font-extrabold text-amber-400 mb-2 block">Eccellenze del Territorio</span>
+              <h4 class="font-serif text-xl font-bold text-white mb-3">Abbinamenti Curati</h4>
+              <p class="text-xs text-neutral-300 leading-relaxed mb-4">
+                Oltre 50 etichette sarde naturali, birre artigianali a km zero ed olio Extravergine premiato d'Alghero.
+              </p>
+            </div>
+            <a href="https://wa.me/390708942262?text=Richiesta%20info%20carta%20vini" target="_blank" class="w-full py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs uppercase tracking-wider text-center transition-colors">
+              Chiedi Consiglio
+            </a>
           </div>
         </div>
 
@@ -433,131 +467,158 @@
     </div>
   </section>
 
-  <!-- 5. ABOUT / LA FILOSOFIA -->
-  <section id="about" class="py-24 px-6 bg-stone-950/80 border-t border-white/5 relative">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-      
-      <div>
-        <span class="text-xs font-bold uppercase tracking-[0.3em] text-brand-accent mb-3 block">Chi Siamo</span>
-        <h2 class="font-display text-4xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">
-          L'Anima della Campagna nel Cuore di Cagliari.
-        </h2>
-        <p class="text-stone-300 leading-relaxed mb-6">
-          Sa Scolla nasce dall'idea di unire l'accoglienza schietta delle trattorie di paese con la ricerca gastronomica contemporanea. Lavoriamo a stretto contatto con agricoltori, allevatori e piccoli produttori della Sardegna.
-        </p>
-        <p class="text-stone-400 leading-relaxed mb-8 text-sm">
-          Ogni impasto viene lavorato a lungo lasciando il tempo alla farina di maturare naturalmente: il risultato è una pizza incredibilmente leggera, dal cornicione pronunciato e dal gusto inconfondibile.
-        </p>
 
-        <div class="flex items-center space-x-6">
-          <div class="border-l-2 border-brand-accent pl-4">
-            <p class="text-xl font-bold text-white">Via Galvani, 2</p>
-            <p class="text-xs text-stone-400">Cagliari (CA)</p>
-          </div>
-          <div class="border-l-2 border-brand-flame pl-4">
-            <p class="text-xl font-bold text-white">Mar - Dom</p>
-            <p class="text-xs text-stone-400">Dalle 17:30 a tarda sera</p>
+  <!-- ================= 5. ESPERIENZA & FILOSOFIA ================= -->
+  <section id="filosofia" class="py-24 relative mesh-gradient-bg border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
+          <span class="text-amber-500 font-bold text-xs uppercase tracking-[0.3em] block mb-3">Accademia Casa Fadda</span>
+          <h2 class="font-serif text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
+            La Cucina di Campagna al Centro della Città.
+          </h2>
+          <p class="text-neutral-300 text-base leading-relaxed mb-6">
+            Sa Scolla nasce con l'idea di portare la genuinità dei campi e l'accuratezza della scuola di cucina in ogni singolo piatto. Dalla ricerca delle farine antiche fino all'utilizzo di oli extravergine d'eccellenza, il nostro obiettivo è stupire ed emozionare.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shrink-0 text-amber-400">
+                <i data-lucide="wheat" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-serif text-lg font-bold text-white">Farine Selezionate & Lievitazione</h4>
+                <p class="text-sm text-neutral-400">Impasti altamente digeribili, croccanti all'esterno e soffici al cuore.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shrink-0 text-amber-400">
+                <i data-lucide="flame" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-serif text-lg font-bold text-white">Cottura ad Alta Temperatura</h4>
+                <p class="text-sm text-neutral-400">Gestione del calore perfetta per racchiudere tutti i profumi della Sardegna.</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="relative">
-        <div class="w-full h-96 sm:h-[450px] rounded-3xl bg-stone-900 border border-white/10 p-8 flex flex-col justify-end relative overflow-hidden shadow-2xl">
-          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
+        <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out glass-card p-10 rounded-3xl border border-white/10 relative">
+          <div class="absolute -top-6 -right-6 w-20 h-20 bg-amber-500/30 rounded-full blur-2xl"></div>
+          <h3 class="font-serif text-3xl font-bold text-white mb-6">Orari & Info Utili</h3>
           
-          <div class="relative z-20">
-            <i data-lucide="quote" class="w-10 h-10 text-brand-accent mb-4"></i>
-            <p class="font-display text-2xl font-semibold text-white italic mb-4">
-              "Il buon cibo non ha bisogno di artifici, solo di rispetto per la terra e passione nelle mani."
-            </p>
-            <p class="text-xs uppercase tracking-widest text-brand-cream font-bold">— Il Team di Sa Scolla</p>
+          <div class="space-y-6 text-sm">
+            <div class="flex justify-between items-center pb-4 border-b border-white/10">
+              <span class="text-neutral-400 font-medium">Lunedì</span>
+              <span class="text-amber-400 font-bold uppercase tracking-wider text-xs px-3 py-1 bg-amber-500/10 rounded-full">Chiuso</span>
+            </div>
+            <div class="flex justify-between items-center pb-4 border-b border-white/10">
+              <span class="text-neutral-400 font-medium">Martedì - Domenica</span>
+              <span class="text-white font-semibold">17:30 - 23:30</span>
+            </div>
+            <div class="flex justify-between items-center pb-4 border-b border-white/10">
+              <span class="text-neutral-400 font-medium">Prenotazione Telefonica</span>
+              <span class="text-amber-400 font-bold">Dalle 17:30 Attiva</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-neutral-400 font-medium">Città</span>
+              <span class="text-white font-semibold">Cagliari</span>
+            </div>
           </div>
-        </div>
-      </div>
 
-    </div>
-  </section>
-
-  <!-- 6. FOOTER (IL CENTRO NEVRALGICO) -->
-  <footer id="contatti" class="bg-black text-stone-400 py-20 px-6 border-t border-white/10 relative">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-      
-      <!-- Colonna Logo & Info -->
-      <div class="space-y-4">
-        <div class="font-display font-extrabold text-2xl tracking-widest text-white">
-          SA SCOLLA
-        </div>
-        <p class="text-xs leading-relaxed text-stone-400">
-          Pizza & Cucina di campagna. Un'esperienza autentica sarda a Cagliari.
-        </p>
-        <div class="pt-2">
-          <a href="https://www.instagram.com/sascolla_official/" 
-             target="_blank" 
-             class="inline-flex items-center space-x-2 text-stone-300 hover:text-brand-accent transition-colors">
-            <i data-lucide="instagram" class="w-5 h-5"></i>
-            <span class="text-xs font-semibold">@sascolla_official</span>
+          <a href="tel:0708942262" class="mt-8 w-full py-4 rounded-xl bg-gradient-to-r from-amber-500 to-flame text-black font-extrabold text-xs uppercase tracking-widest text-center block btn-glow-amber">
+            Chiama Ora: 070 894 2262
           </a>
         </div>
-      </div>
 
-      <!-- Colonna Orari -->
-      <div>
-        <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Orari di Apertura</h4>
-        <ul class="space-y-2 text-xs">
-          <li class="flex justify-between border-b border-stone-800 pb-2">
-            <span>Lunedì:</span>
-            <span class="text-stone-500 font-semibold">Chiuso</span>
-          </li>
-          <li class="flex justify-between border-b border-stone-800 pb-2">
-            <span>Martedì - Domenica:</span>
-            <span class="text-white font-semibold">17:30 - Tarda Sera</span>
-          </li>
-        </ul>
       </div>
-
-      <!-- Colonna Contatti Diretti -->
-      <div>
-        <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Contatti</h4>
-        <ul class="space-y-3 text-xs">
-          <li class="flex items-center space-x-3">
-            <i data-lucide="phone" class="w-4 h-4 text-brand-accent"></i>
-            <a href="tel:0708942262" class="hover:text-white transition-colors">070 894 2262</a>
-          </li>
-          <li class="flex items-center space-x-3">
-            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-500"></i>
-            <a href="https://wa.me/390708942262" target="_blank" class="hover:text-white transition-colors">WhatsApp Diretto</a>
-          </li>
-          <li class="flex items-center space-x-3">
-            <i data-lucide="map-pin" class="w-4 h-4 text-brand-flame"></i>
-            <span>Via Galvani, 2 - Cagliari</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Colonna Mappa & Navigatore (BOTTONE GIGANTE) -->
-      <div class="flex flex-col justify-start">
-        <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Mappa & Navigazione</h4>
-        <a href="https://www.google.com/maps/search/?api=1&query=Via+Galvani+2+Cagliari" 
-           target="_blank" 
-           class="group w-full p-6 rounded-2xl bg-stone-900 border border-white/10 hover:border-brand-accent transition-all duration-300 text-center flex flex-col items-center justify-center space-y-3">
-          <div class="w-12 h-12 rounded-full bg-brand-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-            <i data-lucide="navigation" class="w-6 h-6 text-brand-accent"></i>
-          </div>
-          <span class="text-xs font-extrabold uppercase tracking-wider text-white">Raggiungici su Google Maps</span>
-          <span class="text-[10px] text-stone-500">Indicazioni stradali in un click</span>
-        </a>
-      </div>
-
     </div>
+  </section>
 
-    <!-- Bottom Copyright -->
-    <div class="max-w-7xl mx-auto pt-8 border-t border-stone-900 text-center text-[11px] text-stone-600 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p>© 2026 Sa Scolla Cagliari. Tutti i diritti riservati.</p>
-      <p class="tracking-widest uppercase">Designed for Excellence</p>
+
+  <!-- ================= 6. FOOTER (IL CENTRO NEVRALGICO) ================= -->
+  <footer id="contatti" class="bg-black pt-20 pb-12 border-t border-white/10 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        
+        <!-- Brand Info -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center font-serif text-black font-black text-xl">
+              S
+            </div>
+            <span class="font-serif text-2xl font-bold text-white">SA SCOLLA</span>
+          </div>
+          <p class="text-neutral-400 text-sm leading-relaxed">
+            Cucina di campagna e pizza gourmet a Cagliari. Un viaggio sensoriale legato alle radici sarde più autentiche.
+          </p>
+        </div>
+
+        <!-- Contatti Rapidi -->
+        <div>
+          <h4 class="font-serif text-lg font-bold text-white mb-4">Contatti</h4>
+          <ul class="space-y-3 text-sm text-neutral-400">
+            <li class="flex items-center gap-3">
+              <i data-lucide="phone" class="w-4 h-4 text-amber-500"></i>
+              <a href="tel:0708942262" class="hover:text-white transition-colors">070 894 2262</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="message-circle" class="w-4 h-4 text-amber-500"></i>
+              <a href="https://wa.me/390708942262" target="_blank" class="hover:text-white transition-colors">WhatsApp Diretto</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="map-pin" class="w-4 h-4 text-amber-500"></i>
+              <span>Cagliari, Sardegna</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Social Media Hub -->
+        <div>
+          <h4 class="font-serif text-lg font-bold text-white mb-4">Seguici</h4>
+          <div class="flex items-center gap-4">
+            <a href="https://www.instagram.com/sascolla_official/" target="_blank" rel="noopener" class="w-12 h-12 rounded-2xl bg-neutral-900 border border-white/10 flex items-center justify-center text-white hover:text-amber-400 hover:border-amber-500/50 transition-all hover:scale-110 group">
+              <i data-lucide="instagram" class="w-6 h-6"></i>
+            </a>
+            <a href="https://wa.me/390708942262" target="_blank" rel="noopener" class="w-12 h-12 rounded-2xl bg-neutral-900 border border-white/10 flex items-center justify-center text-white hover:text-amber-400 hover:border-amber-500/50 transition-all hover:scale-110">
+              <i data-lucide="message-square" class="w-6 h-6"></i>
+            </a>
+          </div>
+          <span class="text-xs text-neutral-500 mt-3 block">@sascolla_official su Instagram</span>
+        </div>
+
+        <!-- MAPPA E NAVIGATORE BOTTÒNE GIGANTE -->
+        <div>
+          <h4 class="font-serif text-lg font-bold text-white mb-4">Dove Siamo</h4>
+          <a href="https://www.google.com/maps/search/?api=1&query=Sa+Scolla+Cagliari" target="_blank" rel="noopener" class="group relative overflow-hidden rounded-2xl p-5 bg-gradient-to-br from-neutral-900 to-neutral-950 border border-amber-500/30 flex flex-col items-start justify-between min-h-[120px] hover:border-amber-500 transition-all shadow-xl">
+            <div class="flex items-center gap-3">
+              <div class="p-2 rounded-xl bg-amber-500/20 text-amber-400">
+                <i data-lucide="map" class="w-6 h-6"></i>
+              </div>
+              <span class="font-bold text-sm text-white group-hover:text-amber-400 transition-colors">Ottieni Indicazioni</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs uppercase font-extrabold tracking-widest text-amber-500 mt-4">
+              <span>Raggiungici su Google Maps</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 gap-4">
+        <p>&copy; 2026 Sa Scolla Cagliari. Tutti i diritti riservati.</p>
+        <p class="tracking-widest uppercase text-[10px]">Cucina di Campagna & Pizza Gourmet</p>
+      </div>
+
     </div>
   </footer>
 
-  <!-- MOTORE DELLE ANIMAZIONI -->
+
+  <!-- ================= MOTORE DELLE ANIMATIONS (PROPRIETARIO) ================= -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const observer = new IntersectionObserver((entries) => {
@@ -572,5 +633,6 @@
       if(window.lucide) lucide.createIcons();
     });
   </script>
+
 </body>
 </html>
