@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>West Coast Quad | Escursioni In Quad e Off-Road</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,800;1,800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              orange: '#ff5500',
+              amber: '#f59e0b',
+              dark: '#0a0a0c',
+              surface: '#121216',
+              border: 'rgba(255, 255, 255, 0.08)'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0a0a0c;
+      color: #f3f4f6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    /* Mesh Gradient Hero CSS */
+    .bg-mesh-animated {
+      background: 
+        radial-gradient(circle at 15% 25%, rgba(255, 85, 0, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(245, 158, 11, 0.18) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(18, 18, 22, 1) 0%, rgba(10, 10, 12, 1) 100%);
+      background-size: 140% 140%;
+      animation: meshGradient 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes meshGradient {
+      0% { background-position: 0% 20%; }
+      50% { background-position: 100% 80%; }
+      100% { background-position: 0% 20%; }
+    }
+
+    /* Grid Overlay Pattern */
+    .bg-grid-pattern {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    /* Glowing Utilities */
+    .glow-orange {
+      box-shadow: 0 0 35px -5px rgba(255, 85, 0, 0.4);
+    }
+    .glow-orange-lg {
+      box-shadow: 0 0 60px -10px rgba(255, 85, 0, 0.5);
+    }
+    
+    /* Text Gradient */
+    .text-gradient-orange {
+      background: linear-gradient(135deg, #ffffff 0%, #ff5500 60%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Smooth transition for reveal observer */
+    .reveal {
+      will-change: transform, opacity;
+    }
+  </style>
+</head>
+<body x-data="{ mobileMenuOpen: false }" class="selection:bg-brand-orange selection:text-black">
+
+  <!-- NAVBAR GLASSMORPHISM -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-2xl border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Logo Tipografico Premium -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-orange to-brand-amber p-[1px] flex items-center justify-center transition-transform duration-500 group-hover:rotate-12">
+          <div class="w-full h-full bg-brand-dark rounded-[11px] flex items-center justify-center">
+            <i data-lucide="compass" class="w-5 h-5 text-brand-orange"></i>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-extrabold text-xl tracking-wider text-white uppercase flex items-center">
+            WEST COAST <span class="text-brand-orange ml-1.5">QUAD</span>
+          </span>
+          <span class="text-[9px] tracking-[0.2em] text-neutral-400 uppercase -mt-1 font-semibold">Adventure Experience</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide text-neutral-300">
+        <a href="#percorsi" class="hover:text-brand-orange transition-colors">Percorsi</a>
+        <a href="#mission" class="hover:text-brand-orange transition-colors">La Mission</a>
+        <a href="#prenota" class="hover:text-brand-orange transition-colors">Prenota Ora</a>
+        <a href="#contatti" class="hover:text-brand-orange transition-colors">Contatti</a>
+      </nav>
+
+      <!-- Header CTA -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="https://wa.me/393500411021" target="_blank" rel="noopener noreferrer" 
+           class="relative inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-brand-orange to-amber-600 glow-orange hover:scale-105 transition-all duration-300">
+          <i data-lucide="message-square" class="w-4 h-4 mr-2"></i>
+          WhatsApp Direct
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-white focus:outline-none">
+        <i :data-lucide="mobileMenuOpen ? 'x' : 'menu'" class="w-7 h-7 text-brand-orange"></i>
+      </button>
+
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-0 -translate-y-4"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         class="md:hidden bg-brand-dark/95 border-b border-white/10 px-6 py-6 space-y-4 backdrop-blur-3xl">
+      <a @click="mobileMenuOpen = false" href="#percorsi" class="block text-lg font-semibold text-neutral-200 hover:text-brand-orange">Percorsi</a>
+      <a @click="mobileMenuOpen = false" href="#mission" class="block text-lg font-semibold text-neutral-200 hover:text-brand-orange">La Mission</a>
+      <a @click="mobileMenuOpen = false" href="#prenota" class="block text-lg font-semibold text-neutral-200 hover:text-brand-orange">Prenota Ora</a>
+      <a @click="mobileMenuOpen = false" href="#contatti" class="block text-lg font-semibold text-neutral-200 hover:text-brand-orange">Contatti</a>
+      <a href="https://wa.me/393500411021" target="_blank" class="block w-full text-center py-3 rounded-xl bg-brand-orange font-bold text-white uppercase text-sm glow-orange">
+        Contatta su WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION CINEMATOGRAFICA -->
+  <section class="relative min-h-screen pt-28 flex items-center justify-center bg-mesh-animated bg-grid-pattern overflow-hidden">
+    <!-- Light Accents Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brand-dark/40 to-brand-dark pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center flex flex-col items-center">
+      
+      <!-- Badge Badge -->
+      <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+        <span class="w-2 h-2 rounded-full bg-brand-orange animate-ping"></span>
+        <span class="text-xs font-bold uppercase tracking-widest text-neutral-300">Adrenalina Off-Road & Miniere</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out font-display font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.08] max-w-5xl mb-8">
+        DIVENTA IL PROTAGONISTA DELLA TUA <span class="text-gradient-orange">PROSSIMA AVVENTURA.</span>
+      </h1>
+
+      <!-- Description -->
+      <p class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out text-lg sm:text-xl text-neutral-400 max-w-2xl font-light leading-relaxed mb-10">
+        Esplora la natura come un vero eroe. Senti l’adrenalina correre nelle vene mentre guidi nei percorsi storici delle miniere, tra fango, pietre e paesaggi mozzafiato.
+      </p>
+
+      <!-- CTA Buttons Row -->
+      <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+        <a href="#prenota" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-orange to-amber-600 text-white font-bold text-sm tracking-widest uppercase glow-orange hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-3">
+          <i data-lucide="calendar" class="w-5 h-5"></i>
+          Prenota L'Escursione
+        </a>
+        <a href="#percorsi" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold text-sm tracking-widest uppercase backdrop-blur-md transition-all duration-300 flex items-center justify-center gap-3">
+          <i data-lucide="map" class="w-5 h-5 text-brand-orange"></i>
+          Scopri i Percorsi
+        </a>
+      </div>
+
+      <!-- Stat Badges Bar -->
+      <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl mt-16 pt-12 border-t border-white/10 text-left">
+        <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
+          <div class="text-2xl font-extrabold text-brand-orange font-display">100%</div>
+          <div class="text-xs text-neutral-400 uppercase tracking-wider mt-1 font-semibold">Adrenalina Off-Road</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
+          <div class="text-2xl font-extrabold text-brand-orange font-display">Fino a 100 KM</div>
+          <div class="text-xs text-neutral-400 uppercase tracking-wider mt-1 font-semibold">Percorsi Intensi</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
+          <div class="text-2xl font-extrabold text-brand-orange font-display">3 ITINERARI</div>
+          <div class="text-xs text-neutral-400 uppercase tracking-wider mt-1 font-semibold">Da Facile a Tecnico</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
+          <div class="text-2xl font-extrabold text-brand-orange font-display">GUIDE ESPERTE</div>
+          <div class="text-xs text-neutral-400 uppercase tracking-wider mt-1 font-semibold">Sicurezza Garantita</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEZIONE MENU / PERCORSI (BENTO BOX CON HOVER EXPANSION) -->
+  <section id="percorsi" class="py-28 relative bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out text-center max-w-3xl mx-auto mb-16">
+        <span class="text-brand-orange text-xs font-bold uppercase tracking-widest bg-brand-orange/10 px-3 py-1 rounded-full border border-brand-orange/20">
+          I Nostri Itinerari
+        </span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white mt-4 tracking-tight">
+          SCEGLI IL TUO LIVELLO DI SFIDA
+        </h2>
+        <p class="text-neutral-400 text-sm sm:text-base mt-4">
+          Passa il cursore su ciascun percorso per svelare i dettagli tecnici, la durata e le caratteristiche dell'escursione.
+        </p>
+      </div>
+
+      <!-- Bento Grid Percorsi -->
+      <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- CARD 1: LE MINIERE -->
+        <div class="relative overflow-hidden group rounded-3xl bg-neutral-900/80 border border-white/10 transition-all duration-700 hover:shadow-[0_0_35px_rgba(255,85,0,0.25)] hover:border-brand-orange/50 flex flex-col justify-between min-h-[420px]">
+          <!-- Top Badge & Icon -->
+          <div class="p-8">
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1 rounded-full text-[11px] font-extrabold tracking-widest uppercase bg-green-500/20 text-green-400 border border-green-500/30">
+                Difficoltà: Facile
+              </span>
+              <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-orange">
+                <i data-lucide="pickaxe" class="w-6 h-6"></i>
+              </div>
+            </div>
+
+            <h3 class="font-display font-extrabold text-2xl text-white mb-2">LE MINIERE</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+              Un percorso avvincente, unico, meraviglioso nel cuore della storia mineraria.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 py-4 border-t border-b border-white/10">
+              <div>
+                <span class="text-[10px] uppercase text-neutral-500 font-bold tracking-wider block">Durata</span>
+                <span class="text-base font-bold text-white font-display">3 / 4 ORE</span>
+              </div>
+              <div>
+                <span class="text-[10px] uppercase text-neutral-500 font-bold tracking-wider block">Distanza</span>
+                <span class="text-base font-bold text-white font-display">70 KM</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-8 pb-8 flex items-center text-xs font-bold text-brand-orange uppercase tracking-wider group-hover:translate-x-2 transition-transform">
+            <span>Svela dettagli scheda</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+          </div>
+
+          <!-- Tendina Hover Awwwards Style -->
+          <div class="absolute inset-0 bg-neutral-950/95 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-between p-8 text-white z-10">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">Dettagli Itinerario</span>
+                <span class="text-xs font-mono text-neutral-500">#01 MINIERE</span>
+              </div>
+              <h4 class="font-display font-bold text-xl mb-3">Immersione Storica e Panorama</h4>
+              <p class="text-neutral-300 text-xs leading-relaxed space-y-2">
+                Perfetto per chi si avvicina per la prima volta al mondo del quad. Sfreccia su sentieri battuti tra resti storici, paesaggi suggestivi e panorami mozzafiato. Adatto a famiglie e principianti in totale sicurezza.
+              </p>
+              <ul class="mt-4 space-y-2 text-xs text-neutral-400">
+                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange mr-2"></i> Guida esperta sempre al fianco</li>
+                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange mr-2"></i> Tappe fotografiche alle miniere</li>
+                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange mr-2"></i> Casco e dotazione forniti</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/393500411021?text=Vorrei%20informazioni%20sul%20percorso%20LE%20MINIERE" target="_blank" class="w-full py-3 rounded-xl bg-brand-orange font-bold text-xs uppercase tracking-wider text-center text-white glow-orange">
+              Scegli "Le Miniere"
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 2: I FIUMI ROSSI -->
+        <div class="relative overflow-hidden group rounded-3xl bg-neutral-900/80 border border-white/10 transition-all duration-700 hover:shadow-[0_0_35px_rgba(255,85,0,0.25)] hover:border-brand-orange/50 flex flex-col justify-between min-h-[420px]">
+          <!-- Top Badge & Icon -->
+          <div class="p-8">
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1 rounded-full text-[11px] font-extrabold tracking-widest uppercase bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                Difficoltà: Medio
+              </span>
+              <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-orange">
+                <i data-lucide="waves" class="w-6 h-6"></i>
+              </div>
+            </div>
+
+            <h3 class="font-display font-extrabold text-2xl text-white mb-2">I FIUMI ROSSI</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+              Suggestivo, difficoltà tecnica equilibrata e presenza di ostacoli naturali.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 py-4 border-t border-b border-white/10">
+              <div>
+                <span class="text-[10px] uppercase text-neutral-500 font-bold tracking-wider block">Durata</span>
+                <span class="text-base font-bold text-white font-display">4 / 5 ORE</span>
+              </div>
+              <div>
+                <span class="text-[10px] uppercase text-neutral-500 font-bold tracking-wider block">Distanza</span>
+                <span class="text-base font-bold text-white font-display">90 KM</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-8 pb-8 flex items-center text-xs font-bold text-brand-orange uppercase tracking-wider group-hover:translate-x-2 transition-transform">
+            <span>Svela dettagli scheda</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+          </div>
+
+          <!-- Tendina Hover Awwwards Style -->
+          <div class="absolute inset-0 bg-neutral-950/95 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-between p-8 text-white z-10">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">Dettagli Itinerario</span>
+                <span class="text-xs font-mono text-neutral-500">#02 FIUMI ROSSI</span>
+              </div>
+              <h4 class="font-display font-bold text-xl mb-3">Tecnica, Fango e Adrenalina</h4>
+              <p class="text-neutral-300 text-xs leading-relaxed">
+                Un'esperienza stimolante che incrocia corsi d'acqua caratteristici dalle sfumature rossastre. Affronterai guadi, salite sterrate e curve strette che metteranno alla prova le tue abilità di guida off-road.
+              </p>
+              <ul class="mt-4 space-y-2 text-xs text-neutral-400">
+                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange mr-2"></i> Passaggi in corsi d'acqua e terra</li>
+                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange mr-2"></i> Ideale per chi cerca ritmo sostenuto</li>
+                <li class="flex items-center"><li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange mr-2"></i> Briefing tecnico approfondito</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/393500411021?text=Vorrei%20informazioni%20sul%20percorso%20I%20FIUMI%20ROSSI" target="_blank" class="w-full py-3 rounded-xl bg-brand-orange font-bold text-xs uppercase tracking-wider text-center text-white glow-orange">
+              Scegli "I Fiumi Rossi"
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 3: VILLA GINESTRA -->
+        <div class="relative overflow-hidden group rounded-3xl bg-neutral-900/80 border border-white/10 transition-all duration-700 hover:shadow-[0_0_35px_rgba(255,85,0,0.25)] hover:border-brand-orange/50 flex flex-col justify-between min-h-[420px]">
+          <!-- Top Badge & Icon -->
+          <div class="p-8">
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1 rounded-full text-[11px] font-extrabold tracking-widest uppercase bg-red-500/20 text-red-400 border border-red-500/30">
+                Difficoltà: Difficile
+              </span>
+              <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-orange">
+                <i data-lucide="flame" class="w-6 h-6"></i>
+              </div>
+            </div>
+
+            <h3 class="font-display font-extrabold text-2xl text-white mb-2">VILLA GINESTRA</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+              Difficile ed emozionante, studiato per chi vuole superare i propri limiti.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 py-4 border-t border-b border-white/10">
+              <div>
+                <span class="text-[10px] uppercase text-neutral-500 font-bold tracking-wider block">Durata</span>
+                <span class="text-base font-bold text-white font-display">6 / 7 ORE</span>
+              </div>
+              <div>
+                <span class="text-[10px] uppercase text-neutral-500 font-bold tracking-wider block">Distanza</span>
+                <span class="text-base font-bold text-white font-display">100 KM</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-8 pb-8 flex items-center text-xs font-bold text-brand-orange uppercase tracking-wider group-hover:translate-x-2 transition-transform">
+            <span>Svela dettagli scheda</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+          </div>
+
+          <!-- Tendina Hover Awwwards Style -->
+          <div class="absolute inset-0 bg-neutral-950/95 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-between p-8 text-white z-10">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">Dettagli Itinerario</span>
+                <span class="text-xs font-mono text-neutral-500">#03 VILLA GINESTRA</span>
+              </div>
+              <h4 class="font-display font-bold text-xl mb-3">L'Avventura Off-Road Estrema</h4>
+              <p class="text-neutral-300 text-xs leading-relaxed">
+                Un'epica traversata di 100 km attraverso discese ripide, roccia viva e avvallamenti impegnativi. Ideale per veri appassionati in cerca di una vera sfida e di pura scarica di adrenalina.
+              </p>
+              <ul class="mt-4 space-y-2 text-xs text-neutral-400">
+                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange mr-2"></i> Terreno impervio e ostacoli naturali</li>
+                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange mr-2"></i> Massimo coinvolgimento alla guida</li>
+                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange mr-2"></i> Sosta panoramica ad alta quota</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/393500411021?text=Vorrei%20informazioni%20sul%20percorso%20VILLA%20GINESTRA" target="_blank" class="w-full py-3 rounded-xl bg-brand-orange font-bold text-xs uppercase tracking-wider text-center text-white glow-orange">
+              Scegli "Villa Ginestra"
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LA MISSION & STORYTELLING -->
+  <section id="mission" class="py-28 relative bg-neutral-950 overflow-hidden border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        
+        <!-- Graphic / Feature Block -->
+        <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out relative">
+          <div class="relative z-10 p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-white/5 to-white/[0.01] border border-white/10 backdrop-blur-2xl">
+            <i data-lucide="mountain" class="w-16 h-16 text-brand-orange mb-6"></i>
+            <h3 class="font-display font-extrabold text-2xl sm:text-4xl text-white leading-tight mb-6">
+              DOVE IL PASSATO MINERARIO INCONTRA L'OFF-ROAD
+            </h3>
+            <p class="text-neutral-300 text-sm sm:text-base leading-relaxed mb-6">
+              Immagina di sfrecciare su sentieri avvincenti, affrontando ostacoli naturali che metteranno alla prova le tue capacità: pietre, fango, e curve strette si intrecciano in un percorso panoramico che ti porterà nel cuore della terra.
+            </p>
+            <p class="text-neutral-400 text-sm sm:text-base leading-relaxed">
+              Ogni tappa svelerà i segreti delle miniere abbandonate, con scenari mozzafiato e storie affascinanti che raccontano il duro lavoro dei minatori di un tempo.
+            </p>
+          </div>
+          <!-- Decorative Glow -->
+          <div class="absolute -top-10 -left-10 w-72 h-72 bg-brand-orange/20 rounded-full blur-[100px] pointer-events-none"></div>
+        </div>
+
+        <!-- Text Content -->
+        <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out space-y-6">
+          <span class="text-brand-orange text-xs font-bold uppercase tracking-widest bg-brand-orange/10 px-3 py-1 rounded-full border border-brand-orange/20">
+            West Coast Quad – La Mission
+          </span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+            NON È SOLO UN'ESCURSIONE. È UN VIAGGIO ADVENTURE.
+          </h2>
+          <p class="text-neutral-300 text-base leading-relaxed">
+            Senti il motore del tuo quad ruggire mentre sorpassi avvallamenti e affronte discese ripide; il vento che ti accarezza il viso mentre esplori ambienti unici. Un mix perfetto tra divertimento e meraviglia che lascerà il segno nel tuo cuore!
+          </p>
+          
+          <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5 space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="p-2.5 rounded-xl bg-brand-orange/10 text-brand-orange mt-1">
+                <i data-lucide="shield-check" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-base">Sicurezza e Guida Esperta</h4>
+                <p class="text-neutral-400 text-xs mt-1">I nostri esperti istruttori ti guideranno in totale sicurezza, assicurandosi che ogni istante sia ricco di emozione e divertimento.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="p-2.5 rounded-xl bg-brand-orange/10 text-brand-orange mt-1">
+                <i data-lucide="users" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-base">Per Tutti i Gruppi</h4>
+                <p class="text-neutral-400 text-xs mt-1">Perfetto per famiglie, gruppi di amici o chiunque cerchi una nuova sfida adrenalinica.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CALENDARIO / PRENOTAZIONE SMART (CAL.COM EMBED INTEGRATED) -->
+  <section id="prenota" class="py-28 relative bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out text-center max-w-3xl mx-auto mb-12">
+        <span class="text-brand-orange text-xs font-bold uppercase tracking-widest bg-brand-orange/10 px-3 py-1 rounded-full border border-brand-orange/20">
+          Prenotazione Immediata
+        </span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white mt-4 tracking-tight">
+          RISERVA IL TUO QUAD IN TEMPO REALE
+        </h2>
+        <p class="text-neutral-400 text-sm sm:text-base mt-4">
+          Scegli la data e l'orario perfetto per la tua avventura. Conferma diretta con il nostro staff.
+        </p>
+      </div>
+
+      <!-- Smart Cal.com Container -->
+      <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out flex flex-col lg:flex-row items-center gap-10">
+        
+        <!-- Iframe Box Cal.com -->
+        <div class="w-full max-w-4xl mx-auto h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-xl">
+          <iframe src="https://cal.com/fabio-grussu-ubggf7?embed=true&theme=dark" width="100%" height="100%" frameborder="0" title="Calendario Prenotazioni West Coast Quad"></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER NEVRALGICO -->
+  <footer id="contatti" class="bg-black pt-20 pb-12 border-t border-white/10 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/10">
+        
+        <!-- Brand Info -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-brand-orange flex items-center justify-center text-black font-extrabold font-display">
+              WQ
+            </div>
+            <span class="font-display font-extrabold text-xl tracking-wider text-white">WEST COAST QUAD</span>
+          </div>
+          <p class="text-neutral-400 text-xs leading-relaxed">
+            L'escursione in quad definitiva nelle miniere. Emozione, sicurezza, avventura e paesaggi spettacolari.
+          </p>
+        </div>
+
+        <!-- Direct Phone & WhatsApp Contacts -->
+        <div class="space-y-4">
+          <h4 class="text-xs font-bold uppercase tracking-widest text-brand-orange">I Nostri Contatti</h4>
+          <ul class="space-y-3">
+            <li>
+              <a href="tel:393500411021" class="text-neutral-300 hover:text-white transition-colors text-sm flex items-center gap-2">
+                <i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i>
+                +39 350 041 1021
+              </a>
+            </li>
+            <li>
+              <a href="tel:+393460207324" class="text-neutral-300 hover:text-white transition-colors text-sm flex items-center gap-2">
+                <i data-lucide="phone-call" class="w-4 h-4 text-brand-orange"></i>
+                +39 346 020 7324
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/393500411021" target="_blank" class="text-neutral-300 hover:text-white transition-colors text-sm flex items-center gap-2">
+                <i data-lucide="message-circle" class="w-4 h-4 text-green-500"></i>
+                Chat WhatsApp Diretta
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="space-y-4">
+          <h4 class="text-xs font-bold uppercase tracking-widest text-brand-orange">Seguici sui Social</h4>
+          <div class="flex items-center gap-4">
+            <a href="https://instagram.com" target="_blank" class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-brand-orange hover:text-black transition-all duration-300">
+              <i data-lucide="instagram" class="w-6 h-6"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-brand-orange hover:text-black transition-all duration-300">
+              <i data-lucide="facebook" class="w-6 h-6"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Google Maps Huge CTA Button -->
+        <div class="space-y-4">
+          <h4 class="text-xs font-bold uppercase tracking-widest text-brand-orange">Posizione e Percorsi</h4>
+          <p class="text-neutral-400 text-xs">Esplora le miniere e la sede di partenza escursioni.</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=West+Coast+Quad+Miniere" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center justify-center w-full py-4 px-6 rounded-2xl bg-white/10 hover:bg-brand-orange hover:text-black border border-white/10 text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 gap-3 group">
+            <i data-lucide="map-pin" class="w-5 h-5 text-brand-orange group-hover:text-black"></i>
+            Raggiungici su Google Maps
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 gap-4">
+        <div>
+          &copy; 2025 West Coast Quad. Tutti i diritti riservati.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-neutral-400">Privacy Policy</a>
+          <a href="#" class="hover:text-neutral-400">Termini e Condizioni</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- MOTORE DELLE ANIMAZIONI SCROLL REVEAL -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('opacity-100', 'translate-y-0', 'scale-100');
+            entry.target.classList.remove('opacity-0', 'translate-y-12', 'scale-95');
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      if(window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
