@@ -4,126 +4,122 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- SEO & Local Search Optimization -->
-  <title>Tour in Quad Montevecchio | West Coast Quad Costa Verde</title>
-  <meta name="description" content="Escursioni guidate in Quad tra le Miniere di Montevecchio, Ingurtosu e le Dune di Piscinas in Sardegna. Vivi un'avventura un'esperienza unica e mozzafiato!">
+  <!-- SEO Technical Engine -->
+  <title>Tour Quad I Fiumi Rossi | West Coast Quad Montevecchio</title>
+  <meta name="description" content="Avventura in quad tra le Miniere di Montevecchio, Piscinas e la Costa Verde. Scopri il tour estremo I Fiumi Rossi con West Coast Quad in Sardegna.">
+  <meta name="keywords" content="Quad Sardegna, West Coast Quad, I Fiumi Rossi Quad, Montevecchio Quad Tour, Piscinas Offroad, Miniere Ingurtosu, Escursioni Quad Costa Verde">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://westcoastquad.it">
-  
-  <!-- Open Graph / Facebook -->
+
+  <!-- Open Graph / Social SEO -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Tour in Quad Montevecchio | West Coast Quad Costa Verde">
-  <meta property="og:description" content="Immergiti nella storia mineraria e nella natura selvaggia della Costa Verde in Quad. Dalle miniere alle dune di Piscinas.">
+  <meta property="og:title" content="Tour Quad I Fiumi Rossi | West Coast Quad Montevecchio">
+  <meta property="og:description" content="Avventura estrema in quad tra miniere abbandonate, guadi rossi e scogliere mozzafiato nella Costa Verde sarda.">
   <meta property="og:locale" content="it_IT">
 
-  <!-- JSON-LD Structured Data for Local Business -->
+  <!-- JSON-LD LocalBusiness Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SportsActivityLocation",
-    "name": "West Coast Quad",
-    "description": "Escursioni guidate in quad tra le miniere di Montevecchio, Ingurtosu, le dune di Piscinas e la Costa Verde.",
+    "name": "West Coast Quad - Tour I Fiumi Rossi",
+    "image": "https://westcoastquad.it/og-image.jpg",
     "telephone": "+393500411021",
+    "url": "https://westcoastquad.it",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Borgo Minerario Montevecchio",
+      "streetAddress": "Borgo di Montevecchio",
       "addressLocality": "Guspini",
       "addressRegion": "SU",
-      "postalCode": "09036",
+      "postalCode": "09035",
       "addressCountry": "IT"
     },
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": 39.5558,
-      "longitude": 8.5631
+      "longitude": 8.5721
     },
-    "url": "https://westcoastquad.it",
-    "priceRange": "€€",
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "08:00",
-        "closes": "20:00"
-      }
-    ]
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "08:00",
+      "closes": "20:00"
+    },
+    "priceRange": "$$$",
+    "description": "Escursioni estreme ed avventurose in Quad nell'area mineraria di Montevecchio, Piscinas e Costa Verde in Sardegna."
   }
   </script>
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Typography & Scripts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
   <script>
     tailwind.config = {
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            display: ['Syne', 'sans-serif'],
+          },
           colors: {
             brand: {
-              orange: '#f97316',
-              amber: '#d97706',
-              gold: '#eab308',
-              dark: '#0a0a0c',
-              surface: '#121318',
-              border: 'rgba(255, 255, 255, 0.08)'
+              rust: '#ea580c',
+              crimson: '#dc2626',
+              dark: '#09090b',
+              surface: '#121215',
+              card: '#18181b',
+              border: '#27272a'
             }
-          },
-          fontFamily: {
-            display: ['Syne', 'sans-serif'],
-            sans: ['Plus Jakarta Sans', 'sans-serif']
           }
         }
       }
     }
   </script>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
   <style>
     body {
-      background-color: #0a0a0c;
-      color: #e2e8f0;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #09090b;
+      color: #f4f4f5;
+      overflow-x: hidden;
     }
     
-    .font-display {
-      font-family: 'Syne', sans-serif;
+    .bg-mesh {
+      background-color: #09090b;
+      background-image: 
+        radial-gradient(at 10% 10%, rgba(220, 38, 38, 0.18) 0px, transparent 50%),
+        radial-gradient(at 90% 20%, rgba(234, 88, 12, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 80%, rgba(154, 52, 18, 0.12) 0px, transparent 50%);
     }
 
-    /* Ambient Glow Backgrounds */
-    .bg-mesh-hero {
-      background: radial-gradient(circle at 50% 20%, rgba(249, 115, 22, 0.18) 0%, rgba(10, 10, 12, 1) 70%),
-                  radial-gradient(circle at 80% 80%, rgba(217, 119, 6, 0.12) 0%, transparent 50%),
-                  radial-gradient(circle at 10% 50%, rgba(234, 179, 8, 0.08) 0%, transparent 40%);
+    .grid-pattern {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     }
 
-    .bg-mesh-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 25px rgba(234, 88, 12, 0.35); transform: scale(1); }
+      50% { box-shadow: 0 0 55px rgba(234, 88, 12, 0.7); transform: scale(1.02); }
     }
 
-    .glow-orange {
-      box-shadow: 0 0 50px -10px rgba(249, 115, 22, 0.35);
-    }
-    
-    .text-gradient {
-      background: linear-gradient(135deg, #ffffff 30%, #f97316 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .glow-cta {
+      animation: pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
 
-    .text-gradient-gold {
-      background: linear-gradient(135deg, #f97316 0%, #eab308 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .glass-card {
+      background: rgba(24, 24, 27, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    /* Noise Texture Overlay */
-    .noise-bg {
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    .glass-card:hover {
+      border-color: rgba(234, 88, 12, 0.4);
     }
 
     /* Custom Scrollbar */
@@ -131,400 +127,382 @@
       width: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #0a0a0c;
+      background: #09090b;
     }
     ::-webkit-scrollbar-thumb {
       background: #27272a;
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #f97316;
+      background: #ea580c;
     }
   </style>
 </head>
-<body class="bg-brand-dark text-slate-100 selection:bg-brand-orange selection:text-black overflow-x-hidden relative noise-bg">
+<body class="bg-mesh font-sans antialiased text-zinc-100 selection:bg-brand-rust selection:text-white">
 
   <!-- NAVBAR -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-2xl border-b border-white/10 transition-all duration-300">
+  <header class="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-2xl border-b border-white/10 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <!-- Typographic Logo -->
+      
+      <!-- Logo Tipografico CSS -->
       <a href="#" class="flex items-center gap-3 group" aria-label="West Coast Quad Home">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-orange to-brand-amber flex items-center justify-center text-black font-extrabold shadow-lg shadow-brand-orange/20 group-hover:scale-105 transition-transform">
-          <i data-lucide="compass" class="w-6 h-6 text-black"></i>
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-rust to-brand-crimson flex items-center justify-center font-display font-bold text-white text-xl shadow-lg shadow-brand-rust/20 group-hover:scale-105 transition-transform">
+          W
         </div>
         <div class="flex flex-col">
-          <span class="font-display font-extrabold text-lg tracking-wider text-white leading-none">WEST COAST</span>
-          <span class="text-[10px] tracking-[0.3em] font-semibold text-brand-orange uppercase leading-tight mt-0.5">QUAD ADVENTURE</span>
+          <span class="font-display font-extrabold tracking-wider text-lg text-white leading-none">WEST COAST</span>
+          <span class="text-[10px] tracking-[0.25em] text-brand-rust font-bold uppercase">QUAD SARDEGNA</span>
         </div>
       </a>
 
-      <!-- Nav Links -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-        <a href="#itinerario" class="hover:text-brand-orange transition-colors">L'Itinerario</a>
-        <a href="#esperienza" class="hover:text-brand-orange transition-colors">L'Esperienza</a>
-        <a href="#dettagli" class="hover:text-brand-orange transition-colors">Info Tour</a>
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+        <a href="#esperienza" class="hover:text-brand-rust transition-colors flex items-center gap-1.5"><i data-lucide="compass" class="w-4 h-4"></i> L'Esperienza</a>
+        <a href="#percorso" class="hover:text-brand-rust transition-colors flex items-center gap-1.5"><i data-lucide="map-pin" class="w-4 h-4"></i> Il Percorso</a>
+        <a href="#requisiti" class="hover:text-brand-rust transition-colors flex items-center gap-1.5"><i data-lucide="shield-alert" class="w-4 h-4"></i> Requisiti</a>
+        <a href="#contatti" class="hover:text-brand-rust transition-colors flex items-center gap-1.5"><i data-lucide="phone" class="w-4 h-4"></i> Info & Mappa</a>
       </nav>
 
-      <!-- CTA Nav -->
-      <a href="https://wa.me/393500411021?text=Ciao!%20Vorrei%20informazioni%20sul%20tour%20in%20quad%20Le%20Miniere" target="_blank" rel="noopener" aria-label="Contatta su WhatsApp" class="flex items-center gap-2 bg-white/10 hover:bg-brand-orange text-white hover:text-black px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-md border border-white/15 transition-all duration-300 hover:shadow-lg hover:shadow-brand-orange/30">
-        <i data-lucide="message-square" class="w-4 h-4"></i>
+      <!-- Action CTA -->
+      <a href="https://wa.me/393500411021?text=Ciao!%20Desidero%20maggiori%20informazioni%20sul%20tour%20in%20Quad%20I%20FIUMI%20ROSSI" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         aria-label="Prenota via WhatsApp"
+         class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-brand-rust to-brand-crimson text-white px-5 py-2.5 rounded-full font-semibold text-sm shadow-lg shadow-brand-rust/25 hover:opacity-95 transition-all hover:scale-105">
+        <i data-lucide="message-circle" class="w-4 h-4"></i>
         <span>Prenota Ora</span>
       </a>
+
     </div>
   </header>
 
   <main>
     <!-- HERO SECTION -->
-    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-6 bg-mesh-hero overflow-hidden">
-      <!-- Background Ambient Glow Shapes -->
-      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-orange/15 rounded-full blur-[140px] pointer-events-none"></div>
-      <div class="absolute -bottom-10 right-10 w-[400px] h-[400px] bg-brand-amber/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <section class="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden grid-pattern">
+      
+      <!-- Visual Glow Orbs -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-rust/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <div class="absolute bottom-10 right-10 w-96 h-96 bg-brand-crimson/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <!-- Oversized Background Typography -->
-      <div class="absolute inset-0 flex items-center justify-center select-none pointer-events-none overflow-hidden opacity-[0.03]">
-        <span class="font-display font-extrabold text-[18vw] uppercase leading-none text-white tracking-tighter">COSTA VERDE</span>
-      </div>
-
-      <div class="max-w-5xl mx-auto text-center relative z-10 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-        <!-- Badge -->
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-orange/10 border border-brand-orange/30 text-brand-orange text-xs uppercase tracking-widest font-bold mb-8">
-          <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
-          <span>Montevecchio &bull; Ingurtosu &bull; Dune di Piscinas</span>
+      <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+        
+        <!-- Badge Status -->
+        <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-brand-rust text-xs sm:text-sm font-semibold tracking-wide uppercase mb-8 border border-brand-rust/30">
+          <span class="w-2 h-2 rounded-full bg-brand-rust animate-ping"></span>
+          <i data-lucide="flame" class="w-4 h-4"></i>
+          <span>Tour Off-Road Adrenalina Pura</span>
         </div>
 
-        <!-- Main H1 -->
-        <h1 class="font-display text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tight text-white mb-6 leading-[1.05]">
-          LE MINIERE <br>
-          <span class="text-gradient-gold">WEST COAST QUAD</span>
+        <!-- Giant Typography Heading -->
+        <h1 class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out font-display text-5xl sm:text-7xl lg:text-9xl font-black tracking-tight text-white uppercase leading-[0.9] mb-8">
+          I FIUMI <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-rust via-orange-500 to-brand-crimson">ROSSI</span>
         </h1>
 
-        <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
-          Percorri i vecchi binari del treno, attraversa i borghi minerari e domina le dune più alte d'Europa su un potente Quad 4x4.
+        <p class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out max-w-3xl mx-auto text-lg sm:text-2xl text-zinc-300 font-light leading-relaxed mb-12">
+          Solca le tracce minerarie di Montevecchio, supera le rotte impervie di Croccorigas e immergiti nei leggendari guadi rossi di Piscinas. La West Coast Sarda come non l'hai mai vista.
         </p>
 
-        <!-- CTA Buttons Group -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
-          <a href="https://wa.me/393500411021?text=Ciao!%20Vorrei%20prenotare%20il%20tour%20in%20quad%20Le%20Miniere" target="_blank" rel="noopener" aria-label="Prenota Tour via WhatsApp" class="w-full sm:w-auto flex items-center justify-center gap-3 bg-gradient-to-r from-brand-orange to-brand-amber hover:from-brand-amber hover:to-brand-orange text-black font-extrabold px-8 py-4 rounded-2xl shadow-xl shadow-brand-orange/25 transition-all duration-300 hover:scale-[1.02]">
-            <i data-lucide="phone-call" class="w-5 h-5"></i>
-            <span class="text-sm uppercase tracking-wider">Prenota via WhatsApp</span>
+        <!-- Dynamic Hero Badges -->
+        <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out flex flex-wrap justify-center gap-4 sm:gap-8 mb-12 text-sm font-medium text-zinc-400">
+          <div class="flex items-center gap-2 bg-zinc-900/80 px-4 py-2 rounded-xl border border-zinc-800">
+            <i data-lucide="gauge" class="w-5 h-5 text-brand-rust"></i>
+            <span>Difficoltà: <strong class="text-white">Tecnico / Avanzato</strong></span>
+          </div>
+          <div class="flex items-center gap-2 bg-zinc-900/80 px-4 py-2 rounded-xl border border-zinc-800">
+            <i data-lucide="mountain" class="w-5 h-5 text-brand-rust"></i>
+            <span>Tappe: <strong class="text-white">Montevecchio & Piscinas</strong></span>
+          </div>
+          <div class="flex items-center gap-2 bg-zinc-900/80 px-4 py-2 rounded-xl border border-zinc-800">
+            <i data-lucide="zap" class="w-5 h-5 text-brand-rust"></i>
+            <span>Adrenalina: <strong class="text-white">100% Garantita</strong></span>
+          </div>
+        </div>
+
+        <!-- Main CTAs -->
+        <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out flex flex-col sm:flex-row items-center justify-center gap-5">
+          <a href="https://wa.me/393500411021?text=Ciao!%20Desidero%20prenotare%20il%20tour%20in%20Quad%20I%20FIUMI%20ROSSI" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             aria-label="Contatta via WhatsApp per prenotazione"
+             class="glow-cta w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-rust to-brand-crimson text-white px-8 py-5 rounded-2xl font-bold text-lg shadow-2xl transition-all">
+            <i data-lucide="message-circle" class="w-6 h-6"></i>
+            <span>Richiedi Disponibilità WhatsApp</span>
           </a>
-          <a href="#itinerario" aria-label="Scopri l'Itinerario del Tour" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white font-semibold px-6 py-4 rounded-2xl border border-white/10 transition-all duration-300 backdrop-blur-sm">
-            <span>Scopri il percorso</span>
-            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+
+          <a href="tel:+393500411021" 
+             aria-label="Chiama West Coast Quad"
+             class="w-full sm:w-auto inline-flex items-center justify-center gap-3 glass-card text-white hover:bg-zinc-800/80 px-8 py-5 rounded-2xl font-semibold text-lg transition-all border border-zinc-700">
+            <i data-lucide="phone-call" class="w-5 h-5 text-brand-rust"></i>
+            <span>+39 350 041 1021</span>
           </a>
         </div>
 
-        <!-- Quick Stats Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-12 border-t border-white/10 text-left">
-          <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
-            <div class="text-brand-orange mb-1"><i data-lucide="mountain" class="w-5 h-5"></i></div>
-            <div class="font-display font-extrabold text-xl text-white">Montevecchio</div>
-            <div class="text-xs text-slate-400">Borgo Storico</div>
+      </div>
+    </section>
+
+    <!-- REQUISITI & ADVISORY BANNER -->
+    <section id="requisiti" class="py-12 bg-black/40 border-y border-zinc-800/80 relative">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out glass-card p-6 sm:p-8 rounded-3xl border border-amber-500/30 bg-gradient-to-r from-amber-500/10 via-transparent to-transparent flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-amber-500/20 text-amber-500 rounded-2xl shrink-0">
+              <i data-lucide="alert-triangle" class="w-8 h-8"></i>
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-xl text-white mb-1">Requisito di Partecipazione Importante</h3>
+              <p class="text-zinc-300 text-sm leading-relaxed max-w-3xl">
+                Il Tour <strong class="text-white">I FIUMI ROSSI</strong> è un'esperienza sfidante e tecnica. È adatto esclusivamente a guidatori con un <strong class="text-amber-400">minimo di esperienza in Quad</strong> o a chi ha già completato con successo il nostro tour preparatorio <strong class="text-amber-400">LE MINIERE</strong>.
+              </p>
+            </div>
           </div>
-          <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
-            <div class="text-brand-orange mb-1"><i data-lucide="sun" class="w-5 h-5"></i></div>
-            <div class="font-display font-extrabold text-xl text-white">Piscinas</div>
-            <div class="text-xs text-slate-400">Dune di Sabbia</div>
-          </div>
-          <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
-            <div class="text-brand-orange mb-1"><i data-lucide="waves" class="w-5 h-5"></i></div>
-            <div class="font-display font-extrabold text-xl text-white">Costa Verde</div>
-            <div class="text-xs text-slate-400">Litorale Selvaggio</div>
-          </div>
-          <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
-            <div class="text-brand-orange mb-1"><i data-lucide="footprints" class="w-5 h-5"></i></div>
-            <div class="font-display font-extrabold text-xl text-white">Fauna Locale</div>
-            <div class="text-xs text-slate-400">Cervi e Cinghiali</div>
-          </div>
+          <a href="https://wa.me/393500411021?text=Vorrei%20valutare%20la%20mia%20esperienza%20per%20il%20tour%20I%20Fiumi%20Rossi" 
+             target="_blank"
+             aria-label="Verifica Requisiti"
+             class="shrink-0 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 px-5 py-3 rounded-xl font-semibold text-sm transition-all flex items-center gap-2">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+            <span>Verifica Idoneità</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- SECTION ITINERARIO (BENTO BOX LAYOUT) -->
-    <section id="itinerario" class="py-24 px-6 relative z-10 max-w-7xl mx-auto">
-      <div class="text-center max-w-3xl mx-auto mb-16 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-        <div class="inline-flex items-center gap-2 text-brand-orange font-bold text-xs uppercase tracking-widest mb-3">
-          <i data-lucide="route" class="w-4 h-4"></i>
-          <span>L'Avventura Completa</span>
-        </div>
-        <h2 class="font-display text-4xl sm:text-5xl font-extrabold text-white mb-4">
-          Un Viaggio Straordinario Tra Storia e Natura
-        </h2>
-        <p class="text-slate-400">
-          Dai vecchi binari dei minatori fino alle spettacolari dune affacciate sul mare della Costa Verde.
-        </p>
-      </div>
-
-      <!-- Bento Grid Layout -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- BENTO GRID EXPERIENCE & ROUTE -->
+    <section id="esperienza" class="py-28 relative">
+      <div class="max-w-7xl mx-auto px-6">
         
-        <!-- Bento 1: Montevecchio -->
-        <div class="md:col-span-2 p-8 rounded-3xl bg-mesh-card border border-brand-border backdrop-blur-xl relative overflow-hidden group hover:border-brand-orange/40 transition-all duration-500 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-          <div class="absolute top-0 right-0 w-64 h-64 bg-brand-orange/10 rounded-full blur-3xl group-hover:bg-brand-orange/20 transition-all"></div>
-          <div class="relative z-10 flex flex-col h-full justify-between">
+        <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out text-center max-w-3xl mx-auto mb-20">
+          <h2 class="font-display text-4xl sm:text-6xl font-extrabold text-white uppercase tracking-tight mb-4">
+            L'ITINERARIO <span class="text-brand-rust">ESTREMO</span>
+          </h2>
+          <p class="text-zinc-400 text-lg">
+            Un'avventura totale progettata per mettersi alla prova tra scenari minerari industriali, vette rocciose e torrenti ferruginosi della Costa Verde.
+          </p>
+        </div>
+
+        <!-- Bento Grid Structure -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Card 1: Ferrovia Abbandonata & Miniere -->
+          <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out glass-card p-8 rounded-3xl md:col-span-2 flex flex-col justify-between relative overflow-hidden group">
+            <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-brand-rust/10 rounded-full blur-3xl group-hover:bg-brand-rust/20 transition-all"></div>
             <div>
-              <div class="w-12 h-12 rounded-2xl bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center text-brand-orange mb-6">
-                <i data-lucide="landmark" class="w-6 h-6"></i>
+              <div class="w-12 h-12 rounded-2xl bg-zinc-800 border border-zinc-700 flex items-center justify-center text-brand-rust mb-6">
+                <i data-lucide="train" class="w-6 h-6"></i>
               </div>
-              <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">Tappa 01</span>
-              <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white mt-1 mb-3">Vecchi Binari & Borgo di Montevecchio</h3>
-              <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
-                Percorrendo i vecchi binari del treno minerario, ti immergerai direttamente nel cuore delle miniere di Montevecchio e nel suo suggestivo borgo storico, carico di fascino e memorie d'altri tempi.
+              <span class="text-xs font-bold tracking-widest text-brand-rust uppercase mb-2 block">Tappa 01</span>
+              <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mb-4">Vecchia Ferrovia & Miniere di Montevecchio</h3>
+              <p class="text-zinc-300 leading-relaxed">
+                Partiremo percorrendo il suggestivo tracciato ferroviario ormai abbandonato. Attraverseremo antiche strade sterrate e sentieri selvaggi fino ad addentrarci nel cuore storico e nel borgo di Montevecchio.
               </p>
             </div>
-            <div class="mt-8 flex items-center gap-3 text-xs text-slate-400 font-mono">
-              <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10">#BinariStorici</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10">#BorgoMinerario</span>
+            <div class="mt-8 flex items-center gap-2 text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+              <i data-lucide="map" class="w-4 h-4 text-brand-rust"></i>
+              <span>Patrimonio Industriale & Storia Sarda</span>
             </div>
           </div>
-        </div>
 
-        <!-- Bento 2: Ingurtosu -->
-        <div class="p-8 rounded-3xl bg-mesh-card border border-brand-border backdrop-blur-xl relative overflow-hidden group hover:border-brand-orange/40 transition-all duration-500 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-          <div class="w-12 h-12 rounded-2xl bg-brand-amber/10 border border-brand-amber/20 flex items-center justify-center text-brand-amber mb-6">
-            <i data-lucide="pickaxe" class="w-6 h-6"></i>
-          </div>
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-amber">Tappa 02</span>
-          <h3 class="font-display text-2xl font-extrabold text-white mt-1 mb-3">Strada dei Minatori & Ingurtosu</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            Seguendo l’ex strada dei minatori avremo l’opportunità di entrare ad Ingurtosu, luogo simbolo e monumentale dell'epopea mineraria sarda.
-          </p>
-        </div>
-
-        <!-- Bento 3: Dune di Piscinas -->
-        <div class="p-8 rounded-3xl bg-mesh-card border border-brand-border backdrop-blur-xl relative overflow-hidden group hover:border-brand-orange/40 transition-all duration-500 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-          <div class="w-12 h-12 rounded-2xl bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold mb-6">
-            <i data-lucide="sun-medium" class="w-6 h-6"></i>
-          </div>
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">Tappa 03</span>
-          <h3 class="font-display text-2xl font-extrabold text-white mt-1 mb-3">Dune di Piscinas</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            Raggiungeremo le imponenti dune di Piscinas, tra le più grandi d'Europa. Un autentico deserto dorato che si tuffa nel mare cristallino.
-          </p>
-        </div>
-
-        <!-- Bento 4: Costa Verde & Guado -->
-        <div class="md:col-span-2 p-8 rounded-3xl bg-mesh-card border border-brand-border backdrop-blur-xl relative overflow-hidden group hover:border-brand-orange/40 transition-all duration-500 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-          <div class="absolute bottom-0 right-0 w-64 h-64 bg-brand-amber/10 rounded-full blur-3xl group-hover:bg-brand-amber/20 transition-all"></div>
-          <div class="relative z-10 flex flex-col h-full justify-between">
+          <!-- Card 2: Puntaleone -->
+          <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out glass-card p-8 rounded-3xl flex flex-col justify-between relative overflow-hidden group">
             <div>
-              <div class="w-12 h-12 rounded-2xl bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center text-brand-orange mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-zinc-800 border border-zinc-700 flex items-center justify-center text-brand-rust mb-6">
+                <i data-lucide="mountain-snow" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-bold tracking-widest text-brand-rust uppercase mb-2 block">Tappa 02</span>
+              <h3 class="font-display text-2xl font-bold text-white mb-4">Vetta di Puntaleone</h3>
+              <p class="text-zinc-300 leading-relaxed text-sm">
+                Ci dirigeremo in quota verso la panoramica vetta rocciosa di Puntaleone. Una vista a 360° spettacolare su tutta la costa ovest sarda.
+              </p>
+            </div>
+            <div class="mt-8 flex items-center gap-2 text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+              <i data-lucide="eye" class="w-4 h-4 text-brand-rust"></i>
+              <span>Panorama Costa Ovest</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Croccorigas Off-Road Challenge (Featured Highlight) -->
+          <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out glass-card p-8 rounded-3xl border-brand-rust/40 bg-gradient-to-br from-zinc-900 via-zinc-900 to-brand-rust/20 flex flex-col justify-between relative overflow-hidden group">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-brand-rust/20 border border-brand-rust/40 flex items-center justify-center text-brand-rust mb-6">
+                <i data-lucide="navigation-2" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-bold tracking-widest text-brand-rust uppercase mb-2 block">Sfida Tecnica</span>
+              <h3 class="font-display text-2xl font-bold text-white mb-4">La Pista di Croccorigas</h3>
+              <p class="text-zinc-300 leading-relaxed text-sm">
+                Un percorso sterrato rinomato per le sue difficoltà tecniche. Salite ripide, discese accidentate e terreni instabili che metteranno alla prova le tue reali doti di guida off-road.
+              </p>
+            </div>
+            <div class="mt-8 flex items-center gap-2 text-xs font-semibold text-brand-rust uppercase tracking-wider">
+              <i data-lucide="activity" class="w-4 h-4"></i>
+              <span>Ostacoli & Salite Ripide</span>
+            </div>
+          </div>
+
+          <!-- Card 4: I Fiumi Rossi & Piscinas (Giga Card) -->
+          <div id="percorso" class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out glass-card p-8 sm:p-10 rounded-3xl md:col-span-2 border-brand-crimson/30 flex flex-col justify-between relative overflow-hidden group">
+            <div class="absolute -right-20 top-0 w-80 h-80 bg-brand-crimson/15 rounded-full blur-3xl"></div>
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-brand-crimson/20 border border-brand-crimson/40 flex items-center justify-center text-brand-crimson mb-6">
                 <i data-lucide="waves" class="w-6 h-6"></i>
               </div>
-              <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">Tappa 04</span>
-              <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white mt-1 mb-3">Superamento del Guado & Litorale Costa Verde</h3>
-              <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
-                Dopo aver superato un emozionante guado in Quad, costeggeremo lo splendido litorale della Costa Verde, ammirando le sue spiagge selvagge ed incontaminate.
+              <span class="text-xs font-bold tracking-widest text-brand-crimson uppercase mb-2 block">Il Cuore del Tour</span>
+              <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4">Il Guado di Piscinas & I Fiumi Rossi</h3>
+              <p class="text-zinc-300 leading-relaxed mb-6">
+                Giunti nella zona del grande guado a Piscinas, attraverseremo numerosi corsi d'acqua dalle intense tonalità rosse dovute ai minerali ferrosi. Un paesaggio surreale e marziano unico in Europa, tra le miniere di Ingurtosu e la maestosa Costa Verde con le sue spiagge nascoste.
               </p>
             </div>
-            <div class="mt-8 flex items-center gap-3 text-xs text-slate-400 font-mono">
-              <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10">#OffRoadGuado</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10">#CostaVerde</span>
+            <div class="flex flex-wrap gap-4 text-xs font-semibold text-zinc-300">
+              <span class="px-3 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center gap-1.5"><i data-lucide="droplet" class="w-3.5 h-3.5 text-brand-crimson"></i> Guadi Ferruginosi</span>
+              <span class="px-3 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center gap-1.5"><i data-lucide="sun" class="w-3.5 h-3.5 text-amber-500"></i> Costa Verde</span>
+              <span class="px-3 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center gap-1.5"><i data-lucide="pickaxe" class="w-3.5 h-3.5 text-zinc-400"></i> Miniere Ingurtosu</span>
             </div>
           </div>
-        </div>
 
-        <!-- Bento 5: Panorama & Fauna -->
-        <div class="p-8 rounded-3xl bg-mesh-card border border-brand-border backdrop-blur-xl relative overflow-hidden group hover:border-brand-orange/40 transition-all duration-500 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-          <div class="w-12 h-12 rounded-2xl bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center text-brand-orange mb-6">
-            <i data-lucide="eye" class="w-6 h-6"></i>
+          <!-- Card 5: Pista Quad & Strada dei Cervi -->
+          <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out glass-card p-8 rounded-3xl md:col-span-3 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="max-w-2xl">
+              <div class="w-12 h-12 rounded-2xl bg-zinc-800 border border-zinc-700 flex items-center justify-center text-brand-rust mb-6">
+                <i data-lucide="trees" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-bold tracking-widest text-brand-rust uppercase mb-2 block">Rientro Avventuroso</span>
+              <h3 class="font-display text-2xl font-bold text-white mb-3">Pista Esplorazione Quad & Strada dei Cervi</h3>
+              <p class="text-zinc-300 text-sm leading-relaxed">
+                A metà percorso gireremo nella pista dedicata all'esplorazione, progettata per la massima sicurezza e divertimento. Durante il ritorno verso Montevecchio solcheremo la suggestiva "Strada dei Cervi", immersa in boschi lussureggianti e campagna incontaminata.
+              </p>
+            </div>
+            <div class="shrink-0 text-center md:text-right">
+              <div class="text-brand-rust font-display text-3xl font-extrabold mb-1">ADRENALINA</div>
+              <div class="text-xs tracking-widest text-zinc-400 uppercase font-semibold">Stanchi ma Soddisfatti</div>
+            </div>
           </div>
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">Tappa 05</span>
-          <h3 class="font-display text-2xl font-extrabold text-white mt-1 mb-3">Punti Panoramici & Cervi Sardi</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            Saliremo in punti panoramici mozzafiato sull'intera costa. Durante il tragitto potremo vivere incontri ravvicinati con cervi sardi e cinghiali.
-          </p>
-        </div>
 
-        <!-- Bento 6: Ritorno -->
-        <div class="md:col-span-2 p-8 rounded-3xl bg-mesh-card border border-brand-border backdrop-blur-xl relative overflow-hidden group hover:border-brand-orange/40 transition-all duration-500 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-          <div class="w-12 h-12 rounded-2xl bg-brand-amber/10 border border-brand-amber/20 flex items-center justify-center text-brand-amber mb-6">
-            <i data-lucide="trees" class="w-6 h-6"></i>
-          </div>
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-amber">Tappa 06</span>
-          <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white mt-1 mb-3">Rientro tra Monti e Sottoboschi</h3>
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Concluderemo l'avventura facendo ritorno alla base di Montevecchio attraverso suggestivi monti e ombrosi sottoboschi, completando un percorso circolare indimenticabile.
-          </p>
         </div>
 
       </div>
     </section>
 
-    <!-- SECTION PERCHÉ SCEGLIERCI -->
-    <section id="esperienza" class="py-20 px-6 bg-brand-surface/60 border-y border-brand-border relative">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-            <div class="inline-flex items-center gap-2 text-brand-orange font-bold text-xs uppercase tracking-widest mb-4">
-              <i data-lucide="shield-check" class="w-4 h-4"></i>
-              <span>Sicurezza & Emozioni</span>
-            </div>
-            <h2 class="font-display text-4xl sm:text-5xl font-extrabold text-white mb-6">
-              Guida un Quad di Ultima Generazione in Totale Sicurezza
-            </h2>
-            <p class="text-slate-300 leading-relaxed mb-8">
-              Tutti i nostri tour sono guidati da apripista esperti locali che conoscono ogni roccia, sentiero e storia della West Coast Sarda. Riceverai un briefing completo sulla guida del Quad prima della partenza.
-            </p>
-
-            <ul class="space-y-4">
-              <li class="flex items-center gap-3 text-slate-200">
-                <div class="w-6 h-6 rounded-full bg-brand-orange/20 text-brand-orange flex items-center justify-center flex-shrink-0">
-                  <i data-lucide="check" class="w-4 h-4"></i>
-                </div>
-                <span>Quad automatici facili da guidare (Patente B richiesta)</span>
-              </li>
-              <li class="flex items-center gap-3 text-slate-200">
-                <div class="w-6 h-6 rounded-full bg-brand-orange/20 text-brand-orange flex items-center justify-center flex-shrink-0">
-                  <i data-lucide="check" class="w-4 h-4"></i>
-                </div>
-                <span>Casco di protezione e sotto-casco igienico inclusi</span>
-              </li>
-              <li class="flex items-center gap-3 text-slate-200">
-                <div class="w-6 h-6 rounded-full bg-brand-orange/20 text-brand-orange flex items-center justify-center flex-shrink-0">
-                  <i data-lucide="check" class="w-4 h-4"></i>
-                </div>
-                <span>Guida Apripista Esperta per l'intero percorso</span>
-              </li>
-              <li class="flex items-center gap-3 text-slate-200">
-                <div class="w-6 h-6 rounded-full bg-brand-orange/20 text-brand-orange flex items-center justify-center flex-shrink-0">
-                  <i data-lucide="check" class="w-4 h-4"></i>
-                </div>
-                <span>Soste fotografiche nei punti più panoramici</span>
-              </li>
-            </ul>
+    <!-- PRENOTAZIONE / CALENDARIO / CTA SECTION -->
+    <section class="py-28 bg-gradient-to-b from-transparent via-black to-zinc-950 relative overflow-hidden">
+      <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+        
+        <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out glass-card p-10 sm:p-16 rounded-[40px] border border-brand-rust/30 relative">
+          
+          <div class="w-20 h-20 rounded-3xl bg-gradient-to-br from-brand-rust to-brand-crimson flex items-center justify-center text-white mx-auto mb-8 shadow-2xl shadow-brand-rust/40">
+            <i data-lucide="compass" class="w-10 h-10"></i>
           </div>
 
-          <!-- Feature Card Graphic -->
-          <div class="relative reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-            <div class="aspect-square rounded-3xl bg-gradient-to-tr from-brand-orange/20 via-white/5 to-transparent p-8 border border-white/10 flex flex-col justify-between relative overflow-hidden">
-              <div class="absolute -right-10 -bottom-10 w-80 h-80 bg-brand-orange/20 rounded-full blur-3xl"></div>
-              
-              <div class="flex justify-between items-start">
-                <span class="text-xs font-mono uppercase tracking-widest text-slate-400">ESCURSIONE GUIDATA</span>
-                <i data-lucide="sparkles" class="w-8 h-8 text-brand-orange"></i>
-              </div>
-
-              <div class="my-auto">
-                <div class="font-display text-6xl font-extrabold text-white mb-2">100%</div>
-                <div class="text-xl font-bold text-brand-orange">Adrenalina e Natura</div>
-                <p class="text-slate-400 text-sm mt-2">Dalle rovine industriali delle miniere alla sabbia dorata di Piscinas in un unico indimenticabile tour.</p>
-              </div>
-
-              <div class="pt-6 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-mono">
-                <span>Partenza: Montevecchio</span>
-                <span>Durata: Mezza Giornata</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION PRENOTAZIONE / GIANT WHATSAPP CTA -->
-    <section id="prenota" class="py-24 px-6 relative overflow-hidden">
-      <div class="max-w-4xl mx-auto text-center reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-        <div class="p-12 rounded-3xl bg-mesh-card border border-brand-orange/30 backdrop-blur-2xl relative shadow-2xl glow-orange">
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-orange/20 text-brand-orange text-xs uppercase font-bold tracking-widest mb-6">
-            <i data-lucide="calendar-check" class="w-4 h-4"></i>
-            <span>Prenotazione Rapida</span>
-          </div>
-
-          <h2 class="font-display text-4xl sm:text-6xl font-extrabold text-white mb-6">
-            Pronto per l'Avventura?
+          <h2 class="font-display text-4xl sm:text-6xl font-black text-white uppercase tracking-tight mb-6">
+            SEI PRONTO A <span class="text-brand-rust">GUIDARE</span>?
           </h2>
 
-          <p class="text-slate-300 text-lg mb-10 max-w-xl mx-auto">
-            Verifica la disponibilità delle date e prenota subito la tua escursione in Quad via WhatsApp. Risposta immediata!
+          <p class="text-zinc-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+            I posti per il tour <strong class="text-white">I FIUMI ROSSI</strong> sono limitati per garantire la massima sicurezza e la migliore esperienza di guida in pista. Contattaci subito su WhatsApp per verificare la disponibilità.
           </p>
 
-          <!-- Pulsing WhatsApp Button -->
-          <a href="https://wa.me/393500411021?text=Ciao!%20Vorrei%20informazioni%20e%20disponibilità%20per%20il%20tour%20in%20quad%20Le%20Miniere" target="_blank" rel="noopener" aria-label="Contatta via WhatsApp al +39 350 041 1021" class="relative group inline-flex items-center gap-4 bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 hover:from-emerald-400 hover:to-green-500 text-black font-extrabold text-lg sm:text-xl px-10 py-6 rounded-2xl shadow-2xl shadow-green-500/30 transition-all duration-300 hover:scale-[1.03]">
-            <span class="absolute -top-1 -right-1 flex h-4 w-4">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-4 w-4 bg-emerald-200"></span>
-            </span>
-            <i data-lucide="message-circle" class="w-7 h-7 text-black"></i>
-            <span>PRENOTA ORA SU WHATSAPP</span>
-          </a>
+          <!-- Massive WhatsApp Pulse Button -->
+          <div class="flex flex-col items-center justify-center gap-6">
+            <a href="https://wa.me/393500411021?text=Ciao!%20Vorrei%20prenotare%20il%20tour%20in%20Quad%20I%20FIUMI%20ROSSI" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Prenota direttamente via WhatsApp"
+               class="glow-cta w-full sm:w-auto inline-flex items-center justify-center gap-4 bg-gradient-to-r from-brand-rust via-orange-600 to-brand-crimson text-white px-10 py-6 rounded-2xl font-black text-xl tracking-wide shadow-2xl transition-all">
+              <i data-lucide="message-circle" class="w-8 h-8"></i>
+              <span>PRENOTA ORA SU WHATSAPP</span>
+            </a>
 
-          <div class="mt-8 flex items-center justify-center gap-6 text-xs text-slate-400">
-            <span class="flex items-center gap-1.5">
-              <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-orange"></i> +39 350 041 1021
-            </span>
-            <span class="flex items-center gap-1.5">
-              <i data-lucide="clock" class="w-3.5 h-3.5 text-brand-orange"></i> Risposta in pochi minuti
-            </span>
+            <span class="text-xs text-zinc-500 uppercase tracking-widest font-semibold">Risposta Rapida Garantita • Tel: +39 350 041 1021</span>
           </div>
+
         </div>
+
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-black border-t border-white/10 pt-16 pb-12 px-6 relative z-10">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+  <!-- FOOTER TECHNICAL SEO -->
+  <footer id="contatti" class="bg-black border-t border-zinc-800/80 pt-20 pb-12 relative">
+    <div class="max-w-7xl mx-auto px-6">
       
-      <!-- Col 1: Brand -->
-      <div>
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-8 h-8 rounded-lg bg-brand-orange flex items-center justify-center text-black font-bold">
-            <i data-lucide="compass" class="w-5 h-5"></i>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        
+        <!-- Col 1: About & Logo -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-brand-rust flex items-center justify-center font-display font-bold text-white text-lg">
+              W
+            </div>
+            <span class="font-display font-extrabold tracking-wider text-lg text-white">WEST COAST QUAD</span>
           </div>
-          <span class="font-display font-extrabold text-lg text-white">WEST COAST QUAD</span>
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            Organizziamo le escursioni in Quad più avvincenti ed estreme della Costa Verde sarda. Scopri la natura selvaggia di Montevecchio e Piscinas.
+          </p>
         </div>
-        <p class="text-xs text-slate-400 leading-relaxed mb-6">
-          Escursioni guidate in Quad attraverso la storia ed i paesaggi mozzafiato delle Miniere di Montevecchio, Ingurtosu e le Dune di Piscinas.
-        </p>
-        <div class="flex items-center gap-4">
-          <a href="https://wa.me/393500411021" target="_blank" rel="noopener" aria-label="WhatsApp" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-brand-orange hover:border-brand-orange transition-colors">
-            <i data-lucide="message-circle" class="w-5 h-5"></i>
-          </a>
-          <a href="tel:393500411021" aria-label="Telefono" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-brand-orange hover:border-brand-orange transition-colors">
-            <i data-lucide="phone" class="w-5 h-5"></i>
-          </a>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="font-display font-bold text-white text-base mb-4 uppercase tracking-wider">Esplora</h4>
+          <ul class="space-y-2.5 text-sm text-zinc-400">
+            <li><a href="#esperienza" class="hover:text-brand-rust transition-colors">L'Itinerario</a></li>
+            <li><a href="#percorso" class="hover:text-brand-rust transition-colors">I Fiumi Rossi & Piscinas</a></li>
+            <li><a href="#requisiti" class="hover:text-brand-rust transition-colors">Requisiti di Guida</a></li>
+            <li><a href="tel:+393500411021" class="hover:text-brand-rust transition-colors">Contatto Diretto</a></li>
+          </ul>
         </div>
+
+        <!-- Col 3: Contatti & Location -->
+        <div>
+          <h4 class="font-display font-bold text-white text-base mb-4 uppercase tracking-wider">Base & Partenza</h4>
+          <p class="text-zinc-400 text-sm mb-2 flex items-start gap-2">
+            <i data-lucide="map-pin" class="w-4 h-4 text-brand-rust shrink-0 mt-1"></i>
+            <span>Borgo Minerario di Montevecchio, Guspini (SU), Sardegna</span>
+          </p>
+          <p class="text-zinc-400 text-sm mb-4 flex items-center gap-2">
+            <i data-lucide="phone" class="w-4 h-4 text-brand-rust shrink-0"></i>
+            <a href="tel:+393500411021" class="hover:text-white transition-colors">+39 350 041 1021</a>
+          </p>
+        </div>
+
+        <!-- Col 4: Maps Button & Social -->
+        <div>
+          <h4 class="font-display font-bold text-white text-base mb-4 uppercase tracking-wider">Mappa & Social</h4>
+          
+          <!-- Direct Google Maps CTA -->
+          <a href="https://www.google.com/maps/search/?api=1&query=Montevecchio+West+Coast+Quad+Sardegna" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             aria-label="Raggiungici su Google Maps"
+             class="w-full inline-flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-700 px-4 py-3 rounded-xl font-semibold text-xs uppercase tracking-wider transition-all mb-4">
+            <i data-lucide="navigation" class="w-4 h-4 text-brand-rust"></i>
+            <span>Raggiungici su Google Maps</span>
+          </a>
+
+          <div class="flex items-center gap-3">
+            <a href="https://wa.me/393500411021" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-brand-rust hover:border-brand-rust transition-colors" aria-label="WhatsApp">
+              <i data-lucide="message-circle" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-brand-rust hover:border-brand-rust transition-colors" aria-label="Instagram">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-brand-rust hover:border-brand-rust transition-colors" aria-label="Facebook">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Col 2: Info & Posizione -->
-      <div>
-        <h4 class="font-display font-bold text-white mb-4 text-sm uppercase tracking-wider">Punto di Partenza</h4>
-        <p class="text-xs text-slate-300 mb-2 flex items-start gap-2">
-          <i data-lucide="map-pin" class="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5"></i>
-          <span>Borgo Minerario di Montevecchio<br>09036 Guspini / Arbus (SU), Sardegna</span>
-        </p>
-        <p class="text-xs text-slate-400 mb-6">
-          Coordinate GPS e indicazioni precise inviate alla conferma della prenotazione.
-        </p>
-        <a href="https://www.google.com/maps/search/?api=1&query=Montevecchio+Costa+Verde+Sardegna" target="_blank" rel="noopener" aria-label="Raggiungici su Google Maps" class="inline-flex items-center gap-2 text-xs font-bold text-brand-orange hover:underline">
-          <span>Raggiungici su Google Maps</span>
-          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-        </a>
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
+        <p>&copy; 2024 West Coast Quad. Tutti i diritti riservati.</p>
+        <p class="text-center sm:text-right">Tour in Quad I Fiumi Rossi • Montevecchio • Piscinas • Costa Verde Sardegna</p>
       </div>
 
-      <!-- Col 3: Direct Contact CTA -->
-      <div class="bg-white/[0.02] p-6 rounded-2xl border border-white/5">
-        <h4 class="font-display font-bold text-white mb-2 text-sm">Hai domande?</h4>
-        <p class="text-xs text-slate-400 mb-4">
-          Contattaci direttamente via telefono o WhatsApp per qualsiasi chiarimento su percorsi, orari e requisiti.
-        </p>
-        <a href="tel:393500411021" class="flex items-center justify-center gap-2 bg-brand-orange/20 hover:bg-brand-orange/30 text-brand-orange border border-brand-orange/40 font-bold px-4 py-2.5 rounded-xl text-xs transition-colors">
-          <i data-lucide="phone" class="w-4 h-4"></i>
-          <span>Chiama +39 350 041 1021</span>
-        </a>
-      </div>
-
-    </div>
-
-    <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500">
-      <p>&copy; 2024 West Coast Quad. Tutti i diritti riservati.</p>
-      <p class="mt-2 sm:mt-0">Tour guidati in Quad - Costa Verde, Sardegna</p>
     </div>
   </footer>
 
-  <!-- ANIMATION ENGINE -->
+  <!-- MOTION & INTERACTION ENGINE -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Intersection Observer for Smooth Scroll Reveal Animations
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -532,15 +510,18 @@
             entry.target.classList.remove('opacity-0', 'translate-y-12', 'scale-95');
           }
         });
-      }, { threshold: 0.1 });
+      }, { 
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      });
 
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-      
-      if(window.lucide) {
+
+      // Initialize Lucide Icons
+      if (window.lucide) {
         lucide.createIcons();
       }
     });
   </script>
-
 </body>
 </html>
