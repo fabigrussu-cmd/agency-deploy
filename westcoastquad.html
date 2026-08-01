@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="color-scheme" content="dark">
   <title>Escursioni Quad Montevecchio | West Coast Quad Sardegna</title>
   <meta name="description" content="Vivi l'avventura in Quad tra le miniere di Montevecchio, le dune di Piscinas e la Costa Verde. Percorsi ed escursioni guidate off-road uniche in Sardegna.">
   <meta name="robots" content="index, follow">
@@ -115,6 +117,40 @@
     "priceRange": "$$"
   }
   </script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    body {
+      letter-spacing: 0.02em;
+    }
+    h1, h2, h3, h4, .font-display {
+      letter-spacing: 0.03em !important;
+    }
+    a, button {
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* Samsung Internet & iOS cross-device yellow button & text color guarantees */
+    .bg-brand-500 {
+      background-color: #f59e0b !important;
+      color: #000000 !important;
+    }
+    .bg-brand-400 {
+      background-color: #fbbf24 !important;
+      color: #000000 !important;
+    }
+    .hover\:bg-brand-400:hover {
+      background-color: #fbbf24 !important;
+      color: #000000 !important;
+    }
+    .text-brand-400 {
+      color: #fbbf24 !important;
+    }
+    .text-brand-500 {
+      color: #f59e0b !important;
+    }
+  </style>
 </head>
 <body class="bg-darkbg text-neutral-100 font-sans antialiased selection:bg-brand-500 selection:text-black overflow-x-hidden">
 
@@ -128,7 +164,7 @@
           <img src="https://i.postimg.cc/527PqKFL/photo-6012376820931562990-y.jpg" alt="West Coast Quad Logo" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500">
         </div>
         <div class="flex flex-col">
-          <span class="font-display font-extrabold tracking-wider text-lg uppercase text-white group-hover:text-brand-400 transition-colors leading-tight">
+          <span class="font-display font-extrabold tracking-wide text-lg uppercase text-white group-hover:text-brand-400 transition-colors leading-tight">
             WEST COAST <span class="text-brand-500 inline-block group-hover:rotate-12 transition-transform duration-300">QUAD</span>
           </span>
           <span class="text-[9px] tracking-widest uppercase text-neutral-400 font-semibold group-hover:text-amber-200 transition-colors">Sardegna Off-Road</span>
@@ -150,7 +186,7 @@
       <div class="flex items-center gap-2 sm:gap-3 shrink-0">
         <a href="https://wa.me/393500411021" target="_blank" aria-label="Prenota su WhatsApp" 
            class="relative group overflow-hidden bg-brand-500 hover:bg-brand-400 text-black font-extrabold px-3.5 sm:px-5 py-2.5 rounded-full text-xs uppercase tracking-wider shadow-lg shadow-brand-500/20 hover:shadow-brand-500/50 hover:scale-105 active:scale-95 transition-all duration-300 inline-flex items-center justify-center min-h-[44px]">
-          <span class="relative flex items-center gap-2">
+          <span class="relative flex items-center gap-2 text-black">
             <i data-lucide="message-square" class="w-4 h-4 group-hover:rotate-12 transition-transform"></i>
             <span>Prenota Ora</span>
           </span>
@@ -220,7 +256,7 @@
         <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-ping shrink-0"></span>
       </div>
 
-      <h1 class="font-display text-2xl sm:text-5xl md:text-7xl font-extrabold uppercase tracking-tight text-white leading-tight sm:leading-[0.95] mb-4 sm:mb-8 drop-shadow-2xl">
+      <h1 class="font-display text-2xl sm:text-5xl md:text-7xl font-extrabold uppercase tracking-wide text-white leading-tight sm:leading-[0.98] mb-4 sm:mb-8 drop-shadow-2xl">
         Diventa il Protagonista della Tua <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-amber-300 to-amber-100 hover:brightness-125 transition-all">Prossima Sfida</span>
       </h1>
 
@@ -232,8 +268,8 @@
         <a href="https://wa.me/393500411021" aria-label="Contatta su WhatsApp"
            class="relative group/btn overflow-hidden w-full sm:w-auto flex items-center justify-center gap-3 bg-brand-500 hover:bg-brand-400 text-black font-extrabold px-6 sm:px-8 py-3.5 sm:py-5 rounded-2xl text-xs sm:text-sm uppercase tracking-wider shadow-2xl shadow-brand-500/30 hover:shadow-brand-500/60 hover:scale-105 active:scale-95 transition-all duration-300 min-h-[48px] sm:min-h-[52px]">
           <span class="absolute inset-0 w-full h-full bg-white/30 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-in-out"></span>
-          <i data-lucide="phone-call" class="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:rotate-12 transition-transform"></i>
-          <span>Contatta via WhatsApp</span>
+          <i data-lucide="phone-call" class="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:rotate-12 transition-transform text-black"></i>
+          <span class="text-black">Contatta via WhatsApp</span>
         </a>
 
         <a href="#percorsi" aria-label="Esplora i percorsi"
@@ -278,8 +314,8 @@
           <div class="inline-flex items-center gap-2 text-brand-400 font-bold text-xs uppercase tracking-widest bg-brand-500/10 border border-brand-500/20 px-4 py-1.5 rounded-full">
             <i data-lucide="shield-check" class="w-4 h-4 shrink-0"></i> West Coast Quad – La Mission
           </div>
-          <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl font-extrabold uppercase leading-tight text-white tracking-tight">
-            Un Viaggio Avventurioso Che <span class="text-brand-500 bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-amber-500">Stimolerà i Tuoi Sensi</span>
+          <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl font-extrabold uppercase leading-tight text-white tracking-wide">
+            Un Viaggio Avventuroso Che <span class="text-brand-500 bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-amber-500">Stimolerà i Tuoi Sensi</span>
           </h2>
           <p class="text-neutral-300 leading-relaxed text-sm sm:text-base">
             Sei pronto per un’esperienza indimenticabile che unisce adrenalina e scoperta? Unisciti a noi per un’escursione in quad nelle affascinanti miniere, dove il passato minerario incontra l’emozione della guida off-road.
@@ -320,7 +356,7 @@
     </div>
   </section>
 
-  <!-- I NOSTRI PERCORSI (BENTO GRID STYLE WITH ULTRA LUXURY HOVER DROPDOWN / TENDINA) -->
+  <!-- I NOSTRI PERCORSI -->
   <section id="percorsi" class="py-20 sm:py-28 bg-cardbg relative border-t border-b border-white/10">
     <!-- Ambient glow behind cards -->
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.05)_0,transparent_70%)] pointer-events-none"></div>
@@ -329,31 +365,32 @@
       
       <div class="text-center max-w-3xl mx-auto mb-14 sm:mb-20 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
         <span class="text-brand-400 font-extrabold text-xs uppercase tracking-widest block mb-3 bg-brand-500/10 border border-brand-500/30 w-fit mx-auto px-4 py-1.5 rounded-full shadow-lg shadow-brand-500/10">Scegli la tua avventura</span>
-        <h2 class="font-display text-2xl sm:text-5xl md:text-6xl font-extrabold uppercase text-white">I Nostri Itinerari Esclusivi</h2>
-        <p class="text-neutral-400 mt-3 sm:mt-4 text-xs sm:text-base">Tocca o passa il cursore su una card per sbloccare i dettagli dell'itinerario.</p>
+        <h2 class="font-display text-2xl sm:text-5xl md:text-6xl font-extrabold uppercase text-white tracking-wide">I Nostri Itinerari Esclusivi</h2>
+        <p class="text-neutral-300 mt-3 sm:mt-4 text-xs sm:text-base font-medium">Tocca "Dettagli" su una scheda per scoprire l'itinerario completo.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-start">
         
         <!-- CARD 1: LE MINIERE -->
-        <div class="group relative bg-darkbg/90 rounded-3xl border border-white/10 hover:border-emerald-400/80 transition-all duration-700 hover:shadow-[0_0_50px_rgba(16,185,129,0.3)] flex flex-col justify-between reveal opacity-0 translate-y-16 cursor-pointer overflow-hidden backdrop-blur-2xl">
-          <!-- Metallic Glow Line Header -->
-          <div class="h-1 w-full bg-gradient-to-r from-emerald-500/20 via-emerald-400 to-emerald-500/20 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
+        <div class="itinerario-card group relative bg-darkbg/90 rounded-3xl border border-white/10 hover:border-emerald-400/80 transition-all duration-500 hover:shadow-[0_0_50px_rgba(16,185,129,0.25)] flex flex-col justify-between reveal opacity-0 translate-y-16 overflow-hidden backdrop-blur-2xl">
+          <div class="h-1 w-full bg-gradient-to-r from-emerald-500/20 via-emerald-400 to-emerald-500/20 transform origin-left scale-x-100 transition-transform duration-700"></div>
 
           <div>
             <!-- Image Frame -->
             <div class="relative h-56 sm:h-64 overflow-hidden">
-              <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/hero21.jpg" alt="Percorso Le Miniere Quad" class="w-full h-full object-cover group-hover:scale-115 group-hover:rotate-1 transition-all duration-1000 ease-out">
+              <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/hero21.jpg" alt="Percorso Le Miniere Quad" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out">
               <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-darkbg/30 to-transparent"></div>
               
-              <span class="absolute top-4 left-4 bg-emerald-500 text-black font-extrabold text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-full backdrop-blur-md shadow-lg shadow-emerald-500/30 group-hover:scale-110 transition-transform border border-emerald-300/40">
+              <span class="absolute top-4 left-4 bg-emerald-500 text-black font-extrabold text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-full backdrop-blur-md shadow-lg shadow-emerald-500/30 border border-emerald-300/40">
                 FACILE
               </span>
 
-              <div class="absolute bottom-3 right-4 flex items-center gap-1.5 text-[11px] font-bold text-emerald-300 bg-black/70 px-3.5 py-1.5 rounded-full border border-emerald-500/40 backdrop-blur-md opacity-90 group-hover:opacity-0 transition-all duration-300 shadow-md">
-                <span>Dettagli</span>
-                <i data-lucide="chevron-down" class="w-3.5 h-3.5 animate-bounce text-emerald-400"></i>
-              </div>
+              <!-- DETTAGLI BUTTON (CLICKABLE DIRECT TOGGLE - PREVENTS WHATSAPP REDIRECT) -->
+              <button type="button" onclick="toggleTendina(this, event)" aria-label="Mostra dettagli itinerario Le Miniere" 
+                      class="tendina-btn absolute bottom-3 right-4 flex items-center gap-1.5 text-[11px] font-extrabold text-emerald-300 bg-black/85 px-4 py-2 rounded-full border border-emerald-500/50 backdrop-blur-md shadow-xl hover:scale-105 active:scale-95 transition-all z-20">
+                <span class="tendina-text">Dettagli</span>
+                <i data-lucide="chevron-down" class="tendina-icon w-3.5 h-3.5 transition-transform duration-300 text-emerald-400"></i>
+              </button>
             </div>
 
             <!-- Card Main Content -->
@@ -368,39 +405,37 @@
                 Percorrendo i vecchi binari del treno, ti immergerai nelle miniere di Montevecchio e nel borgo di Ingurtosu fino alle famose dune di Piscinas e il litorale della Costa Verde.
               </p>
 
-              <!-- HOVER TENDINA ANIMATA LUXURY EXPANDABLE DRAWER -->
-              <div class="max-h-0 opacity-0 group-hover:max-h-[450px] group-hover:opacity-100 transition-all duration-700 cubic-bezier-luxury overflow-hidden">
+              <!-- EXPANDABLE DRAWER / TENDINA TOGGLE -->
+              <div class="tendina-content max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out">
                 <div class="mt-5 pt-5 border-t border-emerald-500/40 space-y-3.5 text-xs text-neutral-200 bg-gradient-to-b from-emerald-950/40 via-black/60 to-emerald-950/30 -mx-5 sm:-mx-6 -mb-5 sm:-mb-6 p-5 sm:p-6 rounded-b-2xl backdrop-blur-xl relative border-b border-emerald-500/20 shadow-inner">
-                  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.15),transparent_70%)] pointer-events-none"></div>
-                  
-                  <div class="luxury-tendina-item flex items-center justify-between text-emerald-300 font-extrabold uppercase text-[11px] tracking-wider mb-3 pb-2 border-b border-emerald-500/20">
+                  <div class="flex items-center justify-between text-emerald-300 font-extrabold uppercase text-[11px] tracking-wider mb-3 pb-2 border-b border-emerald-500/20">
                     <span class="flex items-center gap-2">
-                      <i data-lucide="sparkles" class="w-4 h-4 animate-spin-slow text-emerald-400"></i>
+                      <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400"></i>
                       <span>Dettagli Percorso Esclusivo</span>
                     </span>
                   </div>
                   
                   <ul class="space-y-3">
-                    <li class="luxury-tendina-item flex items-start gap-3 p-2 rounded-xl hover:bg-emerald-500/10 transition-colors">
-                      <div class="p-1 rounded-lg bg-emerald-500/20 text-emerald-400 shrink-0 mt-0.5 border border-emerald-500/30 shadow-sm">
+                    <li class="flex items-start gap-3 p-2 rounded-xl bg-emerald-500/10">
+                      <div class="p-1 rounded-lg bg-emerald-500/20 text-emerald-400 shrink-0 mt-0.5 border border-emerald-500/30">
                         <i data-lucide="check" class="w-3.5 h-3.5"></i>
                       </div>
                       <span class="leading-tight">Ex strada dei minatori & Borgo minerario di Ingurtosu.</span>
                     </li>
-                    <li class="luxury-tendina-item flex items-start gap-3 p-2 rounded-xl hover:bg-emerald-500/10 transition-colors">
-                      <div class="p-1 rounded-lg bg-emerald-500/20 text-emerald-400 shrink-0 mt-0.5 border border-emerald-500/30 shadow-sm">
+                    <li class="flex items-start gap-3 p-2 rounded-xl bg-emerald-500/10">
+                      <div class="p-1 rounded-lg bg-emerald-500/20 text-emerald-400 shrink-0 mt-0.5 border border-emerald-500/30">
                         <i data-lucide="check" class="w-3.5 h-3.5"></i>
                       </div>
                       <span class="leading-tight">Spettacolari Dune di Piscinas tra le più alte d'Europa.</span>
                     </li>
-                    <li class="luxury-tendina-item flex items-start gap-3 p-2 rounded-xl hover:bg-emerald-500/10 transition-colors">
-                      <div class="p-1 rounded-lg bg-emerald-500/20 text-emerald-400 shrink-0 mt-0.5 border border-emerald-500/30 shadow-sm">
+                    <li class="flex items-start gap-3 p-2 rounded-xl bg-emerald-500/10">
+                      <div class="p-1 rounded-lg bg-emerald-500/20 text-emerald-400 shrink-0 mt-0.5 border border-emerald-500/30">
                         <i data-lucide="check" class="w-3.5 h-3.5"></i>
                       </div>
                       <span class="leading-tight">Guado dei fiumi e panorami mozzafiato sulla Costa Verde.</span>
                     </li>
-                    <li class="luxury-tendina-item flex items-start gap-3 p-2 rounded-xl hover:bg-emerald-500/10 transition-colors">
-                      <div class="p-1 rounded-lg bg-emerald-500/20 text-emerald-400 shrink-0 mt-0.5 border border-emerald-500/30 shadow-sm">
+                    <li class="flex items-start gap-3 p-2 rounded-xl bg-emerald-500/10">
+                      <div class="p-1 rounded-lg bg-emerald-500/20 text-emerald-400 shrink-0 mt-0.5 border border-emerald-500/30">
                         <i data-lucide="check" class="w-3.5 h-3.5"></i>
                       </div>
                       <span class="leading-tight">Possibilità di avvistamento del Cervo Sardo in libertà.</span>
@@ -412,37 +447,38 @@
             </div>
           </div>
 
+          <!-- PRENOTA BUTTON -->
           <div class="p-5 sm:p-6 pt-0 mt-2">
             <a href="https://wa.me/393500411021?text=Ciao!%20Vorrei%20informazioni%20sul%20tour%20LE%20MINIERE" 
-               class="relative group/btn overflow-hidden w-full flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 via-emerald-400 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-black font-extrabold py-4 rounded-xl text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.6)] hover:scale-[1.02] active:scale-95 border border-emerald-300/40 min-h-[48px]">
-              <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-in-out"></span>
-              <span class="relative flex items-center gap-2">
+               class="relative group/btn overflow-hidden w-full flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-400 text-black font-extrabold py-4 rounded-xl text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:scale-[1.02] active:scale-95 border border-amber-300/40 min-h-[48px]">
+              <span class="relative flex items-center gap-2 text-black">
                 <span>Prenota "Le Miniere"</span>
-                <i data-lucide="arrow-right" class="w-4 h-4 group-hover/btn:translate-x-1.5 transition-transform"></i>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover/btn:translate-x-1.5 transition-transform text-black"></i>
               </span>
             </a>
           </div>
         </div>
 
         <!-- CARD 2: I FIUMI ROSSI -->
-        <div class="group relative bg-darkbg/90 rounded-3xl border border-white/10 hover:border-amber-400/80 transition-all duration-700 hover:shadow-[0_0_50px_rgba(245,158,11,0.35)] flex flex-col justify-between reveal opacity-0 translate-y-16 cursor-pointer overflow-hidden backdrop-blur-2xl">
-          <!-- Metallic Glow Line Header -->
-          <div class="h-1 w-full bg-gradient-to-r from-amber-500/20 via-amber-400 to-amber-500/20 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
+        <div class="itinerario-card group relative bg-darkbg/90 rounded-3xl border border-white/10 hover:border-amber-400/80 transition-all duration-500 hover:shadow-[0_0_50px_rgba(245,158,11,0.3)] flex flex-col justify-between reveal opacity-0 translate-y-16 overflow-hidden backdrop-blur-2xl">
+          <div class="h-1 w-full bg-gradient-to-r from-amber-500/20 via-amber-400 to-amber-500/20 transform origin-left scale-x-100 transition-transform duration-700"></div>
 
           <div>
             <!-- Image Frame -->
             <div class="relative h-56 sm:h-64 overflow-hidden">
-              <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/hero31.jpg" alt="Percorso I Fiumi Rossi Quad" class="w-full h-full object-cover group-hover:scale-115 group-hover:-rotate-1 transition-all duration-1000 ease-out">
+              <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/hero31.jpg" alt="Percorso I Fiumi Rossi Quad" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out">
               <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-darkbg/30 to-transparent"></div>
               
-              <span class="absolute top-4 left-4 bg-amber-500 text-black font-extrabold text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-full backdrop-blur-md shadow-lg shadow-amber-500/30 group-hover:scale-110 transition-transform border border-amber-300/40">
+              <span class="absolute top-4 left-4 bg-amber-500 text-black font-extrabold text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-full backdrop-blur-md shadow-lg shadow-amber-500/30 border border-amber-300/40">
                 MEDIO
               </span>
 
-              <div class="absolute bottom-3 right-4 flex items-center gap-1.5 text-[11px] font-bold text-amber-300 bg-black/70 px-3.5 py-1.5 rounded-full border border-amber-500/40 backdrop-blur-md opacity-90 group-hover:opacity-0 transition-all duration-300 shadow-md">
-                <span>Dettagli</span>
-                <i data-lucide="chevron-down" class="w-3.5 h-3.5 animate-bounce text-amber-400"></i>
-              </div>
+              <!-- DETTAGLI BUTTON -->
+              <button type="button" onclick="toggleTendina(this, event)" aria-label="Mostra dettagli itinerario I Fiumi Rossi" 
+                      class="tendina-btn absolute bottom-3 right-4 flex items-center gap-1.5 text-[11px] font-extrabold text-amber-300 bg-black/85 px-4 py-2 rounded-full border border-amber-500/50 backdrop-blur-md shadow-xl hover:scale-105 active:scale-95 transition-all z-20">
+                <span class="tendina-text">Dettagli</span>
+                <i data-lucide="chevron-down" class="tendina-icon w-3.5 h-3.5 transition-transform duration-300 text-amber-400"></i>
+              </button>
             </div>
 
             <!-- Card Main Content -->
@@ -457,39 +493,37 @@
                 Tracciato ferroviario abbandonato, vetta di Puntaleone e la sterrata di Croccorigas. Attraverseremo i caratteristici fiumi rossi e percorsi tecnici off-road.
               </p>
 
-              <!-- HOVER TENDINA ANIMATA LUXURY EXPANDABLE DRAWER -->
-              <div class="max-h-0 opacity-0 group-hover:max-h-[450px] group-hover:opacity-100 transition-all duration-700 cubic-bezier-luxury overflow-hidden">
+              <!-- EXPANDABLE DRAWER / TENDINA TOGGLE -->
+              <div class="tendina-content max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out">
                 <div class="mt-5 pt-5 border-t border-amber-500/40 space-y-3.5 text-xs text-neutral-200 bg-gradient-to-b from-amber-950/40 via-black/60 to-amber-950/30 -mx-5 sm:-mx-6 -mb-5 sm:-mb-6 p-5 sm:p-6 rounded-b-2xl backdrop-blur-xl relative border-b border-amber-500/20 shadow-inner">
-                  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.15),transparent_70%)] pointer-events-none"></div>
-                  
-                  <div class="luxury-tendina-item flex items-center justify-between text-amber-300 font-extrabold uppercase text-[11px] tracking-wider mb-3 pb-2 border-b border-amber-500/20">
+                  <div class="flex items-center justify-between text-amber-300 font-extrabold uppercase text-[11px] tracking-wider mb-3 pb-2 border-b border-amber-500/20">
                     <span class="flex items-center gap-2">
-                      <i data-lucide="sparkles" class="w-4 h-4 animate-spin-slow text-amber-400"></i>
+                      <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
                       <span>Dettagli Percorso Esclusivo</span>
                     </span>
                   </div>
                   
                   <ul class="space-y-3">
-                    <li class="luxury-tendina-item flex items-start gap-3 p-2 rounded-xl hover:bg-amber-500/10 transition-colors">
-                      <div class="p-1 rounded-lg bg-amber-500/20 text-amber-400 shrink-0 mt-0.5 border border-amber-500/30 shadow-sm">
+                    <li class="flex items-start gap-3 p-2 rounded-xl bg-amber-500/10">
+                      <div class="p-1 rounded-lg bg-amber-500/20 text-amber-400 shrink-0 mt-0.5 border border-amber-500/30">
                         <i data-lucide="check" class="w-3.5 h-3.5"></i>
                       </div>
                       <span class="leading-tight">Guado dei caratteristici Fiumi Rossi di miniera.</span>
                     </li>
-                    <li class="luxury-tendina-item flex items-start gap-3 p-2 rounded-xl hover:bg-amber-500/10 transition-colors">
-                      <div class="p-1 rounded-lg bg-amber-500/20 text-amber-400 shrink-0 mt-0.5 border border-amber-500/30 shadow-sm">
+                    <li class="flex items-start gap-3 p-2 rounded-xl bg-amber-500/10">
+                      <div class="p-1 rounded-lg bg-amber-500/20 text-amber-400 shrink-0 mt-0.5 border border-amber-500/30">
                         <i data-lucide="check" class="w-3.5 h-3.5"></i>
                       </div>
                       <span class="leading-tight">Vetta di Puntaleone con vista panoramica a 360°.</span>
                     </li>
-                    <li class="luxury-tendina-item flex items-start gap-3 p-2 rounded-xl hover:bg-amber-500/10 transition-colors">
-                      <div class="p-1 rounded-lg bg-amber-500/20 text-amber-400 shrink-0 mt-0.5 border border-amber-500/30 shadow-sm">
+                    <li class="flex items-start gap-3 p-2 rounded-xl bg-amber-500/10">
+                      <div class="p-1 rounded-lg bg-amber-500/20 text-amber-400 shrink-0 mt-0.5 border border-amber-500/30">
                         <i data-lucide="check" class="w-3.5 h-3.5"></i>
                       </div>
                       <span class="leading-tight">Tracciati tecnici con salite e discese ricche di aderenza.</span>
                     </li>
-                    <li class="luxury-tendina-item flex items-start gap-3 p-2 rounded-xl hover:bg-amber-500/10 transition-colors">
-                      <div class="p-1 rounded-lg bg-amber-500/20 text-amber-400 shrink-0 mt-0.5 border border-amber-500/30 shadow-sm">
+                    <li class="flex items-start gap-3 p-2 rounded-xl bg-amber-500/10">
+                      <div class="p-1 rounded-lg bg-amber-500/20 text-amber-400 shrink-0 mt-0.5 border border-amber-500/30">
                         <i data-lucide="check" class="w-3.5 h-3.5"></i>
                       </div>
                       <span class="leading-tight">Attraversamento della celebre "Strada dei Cervi".</span>
@@ -501,37 +535,38 @@
             </div>
           </div>
 
+          <!-- PRENOTA BUTTON -->
           <div class="p-5 sm:p-6 pt-0 mt-2">
             <a href="https://wa.me/393500411021?text=Ciao!%20Vorrei%20informazioni%20sul%20tour%20I%20FIUMI%20ROSSI" 
-               class="relative group/btn overflow-hidden w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-400 hover:from-amber-400 hover:to-yellow-300 text-black font-extrabold py-4 rounded-xl text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_30px_rgba(245,158,11,0.6)] hover:scale-[1.02] active:scale-95 border border-amber-300/40 min-h-[48px]">
-              <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-in-out"></span>
-              <span class="relative flex items-center gap-2">
+               class="relative group/btn overflow-hidden w-full flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-400 text-black font-extrabold py-4 rounded-xl text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:scale-[1.02] active:scale-95 border border-amber-300/40 min-h-[48px]">
+              <span class="relative flex items-center gap-2 text-black">
                 <span>Prenota "Fiumi Rossi"</span>
-                <i data-lucide="arrow-right" class="w-4 h-4 group-hover/btn:translate-x-1.5 transition-transform"></i>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover/btn:translate-x-1.5 transition-transform text-black"></i>
               </span>
             </a>
           </div>
         </div>
 
         <!-- CARD 3: VALLATA GINESTRA -->
-        <div class="group relative bg-darkbg/90 rounded-3xl border border-white/10 hover:border-rose-400/80 transition-all duration-700 hover:shadow-[0_0_50px_rgba(244,63,94,0.35)] flex flex-col justify-between reveal opacity-0 translate-y-16 cursor-pointer overflow-hidden backdrop-blur-2xl">
-          <!-- Metallic Glow Line Header -->
-          <div class="h-1 w-full bg-gradient-to-r from-rose-500/20 via-rose-400 to-rose-500/20 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
+        <div class="itinerario-card group relative bg-darkbg/90 rounded-3xl border border-white/10 hover:border-rose-400/80 transition-all duration-500 hover:shadow-[0_0_50px_rgba(244,63,94,0.3)] flex flex-col justify-between reveal opacity-0 translate-y-16 overflow-hidden backdrop-blur-2xl">
+          <div class="h-1 w-full bg-gradient-to-r from-rose-500/20 via-rose-400 to-rose-500/20 transform origin-left scale-x-100 transition-transform duration-700"></div>
 
           <div>
             <!-- Image Frame -->
             <div class="relative h-56 sm:h-64 overflow-hidden">
-              <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/hero41.jpg" alt="Percorso Villa Ginestra Quad" class="w-full h-full object-cover group-hover:scale-115 group-hover:rotate-1 transition-all duration-1000 ease-out">
+              <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/hero41.jpg" alt="Percorso Villa Ginestra Quad" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out">
               <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-darkbg/30 to-transparent"></div>
               
-              <span class="absolute top-4 left-4 bg-rose-500 text-white font-extrabold text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-full backdrop-blur-md shadow-lg shadow-rose-500/30 group-hover:scale-110 transition-transform border border-rose-300/40">
+              <span class="absolute top-4 left-4 bg-rose-500 text-white font-extrabold text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-full backdrop-blur-md shadow-lg shadow-rose-500/30 border border-rose-300/40">
                 DIFFICILE
               </span>
 
-              <div class="absolute bottom-3 right-4 flex items-center gap-1.5 text-[11px] font-bold text-rose-300 bg-black/70 px-3.5 py-1.5 rounded-full border border-rose-500/40 backdrop-blur-md opacity-90 group-hover:opacity-0 transition-all duration-300 shadow-md">
-                <span>Dettagli</span>
-                <i data-lucide="chevron-down" class="w-3.5 h-3.5 animate-bounce text-rose-400"></i>
-              </div>
+              <!-- DETTAGLI BUTTON -->
+              <button type="button" onclick="toggleTendina(this, event)" aria-label="Mostra dettagli itinerario Vallata Ginestra" 
+                      class="tendina-btn absolute bottom-3 right-4 flex items-center gap-1.5 text-[11px] font-extrabold text-rose-300 bg-black/85 px-4 py-2 rounded-full border border-rose-500/50 backdrop-blur-md shadow-xl hover:scale-105 active:scale-95 transition-all z-20">
+                <span class="tendina-text">Dettagli</span>
+                <i data-lucide="chevron-down" class="tendina-icon w-3.5 h-3.5 transition-transform duration-300 text-rose-400"></i>
+              </button>
             </div>
 
             <!-- Card Main Content -->
@@ -546,39 +581,37 @@
                 Fitto sottobosco, pozzi minerari antichi, la dimora storica di Villa Ginestra, lo stabilimento carcerario di Is Arenas e calette inaccessibili di Gutturu e Flumini.
               </p>
 
-              <!-- HOVER TENDINA ANIMATA LUXURY EXPANDABLE DRAWER -->
-              <div class="max-h-0 opacity-0 group-hover:max-h-[450px] group-hover:opacity-100 transition-all duration-700 cubic-bezier-luxury overflow-hidden">
+              <!-- EXPANDABLE DRAWER / TENDINA TOGGLE -->
+              <div class="tendina-content max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out">
                 <div class="mt-5 pt-5 border-t border-rose-500/40 space-y-3.5 text-xs text-neutral-200 bg-gradient-to-b from-rose-950/40 via-black/60 to-rose-950/30 -mx-5 sm:-mx-6 -mb-5 sm:-mb-6 p-5 sm:p-6 rounded-b-2xl backdrop-blur-xl relative border-b border-rose-500/20 shadow-inner">
-                  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(244,63,94,0.15),transparent_70%)] pointer-events-none"></div>
-                  
-                  <div class="luxury-tendina-item flex items-center justify-between text-rose-300 font-extrabold uppercase text-[11px] tracking-wider mb-3 pb-2 border-b border-rose-500/20">
+                  <div class="flex items-center justify-between text-rose-300 font-extrabold uppercase text-[11px] tracking-wider mb-3 pb-2 border-b border-rose-500/20">
                     <span class="flex items-center gap-2">
-                      <i data-lucide="sparkles" class="w-4 h-4 animate-spin-slow text-rose-400"></i>
+                      <i data-lucide="sparkles" class="w-4 h-4 text-rose-400"></i>
                       <span>Dettagli Percorso Esclusivo</span>
                     </span>
                   </div>
                   
                   <ul class="space-y-3">
-                    <li class="luxury-tendina-item flex items-start gap-3 p-2 rounded-xl hover:bg-rose-500/10 transition-colors">
-                      <div class="p-1 rounded-lg bg-rose-500/20 text-rose-400 shrink-0 mt-0.5 border border-rose-500/30 shadow-sm">
+                    <li class="flex items-start gap-3 p-2 rounded-xl bg-rose-500/10">
+                      <div class="p-1 rounded-lg bg-rose-500/20 text-rose-400 shrink-0 mt-0.5 border border-rose-500/30">
                         <i data-lucide="check" class="w-3.5 h-3.5"></i>
                       </div>
                       <span class="leading-tight">Slalom tra ostacoli naturali e salite ripide d'alta quota.</span>
                     </li>
-                    <li class="luxury-tendina-item flex items-start gap-3 p-2 rounded-xl hover:bg-rose-500/10 transition-colors">
-                      <div class="p-1 rounded-lg bg-rose-500/20 text-rose-400 shrink-0 mt-0.5 border border-rose-500/30 shadow-sm">
+                    <li class="flex items-start gap-3 p-2 rounded-xl bg-rose-500/10">
+                      <div class="p-1 rounded-lg bg-rose-500/20 text-rose-400 shrink-0 mt-0.5 border border-rose-500/30">
                         <i data-lucide="check" class="w-3.5 h-3.5"></i>
                       </div>
                       <span class="leading-tight">Visita all'imponente dimora storica di Villa Ginestra ('900).</span>
                     </li>
-                    <li class="luxury-tendina-item flex items-start gap-3 p-2 rounded-xl hover:bg-rose-500/10 transition-colors">
-                      <div class="p-1 rounded-lg bg-rose-500/20 text-rose-400 shrink-0 mt-0.5 border border-rose-500/30 shadow-sm">
+                    <li class="flex items-start gap-3 p-2 rounded-xl bg-rose-500/10">
+                      <div class="p-1 rounded-lg bg-rose-500/20 text-rose-400 shrink-0 mt-0.5 border border-rose-500/30">
                         <i data-lucide="check" class="w-3.5 h-3.5"></i>
                       </div>
                       <span class="leading-tight">Passaggio ad Is Arenas e calette selvagge di Gutturu 'e Flumini.</span>
                     </li>
-                    <li class="luxury-tendina-item flex items-start gap-3 p-2 rounded-xl hover:bg-rose-500/10 transition-colors">
-                      <div class="p-1 rounded-lg bg-rose-500/20 text-rose-400 shrink-0 mt-0.5 border border-rose-500/30 shadow-sm">
+                    <li class="flex items-start gap-3 p-2 rounded-xl bg-rose-500/10">
+                      <div class="p-1 rounded-lg bg-rose-500/20 text-rose-400 shrink-0 mt-0.5 border border-rose-500/30">
                         <i data-lucide="check" class="w-3.5 h-3.5"></i>
                       </div>
                       <span class="leading-tight">Esperienza totale riservata a chi vuole il massimo fuoristrada.</span>
@@ -590,13 +623,13 @@
             </div>
           </div>
 
+          <!-- PRENOTA BUTTON -->
           <div class="p-5 sm:p-6 pt-0 mt-2">
             <a href="https://wa.me/393500411021?text=Ciao!%20Vorrei%20informazioni%20sul%20tour%20VILLA%20GINESTRA" 
-               class="relative group/btn overflow-hidden w-full flex items-center justify-center gap-2 bg-gradient-to-r from-rose-600 via-rose-500 to-pink-500 hover:from-rose-500 hover:to-pink-400 text-white font-extrabold py-4 rounded-xl text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(244,63,94,0.3)] hover:shadow-[0_0_30px_rgba(244,63,94,0.6)] hover:scale-[1.02] active:scale-95 border border-rose-300/40 min-h-[48px]">
-              <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-in-out"></span>
-              <span class="relative flex items-center gap-2">
+               class="relative group/btn overflow-hidden w-full flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-400 text-black font-extrabold py-4 rounded-xl text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:scale-[1.02] active:scale-95 border border-amber-300/40 min-h-[48px]">
+              <span class="relative flex items-center gap-2 text-black">
                 <span>Prenota "Villa Ginestra"</span>
-                <i data-lucide="arrow-right" class="w-4 h-4 group-hover/btn:translate-x-1.5 transition-transform"></i>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover/btn:translate-x-1.5 transition-transform text-black"></i>
               </span>
             </a>
           </div>
@@ -607,55 +640,97 @@
     </div>
   </section>
 
-  <!-- GALLERIA ESPERIENZE -->
+  <!-- GALLERIA ESPERIENZE (SINGLE INTERACTIVE COVER BOX WITH FULL COLLAPSIBLE ANIMATED GALLERY) -->
   <section id="galleria" class="py-20 sm:py-28 bg-darkbg relative overflow-hidden">
     <!-- Glow element -->
     <div class="absolute bottom-0 right-10 w-96 h-96 bg-brand-500/10 rounded-full blur-[150px] pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
-        <div>
-          <span class="text-brand-400 font-extrabold text-xs uppercase tracking-widest block mb-2 bg-brand-500/10 border border-brand-500/20 w-fit px-4 py-1.5 rounded-full">Scatti sul campo</span>
-          <h2 class="font-display text-2xl sm:text-5xl font-extrabold uppercase text-white">Galleria Avventure</h2>
-        </div>
-        <p class="text-neutral-400 text-xs sm:text-sm max-w-md mt-3 md:mt-0 leading-relaxed">
-          Scorci autentici catturati durante i nostri tour tra terra, fango, fiumi e tramonti in Costa Verde.
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+        <span class="text-brand-400 font-extrabold text-xs uppercase tracking-widest block mb-2 bg-brand-500/10 border border-brand-500/20 w-fit mx-auto px-4 py-1.5 rounded-full">Scatti sul campo</span>
+        <h2 class="font-display text-2xl sm:text-5xl font-extrabold uppercase text-white tracking-wide">Galleria Avventure</h2>
+        <p class="text-neutral-300 text-xs sm:text-base mt-3 leading-relaxed font-medium">
+          Esplora la nostra collezione fotografica completa di scatti reali durante i tour off-road.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+      <!-- MAIN INTERACTIVE COVER BOX -->
+      <div id="gallery-cover" onclick="toggleGallery()" class="reveal opacity-0 translate-y-16 cursor-pointer group relative rounded-3xl overflow-hidden bg-cardbg border border-brand-500/30 hover:border-brand-400 shadow-2xl transition-all duration-500 p-6 sm:p-12 text-center max-w-4xl mx-auto flex flex-col items-center justify-center min-h-[300px] sm:min-h-[360px]">
+        <div class="absolute inset-0 bg-cover bg-center opacity-35 group-hover:opacity-45 group-hover:scale-105 transition-all duration-700" style="background-image: url('https://www.westcoastquad.it/wp-content/uploads/2024/08/image00004-1024x768.jpg');"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-darkbg/85 to-black/60"></div>
         
-        <div class="relative rounded-3xl overflow-hidden bg-cardbg border border-amber-500/20 hover:border-amber-400/80 hover:shadow-[0_15px_35px_rgba(245,158,11,0.15)] transition-all duration-500 ease-out reveal opacity-0 translate-y-16">
-          <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00002-819x1024.jpg" alt="West Coast Quad Foto 1" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
+        <div class="relative z-10 flex flex-col items-center gap-4">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-brand-500 text-black flex items-center justify-center shadow-2xl shadow-brand-500/50 group-hover:scale-110 transition-transform">
+            <i data-lucide="images" class="w-8 h-8 sm:w-10 sm:h-10 text-black"></i>
+          </div>
+          <div>
+            <span class="text-brand-400 font-extrabold text-xs uppercase tracking-widest block mb-1">8 Scatti d'Avventura</span>
+            <h3 class="font-display text-2xl sm:text-4xl font-extrabold uppercase text-white tracking-wide">Apri la Galleria Fotografica</h3>
+            <p class="text-neutral-300 text-xs sm:text-sm mt-2 max-w-md font-normal">Clicca per mostrare tutte le foto insieme ed immergerti nei percorsi tra terra, fiumi e tramonti.</p>
+          </div>
+          <button type="button" class="mt-2 inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-400 text-black font-extrabold px-6 py-3.5 rounded-full text-xs uppercase tracking-wider shadow-xl shadow-brand-500/30 group-hover:scale-105 transition-all min-h-[44px]">
+            <i data-lucide="eye" class="w-4 h-4 text-black"></i>
+            <span class="text-black">Guarda Tutte le Foto</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- EXPANDABLE FULL GALLERY CONTAINER -->
+      <div id="gallery-container" class="max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out max-w-7xl mx-auto">
+        
+        <div class="flex items-center justify-between my-6 px-2 border-b border-white/10 pb-4">
+          <div class="flex items-center gap-2 text-brand-400 font-bold text-xs uppercase tracking-widest">
+            <i data-lucide="camera" class="w-4 h-4"></i>
+            <span>Raccolta Immagini (8 Foto)</span>
+          </div>
+          <button type="button" onclick="toggleGallery()" class="inline-flex items-center gap-2 bg-neutral-900 hover:bg-neutral-800 text-white border border-white/20 px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all min-h-[44px]">
+            <i data-lucide="x" class="w-4 h-4 text-brand-400"></i>
+            <span>Richiudi Galleria</span>
+          </button>
         </div>
 
-        <div class="relative rounded-3xl overflow-hidden bg-cardbg border border-amber-500/20 hover:border-amber-400/80 hover:shadow-[0_15px_35px_rgba(245,158,11,0.15)] transition-all duration-500 ease-out reveal opacity-0 translate-y-16">
-          <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00003-819x1024.jpg" alt="West Coast Quad Foto 2" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-2">
+          
+          <div class="relative rounded-3xl overflow-hidden bg-cardbg border border-amber-500/20 hover:border-amber-400/80 hover:shadow-[0_15px_35px_rgba(245,158,11,0.15)] transition-all duration-500 ease-out">
+            <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00002-819x1024.jpg" alt="West Coast Quad Foto 1" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
+          </div>
+
+          <div class="relative rounded-3xl overflow-hidden bg-cardbg border border-amber-500/20 hover:border-amber-400/80 hover:shadow-[0_15px_35px_rgba(245,158,11,0.15)] transition-all duration-500 ease-out">
+            <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00003-819x1024.jpg" alt="West Coast Quad Foto 2" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
+          </div>
+
+          <div class="relative rounded-3xl overflow-hidden bg-cardbg border border-amber-500/20 hover:border-amber-400/80 hover:shadow-[0_15px_35px_rgba(245,158,11,0.15)] transition-all duration-500 ease-out">
+            <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00004-1024x768.jpg" alt="West Coast Quad Foto 3" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
+          </div>
+
+          <div class="relative rounded-3xl overflow-hidden bg-cardbg border border-amber-500/20 hover:border-amber-400/80 hover:shadow-[0_15px_35px_rgba(245,158,11,0.15)] transition-all duration-500 ease-out">
+            <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00005-1024x768.jpg" alt="West Coast Quad Foto 4" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
+          </div>
+
+          <div class="relative rounded-3xl overflow-hidden bg-cardbg border border-amber-500/20 hover:border-amber-400/80 hover:shadow-[0_15px_35px_rgba(245,158,11,0.15)] transition-all duration-500 ease-out">
+            <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00006-768x1024.jpg" alt="West Coast Quad Foto 5" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
+          </div>
+
+          <div class="relative rounded-3xl overflow-hidden bg-cardbg border border-amber-500/20 hover:border-amber-400/80 hover:shadow-[0_15px_35px_rgba(245,158,11,0.15)] transition-all duration-500 ease-out">
+            <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00012-1024x768.jpg" alt="West Coast Quad Foto 6" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
+          </div>
+
+          <div class="relative rounded-3xl overflow-hidden bg-cardbg border border-amber-500/20 hover:border-amber-400/80 hover:shadow-[0_15px_35px_rgba(245,158,11,0.15)] transition-all duration-500 ease-out">
+            <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00011-1024x576.jpg" alt="West Coast Quad Foto 7" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
+          </div>
+
+          <div class="relative rounded-3xl overflow-hidden bg-cardbg border border-amber-500/20 hover:border-amber-400/80 hover:shadow-[0_15px_35px_rgba(245,158,11,0.15)] transition-all duration-500 ease-out">
+            <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00010-1024x768.jpg" alt="West Coast Quad Foto 8" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
+          </div>
+
         </div>
 
-        <div class="relative rounded-3xl overflow-hidden bg-cardbg border border-amber-500/20 hover:border-amber-400/80 hover:shadow-[0_15px_35px_rgba(245,158,11,0.15)] transition-all duration-500 ease-out reveal opacity-0 translate-y-16">
-          <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00004-1024x768.jpg" alt="West Coast Quad Foto 3" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
-        </div>
-
-        <div class="relative rounded-3xl overflow-hidden bg-cardbg border border-amber-500/20 hover:border-amber-400/80 hover:shadow-[0_15px_35px_rgba(245,158,11,0.15)] transition-all duration-500 ease-out reveal opacity-0 translate-y-16">
-          <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00005-1024x768.jpg" alt="West Coast Quad Foto 4" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
-        </div>
-
-        <div class="relative rounded-3xl overflow-hidden bg-cardbg border border-amber-500/20 hover:border-amber-400/80 hover:shadow-[0_15px_35px_rgba(245,158,11,0.15)] transition-all duration-500 ease-out reveal opacity-0 translate-y-16">
-          <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00006-768x1024.jpg" alt="West Coast Quad Foto 5" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
-        </div>
-
-        <div class="relative rounded-3xl overflow-hidden bg-cardbg border border-amber-500/20 hover:border-amber-400/80 hover:shadow-[0_15px_35px_rgba(245,158,11,0.15)] transition-all duration-500 ease-out reveal opacity-0 translate-y-16">
-          <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00012-1024x768.jpg" alt="West Coast Quad Foto 6" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
-        </div>
-
-        <div class="relative rounded-3xl overflow-hidden bg-cardbg border border-amber-500/20 hover:border-amber-400/80 hover:shadow-[0_15px_35px_rgba(245,158,11,0.15)] transition-all duration-500 ease-out reveal opacity-0 translate-y-16">
-          <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00011-1024x576.jpg" alt="West Coast Quad Foto 7" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
-        </div>
-
-        <div class="relative rounded-3xl overflow-hidden bg-cardbg border border-amber-500/20 hover:border-amber-400/80 hover:shadow-[0_15px_35px_rgba(245,158,11,0.15)] transition-all duration-500 ease-out reveal opacity-0 translate-y-16">
-          <img src="https://www.westcoastquad.it/wp-content/uploads/2024/08/image00010-1024x768.jpg" alt="West Coast Quad Foto 8" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
+        <div class="text-center mt-8">
+          <button type="button" onclick="toggleGallery()" class="inline-flex items-center gap-2 bg-neutral-900 hover:bg-neutral-800 text-white border border-white/20 px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-xl min-h-[44px]">
+            <i data-lucide="chevron-up" class="w-4 h-4 text-brand-400"></i>
+            <span>Richiudi Galleria Fotografica</span>
+          </button>
         </div>
 
       </div>
@@ -669,7 +744,7 @@
       
       <div class="text-center mb-12 sm:mb-16 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
         <span class="text-brand-400 font-extrabold text-xs uppercase tracking-widest block mb-2 bg-brand-500/10 border border-brand-500/20 w-fit mx-auto px-4 py-1.5 rounded-full">Tutto ciò che devi sapere</span>
-        <h2 class="font-display text-2xl sm:text-5xl font-extrabold uppercase text-white">Domande Frequenti & Info Utili</h2>
+        <h2 class="font-display text-2xl sm:text-5xl font-extrabold uppercase text-white tracking-wide">Domande Frequenti & Info Utili</h2>
       </div>
 
       <div class="space-y-4 sm:space-y-5 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
@@ -738,17 +813,17 @@
           
           <div>
             <span class="text-brand-400 font-extrabold text-xs uppercase tracking-widest block mb-2 bg-brand-500/10 border border-brand-500/20 w-fit px-4 py-1.5 rounded-full">Un filo diretto con lo staff</span>
-            <h2 class="font-display text-2xl sm:text-5xl font-extrabold uppercase text-white mb-4 sm:mb-6 leading-tight">
+            <h2 class="font-display text-2xl sm:text-5xl font-extrabold uppercase text-white mb-4 sm:mb-6 leading-tight tracking-wide">
               Chiedi, informati,<br><span class="text-brand-500 bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-amber-500">Contattaci Subito</span>
             </h2>
-            <p class="text-neutral-300 text-xs sm:text-base leading-relaxed mb-6 sm:mb-8">
+            <p class="text-neutral-300 text-xs sm:text-base leading-relaxed mb-6 sm:mb-8 font-normal">
               Ti aiutiamo a scegliere l'avventura più adatta alle tue capacità e desideri. Chiamaci o scrivici direttamente su WhatsApp per verificare la disponibilità.
             </p>
 
             <div class="space-y-4">
               <a href="tel:+393500411021" class="flex items-center gap-4 p-4 sm:p-5 rounded-2xl bg-black/50 border border-white/10 hover:border-brand-500 transition-all group hover:translate-x-1 duration-300 min-h-[52px]">
                 <div class="p-3 sm:p-3.5 bg-brand-500 text-black rounded-xl group-hover:scale-110 transition-transform shadow-lg shadow-brand-500/20 shrink-0">
-                  <i data-lucide="phone" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+                  <i data-lucide="phone" class="w-5 h-5 sm:w-6 sm:h-6 text-black"></i>
                 </div>
                 <div>
                   <span class="text-[10px] sm:text-xs text-neutral-400 block uppercase font-bold tracking-wider">Telefono / WhatsApp</span>
@@ -762,7 +837,7 @@
             <div class="w-16 h-16 sm:w-20 sm:h-20 bg-brand-500/10 border border-brand-500/30 rounded-3xl flex items-center justify-center text-brand-400 mb-5 sm:mb-6 animate-float shrink-0">
               <i data-lucide="map-pin" class="w-8 h-8 sm:w-10 sm:h-10"></i>
             </div>
-            <h3 class="font-display font-extrabold text-xl sm:text-2xl text-white uppercase mb-2">I Nostri Itinerari</h3>
+            <h3 class="font-display font-extrabold text-xl sm:text-2xl text-white uppercase mb-2 tracking-wide">I Nostri Itinerari</h3>
             <p class="text-xs text-neutral-400 mb-6 sm:mb-8 max-w-xs leading-relaxed">
               Viale G. di Vittorio 36, 09036 GUSPINI SU IT
             </p>
@@ -771,8 +846,8 @@
                target="_blank"
                class="relative group/btn overflow-hidden w-full flex items-center justify-center gap-3 bg-brand-500 hover:bg-brand-400 text-black font-extrabold py-4 rounded-2xl text-xs uppercase tracking-wider shadow-xl shadow-brand-500/30 hover:scale-105 active:scale-95 transition-all duration-300 min-h-[48px]">
               <span class="absolute inset-0 w-full h-full bg-white/30 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 ease-in-out"></span>
-              <i data-lucide="message-circle" class="w-5 h-5 group-hover/btn:rotate-12 transition-transform"></i>
-              <span>Scrivici su WhatsApp</span>
+              <i data-lucide="message-circle" class="w-5 h-5 group-hover/btn:rotate-12 transition-transform text-black"></i>
+              <span class="text-black">Scrivici su WhatsApp</span>
             </a>
           </div>
 
@@ -841,7 +916,7 @@
           </div>
         </a>
 
-        <!-- BUTTON 2: MAPS LOCATION (GOOGLE MAPS INTERACTIVE PREVIEW CARD) -->
+        <!-- BUTTON 2: MAPS LOCATION -->
         <a href="https://www.google.com/maps/search/?api=1&query=Montevecchio+Arbus+West+Coast+Quad" target="_blank" rel="noopener noreferrer"
            class="group relative block overflow-hidden rounded-3xl border border-white/10 hover:border-brand-500 transition-all duration-500 shadow-xl h-full min-h-[240px] sm:min-h-[220px]">
           <!-- Google Maps Embedded Preview Frame -->
@@ -856,7 +931,7 @@
           <div class="relative z-10 p-5 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between h-full gap-4">
             <div class="flex items-center gap-4 sm:gap-5">
               <div class="p-3.5 sm:p-4 bg-brand-500 text-black rounded-2xl shadow-xl group-hover:scale-110 group-hover:-rotate-6 transition-transform shrink-0">
-                <i data-lucide="map-pin" class="w-6 h-6 sm:w-8 sm:h-8"></i>
+                <i data-lucide="map-pin" class="w-6 h-6 sm:w-8 sm:h-8 text-black"></i>
               </div>
               <div>
                 <span class="text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-brand-400 block mb-0.5 sm:mb-1">Punto di Partenza</span>
@@ -895,7 +970,7 @@
       <i data-lucide="phone" class="w-4 h-4 text-brand-400"></i> Chiama
     </a>
     <a href="https://wa.me/393500411021" class="flex-1 flex items-center justify-center gap-2 bg-brand-500 text-black py-3.5 rounded-xl font-extrabold text-xs uppercase shadow-lg shadow-brand-500/30 active:scale-95 transition-all min-h-[44px]">
-      <i data-lucide="message-square" class="w-4 h-4"></i> WhatsApp
+      <i data-lucide="message-square" class="w-4 h-4 text-black"></i> <span class="text-black">WhatsApp</span>
     </a>
   </div>
 
@@ -913,38 +988,55 @@
     }
     /* Hide scrollbar per le gallerie orizzontali */
     .no-scrollbar::-webkit-scrollbar { display: none; }
-
-    /* Luxury Cubic Bezier & Staggered Reveal Animations */
-    .cubic-bezier-luxury {
-      transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .luxury-tendina-item {
-      opacity: 0;
-      transform: translateY(12px) scale(0.97);
-      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .group:hover .luxury-tendina-item:nth-child(1) {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      transition-delay: 120ms;
-    }
-    .group:hover .luxury-tendina-item:nth-child(2) {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      transition-delay: 200ms;
-    }
-    .group:hover .luxury-tendina-item:nth-child(3) {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      transition-delay: 280ms;
-    }
-    .group:hover .luxury-tendina-item:nth-child(4) {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      transition-delay: 360ms;
-    }
   </style>
+
   <script>
+    // ITINERARY DETTAGLI TENDINA TOGGLE (MOBILE & DESKTOP SAFE)
+    function toggleTendina(btn, e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      const card = btn.closest('.itinerario-card');
+      if (!card) return;
+      const content = card.querySelector('.tendina-content');
+      const icon = card.querySelector('.tendina-icon');
+      const text = card.querySelector('.tendina-text');
+
+      if (content.classList.contains('open')) {
+        content.classList.remove('open');
+        content.style.maxHeight = '0px';
+        content.style.opacity = '0';
+        if (icon) icon.style.transform = 'rotate(0deg)';
+        if (text) text.textContent = 'Dettagli';
+      } else {
+        content.classList.add('open');
+        content.style.maxHeight = content.scrollHeight + 50 + 'px';
+        content.style.opacity = '1';
+        if (icon) icon.style.transform = 'rotate(180deg)';
+        if (text) text.textContent = 'Chiudi';
+      }
+    }
+
+    // GALLERY COLLAPSIBLE TOGGLE
+    function toggleGallery() {
+      const container = document.getElementById('gallery-container');
+      const cover = document.getElementById('gallery-cover');
+      if (!container) return;
+
+      if (container.classList.contains('open')) {
+        container.classList.remove('open');
+        container.style.maxHeight = '0px';
+        container.style.opacity = '0';
+        if (cover) cover.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        container.classList.add('open');
+        container.style.maxHeight = container.scrollHeight + 100 + 'px';
+        container.style.opacity = '1';
+        container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
       // Scroll Reveal Animazioni
       const observer = new IntersectionObserver((entries) => {
