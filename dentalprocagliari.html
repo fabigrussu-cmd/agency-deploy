@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicina Estetica & Dentista Quartucciu | DentalPro</title>
+  <meta name="description" content="Centro Dentistico DentalPro a Quartucciu (CC Le Vele). Specialisti in medicina estetica, filler acido ialuronico e biorivitalizzazione. Prenota ora!">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Medicina Estetica & Dentista Quartucciu | DentalPro">
+  <meta property="og:description" content="Eccellenza in Odontoiatria e Medicina Estetica presso il CC Le Vele a Quartucciu. Filler, Biorivitalizzazione e trattamenti avanzati.">
+  <meta property="og:type" content="website">
+
+  <!-- JSON-LD LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "DentalPro - Centro Dentistico Quartucciu CC Le Vele",
+    "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200",
+    "telephone": "+39708895660",
+    "url": "https://cal.com/fabio-grussu-ubggf7",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Centro Commerciale Le Vele",
+      "addressLocality": "Quartucciu",
+      "addressRegion": "CA",
+      "postalCode": "09044",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.2519,
+      "longitude": 9.1764
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "09:00",
+        "closes": "20:30"
+      }
+    ],
+    "priceRange": "$$",
+    "medicalSpecialty": ["Dentistry", "Dermatology"]
+  }
+  </script>
+
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: '#f59e0b',
+              goldLight: '#fbbf24',
+              goldDark: '#d97706',
+              dark: '#08080a',
+              card: '#121216',
+              border: 'rgba(245, 158, 11, 0.15)'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            display: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-brand-gold selection:text-black overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <header class="fixed w-full z-50 bg-black/60 backdrop-blur-2xl border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group" aria-label="DentalPro Home">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-goldDark to-brand-gold flex items-center justify-center text-black font-extrabold text-xl shadow-lg shadow-brand-gold/20 group-hover:scale-105 transition-transform duration-300">
+          D
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-xl tracking-tight text-white leading-none">Dental<span class="text-brand-gold">Pro</span></span>
+          <span class="text-[10px] tracking-widest uppercase text-slate-400 font-semibold mt-1">CC Le Vele • Quartucciu</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#trattamenti" class="hover:text-brand-gold transition-colors">Trattamenti Estetici</a>
+        <a href="#perche-noi" class="hover:text-brand-gold transition-colors">Perché Sceglierci</a>
+        <a href="#faq" class="hover:text-brand-gold transition-colors">Domande Frequenti</a>
+        <a href="#dove-siamo" class="hover:text-brand-gold transition-colors">Dove Siamo</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <a href="https://wa.me/39708895660" target="_blank" rel="noopener" aria-label="Contatta su WhatsApp" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-white/5 border border-white/10 hover:bg-white/10 hover:border-brand-gold/50 transition-all duration-300">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+          <span>WhatsApp</span>
+        </a>
+        <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener" aria-label="Prenota Visita" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-black bg-gradient-to-r from-brand-gold to-brand-goldLight hover:shadow-lg hover:shadow-brand-gold/30 hover:scale-105 transition-all duration-300">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          <span>Prenota Ora</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden parallax" style="background: radial-gradient(circle at 50% 20%, rgba(245, 158, 11, 0.18) 0%, rgba(8, 8, 10, 0.95) 60%), radial-gradient(circle at 80% 80%, rgba(217, 119, 6, 0.1) 0%, rgba(8, 8, 10, 1) 70%), #08080a;">
+      <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:32px_32px] opacity-5 pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-7 text-left space-y-8 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs font-semibold tracking-wide uppercase">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+              <span>Centro Odontoiatrico & Medicina Estetica</span>
+            </div>
+
+            <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
+              Ringiovanisci il tuo volto a <span class="bg-gradient-to-r from-brand-gold via-brand-goldLight to-amber-200 bg-clip-text text-transparent">Quartucciu</span>
+            </h1>
+
+            <p class="text-slate-300 text-lg sm:text-xl font-light leading-relaxed max-w-2xl">
+              Presso il <strong class="text-white font-semibold">Centro Dentistico DentalPro (CC Le Vele)</strong> uniamo l'eccellenza odontoiatrica a trattamenti avanzati di Medicina Estetica per rigenerare la bellezza naturale del tuo viso.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 pt-4">
+              <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener" aria-label="Prenota un appuntamento online" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-gold to-brand-goldDark text-black font-bold text-base shadow-xl shadow-brand-gold/20 hover:scale-105 hover:shadow-2xl hover:shadow-brand-gold/40 transition-all duration-500 cursor-pointer">
+                <i data-lucide="calendar-check" class="w-5 h-5"></i>
+                <span>Prenota Online la Tua Visita</span>
+              </a>
+
+              <a href="tel:708895660" aria-label="Chiama il centro dentistico" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 text-white font-semibold text-base hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer backdrop-blur-md">
+                <i data-lucide="phone-call" class="w-5 h-5 text-brand-gold"></i>
+                <span>070 8895660</span>
+              </a>
+            </div>
+
+            <!-- Features Highlights -->
+            <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-4">
+              <div class="space-y-1">
+                <div class="text-brand-gold font-bold text-xl sm:text-2xl">7 Giorni</div>
+                <div class="text-xs text-slate-400">Aperti nel weekend</div>
+              </div>
+              <div class="space-y-1">
+                <div class="text-brand-gold font-bold text-xl sm:text-2xl">100%</div>
+                <div class="text-xs text-slate-400">Acido Ialuronico Puro</div>
+              </div>
+              <div class="space-y-1">
+                <div class="text-brand-gold font-bold text-xl sm:text-2xl">Easy Pay</div>
+                <div class="text-xs text-slate-400">Pagamenti Dilazionati</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Graphic Card / Visual -->
+          <div class="lg:col-span-5 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-brand-gold to-amber-600 opacity-30 blur-2xl"></div>
+              
+              <div class="relative bg-brand-card border border-brand-border p-8 rounded-3xl shadow-2xl space-y-6 hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20">Location Esclusiva</span>
+                  <i data-lucide="map-pin" class="w-5 h-5 text-brand-gold"></i>
+                </div>
+
+                <div class="space-y-2">
+                  <h3 class="text-2xl font-bold text-white">Centro Commerciale Le Vele</h3>
+                  <p class="text-sm text-slate-400">Quartucciu (CA) • Comodo Parcheggio Gratuito e orari flessibili per il tuo massimo comfort.</p>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-white/5 border border-white/5 space-y-3">
+                  <div class="flex items-center gap-3 text-sm text-slate-200">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+                    <span>Comitato Medico Scientifico DentalPro</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-sm text-slate-200">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+                    <span>Risultati naturali ed immediati</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-sm text-slate-200">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+                    <span>Trattamenti personalizzati su misura</span>
+                  </div>
+                </div>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Centro+Commerciale+Le+Vele+Quartucciu" target="_blank" rel="noopener" aria-label="Ottieni indicazioni stradali per DentalPro" class="w-full py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-sm flex items-center justify-center gap-2 transition-all">
+                  <i data-lucide="navigation" class="w-4 h-4 text-brand-gold"></i>
+                  <span>Ottieni Indicazioni Mappa</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TRATTAMENTI DI MEDICINA ESTETICA (BENTO GRID) -->
+    <section id="trattamenti" class="py-24 bg-black relative">
+      <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+          <h2 class="text-xs font-extrabold uppercase tracking-widest text-brand-gold">Trattamenti di Medicina Estetica</h2>
+          <p class="font-display text-3xl sm:text-5xl font-bold text-white">Riscopri la naturale freschezza e giovinezza della tua pelle</p>
+          <p class="text-slate-400 text-base sm:text-lg">Soluzioni avanzate non invasive a base di acido ialuronico per correggere inestetismi e idratare in profondità.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          
+          <!-- CARD 1: FILLER -->
+          <div class="group bg-brand-card border border-brand-border p-8 sm:p-10 rounded-3xl hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col justify-between relative overflow-hidden reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+            <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-brand-gold/5 rounded-full blur-3xl group-hover:bg-brand-gold/15 transition-all duration-700"></div>
+
+            <div class="space-y-6 relative z-10">
+              <div class="w-14 h-14 rounded-2xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold">
+                <i data-lucide="sparkle" class="w-7 h-7"></i>
+              </div>
+
+              <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">Volumi & Definizione</span>
+                <h3 class="text-3xl font-bold text-white mt-1">Filler all'Acido Ialuronico</h3>
+              </div>
+
+              <p class="text-slate-300 leading-relaxed font-light">
+                Il filler è una sostanza iniettabile a base di acido ialuronico idonea per correggere efficacemente inestetismi quali rughe e pieghe, oppure per rimodellare in modo armonico guance, mento e labbra.
+              </p>
+
+              <div class="p-4 rounded-xl bg-white/5 border border-white/5 space-y-2">
+                <h4 class="text-sm font-semibold text-white flex items-center gap-2">
+                  <i data-lucide="shield-check" class="w-4 h-4 text-brand-gold"></i>
+                  Assoluta Tollerabilità
+                </h4>
+                <p class="text-xs text-slate-400 leading-normal">
+                  L'acido ialuronico è una sostanza riassorbibile naturalmente tollerata dal nostro corpo. Ripristina i volumi del volto ridisegnando i contorni e distendendo i segni del tempo.
+                </p>
+              </div>
+
+              <ul class="space-y-2 text-sm text-slate-300">
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>
+                  Modellamento e aumento volume labbra
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>
+                  Definizione del mento e degli zigomi
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>
+                  Correzione rughe naso-geniene e pieghe
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-8 mt-6 border-t border-white/10 relative z-10">
+              <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener" aria-label="Prenota consulenza filler" class="w-full py-3.5 rounded-xl bg-brand-gold text-black font-bold text-sm flex items-center justify-center gap-2 hover:bg-brand-goldLight transition-colors">
+                <span>Richiedi Consulenza Filler</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- CARD 2: BIORIVITALIZZAZIONE -->
+          <div class="group bg-brand-card border border-brand-border p-8 sm:p-10 rounded-3xl hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col justify-between relative overflow-hidden reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+            <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl group-hover:bg-amber-500/15 transition-all duration-700"></div>
+
+            <div class="space-y-6 relative z-10">
+              <div class="w-14 h-14 rounded-2xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold">
+                <i data-lucide="droplet" class="w-7 h-7"></i>
+              </div>
+
+              <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">Idratazione Profonda & Anti-Age</span>
+                <h3 class="text-3xl font-bold text-white mt-1">Biorivitalizzazione</h3>
+              </div>
+
+              <p class="text-slate-300 leading-relaxed font-light">
+                Trattamento altamente antiossidante e reidratante basato su micro-iniezioni di acido ialuronico puro, aminoacidi essenziali e vitamine ad azione stimolante profonda.
+              </p>
+
+              <div class="p-4 rounded-xl bg-white/5 border border-white/5 space-y-2">
+                <h4 class="text-sm font-semibold text-white flex items-center gap-2">
+                  <i data-lucide="flame" class="w-4 h-4 text-brand-gold"></i>
+                  Stimolazione di Collagene ed Elastina
+                </h4>
+                <p class="text-xs text-slate-400 leading-normal">
+                  Non ha scopi riempitivi, ma reidrata la cute in profondità contrastando i radicali liberi e riducendo le micro-rughe causate dal calo di acido ialuronico legato all'età.
+                </p>
+              </div>
+
+              <ul class="space-y-2 text-sm text-slate-300">
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>
+                  Idratazione profonda e luminosità immediata
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>
+                  Contrasto attivo dei radicali liberi
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>
+                  Aumento della compattezza ed elasticità cutanea
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-8 mt-6 border-t border-white/10 relative z-10">
+              <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener" aria-label="Prenota biorivitalizzazione" class="w-full py-3.5 rounded-xl bg-brand-gold text-black font-bold text-sm flex items-center justify-center gap-2 hover:bg-brand-goldLight transition-colors">
+                <span>Richiedi Biorivitalizzazione</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PERCHE SCEGLIERE DENTALPRO -->
+    <section id="perche-noi" class="py-24 bg-brand-dark relative border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+          <h2 class="text-xs font-extrabold uppercase tracking-widest text-brand-gold">I Nostri Standard</h2>
+          <p class="font-display text-3xl sm:text-5xl font-bold text-white">Perché scegliere DentalPro a Quartucciu</p>
+          <p class="text-slate-400 text-base">La garanzia di un grande gruppo medico unita all'attenzione per il singolo paziente.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          
+          <!-- Pilar 1 -->
+          <div class="bg-brand-card border border-brand-border p-8 rounded-3xl hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+            <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold mb-6">
+              <i data-lucide="award" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Esperienza e Professionalità</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Tutti i trattamenti e i protocolli clinici sono costantemente garantiti dal nostro <strong class="text-slate-200">Comitato Medico Scientifico</strong>, per offrirti massima sicurezza ed efficacia.
+            </p>
+          </div>
+
+          <!-- Pilar 2 -->
+          <div class="bg-brand-card border border-brand-border p-8 rounded-3xl hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+            <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold mb-6">
+              <i data-lucide="cpu" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Qualità e Tecnologia</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              I pilasti su cui si fonda l'intera attività DentalPro: strumentazioni diagnostiche di ultima generazione e materiali di prima qualità certificati.
+            </p>
+          </div>
+
+          <!-- Pilar 3 -->
+          <div class="bg-brand-card border border-brand-border p-8 rounded-3xl hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+            <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold mb-6">
+              <i data-lucide="clock" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Accessibilità Senza Pensieri</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Siamo <strong class="text-slate-200">aperti anche nel weekend</strong> per adeguarci ai tuoi ritmi e offriamo flessibili possibilità di <strong class="text-slate-200">pagamenti dilazionati</strong> per ogni trattamento.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ACCORDIONS / FAQ SECTION -->
+    <section id="faq" class="py-24 bg-black border-t border-white/5">
+      <div class="max-w-4xl mx-auto px-6">
+        
+        <div class="text-center mb-16 space-y-4 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+          <h2 class="text-xs font-extrabold uppercase tracking-widest text-brand-gold">Domande Frequenti</h2>
+          <p class="font-display text-3xl sm:text-4xl font-bold text-white">Tutto ciò che desideri sapere</p>
+        </div>
+
+        <div class="space-y-4 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+          
+          <details class="group bg-brand-card border border-white/10 rounded-2xl p-6 hover:border-brand-gold/40 transition-all duration-300">
+            <summary class="flex justify-between items-center font-bold text-lg text-white cursor-pointer">
+              <span>Qual è la differenza tra Filler e Biorivitalizzazione?</span>
+              <span class="text-brand-gold group-open:rotate-180 transition-transform duration-300">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </span>
+            </summary>
+            <div class="mt-4 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+              Il <strong>Filler</strong> serve a riempire e donare volume (labbra, zigomi, rughe profonde). La <strong>Biorivitalizzazione</strong> non ha scopi riempitivi, ma idrata in profondità la cute stimolando la produzione naturale di collagene ed elastina.
+            </div>
+          </details>
+
+          <details class="group bg-brand-card border border-white/10 rounded-2xl p-6 hover:border-brand-gold/40 transition-all duration-300">
+            <summary class="flex justify-between items-center font-bold text-lg text-white cursor-pointer">
+              <span>Il trattamento è doloroso?</span>
+              <span class="text-brand-gold group-open:rotate-180 transition-transform duration-300">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </span>
+            </summary>
+            <div class="mt-4 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+              I trattamenti sono minimamente invasivi e molto ben tollerati. Qualora necessario, vengono utilizzate micro-cannule aguzze di ultima generazione o pomate anestetiche per rendere la seduta del tutto confortevole.
+            </div>
+          </details>
+
+          <details class="group bg-brand-card border border-white/10 rounded-2xl p-6 hover:border-brand-gold/40 transition-all duration-300">
+            <summary class="flex justify-between items-center font-bold text-lg text-white cursor-pointer">
+              <span>Quanto durano i risultati?</span>
+              <span class="text-brand-gold group-open:rotate-180 transition-transform duration-300">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </span>
+            </summary>
+            <div class="mt-4 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+              L'acido ialuronico è un materiale riassorbibile. I risultati del filler variano solitamente tra i 6 e i 12 mesi a seconda del metabolismo e dell'area trattata. La biorivitalizzazione dona benefici immediati che si consolidano con un ciclo di sedute periodiche.
+            </div>
+          </details>
+
+          <details class="group bg-brand-card border border-white/10 rounded-2xl p-6 hover:border-brand-gold/40 transition-all duration-300">
+            <summary class="flex justify-between items-center font-bold text-lg text-white cursor-pointer">
+              <span>Quali sono gli orari di apertura del centro di Quartucciu?</span>
+              <span class="text-brand-gold group-open:rotate-180 transition-transform duration-300">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </span>
+            </summary>
+            <div class="mt-4 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+              Siamo operativi all'interno del Centro Commerciale Le Vele dal Lunedì alla Domenica, inclusi i weekend, per garantirti la massima flessibilità di prenotazione.
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION LOCATION & CTA -->
+    <section id="dove-siamo" class="py-24 bg-brand-dark relative">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="bg-gradient-to-br from-brand-card via-black to-brand-card border border-brand-border rounded-3xl p-8 sm:p-14 relative overflow-hidden shadow-2xl reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+          
+          <div class="grid lg:grid-cols-2 gap-10 items-center relative z-10">
+            <div class="space-y-6">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">Vieni a trovarci</span>
+              <h2 class="font-display text-3xl sm:text-5xl font-bold text-white leading-tight">
+                DentalPro Quartucciu CC Le Vele
+              </h2>
+              <p class="text-slate-300 text-base leading-relaxed font-light">
+                Ci trovi comodamente situati all'interno del Centro Commerciale Le Vele. Ampio parcheggio gratuito e orari continui a tua disposizione.
+              </p>
+
+              <div class="space-y-4 pt-2">
+                <div class="flex items-center gap-4 text-slate-200">
+                  <div class="w-10 h-10 rounded-xl bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold shrink-0">
+                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs text-slate-400">Indirizzo</div>
+                    <div class="font-semibold text-sm">Centro Commerciale Le Vele, 09044 Quartucciu (CA)</div>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-4 text-slate-200">
+                  <div class="w-10 h-10 rounded-xl bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold shrink-0">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs text-slate-400">Telefono Diretto</div>
+                    <a href="tel:708895660" class="font-semibold text-sm hover:text-brand-gold transition-colors">070 8895660</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-4">
+              <!-- BOTTONE "VIENICI A TROVARE" MANDATORIO -->
+              <a href="https://www.google.com/maps/search/?api=1&query=Centro+Commerciale+Le+Vele+Quartucciu" target="_blank" rel="noopener" aria-label="Vienici a trovare su Google Maps" class="w-full py-5 rounded-2xl bg-gradient-to-r from-brand-gold to-brand-goldDark text-black font-extrabold text-base sm:text-lg flex items-center justify-center gap-3 shadow-xl hover:scale-105 hover:shadow-2xl hover:shadow-brand-gold/40 transition-all duration-500 cursor-pointer">
+                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                <span>Vienici a trovare su Google Maps</span>
+              </a>
+
+              <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener" aria-label="Prenota visita online" class="w-full py-5 rounded-2xl bg-white/10 hover:bg-white/15 text-white font-bold text-base flex items-center justify-center gap-3 border border-white/10 hover:scale-105 transition-all duration-500 cursor-pointer">
+                <i data-lucide="calendar" class="w-6 h-6 text-brand-gold"></i>
+                <span>Prenota Appuntamento Online</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-black border-t border-white/10 py-12 text-slate-400 text-sm">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-brand-gold flex items-center justify-center text-black font-bold text-base">D</div>
+        <span class="text-white font-bold">DentalPro Quartucciu</span>
+      </div>
+
+      <p class="text-xs text-slate-500 text-center md:text-left">
+        © <script>document.write(new Date().getFullYear())</script> DentalPro Centro Dentistico Quartucciu CC Le Vele. Tutti i diritti riservati. Trattamenti di Medicina Estetica eseguiti da personale medico specializzato.
+      </p>
+
+      <div class="flex gap-4 text-xs">
+        <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" class="hover:text-brand-gold transition-colors">Prenotazioni</a>
+        <a href="tel:708895660" class="hover:text-brand-gold transition-colors">Chiama Ora</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOTORE ANIMAZIONI PREMIUM -->
+  <style>
+    /* Stile animato per le tendine (Accordions) */
+    details > summary { list-style: none; cursor: pointer; outline: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary ~ * { animation: sweep .4s ease-in-out; }
+    @keyframes sweep { 0% {opacity: 0; transform: translateY(-15px)} 100% {opacity: 1; transform: translateY(0)} }
+    /* Effetto Parallasse Sfondi */
+    .parallax { background-attachment: fixed; background-position: center; background-size: cover; background-repeat: no-repeat; }
+    /* Hide scrollbar per le gallerie orizzontali */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Scroll Reveal Animazioni
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            entry.target.classList.remove('opacity-0', 'translate-y-16');
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      
+      if(window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
