@@ -3,636 +3,499 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Studio Peyron | Centro d'Eccellenza Benessere & Recupero Sportivo</title>
+  <title>Studio Peyron | Fisioterapia e Benessere Barcellona</title>
+  <meta name="description" content="Studio Peyron: centro d'eccellenza a Barcellona per fisioterapia avanzata, massaggi premium, coaching fitness e percorsi nutrizionali su misura.">
+  <meta name="robots" content="index, follow">
   
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Alpine.js -->
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Studio Peyron | Fisioterapia e Benessere Barcellona">
+  <meta property="og:description" content="Centro d'eccellenza per il recupero sportivo, fisioterapia avanzata e benessere integrato a Barcellona.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  
+  <!-- Schema.org JSON-LD LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Studio Peyron",
+    "description": "Centro d'eccellenza per il benessere a 360 gradi. Fisioterapia avanzata, massaggi premium, coaching fitness e nutrizione.",
+    "telephone": "33781186598",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Diagonal, 557, Les Corts",
+      "addressLocality": "Barcelona",
+      "postalCode": "08029",
+      "addressCountry": "ES"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.3891,
+      "longitude": 2.1334
+    },
+    "url": "https://cal.com/fabio-grussu-ubggf7",
+    "priceRange": "$$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00",
+        "closes": "20:00"
+      }
+    ]
+  }
+  </script>
 
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            emerald: {
-              950: '#022c22',
-              900: '#064e3b',
-              800: '#065f46',
-              400: '#34d399',
-            },
-            gold: {
-              300: '#fde047',
-              400: '#facc15',
-              500: '#eab308',
-              600: '#ca8a04',
+            brand: {
+              orange: '#F97316',
+              darkOrange: '#EA580C',
+              amber: '#D97706',
+              black: '#050505',
+              card: '#0D0D0F',
+              border: '#27272A'
             }
           },
           fontFamily: {
             sans: ['Plus Jakarta Sans', 'sans-serif'],
-            serif: ['Playfair Display', 'serif']
+            serif: ['Cormorant Garamond', 'serif']
           }
         }
       }
     }
   </script>
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-
-    body {
-      background-color: #030712;
-      color: #f3f4f6;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      overflow-x: hidden;
-    }
-
-    .mesh-gradient-hero {
-      background-color: #030712;
-      background-image: 
-        radial-gradient(at 10% 10%, rgba(6, 78, 59, 0.45) 0px, transparent 55%),
-        radial-gradient(at 90% 20%, rgba(202, 138, 4, 0.15) 0px, transparent 50%),
-        radial-gradient(at 50% 80%, rgba(2, 44, 34, 0.6) 0px, transparent 60%),
-        radial-gradient(at 80% 80%, rgba(15, 23, 42, 0.9) 0px, transparent 50%);
-    }
-
-    .mesh-gradient-card {
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.08) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(202, 138, 4, 0.05) 0px, transparent 50%);
-    }
-
-    .text-glow {
-      text-shadow: 0 0 30px rgba(52, 211, 153, 0.35);
-    }
-    
-    .gold-glow {
-      text-shadow: 0 0 25px rgba(234, 179, 8, 0.3);
-    }
-
-    .glass-panel {
-      background: rgba(15, 23, 42, 0.65);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .glass-nav {
-      background: rgba(3, 7, 18, 0.75);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-    }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #030712;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #064e3b;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #34d399;
-    }
-  </style>
+  
+  <!-- Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body x-data="{ mobileMenu: false }">
 
-  <!-- 1. NAVBAR (GLASSMORPHISM) -->
-  <header class="fixed w-full z-50 glass-nav border-b border-white/10 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
-      
-      <!-- LOGO TIPOGRAFICO ELEGANTE -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 via-emerald-800 to-black p-[1px] shadow-[0_0_20px_rgba(52,211,153,0.2)] group-hover:shadow-[0_0_30px_rgba(52,211,153,0.4)] transition-all duration-500">
-          <div class="w-full h-full bg-slate-950 rounded-[15px] flex items-center justify-center">
-            <span class="font-serif font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-amber-300">SP</span>
+<body class="bg-black text-zinc-100 font-sans selection:bg-orange-500 selection:text-black overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <header class="fixed w-full z-50 bg-black/60 backdrop-blur-2xl border-b border-orange-500/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group" aria-label="Studio Peyron Home">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-orange-600 to-amber-400 p-[1px] shadow-[0_0_15px_rgba(249,115,22,0.4)]">
+          <div class="w-full h-full bg-black rounded-full flex items-center justify-center">
+            <span class="font-serif font-bold text-orange-500 text-xl tracking-tighter">P</span>
           </div>
         </div>
         <div class="flex flex-col">
-          <span class="font-serif text-xl font-bold tracking-widest text-white group-hover:text-emerald-400 transition-colors uppercase">Studio Peyron</span>
-          <span class="text-[9px] uppercase tracking-[0.3em] text-emerald-400/80">Barcelona • Excellence</span>
+          <span class="font-serif text-xl tracking-widest font-semibold uppercase text-white group-hover:text-orange-400 transition-colors">STUDIO PEYRON</span>
+          <span class="text-[9px] tracking-[0.2em] text-orange-500/80 uppercase font-medium">Barcelona</span>
         </div>
       </a>
 
-      <!-- DESKTOP NAV LINKS -->
-      <nav class="hidden md:flex items-center gap-10 text-sm font-medium tracking-wider uppercase text-slate-300">
-        <a href="#filosofia" class="hover:text-emerald-400 transition-colors duration-300">Filosofia</a>
-        <a href="#servizi" class="hover:text-emerald-400 transition-colors duration-300">Servizi</a>
-        <a href="#prenotazione" class="hover:text-emerald-400 transition-colors duration-300">Prenota</a>
-        <a href="#contatti" class="hover:text-emerald-400 transition-colors duration-300">Sede</a>
+      <nav class="hidden md:flex items-center gap-8 text-xs tracking-widest uppercase font-medium text-zinc-400">
+        <a href="#filosofia" class="hover:text-orange-400 transition-colors">Filosofia</a>
+        <a href="#servizi" class="hover:text-orange-400 transition-colors">Servizi</a>
+        <a href="#percorsi" class="hover:text-orange-400 transition-colors">Esperienza</a>
+        <a href="#faq" class="hover:text-orange-400 transition-colors">FAQ</a>
       </nav>
 
-      <!-- CTA BUTTON -->
-      <div class="hidden md:flex items-center gap-4">
-        <a href="https://wa.me/33781186598" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-white/5 border border-white/10 hover:border-emerald-500/50 hover:bg-emerald-500/10 text-emerald-400 transition-all duration-300">
-          <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span>WhatsApp</span>
-        </a>
-        <a href="#prenotazione" class="relative group overflow-hidden px-6 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase bg-gradient-to-r from-emerald-500 to-emerald-700 text-slate-950 shadow-[0_0_25px_rgba(52,211,153,0.3)] hover:shadow-[0_0_35px_rgba(52,211,153,0.6)] transition-all duration-300">
-          <span class="relative z-10">Prenota Visita</span>
-          <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
-        </a>
-      </div>
-
-      <!-- MOBILE MENU BUTTON -->
-      <button @click="mobileMenu = !mobileMenu" class="md:hidden text-slate-200 focus:outline-none p-2">
-        <i data-lucide="menu" x-show="!mobileMenu" class="w-7 h-7"></i>
-        <i data-lucide="x" x-show="mobileMenu" class="w-7 h-7"></i>
-      </button>
-
-    </div>
-
-    <!-- MOBILE MENU DROPDOWN -->
-    <div x-show="mobileMenu" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-4" class="md:hidden glass-panel border-b border-white/10 px-6 py-8 flex flex-col gap-6 text-center text-lg uppercase tracking-wider font-semibold text-slate-200">
-      <a @click="mobileMenu = false" href="#filosofia" class="hover:text-emerald-400">Filosofia</a>
-      <a @click="mobileMenu = false" href="#servizi" class="hover:text-emerald-400">Servizi</a>
-      <a @click="mobileMenu = false" href="#prenotazione" class="hover:text-emerald-400">Prenota</a>
-      <a @click="mobileMenu = false" href="#contatti" class="hover:text-emerald-400">Sede</a>
-      <div class="pt-4 border-t border-white/10 flex flex-col gap-3">
-        <a href="https://wa.me/33781186598" target="_blank" class="w-full py-3 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center gap-2 text-sm font-bold">
-          <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Direct
-        </a>
-        <a href="tel:33781186598" class="w-full py-3 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-slate-950 font-bold text-sm">
-          Chiama Ora
+      <div class="flex items-center gap-4">
+        <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener noreferrer" aria-label="Prenota visita" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-black font-semibold text-xs tracking-wider uppercase hover:shadow-[0_0_25px_rgba(249,115,22,0.6)] hover:scale-105 transition-all duration-300">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          <span>Prenota Ora</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- 2. HERO SECTION CINEMATOGRAFICA -->
-  <section class="relative min-h-screen mesh-gradient-hero flex items-center justify-center pt-28 pb-20 px-6 overflow-hidden">
-    <!-- Ambient Light Effects -->
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-    <div class="absolute bottom-10 right-10 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+  <main>
+    <!-- HERO SECTION -->
+    <section class="parallax relative min-h-screen flex items-center justify-center pt-28 pb-20 px-6 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-950/30 via-zinc-950 to-black overflow-hidden">
+      <!-- Ambient Lights -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-600/15 rounded-full blur-[140px] pointer-events-none"></div>
+      <div class="absolute bottom-10 right-10 w-[300px] h-[300px] bg-amber-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-    <div class="max-w-6xl mx-auto text-center relative z-10 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-      
-      <!-- Tag Badge -->
-      <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8 shadow-2xl">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-        <span class="text-xs uppercase tracking-[0.25em] font-semibold text-emerald-300">Centro d'Eccellenza Per Il Benessere</span>
+      <div class="max-w-5xl mx-auto text-center relative z-10 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-orange-500/30 bg-orange-500/5 backdrop-blur-md mb-8">
+          <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+          <span class="text-xs uppercase tracking-widest text-orange-400 font-semibold">Centro d'Eccellenza a Barcellona</span>
+        </div>
+
+        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-normal tracking-tight text-white mb-8 leading-[1.08]">
+          L'Arte della <span class="italic text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">Performance</span> e della Cura Corpo.
+        </h1>
+
+        <p class="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+          Fisioterapia avanzata, massaggi d'élite, coaching fitness e percorsi nutrizionali su misura. Un ecosistema esclusivo ideato per il tuo equilibrio fisico e il massimo recupero.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+          <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener noreferrer" aria-label="Prenota una consulenza" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-orange-500 via-orange-600 to-amber-500 text-black font-bold text-sm uppercase tracking-widest shadow-[0_0_30px_rgba(249,115,22,0.4)] hover:scale-105 hover:shadow-[0_0_45px_rgba(249,115,22,0.7)] transition-all duration-500 flex items-center justify-center gap-3">
+            <i data-lucide="calendar-check" class="w-5 h-5"></i>
+            <span>Riserva la Tua Consulta</span>
+          </a>
+          <a href="https://wa.me/33781186598" target="_blank" rel="noopener noreferrer" aria-label="Contatta su WhatsApp" class="w-full sm:w-auto px-8 py-4 rounded-full border border-zinc-800 bg-zinc-900/80 hover:bg-zinc-800 text-white font-semibold text-sm uppercase tracking-widest hover:border-orange-500/50 hover:scale-105 transition-all duration-500 flex items-center justify-center gap-3 backdrop-blur-md">
+            <i data-lucide="message-square" class="w-5 h-5 text-orange-500"></i>
+            <span>WhatsApp Direct</span>
+          </a>
+        </div>
+
+        <!-- Quick Info Badges -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20 pt-10 border-t border-zinc-900 text-left">
+          <div class="p-4 rounded-2xl bg-zinc-950/40 border border-zinc-900">
+            <div class="text-orange-400 text-2xl font-serif mb-1">360°</div>
+            <div class="text-xs text-zinc-500 uppercase tracking-wider">Approccio Integrato</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-zinc-950/40 border border-zinc-900">
+            <div class="text-orange-400 text-2xl font-serif mb-1">Les Corts</div>
+            <div class="text-xs text-zinc-500 uppercase tracking-wider">Av. Diagonal 557</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-zinc-950/40 border border-zinc-900">
+            <div class="text-orange-400 text-2xl font-serif mb-1">Elite</div>
+            <div class="text-xs text-zinc-500 uppercase tracking-wider">Recupero Sportivo</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-zinc-950/40 border border-zinc-900">
+            <div class="text-orange-400 text-2xl font-serif mb-1">100%</div>
+            <div class="text-xs text-zinc-500 uppercase tracking-wider">Personalizzato</div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Main Title -->
-      <h1 class="text-5xl sm:text-7xl lg:text-8xl font-serif font-bold tracking-tight text-white mb-8 leading-[1.08]">
-        Rigenerazione Tecnica & <br class="hidden sm:inline"/>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-emerald-400 to-amber-200 text-glow">
-          Equilibrio Fisico
-        </span>
-      </h1>
+    <!-- FILOSOFIA SECTION -->
+    <section id="filosofia" class="py-28 px-6 bg-black relative border-t border-zinc-900">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-5 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+            <span class="text-xs uppercase tracking-[0.2em] text-orange-500 font-semibold mb-3 block">La Nostra Visione</span>
+            <h2 class="font-serif text-4xl md:text-5xl font-normal text-white mb-6 leading-tight">
+              Sinergia Perfetta Tra <span class="italic text-orange-400">Scienza</span> e Rigenerazione.
+            </h2>
+            <p class="text-zinc-400 mb-6 font-light leading-relaxed">
+              In Studio Peyron non crediamo nelle soluzioni generiche. Ogni corpo ha una storia anatomica, un ritmo biologico e un obiettivo atletico differente.
+            </p>
+            <p class="text-zinc-400 mb-8 font-light leading-relaxed">
+              Ci dedichiamo con rigore clinico al recupero funzionale, alla prevenzione degli infortuni e al raggiungimento del picco di forma attraverso un approccio multidisciplinare unico a Barcellona.
+            </p>
+            
+            <div class="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-orange-950/20 to-transparent border border-orange-500/20">
+              <i data-lucide="shield-check" class="w-8 h-8 text-orange-500 shrink-0"></i>
+              <div class="text-sm">
+                <span class="font-semibold text-white block">Specializzazione Sportiva</span>
+                <span class="text-zinc-400 text-xs">Protocolli avanzati validati per atleti e professionisti.</span>
+              </div>
+            </div>
+          </div>
 
-      <!-- Description -->
-      <p class="max-w-3xl mx-auto text-lg sm:text-2xl text-slate-300 font-light leading-relaxed mb-12">
-        Siamo altamente specializzati nel recupero sportivo di alto livello e nell'ottimizzazione integrata della performance e del benessere personale.
-      </p>
+          <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+            <div class="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 hover:border-orange-500/50 hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer group">
+              <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-400 mb-6 group-hover:bg-orange-500 group-hover:text-black transition-all">
+                <i data-lucide="activity" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-serif text-2xl text-white mb-3">Analisi Posturale & Funzionale</h3>
+              <p class="text-zinc-400 text-sm leading-relaxed">Valutazione dettagliata dei pattern motori e individuazione immediata delle compensazioni muscolari.</p>
+            </div>
 
-      <!-- Action Buttons -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
-        <a href="#prenotazione" class="w-full sm:w-auto px-10 py-5 rounded-2xl bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 text-slate-950 font-bold text-base tracking-wider uppercase shadow-[0_0_40px_rgba(52,211,153,0.35)] hover:shadow-[0_0_60px_rgba(52,211,153,0.6)] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3">
-          <span>Prenota Consulto Smart</span>
-          <i data-lucide="arrow-right" class="w-5 h-5"></i>
-        </a>
+            <div class="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 hover:border-orange-500/50 hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer group">
+              <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-400 mb-6 group-hover:bg-orange-500 group-hover:text-black transition-all">
+                <i data-lucide="zap" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-serif text-2xl text-white mb-3">Recupero Accelerato</h3>
+              <p class="text-zinc-400 text-sm leading-relaxed">Tecniche manuali e strumentali avanzate per contrarre i tempi di riabilitazione post-trauma.</p>
+            </div>
+
+            <div class="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 hover:border-orange-500/50 hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer group">
+              <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-400 mb-6 group-hover:bg-orange-500 group-hover:text-black transition-all">
+                <i data-lucide="target" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-serif text-2xl text-white mb-3">Performance Maximization</h3>
+              <p class="text-zinc-400 text-sm leading-relaxed">Programmazione atletica su misura volta a sbloccare potenziale, forza e mobilita articolare.</p>
+            </div>
+
+            <div class="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 hover:border-orange-500/50 hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer group">
+              <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-400 mb-6 group-hover:bg-orange-500 group-hover:text-black transition-all">
+                <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-serif text-2xl text-white mb-3">Equilibrio Sistemico</h3>
+              <p class="text-zinc-400 text-sm leading-relaxed">Integrazione tra terapia manuale, nutrizione mirata e gestione dello stress neuro-muscolare.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIZI (BENTO GRID) -->
+    <section id="servizi" class="py-28 px-6 bg-zinc-950 border-t border-zinc-900 relative">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-20 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+          <span class="text-xs uppercase tracking-[0.2em] text-orange-500 font-semibold mb-3 block">I Nostri Pilastri</span>
+          <h2 class="font-serif text-4xl md:text-6xl font-normal text-white mb-6">Servizi ad Alta Specializzazione</h2>
+          <p class="text-zinc-400 text-base font-light">Un’offerta integrata progettata per garantire eccellenza clinica e rigenerazione sensoriale profonda.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+          
+          <!-- BENTO 1: Fisioterapia (Large 8 cols) -->
+          <div class="md:col-span-8 bg-black rounded-3xl p-8 md:p-12 border border-zinc-800 hover:border-orange-500/50 hover:scale-[1.02] hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col justify-between relative overflow-hidden group">
+            <div class="absolute -right-16 -top-16 w-64 h-64 bg-orange-600/10 rounded-full blur-3xl group-hover:bg-orange-500/20 transition-all"></div>
+            <div>
+              <div class="flex items-center justify-between mb-8">
+                <span class="px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs font-mono">01 / RIABILITAZIONE</span>
+                <i data-lucide="stethoscope" class="w-8 h-8 text-orange-500"></i>
+              </div>
+              <h3 class="font-serif text-3xl md:text-4xl text-white mb-4">Fisioterapia Avanzata e Riabilitazione</h3>
+              <p class="text-zinc-400 font-light leading-relaxed max-w-2xl mb-6">
+                Trattamenti mirati alla risoluzione di patologie muscolo-scheletriche, recupero post-operatorio e riabilitazione funzionale rapida. Utilizziamo tecniche manuali avanzate per eliminare il dolore e ripristinare la bio-meccanica ideale.
+              </p>
+            </div>
+            <div class="flex items-center gap-6 pt-6 border-t border-zinc-900 text-xs uppercase tracking-widest text-orange-400">
+              <span>Terapia Manuale</span> • <span>Rieducazione Motoria</span> • <span>Post-Infortunio</span>
+            </div>
+          </div>
+
+          <!-- BENTO 2: Massaggi (4 cols) -->
+          <div class="md:col-span-4 bg-black rounded-3xl p-8 border border-zinc-800 hover:border-orange-500/50 hover:scale-[1.02] hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-8">
+                <span class="px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs font-mono">02 / BENESSERE</span>
+                <i data-lucide="sparkles" class="w-8 h-8 text-orange-500"></i>
+              </div>
+              <h3 class="font-serif text-3xl text-white mb-4">Massaggi Premium</h3>
+              <p class="text-zinc-400 text-sm font-light leading-relaxed mb-6">
+                Dalle sessioni decontratturanti profonde al massaggio svedese rilassante. Tecniche su misura per sciogliere le tensioni cumulative e stimolare la circolazione.
+              </p>
+            </div>
+            <span class="text-xs uppercase tracking-widest text-orange-400 font-medium">Decontratturante & Relax</span>
+          </div>
+
+          <!-- BENTO 3: Fitness Coaching (5 cols) -->
+          <div class="md:col-span-5 bg-black rounded-3xl p-8 border border-zinc-800 hover:border-orange-500/50 hover:scale-[1.02] hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-8">
+                <span class="px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs font-mono">03 / PERFORMANCE</span>
+                <i data-lucide="dumbell" class="w-8 h-8 text-orange-500"></i>
+              </div>
+              <h3 class="font-serif text-3xl text-white mb-4">Coaching Fitness</h3>
+              <p class="text-zinc-400 text-sm font-light leading-relaxed mb-6">
+                Programmi di allenamento personalizzati incentrati sull'ottimizzazione delle performance atletiche, incremento della forza funzionale e prevenzione degli infortuni.
+              </p>
+            </div>
+            <span class="text-xs uppercase tracking-widest text-orange-400 font-medium">Personal Training Elite</span>
+          </div>
+
+          <!-- BENTO 4: Nutrizione (7 cols) -->
+          <div class="md:col-span-7 bg-black rounded-3xl p-8 md:p-12 border border-zinc-800 hover:border-orange-500/50 hover:scale-[1.02] hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col justify-between relative overflow-hidden group">
+            <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-amber-600/10 rounded-full blur-3xl group-hover:bg-amber-500/20 transition-all"></div>
+            <div>
+              <div class="flex items-center justify-between mb-8">
+                <span class="px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs font-mono">04 / NUTRIZIONE</span>
+                <i data-lucide="apple" class="w-8 h-8 text-orange-500"></i>
+              </div>
+              <h3 class="font-serif text-3xl md:text-4xl text-white mb-4">Piani Nutrizionali Personalizzati</h3>
+              <p class="text-zinc-400 font-light leading-relaxed mb-6">
+                Piani alimentari dettagliati per supportare il metabolismo, sostenere la composizione corporea ideale e migliorare i livelli energetici quotidiani.
+              </p>
+            </div>
+            <div class="flex items-center gap-6 pt-6 border-t border-zinc-900 text-xs uppercase tracking-widest text-orange-400">
+              <span>Bio-Individualità</span> • <span>Nutrizione Sportiva</span> • <span>Composizione Corporea</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION (ACCORDIONS) -->
+    <section id="faq" class="py-28 px-6 bg-black border-t border-zinc-900">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+          <span class="text-xs uppercase tracking-[0.2em] text-orange-500 font-semibold mb-3 block">Risposte Chiarezza</span>
+          <h2 class="font-serif text-4xl md:text-5xl font-normal text-white">Domande Frequenti</h2>
+        </div>
+
+        <div class="space-y-4 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+          
+          <details class="group bg-zinc-950 border border-zinc-800 rounded-2xl p-6 hover:border-orange-500/40 transition-all">
+            <summary class="flex items-center justify-between font-serif text-xl text-white">
+              <span>Come si svolge la prima valutazione fisioterapica?</span>
+              <span class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-orange-500 group-open:rotate-180 transition-transform">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </span>
+            </summary>
+            <p class="mt-4 text-zinc-400 text-sm leading-relaxed font-light">
+              La prima seduta prevede un'anamnesi completa, test di mobilita articolare e valutazione della forza muscolare. In base all'esito, stiliamo un piano terapeutico personalizzato e procediamo con il primo trattamento manuale.
+            </p>
+          </details>
+
+          <details class="group bg-zinc-950 border border-zinc-800 rounded-2xl p-6 hover:border-orange-500/40 transition-all">
+            <summary class="flex items-center justify-between font-serif text-xl text-white">
+              <span>È possibile combinare coaching fitness e nutrizione?</span>
+              <span class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-orange-500 group-open:rotate-180 transition-transform">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </span>
+            </summary>
+            <p class="mt-4 text-zinc-400 text-sm leading-relaxed font-light">
+              Assolutamente sì. Il nostro approccio a 360° raccomanda l'integrazione tra l'attività fisica programmata ed un piano alimentare studiato ad hoc per massimizzare i risultati estetici e prestazionali.
+            </p>
+          </details>
+
+          <details class="group bg-zinc-950 border border-zinc-800 rounded-2xl p-6 hover:border-orange-500/40 transition-all">
+            <summary class="flex items-center justify-between font-serif text-xl text-white">
+              <span>Qual è la differenza tra massaggio decontratturante e rilassante?</span>
+              <span class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-orange-500 group-open:rotate-180 transition-transform">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </span>
+            </summary>
+            <p class="mt-4 text-zinc-400 text-sm leading-relaxed font-light">
+              Il massaggio decontratturante lavora sulle fasce muscolari profonde per sciogliere nodi e rigidità da sforzo. Il massaggio rilassante svedese sfrutta sfioramenti fluidi per ridurre lo stress, abbassare il cortisolo e favorire il riposo.
+            </p>
+          </details>
+
+          <details class="group bg-zinc-950 border border-zinc-800 rounded-2xl p-6 hover:border-orange-500/40 transition-all">
+            <summary class="flex items-center justify-between font-serif text-xl text-white">
+              <span>Dove si trova la clinica e come posso prenotare?</span>
+              <span class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-orange-500 group-open:rotate-180 transition-transform">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </span>
+            </summary>
+            <p class="mt-4 text-zinc-400 text-sm leading-relaxed font-light">
+              Ci troviamo in Av. Diagonal, 557, nel quartiere Les Corts a Barcellona. Puoi prenotare un appuntamento direttamente dal nostro calendario online o via WhatsApp.
+            </p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION & MAP CTA -->
+    <section class="py-24 px-6 bg-gradient-to-b from-black to-zinc-950 border-t border-zinc-900">
+      <div class="max-w-7xl mx-auto rounded-3xl bg-zinc-900/40 border border-zinc-800 p-8 md:p-16 relative overflow-hidden reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-orange-600/10 rounded-full blur-3xl"></div>
         
-        <a href="tel:33781186598" class="w-full sm:w-auto px-8 py-5 rounded-2xl glass-panel hover:bg-white/10 border border-white/15 text-white font-semibold text-base tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-3">
-          <i data-lucide="phone-call" class="w-5 h-5 text-emerald-400"></i>
-          <span>+33 7 81 18 65 98</span>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+          <div class="lg:col-span-7">
+            <span class="text-xs uppercase tracking-[0.2em] text-orange-500 font-semibold mb-3 block">La Nostra Sede Clinica</span>
+            <h2 class="font-serif text-4xl md:text-5xl text-white mb-6">Nel Cuore di Barcellona</h2>
+            <p class="text-zinc-400 font-light text-base mb-8 max-w-xl">
+              Un ambiente riservato, moderno e dotato delle migliori attrezzature per garantirti un'esperienza di benessere senza compromessi.
+            </p>
+
+            <div class="space-y-4 mb-8">
+              <div class="flex items-center gap-4 text-zinc-300">
+                <i data-lucide="map-pin" class="w-6 h-6 text-orange-500 shrink-0"></i>
+                <span class="text-sm">Av. Diagonal, 557, Les Corts, 08029 Barcelona, Spagna</span>
+              </div>
+              <div class="flex items-center gap-4 text-zinc-300">
+                <i data-lucide="phone" class="w-6 h-6 text-orange-500 shrink-0"></i>
+                <a href="tel:33781186598" class="text-sm hover:text-orange-400 transition-colors">+33 7 81 18 65 98</a>
+              </div>
+            </div>
+
+            <!-- BOTTONE SUPREMO: VIENICI A TROVARE -->
+            <a href="https://www.google.com/maps/search/?api=1&query=Av.+Diagonal,+557,+Les+Corts,+08029+Barcelona,+Spagna" target="_blank" rel="noopener noreferrer" aria-label="Vienici a trovare su Google Maps" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-xs tracking-widest uppercase border border-zinc-700 hover:border-orange-500 hover:scale-105 transition-all duration-500 shadow-xl">
+              <i data-lucide="navigation" class="w-4 h-4 text-orange-500"></i>
+              <span>Vienici a Trovare (Google Maps)</span>
+            </a>
+          </div>
+
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="w-full h-72 rounded-2xl bg-zinc-950 border border-zinc-800 flex flex-col items-center justify-center p-8 text-center hover:border-orange-500/50 hover:scale-105 transition-all duration-500">
+              <div class="w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500 mb-4">
+                <i data-lucide="clock" class="w-8 h-8"></i>
+              </div>
+              <h4 class="font-serif text-2xl text-white mb-2">Orari di Apertura</h4>
+              <p class="text-zinc-400 text-sm font-light">Lunedì - Sabato: 08:00 - 20:00</p>
+              <p class="text-zinc-500 text-xs mt-2">Domenica: Su Appuntamento VIP</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-black text-zinc-500 py-16 px-6 border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-zinc-900">
+      
+      <div class="md:col-span-6">
+        <a href="#" class="flex items-center gap-3 mb-6" aria-label="Studio Peyron Home">
+          <div class="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-black font-serif font-bold">P</div>
+          <span class="font-serif text-xl tracking-widest text-white uppercase font-semibold">STUDIO PEYRON</span>
         </a>
-      </div>
-
-      <!-- Quick Metrics -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 pt-12 border-t border-white/10 max-w-4xl mx-auto text-left">
-        <div>
-          <div class="font-serif text-3xl lg:text-4xl font-bold text-emerald-400">360°</div>
-          <div class="text-xs uppercase tracking-wider text-slate-400 mt-1">Approccio Olistico</div>
-        </div>
-        <div>
-          <div class="font-serif text-3xl lg:text-4xl font-bold text-amber-300">100%</div>
-          <div class="text-xs uppercase tracking-wider text-slate-400 mt-1">Personalizzazione</div>
-        </div>
-        <div>
-          <div class="font-serif text-3xl lg:text-4xl font-bold text-emerald-400">High-Tech</div>
-          <div class="text-xs uppercase tracking-wider text-slate-400 mt-1">Fisioterapia Avanzata</div>
-        </div>
-        <div>
-          <div class="font-serif text-3xl lg:text-4xl font-bold text-amber-300">Barcelona</div>
-          <div class="text-xs uppercase tracking-wider text-slate-400 mt-1">Les Corts / Diagonal</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PHILOSOPHY & STATEMENT SECTION -->
-  <section id="filosofia" class="py-28 px-6 relative bg-slate-950 border-y border-white/5">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      
-      <div class="lg:col-span-5 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-        <span class="text-xs uppercase tracking-[0.3em] font-semibold text-emerald-400 block mb-3">La Nostra Visione</span>
-        <h2 class="text-4xl sm:text-5xl font-serif font-bold text-white leading-tight mb-6">
-          L'Eccellenza Scientifica al Servizio del Tuo Corpo.
-        </h2>
-        <div class="w-16 h-1 bg-gradient-to-r from-emerald-400 to-amber-300 mb-8 rounded-full"></div>
-        <p class="text-slate-300 leading-relaxed text-lg mb-6">
-          Studio Peyron nasce come punto di riferimento unico a Barcellona per chi esige uno standard elevatissimo nel recupero funzionale e nel benessere sistemico.
+        <p class="text-zinc-400 text-sm font-light max-w-md mb-6">
+          Eccellenza nella fisioterapia, recupero sportivo e percorsi integrati di salute e nutrizione a Barcellona.
         </p>
-        <p class="text-slate-400 leading-relaxed text-base">
-          Dall'atleta professionista che ricerca l'ottimizzazione del gesto atletico, al paziente che desidera affrancarsi dal dolore cronico o ritrovare il perfetto equilibrio nutrizionale e corporale.
-        </p>
-      </div>
-
-      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-        <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-emerald-500/40 transition-colors">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6">
-            <i data-lucide="activity" class="w-6 h-6"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Recupero Sportivo</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            Protocolli accelerati per infortuni muscolari, articolari e riabilitazione post-traumatica rigorosa.
-          </p>
-        </div>
-
-        <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-amber-500/40 transition-colors sm:translate-y-6">
-          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-300 mb-6">
-            <i data-lucide="sparkles" class="w-6 h-6"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Equilibrio Fisico</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            Trattamenti decontratturanti e posturali per ripristinare il flusso energetico e la coordinazione.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 3. CALENDARIO O PRENOTAZIONE SMART -->
-  <section id="prenotazione" class="py-28 px-6 relative mesh-gradient-hero">
-    <div class="max-w-6xl mx-auto">
-      
-      <div class="text-center max-w-3xl mx-auto mb-16 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-        <span class="text-xs uppercase tracking-[0.3em] font-semibold text-emerald-400 block mb-3">Agenda Digitale</span>
-        <h2 class="text-4xl sm:text-5xl font-serif font-bold text-white mb-6">Riserva la Tua Sessione</h2>
-        <p class="text-slate-300 text-lg">
-          Seleziona la data e l'orario più adatti alle tue esigenze direttamente dal nostro sistema integrato in tempo reale.
-        </p>
-      </div>
-
-      <!-- CAL.COM IFRAME INTEGRATO PREMIUM -->
-      <div class="reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-        <div class="w-full max-w-5xl mx-auto h-[680px] rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/15 bg-slate-950/80 backdrop-blur-xl relative">
-          <iframe src="https://cal.com/fabio-grussu-ubggf7?embed=true&theme=dark" width="100%" height="100%" frameborder="0" class="w-full h-full rounded-3xl"></iframe>
-        </div>
-      </div>
-
-      <!-- Alternative Quick WhatsApp Banner -->
-      <div class="mt-12 max-w-3xl mx-auto glass-panel p-6 rounded-2xl border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
         <div class="flex items-center gap-4">
-          <div class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
-            <i data-lucide="help-circle" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <h4 class="text-sm font-bold text-white">Hai esigenze particolari o orari personalizzati?</h4>
-            <p class="text-xs text-slate-400">Contatta la reception diretta via WhatsApp per supporto immediato.</p>
-          </div>
+          <a href="https://wa.me/33781186598" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-orange-400 hover:border-orange-500 transition-all">
+            <i data-lucide="message-square" class="w-5 h-5"></i>
+          </a>
+          <a href="tel:33781186598" aria-label="Telefono" class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-orange-400 hover:border-orange-500 transition-all">
+            <i data-lucide="phone" class="w-5 h-5"></i>
+          </a>
+          <a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener noreferrer" aria-label="Calendario" class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-orange-400 hover:border-orange-500 transition-all">
+            <i data-lucide="calendar" class="w-5 h-5"></i>
+          </a>
         </div>
-        <a href="https://wa.me/33781186598" target="_blank" class="px-6 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider shrink-0 transition-colors">
-          Assistenza WhatsApp
+      </div>
+
+      <div class="md:col-span-3">
+        <h5 class="text-white text-xs font-semibold uppercase tracking-widest mb-4">Navigazione</h5>
+        <ul class="space-y-3 text-sm">
+          <li><a href="#filosofia" class="hover:text-orange-400 transition-colors">Filosofia</a></li>
+          <li><a href="#servizi" class="hover:text-orange-400 transition-colors">Servizi Clinici</a></li>
+          <li><a href="#faq" class="hover:text-orange-400 transition-colors">Domande Frequenti</a></li>
+          <li><a href="https://cal.com/fabio-grussu-ubggf7" target="_blank" rel="noopener noreferrer" class="hover:text-orange-400 transition-colors">Prenota Visita</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-3">
+        <h5 class="text-white text-xs font-semibold uppercase tracking-widest mb-4">Sede Clinica</h5>
+        <p class="text-sm text-zinc-400 font-light mb-2">Av. Diagonal, 557, Les Corts</p>
+        <p class="text-sm text-zinc-400 font-light mb-4">08029 Barcelona, Spagna</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Av.+Diagonal,+557,+Les+Corts,+08029+Barcelona,+Spagna" target="_blank" rel="noopener noreferrer" class="text-xs text-orange-500 uppercase font-semibold tracking-wider hover:underline flex items-center gap-1">
+          <span>Apri in Maps</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
         </a>
       </div>
 
     </div>
-  </section>
 
-  <!-- 4. SEZIONE MENU O SERVIZI (BENTO BOX CON HOVER AWWWARDS EFFECT) -->
-  <section id="servizi" class="py-28 px-6 bg-slate-950 relative border-t border-white/10">
-    <div class="max-w-7xl mx-auto">
-      
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-        <div>
-          <span class="text-xs uppercase tracking-[0.3em] font-semibold text-emerald-400 block mb-3">Aree d'Intervento</span>
-          <h2 class="text-4xl sm:text-6xl font-serif font-bold text-white">Servizi Specialistici</h2>
-        </div>
-        <p class="text-slate-400 max-w-md mt-4 md:mt-0 text-sm leading-relaxed">
-          Passa il cursore sulle card per svelare i dettagli tecnici e la metodologia di ciascun percorso personalizzato.
-        </p>
-      </div>
-
-      <!-- BENTO BOX GRID -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-
-        <!-- CARD 1: FISIOTERAPIA -->
-        <div class="relative overflow-hidden group rounded-3xl bg-slate-900 border border-white/10 transition-all duration-700 hover:shadow-[0_0_35px_rgba(52,211,153,0.25)] hover:border-emerald-500/50 min-h-[420px] flex flex-col justify-between p-8">
-          <div class="mesh-gradient-card absolute inset-0 pointer-events-none opacity-50"></div>
-          
-          <div class="relative z-0">
-            <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6">
-              <i data-lucide="cross" class="w-7 h-7"></i>
-            </div>
-            <span class="text-xs uppercase tracking-widest text-emerald-400 font-bold">Servizio 01</span>
-            <h3 class="text-2xl font-serif font-bold text-white mt-2 mb-4">Fisioterapia Avanzata e Riabilitazione</h3>
-            <p class="text-slate-400 text-sm line-clamp-3">
-              Valutazione funzionale clinica, terapia manuale, riabilitazione post-chirurgica e recupero motorio intensivo.
-            </p>
-          </div>
-
-          <div class="relative z-0 flex items-center justify-between text-xs uppercase tracking-wider text-slate-300 font-semibold pt-6 border-t border-white/10">
-            <span>Dettagli Tecnici</span>
-            <i data-lucide="arrow-up-right" class="w-4 h-4 text-emerald-400"></i>
-          </div>
-
-          <!-- HOVER DRAWER (AWWWARDS EFFECT) -->
-          <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-950 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-between p-8 text-white z-10 border border-emerald-500/40">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">01 / Dettagli</span>
-                <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i>
-              </div>
-              <h4 class="text-xl font-bold mb-3 text-white">Fisioterapia Avanzata</h4>
-              <p class="text-xs text-slate-300 leading-relaxed mb-4">
-                Integrazione di terapia manuale ad alta precisione, terapia con onde d'urto, tecarterapia avanzata ed esercizi neuro-muscolari mirati per la risoluzione definitiva del dolore.
-              </p>
-              <ul class="text-xs text-slate-300 space-y-2 mb-4">
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Traumatologia Sportiva</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Riabilitazione Post-Operatoria</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Riprogrammazione Posturale</li>
-              </ul>
-            </div>
-            <a href="#prenotazione" class="w-full py-3 rounded-xl bg-emerald-400 text-slate-950 font-bold text-center text-xs uppercase tracking-wider hover:bg-emerald-300 transition-colors">
-              Prenota Fisioterapia
-            </a>
-          </div>
-        </div>
-
-        <!-- CARD 2: MASSAGGI PREMIUM -->
-        <div class="relative overflow-hidden group rounded-3xl bg-slate-900 border border-white/10 transition-all duration-700 hover:shadow-[0_0_35px_rgba(234,179,8,0.2)] hover:border-amber-500/50 min-h-[420px] flex flex-col justify-between p-8">
-          <div class="mesh-gradient-card absolute inset-0 pointer-events-none opacity-50"></div>
-          
-          <div class="relative z-0">
-            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-300 mb-6">
-              <i data-lucide="flame" class="w-7 h-7"></i>
-            </div>
-            <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">Servizio 02</span>
-            <h3 class="text-2xl font-serif font-bold text-white mt-2 mb-4">Massaggi Premium</h3>
-            <p class="text-slate-400 text-sm line-clamp-3">
-              Tecniche decontratturanti profondo, rilassamento miofasciale e rigenerazione muscolare profonda.
-            </p>
-          </div>
-
-          <div class="relative z-0 flex items-center justify-between text-xs uppercase tracking-wider text-slate-300 font-semibold pt-6 border-t border-white/10">
-            <span>Dettagli Tecnici</span>
-            <i data-lucide="arrow-up-right" class="w-4 h-4 text-amber-300"></i>
-          </div>
-
-          <!-- HOVER DRAWER (AWWWARDS EFFECT) -->
-          <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900 to-amber-950/80 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-between p-8 text-white z-10 border border-amber-500/40">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">02 / Dettagli</span>
-                <i data-lucide="heart-pulse" class="w-5 h-5 text-amber-300"></i>
-              </div>
-              <h4 class="text-xl font-bold mb-3 text-white">Massaggi Decontratturanti</h4>
-              <p class="text-xs text-slate-300 leading-relaxed mb-4">
-                Rilascio delle tensioni muscolari croniche e drenaggio dei tessuti profondi per migliorare la circolazione e ridurre drasticamente lo stress sistemico.
-              </p>
-              <ul class="text-xs text-slate-300 space-y-2 mb-4">
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-300"></i> Massaggio Decontratturante Sportivo</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-300"></i> Rilascio Miofasciale Profondo</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-300"></i> Treatment Anti-Stress Holisitic</li>
-              </ul>
-            </div>
-            <a href="#prenotazione" class="w-full py-3 rounded-xl bg-amber-400 text-slate-950 font-bold text-center text-xs uppercase tracking-wider hover:bg-amber-300 transition-colors">
-              Prenota Massaggio
-            </a>
-          </div>
-        </div>
-
-        <!-- CARD 3: COACHING FITNESS -->
-        <div class="relative overflow-hidden group rounded-3xl bg-slate-900 border border-white/10 transition-all duration-700 hover:shadow-[0_0_35px_rgba(52,211,153,0.25)] hover:border-emerald-500/50 min-h-[420px] flex flex-col justify-between p-8">
-          <div class="mesh-gradient-card absolute inset-0 pointer-events-none opacity-50"></div>
-          
-          <div class="relative z-0">
-            <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6">
-              <i data-lucide="zap" class="w-7 h-7"></i>
-            </div>
-            <span class="text-xs uppercase tracking-widest text-emerald-400 font-bold">Servizio 03</span>
-            <h3 class="text-2xl font-serif font-bold text-white mt-2 mb-4">Coaching Fitness & Performance</h3>
-            <p class="text-slate-400 text-sm line-clamp-3">
-              Ottimizzazione su misura delle prestazioni atletiche, forza funzionale, coordinazione e prevenzione infortuni.
-            </p>
-          </div>
-
-          <div class="relative z-0 flex items-center justify-between text-xs uppercase tracking-wider text-slate-300 font-semibold pt-6 border-t border-white/10">
-            <span>Dettagli Tecnici</span>
-            <i data-lucide="arrow-up-right" class="w-4 h-4 text-emerald-400"></i>
-          </div>
-
-          <!-- HOVER DRAWER (AWWWARDS EFFECT) -->
-          <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-950 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-between p-8 text-white z-10 border border-emerald-500/40">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">03 / Dettagli</span>
-                <i data-lucide="trending-up" class="w-5 h-5 text-emerald-400"></i>
-              </div>
-              <h4 class="text-xl font-bold mb-3 text-white">Coaching Fitness</h4>
-              <p class="text-xs text-slate-300 leading-relaxed mb-4">
-                Programmazione dell'allenamento basata sull'analisi della composizione corporea e sui test di forza esplosiva e resistenza.
-              </p>
-              <ul class="text-xs text-slate-300 space-y-2 mb-4">
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Potenziamento Muscolare Mirato</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Athletic Conditioning</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Prevenzione Traumi Sportivi</li>
-              </ul>
-            </div>
-            <a href="#prenotazione" class="w-full py-3 rounded-xl bg-emerald-400 text-slate-950 font-bold text-center text-xs uppercase tracking-wider hover:bg-emerald-300 transition-colors">
-              Inizia Coaching
-            </a>
-          </div>
-        </div>
-
-        <!-- CARD 4: NUTRIZIONE -->
-        <div class="relative overflow-hidden group rounded-3xl bg-slate-900 border border-white/10 transition-all duration-700 hover:shadow-[0_0_35px_rgba(234,179,8,0.2)] hover:border-amber-500/50 min-h-[420px] flex flex-col justify-between p-8">
-          <div class="mesh-gradient-card absolute inset-0 pointer-events-none opacity-50"></div>
-          
-          <div class="relative z-0">
-            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-300 mb-6">
-              <i data-lucide="apple" class="w-7 h-7"></i>
-            </div>
-            <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">Servizio 04</span>
-            <h3 class="text-2xl font-serif font-bold text-white mt-2 mb-4">Piani Nutrizionali Personalizzati</h3>
-            <p class="text-slate-400 text-sm line-clamp-3">
-              Piani alimentari scientifici strutturati sulle specifiche esigenze metaboliche, sportive e biologiche dell'individuo.
-            </p>
-          </div>
-
-          <div class="relative z-0 flex items-center justify-between text-xs uppercase tracking-wider text-slate-300 font-semibold pt-6 border-t border-white/10">
-            <span>Dettagli Tecnici</span>
-            <i data-lucide="arrow-up-right" class="w-4 h-4 text-amber-300"></i>
-          </div>
-
-          <!-- HOVER DRAWER (AWWWARDS EFFECT) -->
-          <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900 to-amber-950/80 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-between p-8 text-white z-10 border border-amber-500/40">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">04 / Dettagli</span>
-                <i data-lucide="scale" class="w-5 h-5 text-amber-300"></i>
-              </div>
-              <h4 class="text-xl font-bold mb-3 text-white">Nutrizione Personalizzata</h4>
-              <p class="text-xs text-slate-300 leading-relaxed mb-4">
-                Piani nutrizionali studiati per massimizzare il recupero tessutale, ottimizzare il peso forma e ricomporre la massa magra/grassa.
-              </p>
-              <ul class="text-xs text-slate-300 space-y-2 mb-4">
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-300"></i> Analisi Bioimpedenziometrica</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-300"></i> Nutrizione Agonistica e Sportiva</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-300"></i> Piani Anti-Infiammazione</li>
-              </ul>
-            </div>
-            <a href="#prenotazione" class="w-full py-3 rounded-xl bg-amber-400 text-slate-950 font-bold text-center text-xs uppercase tracking-wider hover:bg-amber-300 transition-colors">
-              Richiedi Piano
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CLINICAL HQ & LOCATION SHOWCASE -->
-  <section class="py-24 px-6 bg-slate-950 relative border-t border-white/5">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      
-      <div class="space-y-6 reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-        <span class="text-xs uppercase tracking-[0.3em] font-semibold text-emerald-400">Sede Clinica Esclusiva</span>
-        <h2 class="text-4xl font-serif font-bold text-white">Nel Cuore di Barcelona</h2>
-        <p class="text-slate-300 leading-relaxed">
-          Il nostro centro accoglie i pazienti in un ambiente riservato, moderno e dotato dei più sofisticati strumenti tecnologici per la diagnosi motoria ed il trattamento fisioterapico.
-        </p>
-        
-        <div class="space-y-4 pt-4">
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0 mt-1">
-              <i data-lucide="map-pin" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h4 class="text-white font-bold text-sm">Indirizzo Sede</h4>
-              <p class="text-slate-400 text-sm">Av. Diagonal, 557, Les Corts, 08029 Barcelona, Spagna</p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0 mt-1">
-              <i data-lucide="phone" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h4 class="text-white font-bold text-sm">Linea Diretta & WhatsApp</h4>
-              <p class="text-slate-400 text-sm">+33 7 81 18 65 98</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- GOOGLE MAPS CTA BOX GIGANTE -->
-      <div class="glass-panel p-8 rounded-3xl border border-white/10 text-center relative overflow-hidden reveal opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-        <div class="w-20 h-20 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mx-auto mb-6">
-          <i data-lucide="navigation" class="w-10 h-10"></i>
-        </div>
-        <h3 class="text-2xl font-serif font-bold text-white mb-3">Pianifica la Tua Visita</h3>
-        <p class="text-slate-400 text-sm mb-8 max-w-md mx-auto">
-          Situati in Av. Diagonal 557, nel prestigioso quartiere Les Corts. Facilmente raggiungibile con i principali mezzi pubblici e parcheggio riservato nelle vicinanze.
-        </p>
-        <a href="https://www.google.com/maps/search/?api=1&query=Av.+Diagonal,+557,+Les+Corts,+08029+Barcelona,+Spagna" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-400 to-emerald-600 text-slate-950 font-bold text-sm uppercase tracking-wider shadow-[0_0_30px_rgba(52,211,153,0.3)] hover:shadow-[0_0_50px_rgba(52,211,153,0.5)] hover:scale-[1.03] transition-all duration-300">
-          <i data-lucide="map" class="w-5 h-5"></i>
-          <span>Raggiungici su Google Maps</span>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 5. FOOTER (IL CENTRO NEVRALGICO) -->
-  <footer id="contatti" class="bg-slate-950 text-slate-400 border-t border-white/10 pt-20 pb-12 px-6 relative">
-    <div class="max-w-7xl mx-auto">
-      
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
-        
-        <!-- Brand & Description -->
-        <div class="md:col-span-5 space-y-6">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-800 flex items-center justify-center text-slate-950 font-serif font-bold text-lg">
-              SP
-            </div>
-            <span class="font-serif text-2xl font-bold tracking-widest text-white uppercase">Studio Peyron</span>
-          </div>
-          <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
-            Centro d'eccellenza per il benessere a 360 gradi. Fisioterapia avanzata, riabilitazione, massaggi decontratturanti, coaching atletico e nutrizione personalizzata.
-          </p>
-          <div class="flex items-center gap-4">
-            <a href="https://wa.me/33781186598" target="_blank" class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:text-emerald-400 hover:border-emerald-500/50 transition-all duration-300">
-              <i data-lucide="message-circle" class="w-5 h-5"></i>
-            </a>
-            <a href="tel:33781186598" class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:text-emerald-400 hover:border-emerald-500/50 transition-all duration-300">
-              <i data-lucide="phone" class="w-5 h-5"></i>
-            </a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Av.+Diagonal,+557,+Les+Corts,+08029+Barcelona,+Spagna" target="_blank" class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:text-emerald-400 hover:border-emerald-500/50 transition-all duration-300">
-              <i data-lucide="map-pin" class="w-5 h-5"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Quick Links -->
-        <div class="md:col-span-3 space-y-4">
-          <h4 class="text-xs uppercase tracking-[0.2em] font-bold text-white">Navigazione</h4>
-          <ul class="space-y-3 text-sm">
-            <li><a href="#filosofia" class="hover:text-emerald-400 transition-colors">La Filosofia</a></li>
-            <li><a href="#servizi" class="hover:text-emerald-400 transition-colors">Servizi Clinici</a></li>
-            <li><a href="#prenotazione" class="hover:text-emerald-400 transition-colors">Prenota Visita</a></li>
-            <li><a href="#contatti" class="hover:text-emerald-400 transition-colors">Dove Siamo</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact Info -->
-        <div class="md:col-span-4 space-y-4">
-          <h4 class="text-xs uppercase tracking-[0.2em] font-bold text-white">Sede & Contatti Direct</h4>
-          <div class="text-sm space-y-2 text-slate-300">
-            <p class="font-medium text-white">Studio Peyron Barcelona</p>
-            <p class="text-slate-400">Av. Diagonal, 557, Les Corts, 08029 Barcelona, Spagna</p>
-            <p class="pt-2"><span class="text-slate-500">Telefono:</span> <a href="tel:33781186598" class="text-emerald-400 hover:underline">+33 7 81 18 65 98</a></p>
-            <p><span class="text-slate-500">WhatsApp:</span> <a href="https://wa.me/33781186598" class="text-emerald-400 hover:underline">+33 7 81 18 65 98</a></p>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Bottom Copyright & Map Button -->
-      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-        <p>&copy; <span x-data="{ year: new Date().getFullYear() }" x-text="year"></span> Studio Peyron. Tutti i diritti riservati.</p>
-        <a href="https://www.google.com/maps/search/?api=1&query=Av.+Diagonal,+557,+Les+Corts,+08029+Barcelona,+Spagna" target="_blank" class="hover:text-emerald-400 transition-colors flex items-center gap-2">
-          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-          <span>Av. Diagonal, 557, Les Corts, 08029 Barcelona, Spagna</span>
-        </a>
-      </div>
-
+    <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-600 gap-4">
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> Studio Peyron. Tutti i diritti riservati.</p>
+      <p class="tracking-widest uppercase">Barcelona • Health & Performance</p>
     </div>
   </footer>
 
-  <!-- MOTORE DELLE ANIMATIONS -->
+  <!-- MOTORE ANIMAZIONI PREMIUM -->
+  <style>
+    /* Stile animato per le tendine (Accordions) */
+    details > summary { list-style: none; cursor: pointer; outline: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary ~ * { animation: sweep .4s ease-in-out; }
+    @keyframes sweep { 0% {opacity: 0; transform: translateY(-15px)} 100% {opacity: 1; transform: translateY(0)} }
+    /* Effetto Parallasse Sfondi */
+    .parallax { background-attachment: fixed; background-position: center; background-size: cover; background-repeat: no-repeat; }
+    /* Hide scrollbar per le gallerie orizzontali */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+  </style>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Scroll Reveal Animazioni
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('opacity-100', 'translate-y-0', 'scale-100');
-            entry.target.classList.remove('opacity-0', 'translate-y-12', 'scale-95');
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            entry.target.classList.remove('opacity-0', 'translate-y-16');
           }
         });
       }, { threshold: 0.1 });
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      
       if(window.lucide) lucide.createIcons();
     });
   </script>
