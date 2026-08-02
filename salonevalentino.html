@@ -122,12 +122,16 @@
       </a>
 
       <!-- DESKTOP NAV -->
-      <nav class="hidden md:flex items-center space-x-10 text-xs uppercase tracking-[0.25em] font-light text-neutral-300">
+      <nav class="hidden md:flex items-center space-x-8 text-xs uppercase tracking-[0.25em] font-light text-neutral-300">
         <a href="#servizi" class="hover:text-white transition-colors duration-300 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all">Servizi</a>
         <a href="#orari" class="hover:text-white transition-colors duration-300 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all">Orari</a>
         <a href="#filosofia" class="hover:text-white transition-colors duration-300 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all">Chi Siamo</a>
         <a href="#faq" class="hover:text-white transition-colors duration-300 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all">FAQ</a>
         <a href="#trovaci" class="hover:text-white transition-colors duration-300 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all">Dove Siamo</a>
+        <a href="https://www.facebook.com/SalonePirasValentino/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-300 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all flex items-center gap-1.5 text-blue-400">
+          <i data-lucide="facebook" class="w-3.5 h-3.5"></i>
+          <span>Seguici su Facebook</span>
+        </a>
       </nav>
 
       <!-- CTA HEADER DESKTOP & MOBILE -->
@@ -136,7 +140,23 @@
           <i data-lucide="phone" class="w-3.5 h-3.5"></i>
           <span>Chiama Ora</span>
         </a>
+        <button id="mobile-menu-btn" aria-label="Apri Menu" class="md:hidden p-2 text-white hover:text-neutral-300 focus:outline-none">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
       </div>
+    </div>
+
+    <!-- MOBILE TENDINA MENU -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-white/15 px-6 py-6 space-y-4 text-xs uppercase tracking-widest font-light text-neutral-300">
+      <a href="#servizi" class="block py-2 hover:text-white transition-colors">Servizi</a>
+      <a href="#orari" class="block py-2 hover:text-white transition-colors">Orari</a>
+      <a href="#filosofia" class="block py-2 hover:text-white transition-colors">Chi Siamo</a>
+      <a href="#faq" class="block py-2 hover:text-white transition-colors">FAQ</a>
+      <a href="#trovaci" class="block py-2 hover:text-white transition-colors">Dove Siamo</a>
+      <a href="https://www.facebook.com/SalonePirasValentino/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 py-3 text-blue-400 font-normal hover:text-white transition-colors border-t border-white/10 pt-4">
+        <i data-lucide="facebook" class="w-4 h-4"></i>
+        <span>Seguici su Facebook</span>
+      </a>
     </div>
   </header>
 
@@ -472,6 +492,64 @@
         </div>
       </div>
     </section>
+
+    <!-- SECTION FACEBOOK ANTEPRIMA -->
+    <section id="facebook" class="py-24 bg-neutral-950 border-t border-white/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 reveal opacity-0 translate-y-16 transition-all duration-[1200ms] ease-out">
+        <div class="text-center mb-12">
+          <span class="text-xs uppercase tracking-[0.35em] text-white/90 block mb-3 font-medium">Social Network</span>
+          <h2 class="font-serif text-4xl sm:text-5xl font-light text-white mb-4">Seguici su Facebook</h2>
+          <p class="text-neutral-400 text-sm font-light max-w-xl mx-auto">Rimani aggiornato sui nostri ultimi lavori, tendenze di stile e novità trasmesse direttamente dalla nostra pagina ufficiale.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+          <!-- Card Info Facebook -->
+          <div class="bg-neutral-900/60 border border-white/20 rounded-3xl p-8 backdrop-blur-xl flex flex-col justify-between h-full hover:border-white/40 transition-all duration-500 shadow-2xl">
+            <div>
+              <div class="flex items-center gap-4 mb-6">
+                <div class="p-1 rounded-full bg-gradient-to-tr from-white/60 to-white/30">
+                  <img src="https://scontent-mxp2-1.xx.fbcdn.net/v/t39.30808-6/300405196_571207758031928_64611453439001563_n.jpg?stp=dst-jpg_tt6&cstp=mx332x325&ctp=s332x325&_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=yhQahGUpflcQ7kNvwHGEeSB&_nc_oc=AdoCOk3bTg7ZmFfz_NhRn1CIyYyL5lmLxnN8lCq8_IrikBP04SzcYgnMqtNqbEQn_FU&_nc_zt=23&_nc_ht=scontent-mxp2-1.xx&_nc_gid=7dlRp9dWDYi55_Q6eRjFGA&_nc_ss=7b2a8&oh=00_AQGWZLCc6ehYq3ze2Fcoqx99ZFpgCNU2Mjr935QwYW2vCQ&oe=6A74ADBF" alt="Salone Valentino Facebook" class="w-16 h-16 rounded-full object-cover border border-black" />
+                </div>
+                <div>
+                  <h3 class="font-serif text-2xl font-normal text-white">Salone Valentino</h3>
+                  <p class="text-xs text-neutral-400 uppercase tracking-wider">Parrucchiere & Barbiere a Mogoro</p>
+                  <div class="flex items-center gap-2 mt-1 text-xs text-blue-400">
+                    <i data-lucide="thumbs-up" class="w-3.5 h-3.5"></i>
+                    <span>Pagina Ufficiale Facebook</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-neutral-300 text-xs sm:text-sm font-light leading-relaxed mb-6">
+                Scopri le anteprime dei nostri tagli, gli stili uomo e donna più richiesti e interagisci direttamente con lo staff del Salone Valentino.
+              </p>
+            </div>
+            
+            <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center gap-4 justify-between">
+              <a href="https://www.facebook.com/SalonePirasValentino/" target="_blank" rel="noopener noreferrer" aria-label="Seguici su Facebook" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#1877F2] hover:bg-[#166fe5] text-white font-semibold text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:scale-105">
+                <i data-lucide="facebook" class="w-4 h-4"></i>
+                <span>Seguici su Facebook</span>
+              </a>
+              <span class="text-xs text-neutral-400 font-light">@SalonePirasValentino</span>
+            </div>
+          </div>
+
+          <!-- Embed Anteprima Facebook Page Widget -->
+          <div class="bg-neutral-900/40 border border-white/20 rounded-3xl p-4 overflow-hidden flex justify-center items-center shadow-2xl min-h-[460px]">
+            <iframe 
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSalonePirasValentino%2F&tabs=timeline&width=380&height=460&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" 
+              width="100%" 
+              height="460" 
+              style="border:none;overflow:hidden;max-width:380px;" 
+              scrolling="no" 
+              frameborder="0" 
+              allowfullscreen="true" 
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              class="rounded-2xl">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- SMARTPHONE QUICK FLOATING CALL BAR -->
@@ -499,7 +577,11 @@
         © <script>document.write(new Date().getFullYear())</script> Tutti i diritti riservati • Salone Valentino Unisex
       </div>
 
-      <div>
+      <div class="flex items-center gap-3">
+        <a href="https://www.facebook.com/SalonePirasValentino/" target="_blank" rel="noopener noreferrer" aria-label="Pagina Facebook Salone Valentino" class="px-5 py-2.5 rounded-full border border-white/30 text-xs uppercase tracking-widest text-neutral-300 hover:text-white hover:border-white transition-all duration-300 inline-flex items-center gap-2 bg-neutral-900/50">
+          <i data-lucide="facebook" class="w-3.5 h-3.5 text-blue-400"></i>
+          <span>Facebook</span>
+        </a>
         <a href="tel:0783990500" aria-label="Chiama Salone" class="px-6 py-2.5 rounded-full border border-white/30 text-xs uppercase tracking-widest text-neutral-300 hover:text-white hover:border-white transition-all duration-300 inline-flex items-center gap-2 bg-neutral-900/50">
           <i data-lucide="phone" class="w-3.5 h-3.5 text-white"></i>
           <span>0783 990500</span>
@@ -541,6 +623,15 @@
   </style>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Toggle Menu Mobile Tendina
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
       // Scroll Reveal Animazioni Luxury
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
