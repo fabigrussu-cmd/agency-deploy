@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Salone Valentino | Parrucchiere & Barbiere Mogoro</title>
-  <meta name="description" content="Salone Valentino esegue tagli e styling uomo, donna e bambino a Mogoro (OR). Trattamenti barba e colore di lusso. Prenota ora al 0783 990500.">
+  <meta name="description" content="Salone Valentino esegue tagli e styling uomo, donna e bambino a Mogoro (OR). Trattamenti barba e colore. Prenota ora al 0783 990500.">
   <link rel="canonical" href="https://salone-mogoro.it">
 
   <!-- Open Graph -->
@@ -21,7 +21,7 @@
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Google Fonts: Inter & Cormorant Garamond per Touch Luxury -->
+  <!-- Google Fonts: Inter & Cormorant Garamond per Touch Elegance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
@@ -168,7 +168,7 @@
         
         <span class="inline-flex items-center gap-2 border border-white/30 rounded-full px-5 py-2 text-[10px] sm:text-xs uppercase tracking-[0.35em] text-neutral-200 mb-8 backdrop-blur-xl bg-black/40 shadow-[0_0_20px_rgba(255,255,255,0.1)] animate-float">
           <i data-lucide="scissors" class="w-3.5 h-3.5 text-white"></i>
-          Salone Per Tutti • Uomo, Donna & Bambino
+          Salone • Uomo, Donna & Bambino
         </span>
 
         <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-tight text-white mb-8 leading-[1.08]">
@@ -497,7 +497,7 @@
   </main>
 
   <!-- SMARTPHONE QUICK FLOATING CALL BAR -->
-  <div class="md:hidden fixed bottom-4 left-4 right-4 z-50">
+  <div class="lg:hidden fixed bottom-4 left-4 right-4 z-50">
     <a href="tel:0783990500" class="flex items-center justify-center gap-3 w-full py-3.5 rounded-full bg-gradient-to-r from-white via-neutral-100 to-neutral-300 text-black font-semibold text-xs uppercase tracking-widest shadow-[0_0_25px_rgba(255,255,255,0.3)] border border-white/50 backdrop-blur-xl">
       <i data-lucide="phone-call" class="w-4 h-4 animate-pulse"></i>
       <span>Chiama e Prenota • 0783 990500</span>
@@ -573,6 +573,12 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      
+      // Pulisce l'URL se c'è un hash bloccato in cache al caricamento
+      if (window.location.hash) {
+        history.replaceState('', document.title, window.location.pathname + window.location.search);
+      }
+
       // Toggle Menu Mobile Tendina
       const mobileBtn = document.getElementById('mobile-menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
@@ -581,6 +587,25 @@
           mobileMenu.classList.toggle('hidden');
         });
       }
+
+      // Smooth Scroll Silenzioso (Nessun hash nell'URL)
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          if (targetId.length > 1) { // Salta i link vuoti (href="#")
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              e.preventDefault(); // Blocca l'inserimento di #orari nell'URL
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+              
+              // Chiude il menu mobile
+              if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+              }
+            }
+          }
+        });
+      });
 
       // Scroll Reveal Animazioni Luxury
       const observer = new IntersectionObserver((entries) => {
