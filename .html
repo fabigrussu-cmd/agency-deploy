@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centro Estetico Cagliari | L'Estetificio - Trattamenti Beauty</title>
+  <meta name="description" content="L'Estetificio a Cagliari: estetica avanzata, trattamenti viso e corpo, epilazione laser e massaggi esclusivi con la professionalità di Francesca Pes.">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="L'Estetificio | L'Arte del Tuo Benessere a Cagliari">
+  <meta property="og:description" content="Centro estetico di eccellenza a Cagliari. Trattamenti viso avanzati, laser definitivo e massaggi su misura.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl00U6-Kww33Xp24AbAmnRbuJPlM37AtWwIdXmjLLEV_Xg7Fptz9GK4u0MncyrGJRLZddC6GfxnEyITQ6AvZf-aEpbLwn2Cm0oq0Qg8cGZpovzuAG9hg48WJIDhDtYk0d1w6bpT=s1360-w1360-h1020-rw">
+
+  <!-- JSON-LD Structured Data (LocalBusiness) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "L'Estetificio",
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl00U6-Kww33Xp24AbAmnRbuJPlM37AtWwIdXmjLLEV_Xg7Fptz9GK4u0MncyrGJRLZddC6GfxnEyITQ6AvZf-aEpbLwn2Cm0oq0Qg8cGZpovzuAG9hg48WJIDhDtYk0d1w6bpT=s1360-w1360-h1020-rw",
+    "telephone": "+393292373806",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Antonio Scano 44",
+      "addressLocality": "Cagliari",
+      "postalCode": "09129",
+      "addressRegion": "CA",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.2198,
+      "longitude": 9.1256
+    },
+    "url": "https://www.instagram.com/l_estetificio/",
+    "sameAs": [
+      "https://www.instagram.com/l_estetificio/",
+      "https://www.facebook.com/LestetificiodiFrancesca"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "73"
+    },
+    "priceRange": "$$$"
+  }
+  </script>
+
+  <!-- Google Fonts & Tailwind CSS CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            fuchsia: {
+              400: '#e879f9',
+              500: '#d946ef',
+              600: '#c026d3',
+              700: '#a21caf',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-neutral-950 text-neutral-100 font-sans selection:bg-fuchsia-500 selection:text-white antialiased overflow-x-hidden">
+
+  <!-- NAVBAR FISSA -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-neutral-950/80 backdrop-blur-2xl border-b border-neutral-800/60 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo Tipografico Luxury -->
+      <a href="#" class="group flex flex-col tracking-widest focus:outline-none" aria-label="L'Estetificio Home">
+        <span class="font-serif text-2xl sm:text-3xl font-light uppercase tracking-[0.25em] text-white group-hover:text-fuchsia-400 transition-colors">
+          L'Estetificio
+        </span>
+        <span class="text-[9px] uppercase tracking-[0.4em] text-fuchsia-400 font-medium -mt-1">
+          di Francesca • Cagliari
+        </span>
+      </a>
+
+      <!-- Navigation Desktop -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-widest font-medium text-neutral-300">
+        <a href="#chi-siamo" class="hover:text-fuchsia-400 transition-colors">Chi Siamo</a>
+        <a href="#trattamenti" class="hover:text-fuchsia-400 transition-colors">Trattamenti</a>
+        <a href="#massaggi" class="hover:text-fuchsia-400 transition-colors">Massaggi</a>
+        <a href="#recensioni" class="hover:text-fuchsia-400 transition-colors">Recensioni</a>
+        <a href="#contatti" class="hover:text-fuchsia-400 transition-colors">Contatti</a>
+      </nav>
+
+      <!-- Desktop Action CTA -->
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="tel:+393292373806" class="flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-700 text-xs font-semibold uppercase tracking-wider hover:border-fuchsia-500 hover:text-fuchsia-400 transition-all duration-300">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i> Chiama
+        </a>
+        <a href="https://wa.me/393292373806" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-2 rounded-full bg-fuchsia-600 hover:bg-fuchsia-500 text-white text-xs font-semibold uppercase tracking-wider shadow-lg shadow-fuchsia-600/30 hover:shadow-fuchsia-500/50 hover:scale-105 transition-all duration-300">
+          <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
+        </a>
+      </div>
+
+      <!-- Hamburger Button Mobile -->
+      <button id="menuBtn" class="md:hidden p-2 text-neutral-300 hover:text-fuchsia-400 focus:outline-none" aria-label="Apri Menu Navigazione">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden bg-neutral-950/95 border-b border-neutral-800 px-6 py-8 space-y-6 flex flex-col text-center uppercase tracking-widest text-sm">
+      <a href="#chi-siamo" class="mobile-link hover:text-fuchsia-400 transition-colors">Chi Siamo</a>
+      <a href="#trattamenti" class="mobile-link hover:text-fuchsia-400 transition-colors">Trattamenti</a>
+      <a href="#massaggi" class="mobile-link hover:text-fuchsia-400 transition-colors">Massaggi</a>
+      <a href="#recensioni" class="mobile-link hover:text-fuchsia-400 transition-colors">Recensioni</a>
+      <a href="#contatti" class="mobile-link hover:text-fuchsia-400 transition-colors">Contatti</a>
+      <div class="pt-4 flex justify-center gap-4">
+        <a href="tel:+393292373806" class="flex-1 py-3 border border-neutral-700 rounded-full text-xs font-bold text-center">Chiama Ora</a>
+        <a href="https://wa.me/393292373806" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 bg-fuchsia-600 rounded-full text-xs font-bold text-center text-white">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 parallax" style="background-image: linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.85) 75%, rgba(10,10,10,1) 100%), url('https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl00U6-Kww33Xp24AbAmnRbuJPlM37AtWwIdXmjLLEV_Xg7Fptz9GK4u0MncyrGJRLZddC6GfxnEyITQ6AvZf-aEpbLwn2Cm0oq0Qg8cGZpovzuAG9hg48WJIDhDtYk0d1w6bpT=s1360-w1360-h1020-rw');">
+      
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10 py-20 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-fuchsia-500/40 bg-fuchsia-950/30 backdrop-blur-md mb-8">
+          <span class="flex h-2 w-2 rounded-full bg-fuchsia-400 animate-pulse"></span>
+          <span class="text-xs font-semibold tracking-widest text-fuchsia-300 uppercase">Eccellenza Estetica a Cagliari</span>
+        </div>
+
+        <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl font-light tracking-tight leading-tight text-white mb-8">
+          L'Arte del Tuo <br><span class="italic font-normal bg-gradient-to-r from-fuchsia-300 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">Benessere</span>
+        </h1>
+
+        <p class="max-w-2xl mx-auto text-neutral-300 text-base sm:text-lg font-light tracking-wide mb-12">
+          Un'esperienza sensoriale di alta gamma pensata per rigenerare mente e corpo. Trattamenti su misura, cosmetica avanzata e massima cura del dettaglio.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+          <a href="tel:+393292373806" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-neutral-950 hover:bg-neutral-200 text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-xl flex items-center justify-center gap-3">
+            <i data-lucide="phone-call" class="w-4 h-4 text-fuchsia-600"></i> Chiama Ora
+          </a>
+          <a href="https://wa.me/393292373806" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-fuchsia-600 to-pink-600 hover:from-fuchsia-500 hover:to-pink-500 text-white text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-lg shadow-fuchsia-600/30 flex items-center justify-center gap-3 hover:scale-105">
+            <i data-lucide="message-square" class="w-4 h-4"></i> Scrivici su WhatsApp
+          </a>
+        </div>
+
+        <!-- Metric highlights -->
+        <div class="mt-20 pt-10 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-center">
+          <div class="p-4 rounded-2xl bg-neutral-900/40 backdrop-blur-sm border border-neutral-800/80">
+            <div class="flex justify-center items-center gap-1 text-fuchsia-400 mb-1">
+              <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400"></i>
+              <span class="font-bold text-xl text-white">4.9 / 5</span>
+            </div>
+            <p class="text-xs text-neutral-400 uppercase tracking-wider">Punteggio Google</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-neutral-900/40 backdrop-blur-sm border border-neutral-800/80">
+            <div class="font-bold text-xl text-white mb-1">73+ Recensioni</div>
+            <p class="text-xs text-neutral-400 uppercase tracking-wider">Clienti Entusiasti</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-neutral-900/40 backdrop-blur-sm border border-neutral-800/80">
+            <div class="font-bold text-xl text-fuchsia-400 mb-1">Metodo Avanzato</div>
+            <p class="text-xs text-neutral-400 uppercase tracking-wider">Consulenza Su Misura</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHI SIAMO / IL METODO DI FRANCESCA -->
+    <section id="chi-siamo" class="py-28 px-4 sm:px-6 lg:px-8 bg-neutral-950 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Text Column -->
+          <div class="lg:col-span-7 space-y-8 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+            <div class="inline-flex items-center gap-2">
+              <span class="h-px w-8 bg-fuchsia-500"></span>
+              <span class="text-xs font-semibold uppercase tracking-[0.3em] text-fuchsia-400">Il Nostro Filosofia</span>
+            </div>
+
+            <h2 class="font-serif text-4xl sm:text-6xl font-light text-white leading-tight">
+              L'Accoglienza e l'Inconfondibile <br>
+              <span class="italic text-fuchsia-400">Metodo di Francesca</span>
+            </h2>
+
+            <p class="text-neutral-300 text-lg leading-relaxed font-light">
+              Nel cuore di Cagliari, <strong class="text-white font-medium">L'Estetificio</strong> rappresenta un rifugio di pura eleganza dedicato alla bellezza autentica. Fondato e diretto da Francesca Pes, il nostro centro coniuga l'innovazione delle tecnologie estetiche avanzate con la maestria del tocco manuale.
+            </p>
+
+            <p class="text-neutral-400 text-base leading-relaxed font-light">
+              Ogni percorso inizia con un'accurata consulenza personalizzata: rifiutiamo i trattamenti standardizzati per creare soluzioni su misura capaci di valorizzare l'unicità di ogni pelle e corpo. Un'atmosfera intima, riservata e professionale, pensata per farti vivere un momento di totale relax.
+            </p>
+
+            <div class="pt-4 grid grid-cols-2 gap-6 border-t border-neutral-800">
+              <div class="flex items-start gap-4">
+                <div class="p-3 rounded-2xl bg-fuchsia-950/40 border border-fuchsia-500/20 text-fuchsia-400">
+                  <i data-lucide="sparkles" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Qualifica & Passione</h3>
+                  <p class="text-neutral-400 text-xs">Standard elevati e costante aggiornamento professionale.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="p-3 rounded-2xl bg-fuchsia-950/40 border border-fuchsia-500/20 text-fuchsia-400">
+                  <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Igiene & Sicurezza</h3>
+                  <p class="text-neutral-400 text-xs">Protocolli rigorosi e prodotti certificati di altissima qualità.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Column -->
+          <div class="lg:col-span-5 relative reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-fuchsia-600 to-pink-600 opacity-30 blur-xl"></div>
+              <div class="relative rounded-3xl overflow-hidden border border-neutral-800 shadow-2xl bg-neutral-900 group">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkzQY-mSF3wfyKhfnP8XhQc2DUrgczIcqccA22Ha8tjsKuFA2s-990O8bmGS_IhjUI35ePX8tKX28Q3xK8qHimm-6ObjOQvl7A_caNcV1U-9JRDTyX6quEQoUK80kcCjao4SQ_a=s1360-w1360-h1020-rw" alt="L'Estetificio di Francesca - Cagliari" class="w-full h-[520px] object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent opacity-80"></div>
+                <div class="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-neutral-950/80 backdrop-blur-md border border-neutral-800">
+                  <p class="text-xs uppercase tracking-widest text-fuchsia-400 font-semibold mb-1">L'Estetificio Cagliari</p>
+                  <p class="font-serif text-lg text-white italic">"La bellezza è la cura di ogni singolo dettaglio."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU TRATTAMENTI (BENTO GRID) -->
+    <section id="trattamenti" class="py-28 px-4 sm:px-6 lg:px-8 bg-neutral-900/50 border-y border-neutral-800/60 relative">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="text-center max-w-3xl mx-auto mb-20 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-fuchsia-400 mb-3 block">Menu Esclusivo</span>
+          <h2 class="font-serif text-4xl sm:text-6xl font-light text-white mb-6">Trattamenti d'Eccellenza</h2>
+          <p class="text-neutral-400 font-light text-base sm:text-lg">
+            I nostri percorsi estetici non prevedono pacchetti generici: ogni trattamento è focalizzato sulle reali esigenze della tua pelle per garantire risultati visibili e duraturi.
+          </p>
+        </div>
+
+        <!-- BENTO GRID CONTAINERS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- CARD 1: VISO & SGUARDO -->
+          <div class="rounded-3xl bg-neutral-950/80 border border-neutral-800/80 p-8 flex flex-col justify-between hover:border-fuchsia-500/50 hover:shadow-[0_0_35px_rgba(217,70,239,0.15)] hover:scale-105 transition-all duration-500 cursor-pointer group reveal opacity-0 translate-y-16">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-fuchsia-950/60 border border-fuchsia-500/30 flex items-center justify-center text-fuchsia-400 mb-8 group-hover:bg-fuchsia-600 group-hover:text-white transition-colors duration-300">
+                <i data-lucide="eye" class="w-7 h-7"></i>
+              </div>
+
+              <h3 class="font-serif text-3xl font-light text-white mb-4">Viso & Sguardo</h3>
+              <p class="text-neutral-400 text-sm font-light mb-8 leading-relaxed">
+                Rituali di rigenerazione cutanea e ridefinizione dello sguardo per una pelle luminosa, distesa ed omogenea.
+              </p>
+
+              <ul class="space-y-3.5 mb-10 text-neutral-300 text-sm font-light">
+                <li class="flex items-center gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-500"></span> Microblading
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-500"></span> Laminazione Ciglia
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-500"></span> Rituale Viso Purificante con Radiofrequenza
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-500"></span> Peeling Viso Rigenerante
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-500"></span> Pulizia Viso Basic e Profonda con Ultrasuoni
+                </li>
+              </ul>
+            </div>
+
+            <a href="https://wa.me/393292373806?text=Salve,%20vorrei%20maggiori%20informazioni%20sui%20trattamenti%20Viso%20e%20Sguardo" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl border border-neutral-700 hover:border-fuchsia-500 text-white font-semibold text-xs uppercase tracking-widest flex items-center justify-center gap-2 group-hover:bg-fuchsia-600 group-hover:border-fuchsia-600 transition-all duration-300">
+              <i data-lucide="message-circle" class="w-4 h-4"></i> Richiedi Consulenza
+            </a>
+          </div>
+
+          <!-- CARD 2: EPILAZIONE & CORPO -->
+          <div class="rounded-3xl bg-neutral-950/80 border border-neutral-800/80 p-8 flex flex-col justify-between hover:border-fuchsia-500/50 hover:shadow-[0_0_35px_rgba(217,70,239,0.15)] hover:scale-105 transition-all duration-500 cursor-pointer group reveal opacity-0 translate-y-16">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-fuchsia-950/60 border border-fuchsia-500/30 flex items-center justify-center text-fuchsia-400 mb-8 group-hover:bg-fuchsia-600 group-hover:text-white transition-colors duration-300">
+                <i data-lucide="zap" class="w-7 h-7"></i>
+              </div>
+
+              <h3 class="font-serif text-3xl font-light text-white mb-4">Epilazione & Corpo</h3>
+              <p class="text-neutral-400 text-sm font-light mb-8 leading-relaxed">
+                Tecnologie di epilazione progressiva e percorsi corpo modellanti per ritrovare tonicità e leggerezza.
+              </p>
+
+              <ul class="space-y-3.5 mb-10 text-neutral-300 text-sm font-light">
+                <li class="flex items-center gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-500"></span> Depilazione Laser Definitiva (Diodo)
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-500"></span> Ceretta Tradizionale Donna e Uomo
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-500"></span> Scrub Corpo Dermo-Levigante
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-500"></span> Rituale Snellente e Anticellulite
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-500"></span> Radiofrequenza Corpo & Pressoterapia
+                </li>
+              </ul>
+            </div>
+
+            <a href="https://wa.me/393292373806?text=Salve,%20vorrei%20maggiori%20informazioni%20sui%20trattamenti%20Corpo%20e%20Laser" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl border border-neutral-700 hover:border-fuchsia-500 text-white font-semibold text-xs uppercase tracking-widest flex items-center justify-center gap-2 group-hover:bg-fuchsia-600 group-hover:border-fuchsia-600 transition-all duration-300">
+              <i data-lucide="message-circle" class="w-4 h-4"></i> Richiedi Consulenza
+            </a>
+          </div>
+
+          <!-- CARD 3: I MASSAGGI (IL NOSTRO FORTE) -->
+          <div id="massaggi" class="rounded-3xl bg-neutral-950/80 border border-fuchsia-500/40 p-8 flex flex-col justify-between hover:border-fuchsia-500 hover:shadow-[0_0_40px_rgba(217,70,239,0.25)] hover:scale-105 transition-all duration-500 cursor-pointer group relative overflow-hidden reveal opacity-0 translate-y-16">
+            <div class="absolute top-4 right-4 bg-fuchsia-600/30 border border-fuchsia-500/50 text-fuchsia-300 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+              Il Nostro Forte
+            </div>
+
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-fuchsia-950/60 border border-fuchsia-500/30 flex items-center justify-center text-fuchsia-400 mb-8 group-hover:bg-fuchsia-600 group-hover:text-white transition-colors duration-300">
+                <i data-lucide="heart-handshake" class="w-7 h-7"></i>
+              </div>
+
+              <h3 class="font-serif text-3xl font-light text-white mb-4">I Massaggi Esclusivi</h3>
+              <p class="text-neutral-400 text-sm font-light mb-6 leading-relaxed">
+                Un'ampia selezione di tecniche manuali olistiche e decontratturanti per sciogliere le tensioni e rigenerare le energie vitali.
+              </p>
+
+              <!-- Grid di tag dei massaggi -->
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300">Decontratturante</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300">Svedese</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300">Linfodrenaggio Vodder</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300">Coppettazione</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300">Taping</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300">Bamboo Massage</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300">Tau</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300">Circolatorio Drenante</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300">Hot Stone</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300">Biosensoriale</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300">Californiano</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300">Sportivo</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300">Schiena Specifico</span>
+              </div>
+            </div>
+
+            <a href="https://wa.me/393292373806?text=Salve,%20vorrei%20prenotare%20o%20chiedere%20info%20su%20un%20Massaggio" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl bg-fuchsia-600 hover:bg-fuchsia-500 text-white font-semibold text-xs uppercase tracking-widest flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-fuchsia-600/30">
+              <i data-lucide="message-circle" class="w-4 h-4"></i> Richiedi Consulenza
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ / SEZIONE A TENDINA (ACCORDION) -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-950">
+      <div class="max-w-4xl mx-auto reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+        <div class="text-center mb-12">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-fuchsia-400 mb-2 block">Domande Frequenti</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-light text-white">Trasparenza e Consulenza</h2>
+        </div>
+
+        <div class="space-y-4">
+          <details class="group bg-neutral-900/60 border border-neutral-800 rounded-2xl p-6 transition-all duration-300">
+            <summary class="flex justify-between items-center text-lg font-serif text-white cursor-pointer select-none">
+              <span>Come posso richiedere informazioni sui trattamenti o prenotare?</span>
+              <span class="text-fuchsia-400 group-open:rotate-180 transition-transform duration-300">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </span>
+            </summary>
+            <p class="mt-4 text-neutral-400 text-sm leading-relaxed font-light border-t border-neutral-800/80 pt-4">
+              Per offrire la massima attenzione ad ogni cliente, lavoriamo esclusivamente su appuntamento. Puoi contattarci direttamente al numero di telefono fisso/mobile o inviarci un messaggio rapido via WhatsApp.
+            </p>
+          </details>
+
+          <details class="group bg-neutral-900/60 border border-neutral-800 rounded-2xl p-6 transition-all duration-300">
+            <summary class="flex justify-between items-center text-lg font-serif text-white cursor-pointer select-none">
+              <span>Perché è fondamentale la consulenza personalizzata?</span>
+              <span class="text-fuchsia-400 group-open:rotate-180 transition-transform duration-300">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </span>
+            </summary>
+            <p class="mt-4 text-neutral-400 text-sm leading-relaxed font-light border-t border-neutral-800/80 pt-4">
+              Ogni tipo di pelle e struttura corporea risponde in modo unico. La nostra prima consulenza ci permette di analizzare nel dettaglio lo stato cutaneo e le tue aspettative per formulare un percorso ad hoc ed efficace.
+            </p>
+          </details>
+
+          <details class="group bg-neutral-900/60 border border-neutral-800 rounded-2xl p-6 transition-all duration-300">
+            <summary class="flex justify-between items-center text-lg font-serif text-white cursor-pointer select-none">
+              <span>Quali sono le tecnologie utilizzate per l'epilazione laser?</span>
+              <span class="text-fuchsia-400 group-open:rotate-180 transition-transform duration-300">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </span>
+            </summary>
+            <p class="mt-4 text-neutral-400 text-sm leading-relaxed font-light border-t border-neutral-800/80 pt-4">
+              Utilizziamo sistemi laser all'avanguardia ad alta efficacia, sicuri e adatti anche alle pelli più sensibili, garantendo un risultato progressivo permanente in totale comfort.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECENSIONI REALI (SOCIAL PROOF) -->
+    <section id="recensioni" class="py-28 px-4 sm:px-6 lg:px-8 bg-neutral-900/40 border-t border-neutral-800/60 relative">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+          <div class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-fuchsia-950/40 border border-fuchsia-500/30 text-fuchsia-300 text-xs font-semibold mb-4">
+            <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400 text-fuchsia-400"></i>
+            <span>Valutazione Eccellente 4.9 su Google</span>
+          </div>
+          <h2 class="font-serif text-4xl sm:text-6xl font-light text-white mb-4">Cosa Dicono di Noi</h2>
+          <p class="text-neutral-400 font-light text-base">Le opinioni autentiche delle persone che si affidano alle cure di Francesca Pes.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Recensione 1 -->
+          <div class="p-8 rounded-3xl bg-neutral-950 border border-neutral-800/80 hover:border-fuchsia-500/40 hover:scale-105 transition-all duration-500 flex flex-col justify-between cursor-pointer reveal opacity-0 translate-y-16">
+            <div>
+              <div class="flex text-fuchsia-400 gap-1 mb-6">
+                <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400"></i>
+              </div>
+              <p class="text-neutral-300 text-sm leading-relaxed font-light italic mb-8">
+                "Ho effettuato un trattamento viso e sono molto soddisfatta. Notato un netto miglioramento delle occhiaie e una pelle più luminosa."
+              </p>
+            </div>
+            <div class="pt-4 border-t border-neutral-800/80 flex items-center justify-between">
+              <span class="font-serif text-lg text-white font-medium">Francesca Pes</span>
+              <span class="text-xs text-neutral-400">Recensione Google</span>
+            </div>
+          </div>
+
+          <!-- Recensione 2 -->
+          <div class="p-8 rounded-3xl bg-neutral-950 border border-neutral-800/80 hover:border-fuchsia-500/40 hover:scale-105 transition-all duration-500 flex flex-col justify-between cursor-pointer reveal opacity-0 translate-y-16">
+            <div>
+              <div class="flex text-fuchsia-400 gap-1 mb-6">
+                <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400"></i>
+              </div>
+              <p class="text-neutral-300 text-sm leading-relaxed font-light italic mb-8">
+                "Il trattamento laser mi ha dato risultati incredibili. Francesca è una grande professionista, qualificata, ti mette subito a tuo agio."
+              </p>
+            </div>
+            <div class="pt-4 border-t border-neutral-800/80 flex items-center justify-between">
+              <span class="font-serif text-lg text-white font-medium">ColourAddict1</span>
+              <span class="text-xs text-neutral-400">Recensione Google</span>
+            </div>
+          </div>
+
+          <!-- Recensione 3 -->
+          <div class="p-8 rounded-3xl bg-neutral-950 border border-neutral-800/80 hover:border-fuchsia-500/40 hover:scale-105 transition-all duration-500 flex flex-col justify-between cursor-pointer reveal opacity-0 translate-y-16">
+            <div>
+              <div class="flex text-fuchsia-400 gap-1 mb-6">
+                <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-fuchsia-400"></i>
+              </div>
+              <p class="text-neutral-300 text-sm leading-relaxed font-light italic mb-8">
+                "Trattamento laser definitivo con ottimi risultati. Francesca è gentilissima e molto disponibile."
+              </p>
+            </div>
+            <div class="pt-4 border-t border-neutral-800/80 flex items-center justify-between">
+              <span class="font-serif text-lg text-white font-medium">Elisabetta Antichi</span>
+              <span class="text-xs text-neutral-400">Recensione Google</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATTI, SOCIAL & MAPPA -->
+    <section id="contatti" class="py-28 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-t border-neutral-800">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          <!-- Contact Details -->
+          <div class="lg:col-span-5 space-y-10 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-[0.3em] text-fuchsia-400 mb-3 block">Contatti & Posizione</span>
+              <h2 class="font-serif text-4xl sm:text-5xl font-light text-white mb-6">Vieni a Trovarci</h2>
+              <p class="text-neutral-400 font-light text-base leading-relaxed">
+                Il centro si trova in un'elegante e riservata zona residenziale di Cagliari. Ti accogliamo su appuntamento per garantirti la massima riservatezza.
+              </p>
+            </div>
+
+            <div class="space-y-6">
+              <div class="flex items-start gap-4 p-5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
+                <div class="p-3 rounded-xl bg-fuchsia-950/60 text-fuchsia-400">
+                  <i data-lucide="map-pin" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Indirizzo</h3>
+                  <p class="text-neutral-300 text-sm font-light">Via Antonio Scano 44, 09129 Cagliari CA</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
+                <div class="p-3 rounded-xl bg-fuchsia-950/60 text-fuchsia-400">
+                  <i data-lucide="phone" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Telefono & WhatsApp</h3>
+                  <p class="text-neutral-300 text-sm font-light">
+                    <a href="tel:+393292373806" class="hover:text-fuchsia-400 transition-colors">329 237 3806</a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
+                <div class="p-3 rounded-xl bg-fuchsia-950/60 text-fuchsia-400">
+                  <i data-lucide="share-2" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="text-white font-medium text-sm uppercase tracking-wider mb-2">Canali Social</h3>
+                  <div class="flex items-center gap-4">
+                    <a href="https://www.instagram.com/l_estetificio/" target="_blank" rel="noopener noreferrer" class="text-neutral-300 hover:text-fuchsia-400 text-sm flex items-center gap-1 font-medium transition-colors">
+                      <i data-lucide="instagram" class="w-4 h-4"></i> Instagram
+                    </a>
+                    <a href="https://www.facebook.com/LestetificiodiFrancesca" target="_blank" rel="noopener noreferrer" class="text-neutral-300 hover:text-fuchsia-400 text-sm flex items-center gap-1 font-medium transition-colors">
+                      <i data-lucide="facebook" class="w-4 h-4"></i> Facebook
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SUPREME ACTION BUTTONS -->
+            <div class="space-y-4 pt-4">
+              <!-- Bottone Gigante Instagram -->
+              <a href="https://www.instagram.com/l_estetificio/" target="_blank" rel="noopener noreferrer" class="w-full py-5 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-3 shadow-xl hover:scale-[1.02] transition-all duration-300">
+                <i data-lucide="instagram" class="w-5 h-5"></i> Seguici su Instagram
+              </a>
+
+              <!-- Bottone Vienici a Trovarci -->
+              <a href="https://www.google.com/maps/search/?api=1&query=Via+Antonio+Scano+44,+09129+Cagliari+CA" target="_blank" rel="noopener noreferrer" class="w-full py-5 rounded-2xl border-2 border-fuchsia-500/50 bg-neutral-900 hover:bg-neutral-800 text-white font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-3 hover:scale-[1.02] transition-all duration-300">
+                <i data-lucide="navigation" class="w-5 h-5 text-fuchsia-400"></i> Vienici a Trovare (Google Maps)
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Interactive Map Container -->
+          <div class="lg:col-span-7 h-full min-h-[450px] rounded-3xl overflow-hidden border border-neutral-800 shadow-2xl relative reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+            <iframe 
+              title="Mappa L'Estetificio Cagliari"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3079.167812089!2d9.1256!3d39.2198!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e7344933923f11%3A0x2f7c000000000000!2sVia%20Antonio%20Scano%2C%2044%2C%2009129%20Cagliari%20CA!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" 
+              class="w-full h-full min-h-[450px] border-0 filter grayscale invert contrast-125 opacity-80 hover:opacity-100 transition-opacity duration-500" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MOBILE STICKY BOTTOM BAR -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 p-3 bg-neutral-950/95 backdrop-blur-xl border-t border-neutral-800 flex gap-3">
+    <a href="tel:+393292373806" class="flex-1 py-3.5 rounded-full bg-neutral-900 border border-neutral-700 text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2">
+      <i data-lucide="phone" class="w-4 h-4 text-fuchsia-400"></i> Chiama Ora
+    </a>
+    <a href="https://wa.me/393292373806" target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 rounded-full bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-fuchsia-600/40">
+      <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-neutral-950 border-t border-neutral-900 py-12 px-4 sm:px-6 lg:px-8 mb-16 md:mb-0">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      <div>
+        <span class="font-serif text-xl uppercase tracking-widest text-white">L'Estetificio</span>
+        <p class="text-neutral-500 text-xs mt-1">di Francesca Pes • Via Antonio Scano 44, Cagliari</p>
+      </div>
+
+      <div class="text-neutral-500 text-xs">
+        &copy; <span id="year"></span> L'Estetificio Cagliari. Tutti i diritti riservati.
+      </div>
+
+      <div class="flex items-center space-x-6 text-neutral-400">
+        <a href="https://www.instagram.com/l_estetificio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-fuchsia-400 transition-colors">
+          <i data-lucide="instagram" class="w-5 h-5"></i>
+        </a>
+        <a href="https://www.facebook.com/LestetificiodiFrancesca" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-fuchsia-400 transition-colors">
+          <i data-lucide="facebook" class="w-5 h-5"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOTORE ANIMAZIONI PREMIUM & SCRIPTS -->
+  <style>
+    /* Stile animato per le tendine (Accordions) */
+    details > summary { list-style: none; cursor: pointer; outline: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary ~ * { animation: sweep .4s ease-in-out; }
+    @keyframes sweep { 0% {opacity: 0; transform: translateY(-15px)} 100% {opacity: 1; transform: translateY(0)} }
+    /* Effetto Parallasse Sfondi */
+    .parallax { background-attachment: fixed; background-position: center; background-size: cover; background-repeat: no-repeat; }
+    /* Hide scrollbar per le gallerie orizzontali */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Set Copyright Year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Mobile Menu Toggle
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      if(menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+      }
+
+      // Scroll Reveal Animazioni
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            entry.target.classList.remove('opacity-0', 'translate-y-16');
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      
+      if(window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
