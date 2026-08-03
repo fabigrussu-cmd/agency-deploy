@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escursioni in Barca Baunei | Geomare Escursioni Sardegna</title>
+  <meta name="description" content="Vivi la magia della Costa di Baunei con Geomare Escursioni. Tour esclusivi in gommone con skipper, aperitivo a bordo e cale meravigliose in Sardegna.">
+  <meta name="keywords" content="escursioni barca Baunei, tour gommone Costa di Baunei, Cala Goloritze, Cala Mariolu, skipper Sardegna, Geomare Escursioni">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Geomare Escursioni • Costa di Baunei | Skipper & Boat Tour">
+  <meta property="og:description" content="Tour esclusivi in barca lungo le cale più spettacolari della Costa di Baunei. Esperienza luxury con skipper locale ed aperitivo sul mare.">
+  <meta property="og:image" content="https://lh3.googleusercontent.com/grass-cs/ACvplmPJwjmpB8OT67NQrM1kKLXGSs6uJ3CKGalAgMeSQ1qR_IS5egoN8njBNEo4tXTCptTLSmTZkFMMH6pQX7x672UPZ4KAx4QtUJVWClxyETYvbvlQJ5bFs252ej_iTCkE4g-8CIE=s1360-w1360-h1020-rw">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "Geomare Escursioni",
+    "image": "https://lh3.googleusercontent.com/grass-cs/ACvplmPJwjmpB8OT67NQrM1kKLXGSs6uJ3CKGalAgMeSQ1qR_IS5egoN8njBNEo4tXTCptTLSmTZkFMMH6pQX7x672UPZ4KAx4QtUJVWClxyETYvbvlQJ5bFs252ej_iTCkE4g-8CIE=s1360-w1360-h1020-rw",
+    "description": "Escursioni esclusive in barca e gommone con skipper lungo la meravigliosa Costa di Baunei in Sardegna.",
+    "telephone": "+393000000000",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Baunei",
+      "addressRegion": "Sardegna",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "40.0315",
+      "longitude": "9.6642"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "32"
+    },
+    "priceRange": "€€€"
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            gold: {
+              300: '#fef08a',
+              400: '#facc15',
+              500: '#eab308',
+              600: '#d97706',
+              glow: '#D4AF37'
+            },
+            cyan: {
+              400: '#22d3ee',
+              500: '#06b6d4',
+              900: '#083344'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-neutral-950 text-neutral-100 font-sans selection:bg-cyan-500 selection:text-black overflow-x-hidden">
+
+  <!-- Header / Navbar Fissa -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-neutral-950/70 backdrop-blur-2xl border-b border-neutral-800/50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo & Title -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 rounded-full border border-gold-glow/50 bg-neutral-900 flex items-center justify-center p-0.5 shadow-[0_0_15px_rgba(212,175,55,0.2)] group-hover:border-gold-glow transition-all duration-300">
+          <div class="w-full h-full rounded-full bg-gradient-to-br from-neutral-900 via-cyan-900/40 to-neutral-950 flex items-center justify-center border border-cyan-500/30">
+            <i data-lucide="anchor" class="w-5 h-5 text-gold-glow group-hover:scale-110 transition-transform"></i>
+          </div>
+        </div>
+        <div>
+          <span class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-white block leading-none">GEOMARE</span>
+          <span class="text-[10px] sm:text-xs text-neutral-400 tracking-widest uppercase block mt-1 font-medium">Costa di Baunei • Skipper & Boat Tour</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm tracking-wide font-medium text-neutral-300">
+        <a href="#esperienza" class="hover:text-cyan-400 transition-colors">L'Esperienza</a>
+        <a href="#itinerari" class="hover:text-cyan-400 transition-colors">Itinerari & Tour</a>
+        <a href="#recensioni" class="hover:text-cyan-400 transition-colors">Recensioni</a>
+        <a href="#faq" class="hover:text-cyan-400 transition-colors">FAQ & Contatti</a>
+      </nav>
+
+      <!-- CTA Buttons Desktop -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="tel:+393000000000" aria-label="Chiama Ora" class="px-4 py-2.5 rounded-full border border-neutral-700 text-xs uppercase tracking-widest font-semibold hover:border-cyan-400 hover:text-cyan-400 transition-all duration-300 flex items-center gap-2">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+          Chiama Ora
+        </a>
+        <a href="https://wa.me/393000000000?text=Salve%2C%20vorrei%20informazioni%20sulle%20escursioni%20in%20barca" aria-label="Prenota su WhatsApp" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-neutral-950 text-xs uppercase tracking-widest font-bold shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:scale-105 hover:shadow-[0_0_25px_rgba(34,211,238,0.5)] transition-all duration-300 flex items-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          WhatsApp
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="menu-btn" aria-label="Apri Menu Navigazione" class="lg:hidden p-2 text-neutral-300 hover:text-white focus:outline-none">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-neutral-950/95 border-b border-neutral-800 px-6 py-6 transition-all">
+      <div class="flex flex-col gap-4 text-base font-medium">
+        <a href="#esperienza" class="mobile-link text-neutral-300 hover:text-cyan-400">L'Esperienza</a>
+        <a href="#itinerari" class="mobile-link text-neutral-300 hover:text-cyan-400">Itinerari & Tour</a>
+        <a href="#recensioni" class="mobile-link text-neutral-300 hover:text-cyan-400">Recensioni</a>
+        <a href="#faq" class="mobile-link text-neutral-300 hover:text-cyan-400">FAQ & Contatti</a>
+        <div class="pt-4 flex flex-col gap-3">
+          <a href="tel:+393000000000" class="w-full text-center py-3 rounded-full border border-neutral-700 text-sm font-semibold uppercase tracking-wider">
+            <i data-lucide="phone" class="w-4 h-4 inline mr-2"></i> Chiama Ora
+          </a>
+          <a href="https://wa.me/393000000000?text=Salve%2C%20vorrei%20informazioni%20sulle%20escursioni%20in%20barca" target="_blank" rel="noopener" class="w-full text-center py-3 rounded-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-neutral-950 font-bold text-sm uppercase tracking-wider">
+            <i data-lucide="message-circle" class="w-4 h-4 inline mr-2"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 parallax" style="background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.45), rgba(10, 10, 10, 0.9)), url('https://lh3.googleusercontent.com/grass-cs/ACvplmPJwjmpB8OT67NQrM1kKLXGSs6uJ3CKGalAgMeSQ1qR_IS5egoN8njBNEo4tXTCptTLSmTZkFMMH6pQX7x672UPZ4KAx4QtUJVWClxyETYvbvlQJ5bFs252ej_iTCkE4g-8CIE=s1360-w1360-h1020-rw');">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+        
+        <!-- Luxury Tagline Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-glow/40 bg-neutral-950/60 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(212,175,55,0.15)]">
+          <i data-lucide="sparkles" class="w-4 h-4 text-gold-400"></i>
+          <span class="text-xs sm:text-sm font-semibold tracking-widest uppercase text-gold-300">Esperienza Nautica Esclusiva</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
+          Vivi la Magia della <br class="hidden sm:inline"/>
+          <span class="bg-gradient-to-r from-cyan-300 via-white to-gold-300 bg-clip-text text-transparent">Costa di Baunei</span>
+        </h1>
+
+        <p class="max-w-2xl mx-auto text-base sm:text-xl text-neutral-300 mb-10 font-light leading-relaxed">
+          Esplora cale leggendarie, grotte segrete e acque turchesi incontaminate a bordo dei nostri gommoni di lusso guidati da skipper esperti locali.
+        </p>
+
+        <!-- CTA Action Cluster -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          <a href="https://wa.me/393000000000?text=Salve%2C%20vorrei%20prenotare%20un%27escursione" target="_blank" rel="noopener" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-cyan-400 via-cyan-500 to-emerald-400 text-neutral-950 font-bold text-sm tracking-widest uppercase shadow-[0_0_30px_rgba(34,211,238,0.4)] hover:scale-105 hover:shadow-[0_0_40px_rgba(34,211,238,0.6)] transition-all duration-300 flex items-center justify-center gap-3">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            Prenota su WhatsApp
+          </a>
+          <a href="tel:+393000000000" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/20 bg-neutral-900/40 backdrop-blur-md text-white font-semibold text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center gap-3">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+            Chiama Ora
+          </a>
+        </div>
+
+        <!-- Key Metrics Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto text-left">
+          <div class="p-4 rounded-2xl bg-neutral-900/60 backdrop-blur-md border border-neutral-800/80 hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 shrink-0">
+              <i data-lucide="star" class="w-5 h-5 fill-gold-400"></i>
+            </div>
+            <div>
+              <div class="text-lg font-bold text-white">5.0 ★ Eccellenza</div>
+              <div class="text-xs text-neutral-400">Valutazione Google</div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-neutral-900/60 backdrop-blur-md border border-neutral-800/80 hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+              <i data-lucide="award" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-lg font-bold text-white">32+ Recensioni</div>
+              <div class="text-xs text-neutral-400">Ospiti entusiasti</div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-neutral-900/60 backdrop-blur-md border border-neutral-800/80 hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+              <i data-lucide="compass" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-lg font-bold text-white">Skipper Locali</div>
+              <div class="text-xs text-neutral-400">Guida esperta & relax</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sezione La Nostra Barca & Esperienza -->
+    <section id="esperienza" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        
+        <!-- Text Content -->
+        <div class="reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+          <div class="inline-flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-widest mb-3">
+            <i data-lucide="waves" class="w-4 h-4"></i> L'Esperienza Exclusive Marine
+          </div>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-6 leading-tight">
+            Il Lusso della Navigazione In un Paradiso Incontaminato
+          </h2>
+          <p class="text-neutral-300 text-base sm:text-lg leading-relaxed mb-6 font-light">
+            Con <strong>Geomare Escursioni</strong> potrai vivere il Golfo di Orosei e la Costa di Baunei in un modo unico: lontano dalla calca, a bordo di imbarcazioni dotate di ogni comfort e accompagnato da un capitano nativo del posto.
+          </p>
+          <p class="text-neutral-400 text-sm sm:text-base leading-relaxed mb-8">
+            Dalla monumentale <em>Cala Goloritzé</em> alla suggestiva <em>Cala Mariolu</em>, fino alle piscine naturali di <em>Cala Coticcio</em> e alle grotte nascoste, la nostra priorità è garantirti sicurezza, totale relax e momenti indimenticabili sul mare più bello del Mediterraneo.
+          </p>
+
+          <!-- Highlights Checklist -->
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start gap-3">
+              <div class="p-1 rounded bg-gold-500/20 text-gold-400 mt-1"><i data-lucide="check" class="w-4 h-4"></i></div>
+              <div>
+                <h3 class="text-white font-semibold text-sm">Gommoni di Ultima Generazione</h3>
+                <p class="text-neutral-400 text-xs">Spaziosi prendisole, tendalino parasole ed equipaggiamento top di gamma.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="p-1 rounded bg-gold-500/20 text-gold-400 mt-1"><i data-lucide="check" class="w-4 h-4"></i></div>
+              <div>
+                <h3 class="text-white font-semibold text-sm">Soste Prolungate & Snorkeling</h3>
+                <p class="text-neutral-400 text-xs">Tempo garantito sulle spiagge più belle e materiale per lo snorkeling a bordo.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="p-1 rounded bg-gold-500/20 text-gold-400 mt-1"><i data-lucide="check" class="w-4 h-4"></i></div>
+              <div>
+                <h3 class="text-white font-semibold text-sm">Aperitivo Tipico Sardo inclusi</h3>
+                <p class="text-neutral-400 text-xs">Gusta specialità locali e calici di vino al tramonto sul mare cristallino.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/393000000000?text=Vorrei%20maggiori%20dettagli%20sull'esperienza%20in%20barca" target="_blank" rel="noopener" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-neutral-900 border border-cyan-500/40 text-cyan-400 hover:bg-cyan-500 hover:text-black font-semibold text-xs tracking-widest uppercase transition-all duration-300">
+            Richiedi Informazioni Tour <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Image Container -->
+        <div class="relative reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+          <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-cyan-500/20 via-gold-500/20 to-transparent blur-xl"></div>
+          <div class="relative overflow-hidden rounded-3xl border border-neutral-800 shadow-2xl group">
+            <img 
+              src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmC0JwpX1cQSby9LH8jlpbcmhfofgsHIYF1IbQaPiV6NaQGkeBPYN364XaiDbVpQbJ7hprDA75shD03BIaSlzvovEMN9_dZdyhQccCNHBNqhowhT8cDzDRLEn8GRgZrVe2aRnnEO5rQGaSd=s1360-w1360-h1020-rw" 
+              alt="Imbarcazione Geomare Costa di Baunei" 
+              class="w-full h-[450px] sm:h-[550px] object-cover hover:scale-105 hover:shadow-2xl transition-all duration-700 cursor-pointer"
+            >
+            <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-neutral-950 via-neutral-950/60 to-transparent">
+              <div class="flex items-center gap-2 text-gold-400 text-xs font-semibold uppercase tracking-wider mb-1">
+                <i data-lucide="shield-check" class="w-4 h-4"></i> Comfort VIP & Sicurezza Assoluta
+              </div>
+              <p class="text-white font-serif text-lg">Il massimo dello stile in mare aperto.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sezione Itinerari / Tour (Bento Grid) -->
+    <section id="itinerari" class="py-24 bg-neutral-900/50 border-y border-neutral-800/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+          <span class="text-gold-400 text-xs font-bold uppercase tracking-widest block mb-2">I Nostri Perfezionati Itinerari</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">Tour & Escursioni In Barca</h2>
+          <p class="text-neutral-400 text-sm sm:text-base">Scegli tra le nostre opzioni di tour giornalieri, charter privati o uscite al tramonto lungo la costa più bella del mondo.</p>
+        </div>
+
+        <!-- Bento Grid Container -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Bento Item 1: Full Day Tour -->
+          <div class="md:col-span-2 bg-neutral-950 border border-neutral-800 rounded-3xl p-6 sm:p-8 hover:border-cyan-500/50 transition-all duration-500 hover:scale-[1.01] flex flex-col justify-between reveal opacity-0 translate-y-16">
+            <div>
+              <div class="flex justify-between items-start mb-6">
+                <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs uppercase font-bold tracking-wider">Top Seller • Giornata Intera</span>
+                <span class="text-gold-400 font-serif text-2xl font-bold">Da € 70 <span class="text-xs text-neutral-500 font-sans font-normal">/ pers.</span></span>
+              </div>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mb-3">Tour Completo Costa di Baunei & Cale</h3>
+              <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+                Una giornata indimenticabile toccando tutte le spiagge iconiche: Cala Goloritzé (sosta foto sotto l'arco), Cala Mariolu, Cala Biriala, Cala Sisine e Cala Luna. Soste bagno rilassanti nelle piscine venere.
+              </p>
+              
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8 text-xs text-neutral-300">
+                <div class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-cyan-400"></i> Durata: 8 Ore</div>
+                <div class="flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-cyan-400"></i> Max 12 persone</div>
+                <div class="flex items-center gap-2"><i data-lucide="coffee" class="w-4 h-4 text-cyan-400"></i> Aperitivo Incluso</div>
+              </div>
+            </div>
+
+            <a href="https://wa.me/393000000000?text=Vorrei%20prenotare%20il%20Tour%20Completo%20Giornata%20Intera" target="_blank" rel="noopener" class="w-full py-3.5 rounded-2xl bg-cyan-500/10 hover:bg-cyan-500 text-cyan-400 hover:text-black font-bold text-xs uppercase tracking-widest border border-cyan-500/30 transition-all duration-300 text-center flex items-center justify-center gap-2">
+              <i data-lucide="message-circle" class="w-4 h-4"></i> Prenota Tour Giornaliero
+            </a>
+          </div>
+
+          <!-- Bento Item 2: Image Showcase Card -->
+          <div class="relative group rounded-3xl overflow-hidden border border-neutral-800 min-h-[300px] reveal opacity-0 translate-y-16">
+            <img 
+              src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk_XwwAtvGHqGjnEp5HESdAQfxLoMYMZI7f37tJ1wXXqz3c9OxE0Vwtw6W_D4W7rwf6FteqKfQlCDIDf0rFZ3Ww4fbbSP6biDgqjv6ghzLTfe7MBCFYIcNj4u9atNI6-xvRWWOVH7wvH4Q=s1360-w1360-h1020-rw" 
+              alt="Panoramica Cale Baunei Escursioni" 
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent p-6 flex flex-col justify-end">
+              <span class="text-gold-400 text-xs font-bold uppercase tracking-wider mb-1">Scenari Unici</span>
+              <h3 class="font-serif text-xl font-bold text-white">Scorci Incontaminati & Acque Cristalline</h3>
+            </div>
+          </div>
+
+          <!-- Bento Item 3: Private Charter VIP -->
+          <div class="bg-neutral-950 border border-neutral-800 rounded-3xl p-6 sm:p-8 hover:border-gold-glow/50 transition-all duration-500 hover:scale-[1.01] flex flex-col justify-between reveal opacity-0 translate-y-16">
+            <div>
+              <div class="flex justify-between items-start mb-6">
+                <span class="px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs uppercase font-bold tracking-wider">Esperienza VIP</span>
+                <span class="text-gold-400 font-serif text-2xl font-bold">Esclusivo</span>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-white mb-3">Noleggio Privato con Skipper</h3>
+              <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+                L'intera barca a tua completa disposizione. Scegli l'orario, le soste e il ritmo della tua giornata insieme al capitano. Perfetto per famiglie, compleanni e gruppi di amici.
+              </p>
+            </div>
+
+            <a href="https://wa.me/393000000000?text=Desidero%20informazioni%20sul%20Noleggio%20Privato%20con%20Skipper" target="_blank" rel="noopener" class="w-full py-3.5 rounded-2xl bg-gold-500/10 hover:bg-gold-500 text-gold-400 hover:text-black font-bold text-xs uppercase tracking-widest border border-gold-500/30 transition-all duration-300 text-center flex items-center justify-center gap-2">
+              <i data-lucide="star" class="w-4 h-4"></i> Richiedi Noleggio Privato
+            </a>
+          </div>
+
+          <!-- Bento Item 4: Sunset Tour -->
+          <div class="md:col-span-2 bg-neutral-950 border border-neutral-800 rounded-3xl p-6 sm:p-8 hover:border-cyan-500/50 transition-all duration-500 hover:scale-[1.01] flex flex-col justify-between reveal opacity-0 translate-y-16">
+            <div>
+              <div class="flex justify-between items-start mb-6">
+                <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs uppercase font-bold tracking-wider">Magia Serale</span>
+                <span class="text-gold-400 font-serif text-2xl font-bold">Aperitivo al Tramonto</span>
+              </div>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mb-3">Sunset Experience & Aperitivo Sardo</h3>
+              <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+                Salpa nelle ore più calde del pomeriggio e goditi il tramonto di fronte alle scogliere di Baunei. Un bagno nel mare calmo di fine giornata abbinato a vermentino fresco, salumi e formaggi locali.
+              </p>
+            </div>
+
+            <a href="https://wa.me/393000000000?text=Vorrei%20prenotare%20il%20Sunset%20Tour%20con%20Aperitivo" target="_blank" rel="noopener" class="w-full py-3.5 rounded-2xl bg-emerald-500/10 hover:bg-emerald-500 text-emerald-400 hover:text-black font-bold text-xs uppercase tracking-widest border border-emerald-500/30 transition-all duration-300 text-center flex items-center justify-center gap-2">
+              <i data-lucide="wine" class="w-4 h-4"></i> Prenota Sunset Tour
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sezione Recensioni (Social Proof) -->
+    <section id="recensioni" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal opacity-0 translate-y-16">
+        <div>
+          <span class="text-gold-400 text-xs font-bold uppercase tracking-widest block mb-2">Opinioni Degli Ospiti</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white">Dicono Di Noi su Google</h2>
+        </div>
+        
+        <!-- Score Box -->
+        <div class="flex items-center gap-4 bg-neutral-900 border border-neutral-800 p-4 rounded-2xl w-fit">
+          <div class="text-3xl font-bold text-white font-serif">5.0</div>
+          <div>
+            <div class="flex text-gold-400 mb-1">
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+            </div>
+            <p class="text-xs text-neutral-400">32 Recensioni Certificate su Google</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="bg-neutral-900/40 border border-neutral-800 p-6 rounded-3xl hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col justify-between reveal opacity-0 translate-y-16">
+          <div>
+            <div class="flex text-gold-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+            </div>
+            <p class="text-neutral-300 text-sm italic mb-6 leading-relaxed">
+              "Un'esperienza fantastica! Il gommone è comodissimo e lo skipper ci ha portato in cale spettacolari facendoci evitare il caos. L'aperitivo a bordo è stato la ciliegina sulla torta."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-neutral-800">
+            <div class="w-10 h-10 rounded-full bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center">M</div>
+            <div>
+              <h4 class="text-white text-sm font-semibold">Marco Rossi</h4>
+              <p class="text-neutral-500 text-xs">Recensione Google</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-neutral-900/40 border border-neutral-800 p-6 rounded-3xl hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col justify-between reveal opacity-0 translate-y-16">
+          <div>
+            <div class="flex text-gold-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+            </div>
+            <p class="text-neutral-300 text-sm italic mb-6 leading-relaxed">
+              "Costa di Baunei da sogno! Geomare Escursioni ha reso la nostra vacanza indimenticabile. Skipper simpaticissimo e preparatissimo su ogni dettaglio storico e naturale."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-neutral-800">
+            <div class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-400 font-bold flex items-center justify-center">E</div>
+            <div>
+              <h4 class="text-white text-sm font-semibold">Elena Bianchi</h4>
+              <p class="text-neutral-500 text-xs">Recensione Google</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-neutral-900/40 border border-neutral-800 p-6 rounded-3xl hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col justify-between reveal opacity-0 translate-y-16">
+          <div>
+            <div class="flex text-gold-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+            </div>
+            <p class="text-neutral-300 text-sm italic mb-6 leading-relaxed">
+              "Servizio VIP eccellente. Abbiamo prenotato il tour privato per la famiglia ed è stato perfetto in ogni aspetto. Acque pazzesche e professionalità unica."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-neutral-800">
+            <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center">G</div>
+            <div>
+              <h4 class="text-white text-sm font-semibold">Giuseppe V.</h4>
+              <p class="text-neutral-500 text-xs">Recensione Google</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ Accordion & Contatti Section -->
+    <section id="faq" class="py-24 bg-neutral-900/50 border-t border-neutral-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          
+          <!-- Accordion FAQ Left -->
+          <div class="reveal opacity-0 translate-y-16">
+            <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest block mb-2">Domande Frequenti</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-8">Tutto Quello Che Devi Sapere</h2>
+
+            <div class="space-y-4">
+              
+              <details class="group bg-neutral-950 border border-neutral-800 rounded-2xl p-5 [&_[data-accordion-icon]]:open:rotate-180">
+                <summary class="flex justify-between items-center font-medium text-white cursor-pointer list-none">
+                  <span class="text-base font-semibold">Cosa occorre portare a bordo?</span>
+                  <i data-lucide="chevron-down" data-accordion-icon class="w-5 h-5 text-neutral-400 transition-transform duration-300"></i>
+                </summary>
+                <p class="text-neutral-400 text-sm mt-3 leading-relaxed font-light">
+                  Consigliamo costume da bagno, telo mare, crema solare, cappello e occhiali da sole. L'attrezzatura da snorkeling e le bevande fresche sono messe a disposizione a bordo!
+                </p>
+              </details>
+
+              <details class="group bg-neutral-950 border border-neutral-800 rounded-2xl p-5 [&_[data-accordion-icon]]:open:rotate-180">
+                <summary class="flex justify-between items-center font-medium text-white cursor-pointer list-none">
+                  <span class="text-base font-semibold">Da dove partono le escursioni?</span>
+                  <i data-lucide="chevron-down" data-accordion-icon class="w-5 h-5 text-neutral-400 transition-transform duration-300"></i>
+                </summary>
+                <p class="text-neutral-400 text-sm mt-3 leading-relaxed font-light">
+                  I punti di imbarco principali si trovano lungo la Costa di Baunei / Arbatax / Santa Maria Navarrese. Al momento della prenotazione riceverai la posizione esatta con indicazioni per il parcheggio.
+                </p>
+              </details>
+
+              <details class="group bg-neutral-950 border border-neutral-800 rounded-2xl p-5 [&_[data-accordion-icon]]:open:rotate-180">
+                <summary class="flex justify-between items-center font-medium text-white cursor-pointer list-none">
+                  <span class="text-base font-semibold">In caso di maltempo cosa succede?</span>
+                  <i data-lucide="chevron-down" data-accordion-icon class="w-5 h-5 text-neutral-400 transition-transform duration-300"></i>
+                </summary>
+                <p class="text-neutral-400 text-sm mt-3 leading-relaxed font-light">
+                  La sicurezza è la nostra priorità. In caso di condizioni meteo-marine avverse, il tour verrà riprogrammato nella prima data disponibile oppure rimborsato integralmente.
+                </p>
+              </details>
+
+              <details class="group bg-neutral-950 border border-neutral-800 rounded-2xl p-5 [&_[data-accordion-icon]]:open:rotate-180">
+                <summary class="flex justify-between items-center font-medium text-white cursor-pointer list-none">
+                  <span class="text-base font-semibold">Come si effettua la prenotazione?</span>
+                  <i data-lucide="chevron-down" data-accordion-icon class="w-5 h-5 text-neutral-400 transition-transform duration-300"></i>
+                </summary>
+                <p class="text-neutral-400 text-sm mt-3 leading-relaxed font-light">
+                  Puoi prenotare direttamente cliccando sui bottoni WhatsApp o chiamando il nostro numero. Ti confermeremo la disponibilità dei posti in tempo reale.
+                </p>
+              </details>
+
+            </div>
+          </div>
+
+          <!-- Contact Box Right -->
+          <div class="bg-neutral-950 border border-neutral-800 rounded-3xl p-8 sm:p-10 flex flex-col justify-between reveal opacity-0 translate-y-16">
+            <div>
+              <span class="text-gold-400 text-xs font-bold uppercase tracking-widest block mb-2">Prenotazioni & Contatto Rapido</span>
+              <h2 class="font-serif text-3xl font-bold text-white mb-6">Pianifica Ora la Tua Uscita in Barca</h2>
+              <p class="text-neutral-400 text-sm leading-relaxed mb-8">
+                Siamo pronti a guidarti tra le meraviglie della Costa di Baunei. Contattaci per verificare la disponibilità dei posti o per preventivi personalizzati.
+              </p>
+
+              <div class="space-y-6 mb-8">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                    <i data-lucide="phone-call" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs text-neutral-500 uppercase tracking-wider">Telefono / Info</div>
+                    <a href="tel:+393000000000" class="text-white font-bold text-lg hover:text-cyan-400 transition-colors">Contattaci Subito</a>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs text-neutral-500 uppercase tracking-wider">WhatsApp Diretto</div>
+                    <a href="https://wa.me/393000000000?text=Salve%2C%20desidero%20informazioni%20sui%20tour" target="_blank" rel="noopener" class="text-white font-bold text-lg hover:text-emerald-400 transition-colors">Chatta con lo Skipper</a>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
+                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs text-neutral-500 uppercase tracking-wider">Località</div>
+                    <div class="text-white font-semibold">Costa di Baunei, Sardegna</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vienici a Trovare Maps Button -->
+            <a href="https://www.google.com/maps/search/?api=1&query=Costa+di+Baunei+Sardegna" target="_blank" rel="noopener" class="w-full py-4 rounded-2xl bg-neutral-900 hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-widest border border-neutral-700 transition-all duration-300 text-center flex items-center justify-center gap-2">
+              <i data-lucide="navigation" class="w-4 h-4 text-cyan-400"></i> Vienici a Trovare (Google Maps)
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Mobile Sticky Bar (Solo Mobile) -->
+  <div class="fixed bottom-0 inset-x-0 z-50 bg-neutral-950/95 backdrop-blur-xl border-t border-neutral-800 p-3 sm:hidden">
+    <div class="grid grid-cols-2 gap-3">
+      <a href="tel:+393000000000" class="w-full py-3 rounded-xl bg-neutral-900 border border-neutral-700 text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+        <i data-lucide="phone" class="w-4 h-4 text-cyan-400"></i> Chiama Ora
+      </a>
+      <a href="https://wa.me/393000000000?text=Salve%2C%20vorrei%20prenotare%20un%27escursione" target="_blank" rel="noopener" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-neutral-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+        <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-950 border-t border-neutral-800/80 pt-16 pb-24 sm:pb-12 text-neutral-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-12">
+        
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full border border-gold-glow/50 bg-neutral-900 flex items-center justify-center">
+            <i data-lucide="anchor" class="w-4 h-4 text-gold-glow"></i>
+          </div>
+          <div>
+            <span class="font-serif text-lg font-bold text-white block">GEOMARE ESCURSIONI</span>
+            <span class="text-[10px] text-neutral-500 uppercase tracking-widest">Costa di Baunei • Sardegna</span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-6 text-neutral-400">
+          <a href="#esperienza" class="hover:text-white transition-colors">L'Esperienza</a>
+          <a href="#itinerari" class="hover:text-white transition-colors">Itinerari</a>
+          <a href="#recensioni" class="hover:text-white transition-colors">Recensioni</a>
+          <a href="#faq" class="hover:text-white transition-colors">FAQ & Contatti</a>
+        </div>
+
+      </div>
+
+      <div class="border-t border-neutral-900 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-neutral-500 text-[11px]">
+        <div>
+          © <script>document.write(new Date().getFullYear())</script> Geomare Escursioni. Tutti i diritti riservati.
+        </div>
+        <div>
+          Design Luxury Marine SPA • Costa di Baunei
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Menu Mobile Toggle -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
+
+      if(menuBtn && mobileMenu) {
+        menuBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+
+        mobileLinks.forEach(link => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+          });
+        });
+      }
+    });
+  </script>
+
+  <!-- MOTORE ANIMAZIONI PREMIUM (OBBLIGATORIO) -->
+  <style>
+    /* Stile animato per le tendine (Accordions) */
+    details > summary { list-style: none; cursor: pointer; outline: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary ~ * { animation: sweep .4s ease-in-out; }
+    @keyframes sweep { 0% {opacity: 0; transform: translateY(-15px)} 100% {opacity: 1; transform: translateY(0)} }
+    /* Effetto Parallasse Sfondi */
+    .parallax { background-attachment: fixed; background-position: center; background-size: cover; background-repeat: no-repeat; }
+    /* Hide scrollbar per le gallerie orizzontali */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Scroll Reveal Animazioni
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            entry.target.classList.remove('opacity-0', 'translate-y-16');
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      
+      if(window.lucide) lucide.createIcons();
+    });
+  </script>
+
+</body>
+</html>
