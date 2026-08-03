@@ -148,7 +148,11 @@
   <main>
     <!-- HERO SECTION -->
     <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-6 bg-mesh-dark overflow-hidden parallax">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#0a0a0a_90%)] pointer-events-none"></div>
+      <div class="absolute inset-0 z-0">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlOdF1zm5TSxoX9Ia284Ct9JuRvgzrT6uLeSmpcdUgiF94qmhAefyPnX--oYM9OCN5ysbOXGDla9Y0KB-i5Zx0fPwYKdAYMXHU9ajKQkWgKz2jjeB1QNYVQsFDcOKfytmVsBQ0=s1360-w1360-h1020-rw" alt="Acconciatori Ex.J Hero Costa Smeralda" class="w-full h-full object-cover opacity-25">
+        <div class="absolute inset-0 bg-gradient-to-b from-neutral-950/80 via-neutral-950/60 to-neutral-950"></div>
+      </div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#0a0a0a_90%)] pointer-events-none z-0"></div>
       
       <div class="relative z-10 max-w-5xl mx-auto text-center reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-champagne-500/30 bg-champagne-500/5 mb-8">
@@ -329,19 +333,33 @@
 
     <!-- SEZIONE FILOSOFIA & CONSULENZA -->
     <section id="filosofia" class="py-24 px-6 bg-neutral-950 relative overflow-hidden">
-      <div class="max-w-5xl mx-auto text-center reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
-        <i data-lucide="quote" class="w-12 h-12 text-champagne-500/30 mx-auto mb-6"></i>
-        <h2 class="font-serif text-3xl sm:text-5xl text-neutral-100 font-light mb-8 leading-snug">
-          "Non proponiamo listini standardizzati.<br>
-          <span class="gold-gradient-text italic">Progettiamo l'armonia della tua immagine."</span>
-        </h2>
-        <p class="text-neutral-400 text-base md:text-lg leading-relaxed max-w-3xl mx-auto mb-10">
-          Ogni capello racconta una storia. Presso Acconciatori Ex.J, ogni servizio inizia con una consulenza privata. Analizziamo lo stato di salute dello stelo, la carnagione e i tuoi desideri per creare una tonalità d'autore sartoriale e irripetibile.
-        </p>
-        <a href="https://wa.me/393468524615?text=Salve,%20desidero%20prenotare%20una%20consulenza%20personalizzata" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 bg-champagne-500 text-black font-semibold text-xs uppercase tracking-widest rounded-full hover:bg-champagne-400 transition-all shadow-xl shadow-champagne-500/10">
-          <i data-lucide="calendar" class="w-4 h-4"></i>
-          <span>Prenota la tua Consulenza</span>
-        </a>
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-6 space-y-6">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="rounded-3xl overflow-hidden border border-neutral-800 shadow-2xl reveal opacity-0 translate-y-16">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl5c6c4O1jPhZY96zT0cxXVH-74jImdyE-KnPF8XHILxlYbCLh_njNSgJSXlq5U3AI0IMeQUYI56DNChws4fNZ0zC9-ZfvmZu3SYYkccES3WFSgxcz2Fbi03KqtZO8Ig6-AXHsk=s1360-w1360-h1020-rw" alt="Acconciatori Ex.J Atelier Costa Smeralda" class="w-full h-72 md:h-80 object-cover hover:scale-105 transition-transform duration-700">
+              </div>
+              <div class="rounded-3xl overflow-hidden border border-neutral-800 shadow-2xl mt-8 reveal opacity-0 translate-y-16">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnfifBMYYOTNzSsDFK9o8DZFLjGVW-F5TxyMMKxGbSjpC7IkSNdRdEDiEwUHu_iu1ZBZvbGMurP5vni-qaU9duVGvr6X1_O6BS5ZQt0J5wTjP84mlInDBSEivT8XQRKX_Vep_9rXQ=s1360-w1360-h1020-rw" alt="Acconciatori Ex.J Salone Arzachena" class="w-full h-72 md:h-80 object-cover hover:scale-105 transition-transform duration-700">
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-6 text-center lg:text-left reveal opacity-0 translate-y-16 transition-all duration-[1000ms] ease-out">
+            <i data-lucide="quote" class="w-12 h-12 text-champagne-500/30 mb-6 mx-auto lg:mx-0"></i>
+            <h2 class="font-serif text-3xl sm:text-5xl text-neutral-100 font-light mb-8 leading-snug">
+              "Non proponiamo listini standardizzati.<br>
+              <span class="gold-gradient-text italic">Progettiamo l'armonia della tua immagine."</span>
+            </h2>
+            <p class="text-neutral-400 text-base md:text-lg leading-relaxed mb-10">
+              Ogni capello racconta una storia. Presso Acconciatori Ex.J, ogni servizio inizia con una consulenza privata. Analizziamo lo stato di salute dello stelo, la carnagione e i tuoi desideri per creare una tonalità d'autore sartoriale e irripetibile.
+            </p>
+            <a href="https://wa.me/393468524615?text=Salve,%20desidero%20prenotare%20una%20consulenza%20personalizzata" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 bg-champagne-500 text-black font-semibold text-xs uppercase tracking-widest rounded-full hover:bg-champagne-400 transition-all shadow-xl shadow-champagne-500/10">
+              <i data-lucide="calendar" class="w-4 h-4"></i>
+              <span>Prenota la tua Consulenza</span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
