@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinica Estética Diamas | Medicina Avanzada Málaga</title>
+    <meta name="description" content="Clínica estética avanzada y medicina estética en Málaga centro. Tratamientos faciales, corporales, LPG Alliance, ácido hialurónico y láser con la Dra. Anna Smirnova.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        luxury: {
+                            gold: '#D4AF37',
+                            dark: '#0a0a0a',
+                            card: '#121212',
+                            border: 'rgba(255, 255, 255, 0.08)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Schema.org LocalBusiness JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BeautySalon",
+      "name": "Clínica Estética Diamas",
+      "image": "https://www.diamas.es/images/6/logos_diamas_1-3654.jpg",
+      "@id": "https://www.diamas.es",
+      "url": "https://www.diamas.es",
+      "telephone": "+34678608646",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle Almansa 14",
+        "addressLocality": "Málaga",
+        "postalCode": "29007",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 36.7196,
+        "longitude": -4.4200
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "10:00",
+        "closes": "19:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=100095306166439",
+        "https://www.instagram.com/diamas_estetica/",
+        "https://www.tiktok.com/@diamas_estetica"
+      ]
+    }
+    </script>
+</head>
+<body class="bg-luxury-dark text-white antialiased selection:bg-luxury-gold selection:text-black overflow-x-hidden">
+
+    <!-- Navbar Glassmorphism -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-2xl border-b border-white/10 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-luxury-gold to-amber-600 flex items-center justify-center text-black font-black text-xl shadow-lg shadow-luxury-gold/20">D</div>
+                <span class="font-bold tracking-wider uppercase text-sm bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text text-transparent">Diamas Málaga</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">
+                <a href="#inicio" class="hover:text-luxury-gold transition-colors">Inicio</a>
+                <a href="#medicina" class="hover:text-luxury-gold transition-colors">Medicina Estética</a>
+                <a href="#avanzada" class="hover:text-luxury-gold transition-colors">Estética Avanzada</a>
+                <a href="#tratamientos" class="hover:text-luxury-gold transition-colors">Tratamientos</a>
+                <a href="#contacto" class="hover:text-luxury-gold transition-colors">Contacto</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/34678608646" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-sm font-medium transition-all duration-300 hover:scale-105">
+                    <i data-lucide="phone" class="w-4 h-4 text-luxury-gold"></i>
+                    <span>678 60 86 46</span>
+                </a>
+                <a href="https://buy.stripe.com/14A4gr9dEgvlame7i6bZe00" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-luxury-gold to-amber-600 text-black font-semibold text-sm hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-105">
+                    Activar IA Ahora
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="inicio">
+        <!-- Hero Section -->
+        <header class="relative min-h-[90vh] flex items-center justify-center pt-28 pb-20 px-6 overflow-hidden" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(10,10,10,0.95)), url('images/e/photo-2024-07-24-12-46-45-706.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+            <div class="absolute inset-0 bg-gradient-to-t from-luxury-dark via-transparent to-transparent"></div>
+            
+            <div class="relative z-10 max-w-5xl mx-auto text-center reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-6 shadow-2xl">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-luxury-gold"></i>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-luxury-gold">Clínica Estética Avanzada en Málaga Centro</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 leading-[1.1]">
+                    La Belleza <br>en su Máxima Expresión
+                </h1>
+                
+                <p class="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+                    Más de 10 años de experiencia transformando la piel con tecnología de vanguardia y medicina estética de alta gama en el corazón de Málaga.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="tel:34678608646" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-luxury-gold text-black font-bold tracking-wide hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3">
+                        <i data-lucide="phone-call" class="w-5 h-5"></i>
+                        <span>Llama Ahora: 678 60 86 46</span>
+                    </a>
+                    <a href="https://maps.app.goo.gl/dmucrZTYWi7fezy49" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 font-semibold backdrop-blur-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-luxury-gold"></i>
+                        <span>Calle Almansa 14, Málaga</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Bento Grid Highlights -->
+        <section class="py-32 px-6 max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">Innovación & Excelencia</h2>
+                <p class="text-zinc-400 max-w-xl mx-auto">Descubre nuestros tratamientos estrella diseñados para revitalizar, rejuvenecer y realzar tu belleza natural.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group relative rounded-[2.5rem] bg-luxury-card border border-luxury-border p-8 overflow-hidden hover:border-luxury-gold/50 transition-all duration-700 reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 z-10"></div>
+                    <div class="h-64 rounded-2xl overflow-hidden mb-6">
+                        <img src="images/q/photo-2026-07-08-15-57-00-932.jpg" alt="Medicina Estética Málaga" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-[1000ms] ease-out">
+                    </div>
+                    <div class="relative z-20">
+                        <span class="text-xs font-bold text-luxury-gold tracking-widest uppercase mb-2 block">Dra. Anna Smirnova</span>
+                        <h3 class="text-2xl font-bold mb-3">Medicina Estética</h3>
+                        <p class="text-zinc-400 text-sm mb-6 leading-relaxed">Ácido hialurónico, botox, relleno de labios, ojeras y pómulos con valoración totalmente gratuita.</p>
+                        <a href="#medicina" class="inline-flex items-center gap-2 text-sm font-semibold text-luxury-gold group-hover:translate-x-2 transition-transform duration-300">
+                            <span>Saber más</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative rounded-[2.5rem] bg-luxury-card border border-luxury-border p-8 overflow-hidden hover:border-luxury-gold/50 transition-all duration-700 reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 z-10"></div>
+                    <div class="h-64 rounded-2xl overflow-hidden mb-6">
+                        <img src="images/e/photo-2026-07-01-11-02-45-150.jpg" alt="LPG Alliance Málaga" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-[1000ms] ease-out">
+                    </div>
+                    <div class="relative z-20">
+                        <span class="text-xs font-bold text-luxury-gold tracking-widest uppercase mb-2 block">Última Tecnología</span>
+                        <h3 class="text-2xl font-bold mb-3">LPG Alliance Facial y Corporal</h3>
+                        <p class="text-zinc-400 text-sm mb-6 leading-relaxed">Reducción de celulitis, firmeza, tonificación y relleno de arrugas con tecnología no invasiva de última generación.</p>
+                        <a href="#avanzada" class="inline-flex items-center gap-2 text-sm font-semibold text-luxury-gold group-hover:translate-x-2 transition-transform duration-300">
+                            <span>Saber más</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative rounded-[2.5rem] bg-luxury-card border border-luxury-border p-8 overflow-hidden hover:border-luxury-gold/50 transition-all duration-700 reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 z-10"></div>
+                    <div class="h-64 rounded-2xl overflow-hidden mb-6">
+                        <img src="images/p/photo-2026-05-02-16-19-44-3-138.jpg" alt="Higiene Facial Málaga" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-[1000ms] ease-out">
+                    </div>
+                    <div class="relative z-20">
+                        <span class="text-xs font-bold text-luxury-gold tracking-widest uppercase mb-2 block">Estética Avanzada</span>
+                        <h3 class="text-2xl font-bold mb-3">Tratamientos Faciales</h3>
+                        <p class="text-zinc-400 text-sm mb-6 leading-relaxed">Higiene facial profunda, diatermia, dermapen, IPL y tratamientos exclusivos para una piel perfecta.</p>
+                        <a href="#tratamientos" class="inline-flex items-center gap-2 text-sm font-semibold text-luxury-gold group-hover:translate-x-2 transition-transform duration-300">
+                            <span>Saber más</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medicina Estetica Detail Section -->
+        <section id="medicina" class="py-32 px-6 bg-zinc-950 border-t border-b border-white/5">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                    <span class="text-xs font-bold text-luxury-gold tracking-widest uppercase mb-4 block">Centro Autorizado Nica 57968</span>
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-6">Medicina Estética con la Dra. Anna Smirnova</h2>
+                    <p class="text-zinc-300 text-lg mb-8 leading-relaxed font-light">
+                        Especialista en medicina estética y anti-envejecimiento. Su filosofía busca realzar los rasgos individuales garantizando la máxima naturalidad, simetría y armonía facial.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-10">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-luxury-gold flex-shrink-0"></i>
+                            <span class="text-sm font-medium">Tratamiento de Labios</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-luxury-gold flex-shrink-0"></i>
+                            <span class="text-sm font-medium">Eliminación Arrugas</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-luxury-gold flex-shrink-0"></i>
+                            <span class="text-sm font-medium">Ojeras y Bolsas</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-luxury-gold flex-shrink-0"></i>
+                            <span class="text-sm font-medium">Relleno de Pómulos</span>
+                        </div>
+                    </div>
+
+                    <a href="tel:34678608646" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-luxury-gold text-black font-bold tracking-wide hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] transition-all duration-300 hover:scale-105">
+                        <i data-lucide="calendar" class="w-5 h-5"></i>
+                        <span>Primera Valoración Gratuita</span>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                    <div class="space-y-4">
+                        <div class="h-64 rounded-3xl overflow-hidden border border-white/10">
+                            <img src="images/s/photo-2023-09-21-15-20-03-1282.jpg" alt="Medicina Estética Málaga" class="object-cover w-full h-full hover:scale-110 transition-transform duration-[1000ms] ease-out">
+                        </div>
+                        <div class="h-48 rounded-3xl overflow-hidden border border-white/10">
+                            <img src="images/3/photo-2023-08-05-15-22-52-892.jpg" alt="Relleno de Labios" class="object-cover w-full h-full hover:scale-110 transition-transform duration-[1000ms] ease-out">
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <div class="h-48 rounded-3xl overflow-hidden border border-white/10">
+                            <img src="images/v/photo-2023-10-15-16-14-33-928.jpg" alt="Eliminación Arrugas" class="object-cover w-full h-full hover:scale-110 transition-transform duration-[1000ms] ease-out">
+                        </div>
+                        <div class="h-64 rounded-3xl overflow-hidden border border-white/10">
+                            <img src="images/7/photo-2023-09-21-15-20-36-826.jpg" alt="Dra Anna Smirnova" class="object-cover w-full h-full hover:scale-110 transition-transform duration-[1000ms] ease-out">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Aesthetics & Body Treatments -->
+        <section id="avanzada" class="py-32 px-6 max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                <span class="text-xs font-bold text-luxury-gold tracking-widest uppercase mb-4 block">Tecnología de Vanguardia</span>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-4">Estética Avanzada Facial y Corporal</h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Tratamientos no invasivos diseñados para ofrecer resultados visibles desde la primera sesión.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="rounded-3xl bg-luxury-card border border-luxury-border p-6 hover:border-luxury-gold/40 transition-all duration-500 reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                    <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-luxury-gold mb-6">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">LPG Alliance</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Reafirmación, reducción de volumen y celulitis con aspiración mecanizada sincronizada.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="rounded-3xl bg-luxury-card border border-luxury-border p-6 hover:border-luxury-gold/40 transition-all duration-500 reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                    <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-luxury-gold mb-6">
+                        <i data-lucide="activity" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Diatermia</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Aumento del flujo sanguíneo y linfático, regeneración celular y efecto tensor inmediato.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="rounded-3xl bg-luxury-card border border-luxury-border p-6 hover:border-luxury-gold/40 transition-all duration-500 reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                    <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-luxury-gold mb-6">
+                        <i data-lucide="sun" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">IPL & Láser</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Depilación láser indolora, eliminación de manchas, acné y fotorrejuvenecimiento avanzado.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="rounded-3xl bg-luxury-card border border-luxury-border p-6 hover:border-luxury-gold/40 transition-all duration-500 reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                    <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-luxury-gold mb-6">
+                        <i data-lucide="eye" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Microblading</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Maquillaje semipermanente para unas cejas perfectas y naturales adaptadas a tu fisonomía.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials / Google Reviews Section -->
+        <section id="tratamientos" class="py-32 px-6 bg-zinc-950 border-t border-white/5">
+            <div class="max-w-7xl mx-auto text-center">
+                <div class="reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                    <span class="text-xs font-bold text-luxury-gold tracking-widest uppercase mb-4 block">Confianza Absoluta</span>
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-6">Lo que opinan nuestros clientes</h2>
+                    <p class="text-zinc-400 max-w-xl mx-auto mb-16">La satisfacción de quienes confían en nosotros es nuestro mayor aval y recompensa.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                    <div class="rounded-3xl bg-luxury-card border border-luxury-border p-8 reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                        <div class="flex items-center gap-1 text-luxury-gold mb-6">
+                            <i data-lucide="star" class="w-5 h-5 fill-luxury-gold"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-luxury-gold"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-luxury-gold"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-luxury-gold"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-luxury-gold"></i>
+                        </div>
+                        <p class="text-zinc-300 text-sm leading-relaxed mb-6 font-light">"Trato excepcional y profesionalidad inigualable. La doctora Anna Smirnova es un auténtico encanto y los resultados superan todas las expectativas."</p>
+                        <span class="font-semibold text-sm">María Dolores G.</span>
+                    </div>
+
+                    <div class="rounded-3xl bg-luxury-card border border-luxury-border p-8 reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                        <div class="flex items-center gap-1 text-luxury-gold mb-6">
+                            <i data-lucide="star" class="w-5 h-5 fill-luxury-gold"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-luxury-gold"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-luxury-gold"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-luxury-gold"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-luxury-gold"></i>
+                        </div>
+                        <p class="text-zinc-300 text-sm leading-relaxed mb-6 font-light">"La clínica en Málaga centro es preciosa y muy limpia. Me hice el tratamiento LPG y los resultados en pocas sesiones son increíbles. 100% recomendables."</p>
+                        <span class="font-semibold text-sm">Carmen R.</span>
+                    </div>
+
+                    <div class="rounded-3xl bg-luxury-card border border-luxury-border p-8 reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                        <div class="flex items-center gap-1 text-luxury-gold mb-6">
+                            <i data-lucide="star" class="w-5 h-5 fill-luxury-gold"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-luxury-gold"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-luxury-gold"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-luxury-gold"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-luxury-gold"></i>
+                        </div>
+                        <p class="text-zinc-300 text-sm leading-relaxed mb-6 font-light">"Primera valoración gratuita y asesoramiento honesto. Se nota que llevan más de 10 años de experiencia. Volveré sin duda."</p>
+                        <span class="font-semibold text-sm">Alejandro M.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Location Section -->
+        <section id="contacto" class="py-32 px-6 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                    <span class="text-xs font-bold text-luxury-gold tracking-widest uppercase mb-4 block">Visítanos en Málaga Centro</span>
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-6">Reserva tu cita hoy mismo</h2>
+                    <p class="text-zinc-400 text-lg mb-8 font-light leading-relaxed">
+                        Estamos en el centro de Málaga. Llámanos, escríbenos por WhatsApp o visítanos sin compromiso para un diagnóstico estético personalizado.
+                    </p>
+
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-luxury-gold flex-shrink-0">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-sm text-zinc-400">Dirección</h3>
+                                <p class="text-white">Calle Almansa 14, 29007 Málaga</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-luxury-gold flex-shrink-0">
+                                <i data-lucide="phone" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-sm text-zinc-400">Teléfono / WhatsApp</h3>
+                                <p class="text-white">952 27 39 14 - 678 60 86 46</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-luxury-gold flex-shrink-0">
+                                <i data-lucide="clock" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-sm text-zinc-400">Horario</h3>
+                                <p class="text-white">Lunes a Viernes: 10:00 - 19:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <a href="https://www.instagram.com/diamas_estetica/" target="_blank" class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5 text-luxury-gold"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100095306166439" target="_blank" class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5 text-luxury-gold"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@diamas_estetica" target="_blank" class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <i data-lucide="video" class="w-5 h-5 text-luxury-gold"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="rounded-[2.5rem] bg-luxury-card border border-luxury-border p-8 reveal opacity-0 translate-y-12 scale-95 blur-lg transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1)">
+                    <h3 class="text-2xl font-bold mb-6">Contacto Directo</h3>
+                    <form onsubmit="event.preventDefault(); alert('¡Gracias! Nos pondremos en contacto contigo de inmediato.');" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Nombre y Apellidos</label>
+                            <input type="text" required class="w-full bg-black/40 border border-white/10 rounded-2xl px-5 py-3.5 text-white focus:outline-none focus:border-luxury-gold transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Teléfono</label>
+                            <input type="tel" required class="w-full bg-black/40 border border-white/10 rounded-2xl px-5 py-3.5 text-white focus:outline-none focus:border-luxury-gold transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Tratamiento de Interés</label>
+                            <select class="w-full bg-black/40 border border-white/10 rounded-2xl px-5 py-3.5 text-white focus:outline-none focus:border-luxury-gold transition-colors">
+                                <option class="bg-black">Medicina Estética / Botox / Labios</option>
+                                <option class="bg-black">LPG Alliance Facial y Corporal</option>
+                                <option class="bg-black">Higiene y Tratamientos Faciales</option>
+                                <option class="bg-black">Depilación Láser</option>
+                                <option class="bg-black">Microblading</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-luxury-gold to-amber-600 text-black font-bold tracking-wide hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300 mt-4">
+                            Solicitar Información
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 py-16 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+            <div>
+                <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-luxury-gold to-amber-600 flex items-center justify-center text-black font-black text-lg">D</div>
+                    <span class="font-bold tracking-wider uppercase text-sm">Clínica Estética Diamas</span>
+                </div>
+                <p class="text-xs text-zinc-500 max-w-sm">Calle Almansa 14, Málaga • Tel: 952 27 39 14 - 678 60 86 46 • diamasesteticaavanzada@gmail.com</p>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="https://buy.stripe.com/14A4gr9dEgvlame7i6bZe00" class="px-6 py-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold tracking-wider uppercase transition-all duration-300">
+                    Activar IA Ahora
+                </a>
+                <a href="https://www.instagram.com/diamas_estetica/" target="_blank" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-luxury-gold to-amber-600 text-black font-bold text-xs tracking-wider uppercase hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-300">
+                    Instagram
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animations & Vapi Engine -->
+    <style>
+      details > summary { list-style: none; cursor: pointer; outline: none; }
+      details > summary::-webkit-details-marker { display: none; }
+      details[open] summary ~ * { animation: sweep .5s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+      @keyframes sweep { 0% {opacity: 0; transform: translateY(-10px) scale(0.98); filter: blur(5px);} 100% {opacity: 1; transform: translateY(0) scale(1); filter: blur(0);} }
+      html { scroll-behavior: smooth; }
+      @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+      .animate-float { animation: float 6s ease-in-out infinite; }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const observerOptions = { root: null, rootMargin: '0px 0px -50px 0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.remove('opacity-0', 'translate-y-12', 'scale-95', 'blur-lg');
+              entry.target.classList.add('opacity-100', 'translate-y-0', 'scale-100', 'blur-0');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach((el, index) => {
+          if(!el.style.transitionDelay) el.style.transitionDelay = `${(index % 5) * 100}ms`;
+          observer.observe(el);
+        });
+        if(window.lucide) lucide.createIcons();
+      });
+    </script>
+    <!-- INIZIO WIDGET VAPI IA VOCALE -->
+    <script src="https://cdn.jsdelivr.net/npm/@vapi-ai/web/dist/vapi.bundle.js"></script>
+    <script>
+      window.addEventListener('load', function() {
+        var vapi = window.vapiSDK.run({
+          apiKey: "7cc80e02-c44a-452a-9e1a-b89d7380f418",
+          assistant: "1bbde8ee-5f8c-447d-a306-677f1e110004"
+        });
+      });
+    </script>
+    <!-- FINE WIDGET VAPI IA VOCALE -->
+</body>
+</html>
