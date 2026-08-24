@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Diamas | Medicina Estética & Estética Avanzada en Málaga Centro</title>
+  <meta name="description" content="Clínica Estética Avanzada y Medicina Estética Diamas en Málaga. Especialistas en bótox, ácido hialurónico, LPG Alliance, IPL, peeling y rejuvenecimiento facial sin cirugía. Diagnóstico gratuito.">
+  <meta name="keywords" content="medicina estetica malaga, clinica estetica diamas, botox malaga, acido hialuronico malaga, lpg alliance malaga, rejuvenecimiento facial, tratamiento anticelulitis">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Clínica Estética Avanzada y Medicina Estética Diamas | Málaga">
+  <meta property="og:description" content="Más de 10 años creando belleza armónica y rejuvenecimiento natural en el centro de Málaga. Descubre nuestros tratamientos de vanguardia.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2000">
+  <meta property="og:type" content="website">
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "Clínica Estética Avanzada y Medicina Estética Diamas",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2000",
+    "@id": "https://diamasestetica.es",
+    "url": "https://diamasestetica.es",
+    "telephone": "+34952273914",
+    "priceRange": "€€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle Almansa 14",
+      "addressLocality": "Málaga",
+      "postalCode": "29007",
+      "addressCountry": "ES"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 36.7213,
+      "longitude": -4.4214
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "10:00",
+      "closes": "20:00"
+    },
+    "medicalSpecialty": ["Dermatology", "PlasticSurgery"],
+    "description": "Centro de medicina estética y estética avanzada en Málaga autorizado por la Junta de Andalucía. Especialistas en rejuvenecimiento facial, ácido hialurónico, bótox y aparatología médica de última generación."
+  }
+  </script>
+
+  <!-- Google Fonts & Tailwind CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            gold: {
+              100: '#FDF8EC',
+              300: '#E8D296',
+              400: '#D4AF37',
+              500: '#C59B27',
+              600: '#A37C1E',
+            }
+          },
+          animation: {
+            'sweep': 'sweep 8s ease-in-out infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+          },
+          keyframes: {
+            sweep: {
+              '0%, 100%': { transform: 'translateY(0px) scale(1)' },
+              '50%': { transform: 'translateY(-15px) scale(1.02)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4' },
+              '50%': { opacity: '0.8' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Custom Luxury & Glassmorphism Utilities */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card-hover {
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card-hover:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(212, 175, 55, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 30px rgba(212, 175, 55, 0.1);
+    }
+    .glass-nav {
+      background: rgba(10, 10, 10, 0.75);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .gold-gradient-text {
+      background: linear-[#e5c158] bg-gradient-to-r from-amber-200 via-gold-400 to-amber-500 bg-clip-text text-transparent;
+    }
+    .gold-border-glow {
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #262626;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #d4af37;
+    }
+  </style>
+</head>
+<body class="bg-neutral-950 text-neutral-200 font-sans selection:bg-gold-400 selection:text-neutral-950 antialiased overflow-x-hidden">
+
+  <!-- Ambient Glow Effects Background -->
+  <div class="fixed top-0 left-1/4 w-96 h-96 bg-amber-600/10 rounded-full blur-[120px] pointer-events-none z-0 animate-pulse-glow"></div>
+  <div class="fixed bottom-1/3 right-1/4 w-[500px] h-[500px] bg-gold-400/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
+
+  <!-- NAVIGATION -->
+  <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold-300 to-gold-600 p-[1px] flex items-center justify-center">
+          <div class="w-full h-full bg-neutral-950 rounded-full flex items-center justify-center">
+            <span class="font-serif font-bold text-lg text-gold-400 group-hover:scale-110 transition-transform">D</span>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-xl font-light tracking-wider text-white uppercase">Diamas</span>
+          <span class="text-[9px] uppercase tracking-[0.25em] text-amber-300/70 -mt-1">Medicina Estética</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-widest text-neutral-400 font-medium">
+        <a href="#filosofia" class="hover:text-gold-400 transition-colors">Filosofía</a>
+        <a href="#servicios" class="hover:text-gold-400 transition-colors">Tratamientos</a>
+        <a href="#tecnologia" class="hover:text-gold-400 transition-colors">Tecnología</a>
+        <a href="#equipo" class="hover:text-gold-400 transition-colors">Equipo</a>
+        <a href="#contacto" class="hover:text-gold-400 transition-colors">Ubicación</a>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="flex items-center gap-4">
+        <button onclick="triggerVapiAssistant()" class="relative inline-flex items-center justify-center px-6 py-2.5 text-xs font-semibold uppercase tracking-widest text-neutral-950 bg-gradient-to-r from-amber-200 via-gold-400 to-amber-500 rounded-full shadow-lg shadow-gold-500/20 hover:shadow-gold-400/40 hover:scale-105 transition-all duration-300">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 mr-2"></i>
+          <span>Reserva tu Cita</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN SPA CONTENT -->
+  <main class="relative z-10 pt-20">
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[92vh] flex items-center justify-center px-6 overflow-hidden">
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2000" alt="Clínica Estética Diamas Málaga" class="w-full h-full object-cover object-center scale-105 animate-sweep brightness-40">
+        <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-neutral-950/40"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#0a0a0a_90%)]"></div>
+      </div>
+
+      <div class="relative z-10 max-w-5xl mx-auto text-center space-y-8 py-20">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-gold-400/30 text-gold-300 text-xs uppercase tracking-widest mb-4">
+          <span class="w-2 h-2 rounded-full bg-gold-400 animate-ping"></span>
+          Centro Autorizado Junta de Andalucía · Málaga Centro
+        </div>
+
+        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-light text-white tracking-tight leading-[1.1]">
+          Rejuvenece tu Piel con <br>
+          <span class="italic font-normal gold-gradient-text">Elegancia & Precisión</span>
+        </h1>
+
+        <p class="max-w-2xl mx-auto text-neutral-300 text-base md:text-lg font-light leading-relaxed">
+          Más de 10 años de excelencia en medicina estética y rejuvenecimiento facial y corporal no invasivo. Diagnóstico personalizado y primera consulta evaluación totalmente gratuita.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-5 pt-4">
+          <button onclick="triggerVapiAssistant()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-amber-300 via-gold-400 to-amber-500 text-neutral-950 font-semibold text-xs uppercase tracking-widest shadow-xl shadow-gold-400/20 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 group">
+            <i data-lucide="bot" class="w-4 h-4 group-hover:rotate-12 transition-transform"></i>
+            <span>Habla con Nuestra IA o Reserva Cita</span>
+          </button>
+          <a href="https://wa.me/34678608646" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card hover:bg-white/10 text-white font-medium text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-3 border border-white/20">
+            <i data-lucide="phone-call" class="w-4 h-4 text-gold-400"></i>
+            <span>WhatsApp Directo</span>
+          </a>
+        </div>
+
+        <!-- Trust Badges Grid -->
+        <div class="pt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center border-t border-white/10 max-w-4xl mx-auto">
+          <div>
+            <span class="block font-serif text-3xl md:text-4xl text-white font-light">+10 Años</span>
+            <span class="text-xs uppercase tracking-wider text-neutral-400">Trayectoria Experta</span>
+          </div>
+          <div>
+            <span class="block font-serif text-3xl md:text-4xl text-gold-400 font-light">100%</span>
+            <span class="text-xs uppercase tracking-wider text-neutral-400">Tratamientos No Invasivos</span>
+          </div>
+          <div>
+            <span class="block font-serif text-3xl md:text-4xl text-white font-light">Gratis</span>
+            <span class="text-xs uppercase tracking-wider text-neutral-400">Primera Valoración</span>
+          </div>
+          <div>
+            <span class="block font-serif text-3xl md:text-4xl text-gold-400 font-light">LPG®</span>
+            <span class="text-xs uppercase tracking-wider text-neutral-400">Tecnología M6 Alliance</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILOSOFÍA & VALORES -->
+    <section id="filosofia" class="py-28 px-6 relative">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-6">
+            <span class="text-gold-400 text-xs font-semibold tracking-widest uppercase">La Experiencia Diamas</span>
+            <h2 class="font-serif text-4xl md:text-5xl font-light text-white leading-tight">
+              La armonía estética nace de la <span class="italic text-gold-300">ciencia y la personalización</span>
+            </h2>
+            <p class="text-neutral-300 font-light leading-relaxed">
+              En Clínica Diamas concebimos la medicina estética no como un cambio radical, sino como una potenciación de tu propia belleza natural. Nuestro equipo médico especializado combina la tecnología estética de última generación con técnicas avanzadas sin dolor.
+            </p>
+            <div class="space-y-4 pt-2">
+              <div class="flex items-start gap-4 glass-card p-4 rounded-xl">
+                <div class="p-2 rounded-lg bg-gold-400/10 text-gold-400 shrink-0">
+                  <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="text-white font-medium text-sm">Centro Medico Autorizado</h3>
+                  <p class="text-neutral-400 text-xs font-light mt-1">Acreditados oficialmente por la Junta de Andalucía garantizando máxima seguridad sanitaria.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 glass-card p-4 rounded-xl">
+                <div class="p-2 rounded-lg bg-gold-400/10 text-gold-400 shrink-0">
+                  <i data-lucide="sparkle" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="text-white font-medium text-sm">Estimulación Natural de Colágeno</h3>
+                  <p class="text-neutral-400 text-xs font-light mt-1">Prevención activa del envejecimiento mediante la regeneración profunda de tejidos.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Showcase -->
+          <div class="relative">
+            <div class="aspect-[4/5] rounded-2xl overflow-hidden glass-card p-2 border border-white/10">
+              <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200" alt="Instalaciones Clínica Diamas Málaga" class="w-full h-full object-cover rounded-xl hover:scale-110 transition-transform duration-700">
+            </div>
+            <!-- Floating Overlay Card -->
+            <div class="absolute -bottom-8 -left-8 glass-card p-6 rounded-2xl border border-gold-400/30 max-w-xs hidden sm:block animate-float">
+              <div class="flex items-center gap-3">
+                <i data-lucide="award" class="w-8 h-8 text-gold-400"></i>
+                <div>
+                  <p class="text-xs uppercase text-neutral-400 font-medium">Dirección Médica</p>
+                  <p class="text-sm font-serif text-white">Dra. Anna Smirnova</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRATAMIENTOS / SERVICIOS -->
+    <section id="servicios" class="py-28 px-6 bg-neutral-900/40 relative">
+      <div class="max-w-7xl mx-auto space-y-16">
+        <div class="text-center max-w-3xl mx-auto space-y-4">
+          <span class="text-gold-400 text-xs font-semibold tracking-widest uppercase">Servicios Exclusivos</span>
+          <h2 class="font-serif text-4xl md:text-6xl text-white font-light">
+            Especialidades <span class="italic text-gold-300">Faciales y Corporales</span>
+          </h2>
+          <p class="text-neutral-400 font-light text-sm md:text-base">
+            Diseñamos planes integrales adaptados a las necesidades biológicas de tu piel.
+          </p>
+        </div>
+
+        <!-- Grid Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Medicina Estética Facil -->
+          <div class="glass-card glass-card-hover rounded-2xl overflow-hidden group">
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1512290900673-7002422115be?q=80&w=1000" alt="Medicina Estética Facial Málaga" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent"></div>
+              <span class="absolute bottom-3 left-4 text-xs uppercase tracking-widest text-gold-300 font-semibold bg-neutral-950/80 px-3 py-1 rounded-full border border-gold-400/30">Medicina Estética</span>
+            </div>
+            <div class="p-6 space-y-4">
+              <h3 class="font-serif text-2xl text-white group-hover:text-gold-300 transition-colors">Rejuvenecimiento Facial Médico</h3>
+              <p class="text-neutral-400 text-xs font-light leading-relaxed">
+                Técnicas médico-estéticas avanzadas para restaurar volúmenes, suprimir arrugas y recuperar la luminosidad sin cirugía.
+              </p>
+              <ul class="text-xs text-neutral-300 space-y-2 border-t border-white/10 pt-4">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-gold-400
